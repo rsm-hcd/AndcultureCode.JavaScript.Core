@@ -1,0 +1,52 @@
+{
+  "name": "andculturecode-javascript-core",
+  "version": "0.0.1",
+  "description": "Commonly used javascript utilities by andculture development team",
+  "license": "MIT",
+  "repository": "git@github.com:AndcultureCode/AndcultureCode.JavaScript.Core.git",
+  "author": {
+    "name": "andculture",
+    "email": "developer@andculture.com",
+    "url": "https://www.andculture.com"
+  },
+  "keywords": [
+    ""
+  ],
+  "files": [
+    "lib"
+  ],
+  "main": "lib/index",
+  "types": "lib/index",
+  "scripts": {
+    "clean": "rimraf lib && rimraf coverage",
+    "format": "prettier --write \"{src}/**/*.ts\" --single-quote --trailing-comma es5",
+    "lint": "tslint --force --format verbose \"src/**/*.ts\"",
+    "prepublishOnly": "npm run build",
+    "prebuild": "npm run clean && npm run format && npm run lint && echo Using TypeScript && tsc --version",
+    "build": "tsc --pretty",
+    "test": "jest ./src",
+    "coverage": "jest ./src --coverage",
+    "watch": "npm run build -- --watch",
+    "watch:test": "jest ./src --watch"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jest": "23.3.3",
+    "@types/node": "10.11.4",
+    "coveralls": "3.0.2",
+    "jest": "23.6.0",
+    "prettier": "1.14.3",
+    "rimraf": "2.6.2",
+    "ts-jest": "23.10.3",
+    "ts-node": "7.0.1",
+    "tslint": "5.11.0",
+    "tslint-config-prettier": "1.15.0",
+    "typescript": "3.1.1"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "jest": {
+    "preset": "ts-jest"
+  }
+}
