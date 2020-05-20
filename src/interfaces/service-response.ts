@@ -1,6 +1,6 @@
 import { ResultRecord } from "../view-models/result-record";
 
-export default interface ServiceResponse<T> {
+interface ServiceResponse<T> {
     /**
      * Result object containing detailed response information,
      * such as; errors, result data, etc...
@@ -26,3 +26,5 @@ export default interface ServiceResponse<T> {
      */
     status: number;
 }
+
+export { ServiceResponse };

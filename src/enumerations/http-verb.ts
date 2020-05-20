@@ -6,4 +6,4 @@ enum HttpVerb {
     Put = "PUT",
 }
 
-export default HttpVerb;
+export { HttpVerb };

@@ -7,4 +7,4 @@ enum ContentType {
     Xml = "application/xml",
 }
 
-export default ContentType;
+export { ContentType };
