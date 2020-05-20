@@ -1,33 +1,27 @@
 {
   "compilerOptions": {
-    "allowJs": true,
-    "allowSyntheticDefaultImports": true,
-    "baseUrl": "./src",
-    "declaration": true,
-    "emitDecoratorMetadata": true,
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "inlineSourceMap": true,
-    "inlineSources": true,
-    "isolatedModules": true,
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "module": "esnext",
-    "moduleResolution": "node",
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "outDir": "./lib",
-    "preserveConstEnums": true,
-    "removeComments": true,
-    "strict": true,
-    "target": "es5",
+      "allowJs": true,
+      "allowSyntheticDefaultImports": true,
+      "baseUrl": "./src",
+      "declaration": true,
+      "emitDecoratorMetadata": true,
+      "esModuleInterop": true,
+      "experimentalDecorators": true,
+      "forceConsistentCasingInFileNames": false,
+      "inlineSourceMap": true,
+      "inlineSources": true,
+      "lib": ["dom", "dom.iterable", "esnext"],
+      "jsx": "react",
+      "module": "esnext",
+      "moduleResolution": "node",
+      "noUnusedParameters": true,
+      "outDir": "./dist",
+      "removeComments": true,
+      "resolveJsonModule": true,
+      "skipLibCheck": true,
+      "strict": true,
+      "target": "es5"
   },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "**/*.test.ts"
-  ]
+  "exclude": ["**/*.test.*", "node_modules", "src/setupTests.ts"],
+  "include": ["src"]
 }

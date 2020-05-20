@@ -1,52 +1,64 @@
 {
-  "name": "andculturecode-javascript-core",
-  "version": "0.0.1",
-  "description": "Commonly used javascript utilities by andculture development team",
-  "license": "MIT",
-  "repository": "git@github.com:AndcultureCode/AndcultureCode.JavaScript.Core.git",
-  "author": {
-    "name": "andculture",
-    "email": "developer@andculture.com",
-    "url": "https://www.andculture.com"
-  },
-  "keywords": [
-    ""
-  ],
-  "files": [
-    "lib"
-  ],
-  "main": "lib/index",
-  "types": "lib/index",
-  "scripts": {
-    "clean": "rimraf lib && rimraf coverage",
-    "format": "prettier --write \"{src}/**/*.ts\" --single-quote --trailing-comma es5",
-    "lint": "tslint --force --format verbose \"src/**/*.ts\"",
-    "prepublishOnly": "npm run build",
-    "prebuild": "npm run clean && npm run format && npm run lint && echo Using TypeScript && tsc --version",
-    "build": "tsc --pretty",
-    "test": "jest ./src",
-    "coverage": "jest ./src --coverage",
-    "watch": "npm run build -- --watch",
-    "watch:test": "jest ./src --watch"
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "@types/jest": "23.3.3",
-    "@types/node": "10.11.4",
-    "coveralls": "3.0.2",
-    "jest": "23.6.0",
-    "prettier": "1.14.3",
-    "rimraf": "2.6.2",
-    "ts-jest": "23.10.3",
-    "ts-node": "7.0.1",
-    "tslint": "5.11.0",
-    "tslint-config-prettier": "1.15.0",
-    "typescript": "3.1.1"
-  },
-  "engines": {
-    "node": ">=8.0.0"
-  },
-  "jest": {
-    "preset": "ts-jest"
-  }
+    "author": {
+        "email": "developer@andculture.com",
+        "name": "andculture",
+        "url": "https://www.andculture.com"
+    },
+    "bugs": {
+        "url": "https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/issues"
+    },
+    "dependencies": {},
+    "description": "Common patterns, functions, etc... used when building react applications",
+    "devDependencies": {
+        "@testing-library/jest-dom": "5.5.0",
+        "@testing-library/react": "10.0.4",
+        "@types/jest": "25.1.5",
+        "@types/node": "13.11.0",
+        "@types/rosie": "0.0.37",
+        "jest": "25.5.4",
+        "jest-extended": "0.11.5",
+        "prettier": "1.19.1",
+        "rimraf": "2.6.2",
+        "rosie": "2.0.1",
+        "ts-jest": "25.5.1",
+        "tslint": "6.1.2",
+        "tslint-config-prettier": "1.18.0",
+        "typedoc": "^0.17.6",
+        "typedoc-plugin-markdown": "^2.2.17",
+        "typescript": "3.8.3"
+    },
+    "files": [
+        "dist"
+    ],
+    "homepage": "https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core#readme",
+    "license": "ISC",
+    "jest": {
+        "preset": "ts-jest"
+    },
+    "keywords": [
+        "JavaScript",
+        "Node",
+        "React"
+    ],
+    "main": "dist/index",
+    "name": "andculturecode-javascript-core",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core.git"
+    },
+    "scripts": {
+        "build": "tsc --pretty",
+        "clean": "rimraf dist && rimraf coverage",
+        "coverage": "jest ./src --coverage",
+        "docs": "typedoc --mode file --excludeExternals --plugin typedoc-plugin-markdown --readme none",
+        "format": "prettier --write \"src/**/*.ts\" --trailing-comma es5",
+        "postbuild": "npm run docs",
+        "prebuild": "npm run clean && npm run format && echo Using TypeScript && tsc --version",
+        "prepublishOnly": "npm run build",
+        "test": "jest ./src",
+        "watch": "npm run build -- --watch",
+        "watch:test": "jest ./src --watch"
+    },
+    "types": "dist/index",
+    "version": "0.0.1"
 }

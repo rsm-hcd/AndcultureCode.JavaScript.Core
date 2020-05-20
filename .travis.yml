@@ -1,7 +1,17 @@
+version: "~> 1.0"
 language: node_js
 node_js:
-  - 'node' # use latest stable nodejs version
+- 8.16.2
+install:
+- npm install -g codecov
+before_script:
+- npm install
 script:
-  - npm run coverage # jest test with coverage flag does coverage too
-after_script:
-  - 'cat coverage/lcov.info | ./node_modules/.bin/coveralls' # sends the coverage report to coveralls
+- npm run build
+- npm run coverage
+- codecov --disable=gcov
+notifications:
+  slack:
+    on_failure: always
+    on_pull_requests: true
+    on_success: always

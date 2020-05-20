@@ -1,8 +1,35 @@
-[![Build Status](https://travis-ci.org/{{github-user-name}}/{{github-app-name}}.svg?branch=master)](https://travis-ci.org/{{github-user-name}}/{{github-app-name}}.svg?branch=master)
-[![Coverage Status](https://coveralls.io/repos/github/{{github-user-name}}/{{github-app-name}}/badge.svg?branch=master)](https://coveralls.io/github/{{github-user-name}}/{{github-app-name}}?branch=master)
-[![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
+# AndcultureCode.JavaScript.Core
 
+[![Build Status](https://travis-ci.org/AndcultureCode/AndcultureCode.JavaScript.Core.svg?branch=master)](https://travis-ci.org/AndcultureCode/AndcultureCode.JavaScript.Core)
+[![codecov](https://codecov.io/gh/AndcultureCode/AndcultureCode.JavaScript.Core/branch/master/graph/badge.svg)](https://codecov.io/gh/AndcultureCode/AndcultureCode.JavaScript.Core)
 
-## Setting travis and coveralls badges
-1. Sign in to [travis](https://travis-ci.org/) and activate the build for your project.
-2. Sign in to [coveralls](https://coveralls.io/) and activate the build for your project.
+Common patterns, functions, etc... used when building javascript applications
+
+## Getting started
+
+This package is installed via npm or yarn
+
+```shell
+# npm
+npm install --save-dev andculturecode-javascript-core
+
+# yarn
+yarn add andculturecode-javascript-core --dev
+```
+
+From there you can import the variety of modules.
+
+```typescript
+import {
+    CollectionUtils,
+    CoreUtils
+} from "andculturecode-javascript-core";
+```
+
+## Documentation
+
+[Full API documentation](docs/README.md)
+
+# Contributing
+
+Information on contributing to this repo is in the [Contributing Guide](CONTRIBUTING.md)
