@@ -8,6 +8,7 @@
         "url": "https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/issues"
     },
     "dependencies": {
+        "axios": "0.19.2",
         "immutable": "4.0.0-rc.12"
     },
     "description": "Common patterns, functions, etc... used when building react applications",
