@@ -7,7 +7,9 @@
     "bugs": {
         "url": "https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/issues"
     },
-    "dependencies": {},
+    "dependencies": {
+        "immutable": "4.0.0-rc.12"
+    },
     "description": "Common patterns, functions, etc... used when building react applications",
     "devDependencies": {
         "@testing-library/jest-dom": "5.5.0",
