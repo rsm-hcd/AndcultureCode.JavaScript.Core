@@ -1,17 +1,18 @@
 version: "~> 1.0"
 language: node_js
 node_js:
-- 8.16.2
+    - 8.16.2
 install:
-- npm install -g codecov
+    - npm install -g codecov
 before_script:
-- npm install
+    - npm install
 script:
-- npm run build
-- npm run coverage
-- codecov --disable=gcov
+    - npm run build
+    - npm run coverage
+    - codecov --disable=gcov
 notifications:
-  slack:
-    on_failure: always
-    on_pull_requests: true
-    on_success: always
+    slack:
+        on_failure: always
+        on_pull_requests: true
+        on_success: always
+        secure: kJySv/ndacceL3HIAEzNW9coXfcYtYMtXb7hu2md7sy1jmpq9rZjhCXJ1dVcDa7k4YsfFSFDt+CrPJ/kIiTW3962gKNBCfT/hSxW7JMTtsbEzz/zcDZdxCnbUr1BwmYRxJtpWx3L1F8zMLTzfVxceqIKE1KM4J/4H/C6sDyrj18aMX3EwWHJ80bPSuii4kxrV+ZfVAjXjbzRTBI/oOq2x+kLRvCsCuUvF/byWTeDYjCd/9WSFv+irE2Wiiom3BLaKoXscYrpUSw7heEeRFQ/1aBx+9b5iLX6v3GqqpwR6l3TOG333YWikSFgC4rm66odxT8snv2Rn0UOiQljV9Uq3cEgXCh81oeAZUmz6w+NiBEf1sBNeDITPAliiIHY0FSF/qukOxTkpvktX3a9Wrw7TPcY3x53XOnMktC4WUDt3RzGRTS2ZNGkF60RXDnu6UkCp0MEK1kHtiXMgn16XKk7ESc/LLwaQq5aGZPV9TeHWMsruQFgGb+dg6NKUdXamLtC2wYrZ07ePCbh2XD6oJR4gSb3EFxs1a7XGe8ZeM1mrMd5Ct4scvducUHK5Vl7ZzOe6fruOYRePncD1D+1wCUN1+g+9Gc2BqmqMiCC+7o++ociNibhz2QyIoWME+Ls06TOxeO4ZqvHvdk212X1XB4oN2FDKhFio7UWmMlP7AUGyBU=
