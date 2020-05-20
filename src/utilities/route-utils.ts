@@ -66,6 +66,13 @@ const getUrlFromPath = (path: string, pathParams?: any, queryParams?: any) => {
 };
 
 /**
+ * Determines if supplied url is an absolute url
+ * @param url
+ */
+const isAbsoluteUrl = (url: string): boolean =>
+    new RegExp("^(?:[a-z]+:)?//", "i").test(url);
+
+/**
  * Replace routing components in supplied path with keys and values
  * of supplied pathParams.
  * @param path Path containing routing components (format: ':key').
@@ -102,6 +109,7 @@ export const RouteUtils = {
     appendQueryParams,
     getUrl,
     getUrlFromPath,
+    isAbsoluteUrl,
     replacePathParams,
 };
 
