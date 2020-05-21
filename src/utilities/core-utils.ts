@@ -1,4 +1,5 @@
 import { CollectionUtils } from "./collection-utils";
+import _ from "lodash";
 
 // -----------------------------------------------------------------------------------------
 // #region Private Methods
@@ -84,10 +85,16 @@ const _timer = (name: string) => {
 // -----------------------------------------------------------------------------------------
 
 export const CoreUtils = {
+    bindAll: _.bindAll,
+    curry: _.curry,
+    memoize: _.memoize,
     numericEnumToPojo: _numericEnumToPojo,
     objectToArray: _objectToArray,
+    range: _.range,
     sleep: _sleep,
+    throttle: _.throttle,
     timer: _timer,
+    times: _.times,
 };
 
 // #endregion Exports

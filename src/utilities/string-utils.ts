@@ -67,11 +67,23 @@ const truncateRight = (value: string, truncateAtPos: number): string => {
 // -----------------------------------------------------------------------------------------
 
 const StringUtils = {
+    camelCase: _.camelCase,
+    capitalize: _.capitalize,
     filename,
     hasValue,
     isEmpty,
     isValidEmail,
+    lowerFirst: _.lowerFirst,
+    pad: _.pad,
+    padEnd: _.padEnd,
+    padStart: _.padStart,
+    repeat: _.repeat,
+    snakeCase: _.snakeCase,
+    startCase: _.startCase,
+    template: _.template,
     truncateRight,
+    upperFirst: _.upperFirst,
+    words: _.words,
 };
 
 export default StringUtils;
