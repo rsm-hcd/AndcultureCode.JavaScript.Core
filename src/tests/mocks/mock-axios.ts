@@ -64,19 +64,19 @@ interface MockAxios {
 // ---------------------------------------------------------
 
 const deleteSuccess = (record?: any, delay?: number) =>
-    _mockSuccess(mockAxios.delete, record, delay);
+    _mockSuccess(MockAxios.delete, record, delay);
 
 const getSuccess = (record: any, delay?: number) =>
-    _mockSuccess(mockAxios.get, record, delay);
+    _mockSuccess(MockAxios.get, record, delay);
 
 const listSuccess = (records: any[], delay?: number) =>
-    _mockSuccess(mockAxios.get, records, delay);
+    _mockSuccess(MockAxios.get, records, delay);
 
 const postSuccess = (record: any, delay?: number) =>
-    _mockSuccess(mockAxios.post, record, delay);
+    _mockSuccess(MockAxios.post, record, delay);
 
 const putSuccess = (record: any, delay?: number) =>
-    _mockSuccess(mockAxios.put, record, delay);
+    _mockSuccess(MockAxios.put, record, delay);
 
 // #endregion Public Functions
 
@@ -131,7 +131,7 @@ const _resultObjectToJS = (resultObject: any | any[]): any | any[] => {
 // #region Exports
 // ---------------------------------------------------------
 
-const mockAxios: MockAxios = {
+export const MockAxios: MockAxios = {
     delete: axios.delete as AxiosJestMock,
     deleteSuccess,
     get: axios.get as AxiosJestMock,
@@ -142,7 +142,5 @@ const mockAxios: MockAxios = {
     put: axios.put as AxiosJestMock,
     putSuccess,
 };
-
-export default mockAxios;
 
 // #endregion Exports
