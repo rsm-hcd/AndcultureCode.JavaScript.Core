@@ -1,13 +1,4 @@
-// -----------------------------------------------------------------------------------------
-// #region Types
-// -----------------------------------------------------------------------------------------
-
-type CancellablePromise<T = any> = {
-    cancel: () => void;
-    promise: Promise<T>;
-};
-
-// #endregion Types
+import { CancellablePromise } from "../types/cancellable-promise";
 
 // -----------------------------------------------------------------------------------------
 // #region Public Methods
@@ -49,6 +40,6 @@ const PromiseFactory = {
 // #region Exports
 // -----------------------------------------------------------------------------------------
 
-export { CancellablePromise, PromiseFactory };
+export { PromiseFactory };
 
 // #endregion Exports

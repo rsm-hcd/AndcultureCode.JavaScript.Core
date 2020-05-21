@@ -2,6 +2,32 @@ import StringUtils from "./string-utils";
 
 describe("StringUtils", () => {
     // -------------------------------------------------------------------------------------------------
+    // #region filename
+    // -------------------------------------------------------------------------------------------------
+
+    describe("filename", (): void => {
+        test.each`
+            inputString                       | expected
+            ${null}                           | ${undefined}
+            ${undefined}                      | ${undefined}
+            ${""}                             | ${""}
+            ${"/"}                            | ${""}
+            ${"path/no-extension"}            | ${"no-extension"}
+            ${"path/f.extension"}             | ${"f.extension"}
+            ${"multi/level/file.name"}        | ${"file.name"}
+            ${"mult1/l3v3l/f1l3.nam3"}        | ${"f1l3.nam3"}
+            ${"mult1/l3v3l/file with.spaces"} | ${"file with.spaces"}
+        `(
+            `when inputString is $inputString, returns $expected`,
+            ({ inputString, expected }: any): void => {
+                expect(StringUtils.filename(inputString)).toBe(expected);
+            }
+        );
+    });
+
+    //#endregion filename
+
+    // -------------------------------------------------------------------------------------------------
     // #region hasValue
     // -------------------------------------------------------------------------------------------------
 

@@ -1,4 +1,5 @@
 import { List } from "immutable";
+import _ from "lodash";
 
 // -----------------------------------------------------------------------------------------
 // #region Private Methods
@@ -180,12 +181,18 @@ const _replaceElementAt = <T>(
 // -----------------------------------------------------------------------------------------
 
 export const CollectionUtils = {
+    difference: _.difference,
     equalsBy: _equalsBy,
+    first: _.head,
+    flattenDeep: _.flattenDeep,
     hasValues: _hasValues,
     isEmpty: _isEmpty,
     isNotEmpty: _isNotEmpty,
     length: _length,
     replaceElementAt: _replaceElementAt,
+    sample: _.sample,
+    sampleSize: _.sampleSize,
+    take: _.take,
 };
 
 // #endregion Exports

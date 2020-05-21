@@ -167,6 +167,50 @@ describe("RouteUtils", () => {
     // #endregion getUrlFromPath
 
     // -----------------------------------------------------------------------------------------
+    // #region isAbsoluteUrl
+    // -----------------------------------------------------------------------------------------
+
+    describe("isAbsoluteUrl", () => {
+        test("when given url of null, returns false", () => {
+            expect(RouteUtils.isAbsoluteUrl(null)).toBeFalse();
+        });
+
+        test("when given url of undefined, returns false", () => {
+            expect(RouteUtils.isAbsoluteUrl(undefined)).toBeFalse();
+        });
+
+        test("when given url of empty string, returns false", () => {
+            expect(RouteUtils.isAbsoluteUrl("")).toBeFalse();
+        });
+
+        test("when given url of string with whitespace, returns false", () => {
+            expect(RouteUtils.isAbsoluteUrl("  ")).toBeFalse();
+        });
+
+        test("when given url of relative path, returns false", () => {
+            expect(RouteUtils.isAbsoluteUrl("/test/relative/path")).toBeFalse();
+        });
+
+        test("when given url without protocol, returns false", () => {
+            expect(
+                RouteUtils.isAbsoluteUrl("://test/relative/path")
+            ).toBeFalse();
+        });
+
+        test("when given url only with protocol, returns true", () => {
+            expect(RouteUtils.isAbsoluteUrl("http://")).toBeTrue();
+        });
+
+        test("when given url with protocol and path components, returns true", () => {
+            expect(
+                RouteUtils.isAbsoluteUrl("http://my.url/with/path")
+            ).toBeTrue();
+        });
+    });
+
+    //#endregion isAbsoluteUrl
+
+    // -----------------------------------------------------------------------------------------
     // #region replacePathParams
     // -----------------------------------------------------------------------------------------
 
