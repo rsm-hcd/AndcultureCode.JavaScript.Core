@@ -1,3 +1,4 @@
+import { MockAxios as IMockAxios } from "./mock-axios";
 import axios from "axios";
 import { Record } from "immutable";
 
@@ -131,7 +132,7 @@ const _resultObjectToJS = (resultObject: any | any[]): any | any[] => {
 // #region Exports
 // ---------------------------------------------------------
 
-export const MockAxios: MockAxios = {
+const MockAxios: IMockAxios = {
     delete: axios.delete as AxiosJestMock,
     deleteSuccess,
     get: axios.get as AxiosJestMock,
@@ -142,5 +143,7 @@ export const MockAxios: MockAxios = {
     put: axios.put as AxiosJestMock,
     putSuccess,
 };
+
+export { MockAxios };
 
 // #endregion Exports

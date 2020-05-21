@@ -1,4 +1,12 @@
 // -----------------------------------------------------------------------------------------
+// #region Constants
+// -----------------------------------------------------------------------------------------
+
+export * from "./constants/video-resolutions";
+
+//#endregion Constants
+
+// -----------------------------------------------------------------------------------------
 // #region Enumerations
 // -----------------------------------------------------------------------------------------
 
@@ -13,6 +21,7 @@ export * from "./enumerations/http-verb";
 // #region Interfaces
 // -----------------------------------------------------------------------------------------
 
+export * from "./interfaces/key-value-pair";
 export * from "./interfaces/paged-result";
 export * from "./interfaces/result";
 export * from "./interfaces/result-error";
@@ -40,11 +49,20 @@ export * from "./tests/stubs/stub-resource-record";
 //#endregion Tests
 
 // -----------------------------------------------------------------------------------------
+// #region Types
+// -----------------------------------------------------------------------------------------
+
+export * from "./types/cancellable-promise";
+
+//#endregion Types
+
+// -----------------------------------------------------------------------------------------
 // #region Utilities
 // -----------------------------------------------------------------------------------------
 
 export * from "./utilities/collection-utils";
 export * from "./utilities/core-utils";
+export * from "./utilities/environment-utils";
 export * from "./utilities/promise-factory";
 export * from "./utilities/route-utils";
 export * from "./utilities/service-utils";
