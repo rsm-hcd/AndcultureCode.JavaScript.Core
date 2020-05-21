@@ -30,11 +30,9 @@ const runIfDevelopment = (fn: () => any): void => {
 // #region Export
 // -----------------------------------------------------------------------------------------
 
-const EnvironmentUtils = {
+export const EnvironmentUtils = {
     isDevelopment,
     runIfDevelopment,
 };
-
-export default EnvironmentUtils;
 
 // #endregion Export

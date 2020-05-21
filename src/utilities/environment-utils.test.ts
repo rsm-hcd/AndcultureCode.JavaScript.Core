@@ -1,4 +1,4 @@
-import EnvUtils from "./environment-utils";
+import { EnvironmentUtils } from "./environment-utils";
 
 describe("EnvironmentUtils", () => {
     const originalEnv = process.env;
@@ -27,7 +27,7 @@ describe("EnvironmentUtils", () => {
             process.env = newEnv;
 
             // Act
-            const result = EnvUtils.isDevelopment();
+            const result = EnvironmentUtils.isDevelopment();
 
             // Assert
             expect(result).toBeTrue();
@@ -40,7 +40,7 @@ describe("EnvironmentUtils", () => {
             process.env = newEnv;
 
             // Act
-            const result = EnvUtils.isDevelopment();
+            const result = EnvironmentUtils.isDevelopment();
 
             // Assert
             expect(result).toBeFalse();
@@ -62,7 +62,7 @@ describe("EnvironmentUtils", () => {
             const fn = jest.fn();
 
             // Act
-            EnvUtils.runIfDevelopment(() => fn());
+            EnvironmentUtils.runIfDevelopment(() => fn());
 
             // Assert
             expect(fn).toHaveBeenCalled();
@@ -76,7 +76,7 @@ describe("EnvironmentUtils", () => {
             const fn = jest.fn();
 
             // Act
-            EnvUtils.runIfDevelopment(() => fn());
+            EnvironmentUtils.runIfDevelopment(() => fn());
 
             // Assert
             expect(fn).not.toHaveBeenCalled();
