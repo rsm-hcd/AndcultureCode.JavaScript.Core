@@ -1,3 +1,5 @@
+import _ from "lodash";
+
 // -----------------------------------------------------------------------------------------
 // #region Constants
 // -----------------------------------------------------------------------------------------
@@ -9,6 +11,13 @@ const REGEX_VALID_EMAIL = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(
 // -----------------------------------------------------------------------------------------
 // #region Functions
 // -----------------------------------------------------------------------------------------
+
+/**
+ * Returns the filename from the supplied string, including extension
+ * @param value
+ */
+const filename = (value?: string): string | undefined =>
+    value?.split("/").pop();
 
 /**
  * Determines whether or not the provided value is NOT `undefined`, `null`, or an empty string
@@ -58,6 +67,7 @@ const truncateRight = (value: string, truncateAtPos: number): string => {
 // -----------------------------------------------------------------------------------------
 
 const StringUtils = {
+    filename,
     hasValue,
     isEmpty,
     isValidEmail,
