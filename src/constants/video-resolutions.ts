@@ -59,7 +59,6 @@ const VideoResolutions = [
         ratio: "4:3",
         width: 160,
     },
-
 ];
 
 export { VideoResolutions };
