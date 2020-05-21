@@ -1,5 +1,5 @@
 import { AxiosResponse } from "axios";
-import ServiceResponse from "../interfaces/service-response";
+import { ServiceResponse } from "../interfaces/service-response";
 import { Result } from "../interfaces/result";
 import { ResultRecord } from "../view-models/result-record";
 import { PagedResult } from "../interfaces/paged-result";

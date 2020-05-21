@@ -3,4 +3,4 @@ enum HttpHeader {
     ContentType = "Content-Type",
 }
 
-export default HttpHeader;
+export { HttpHeader };

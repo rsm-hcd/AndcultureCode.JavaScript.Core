@@ -1,78 +1,63 @@
-[andculturecode-javascript-core](../README.md) › [ResultRecord](resultrecord.md)
+[andculturecode-javascript-core](../README.md) › [StubResourceRecord](stubresourcerecord.md)
 
-# Class: ResultRecord <**T, TProps**>
+# Class: StubResourceRecord <**TProps**>
 
 ## Type parameters
-
-▪ **T**
 
 ▪ **TProps**: *Object*
 
 ## Hierarchy
 
-* [Record](resulterrorrecord.md#static-record)‹[Result](../interfaces/result.md)‹any›, this› & object
+* [Record](resulterrorrecord.md#static-record)‹object, this› & object
 
-  ↳ **ResultRecord**
+  ↳ **StubResourceRecord**
 
 ## Implements
 
-* [Result](../interfaces/result.md)‹T›
+* [StubResource](../interfaces/stubresource.md)
 
 ## Index
 
 ### Namespaces
 
-* [Factory](resultrecord.md#factory)
-
-### Constructors
-
-* [constructor](resultrecord.md#constructor)
+* [Factory](stubresourcerecord.md#factory)
 
 ### Methods
 
-* [[Symbol.iterator]](resultrecord.md#[symbol.iterator])
-* [_addErrorByType](resultrecord.md#private-_adderrorbytype)
-* [addError](resultrecord.md#adderror)
-* [addValidationError](resultrecord.md#addvalidationerror)
-* [asImmutable](resultrecord.md#asimmutable)
-* [asMutable](resultrecord.md#asmutable)
-* [clear](resultrecord.md#clear)
-* [delete](resultrecord.md#delete)
-* [deleteIn](resultrecord.md#deletein)
-* [equals](resultrecord.md#equals)
-* [errorCount](resultrecord.md#errorcount)
-* [get](resultrecord.md#get)
-* [getIn](resultrecord.md#getin)
-* [has](resultrecord.md#has)
-* [hasErrorFor](resultrecord.md#haserrorfor)
-* [hasErrors](resultrecord.md#haserrors)
-* [hasIn](resultrecord.md#hasin)
-* [hashCode](resultrecord.md#hashcode)
-* [listErrorMessages](resultrecord.md#listerrormessages)
-* [listErrors](resultrecord.md#listerrors)
-* [merge](resultrecord.md#merge)
-* [mergeDeep](resultrecord.md#mergedeep)
-* [mergeDeepIn](resultrecord.md#mergedeepin)
-* [mergeDeepWith](resultrecord.md#mergedeepwith)
-* [mergeIn](resultrecord.md#mergein)
-* [mergeWith](resultrecord.md#mergewith)
-* [remove](resultrecord.md#remove)
-* [removeIn](resultrecord.md#removein)
-* [set](resultrecord.md#set)
-* [setIn](resultrecord.md#setin)
-* [toJS](resultrecord.md#tojs)
-* [toJSON](resultrecord.md#tojson)
-* [toObject](resultrecord.md#toobject)
-* [toSeq](resultrecord.md#toseq)
-* [update](resultrecord.md#update)
-* [updateIn](resultrecord.md#updatein)
-* [wasAltered](resultrecord.md#wasaltered)
-* [with](resultrecord.md#with)
-* [withMutations](resultrecord.md#withmutations)
-* [Factory](resultrecord.md#static-factory)
-* [Record](resultrecord.md#static-record)
-* [getDescriptiveName](resultrecord.md#static-getdescriptivename)
-* [isRecord](resultrecord.md#static-isrecord)
+* [[Symbol.iterator]](stubresourcerecord.md#[symbol.iterator])
+* [asImmutable](stubresourcerecord.md#asimmutable)
+* [asMutable](stubresourcerecord.md#asmutable)
+* [clear](stubresourcerecord.md#clear)
+* [delete](stubresourcerecord.md#delete)
+* [deleteIn](stubresourcerecord.md#deletein)
+* [equals](stubresourcerecord.md#equals)
+* [get](stubresourcerecord.md#get)
+* [getIn](stubresourcerecord.md#getin)
+* [has](stubresourcerecord.md#has)
+* [hasIn](stubresourcerecord.md#hasin)
+* [hashCode](stubresourcerecord.md#hashcode)
+* [merge](stubresourcerecord.md#merge)
+* [mergeDeep](stubresourcerecord.md#mergedeep)
+* [mergeDeepIn](stubresourcerecord.md#mergedeepin)
+* [mergeDeepWith](stubresourcerecord.md#mergedeepwith)
+* [mergeIn](stubresourcerecord.md#mergein)
+* [mergeWith](stubresourcerecord.md#mergewith)
+* [remove](stubresourcerecord.md#remove)
+* [removeIn](stubresourcerecord.md#removein)
+* [set](stubresourcerecord.md#set)
+* [setIn](stubresourcerecord.md#setin)
+* [toJS](stubresourcerecord.md#tojs)
+* [toJSON](stubresourcerecord.md#tojson)
+* [toObject](stubresourcerecord.md#toobject)
+* [toSeq](stubresourcerecord.md#toseq)
+* [update](stubresourcerecord.md#update)
+* [updateIn](stubresourcerecord.md#updatein)
+* [wasAltered](stubresourcerecord.md#wasaltered)
+* [withMutations](stubresourcerecord.md#withmutations)
+* [Factory](stubresourcerecord.md#static-factory)
+* [Record](stubresourcerecord.md#static-record)
+* [getDescriptiveName](stubresourcerecord.md#static-getdescriptivename)
+* [isRecord](stubresourcerecord.md#static-isrecord)
 
 ## Namespaces
 
@@ -160,22 +145,6 @@ Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2452
 The name provided to `Record(values, name)` can be accessed with
 `displayName`.
 
-## Constructors
-
-###  constructor
-
-\+ **new ResultRecord**(`params?`: [Result](../interfaces/result.md)‹T›): *[ResultRecord](resultrecord.md)*
-
-*Defined in [src/view-models/result-record.ts:12](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/47e6187/src/view-models/result-record.ts#L12)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`params?` | [Result](../interfaces/result.md)‹T› |
-
-**Returns:** *[ResultRecord](resultrecord.md)*
-
 ## Methods
 
 ###  [Symbol.iterator]
@@ -187,62 +156,6 @@ Name | Type |
 Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2589
 
 **Returns:** *IterableIterator‹[keyof TProps, TProps[keyof TProps]]›*
-
-___
-
-### `Private` _addErrorByType
-
-▸ **_addErrorByType**(`key`: string, `message`: string, `errorType`: [ErrorType](../enums/errortype.md)): *[ResultRecord](resultrecord.md)‹T›*
-
-*Defined in [src/view-models/result-record.ts:134](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/47e6187/src/view-models/result-record.ts#L134)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`key` | string |
-`message` | string |
-`errorType` | [ErrorType](../enums/errortype.md) |
-
-**Returns:** *[ResultRecord](resultrecord.md)‹T›*
-
-___
-
-###  addError
-
-▸ **addError**(`key`: string, `message`: string): *[ResultRecord](resultrecord.md)‹T›*
-
-*Defined in [src/view-models/result-record.ts:49](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/47e6187/src/view-models/result-record.ts#L49)*
-
-Adds a new error with the supplied details and returns a new ResultRecord
-
-**Parameters:**
-
-Name | Type | Description |
------- | ------ | ------ |
-`key` | string | error key value (typically property name) |
-`message` | string | error message value |
-
-**Returns:** *[ResultRecord](resultrecord.md)‹T›*
-
-___
-
-###  addValidationError
-
-▸ **addValidationError**(`key`: string, `message`: string): *[ResultRecord](resultrecord.md)‹T›*
-
-*Defined in [src/view-models/result-record.ts:59](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/47e6187/src/view-models/result-record.ts#L59)*
-
-Adds a new validation error with the supplied details and returns a new ResultRecord
-
-**Parameters:**
-
-Name | Type | Description |
------- | ------ | ------ |
-`key` | string | error key value (typically property name) |
-`message` | string | error message value |
-
-**Returns:** *[ResultRecord](resultrecord.md)‹T›*
 
 ___
 
@@ -354,18 +267,6 @@ Name | Type |
 
 ___
 
-###  errorCount
-
-▸ **errorCount**(): *number*
-
-*Defined in [src/view-models/result-record.ts:66](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/47e6187/src/view-models/result-record.ts#L66)*
-
-Returns total number of errors
-
-**Returns:** *number*
-
-___
-
 ###  get
 
 ▸ **get**<**K**>(`key`: K, `notSetValue?`: any): *TProps[K]*
@@ -451,36 +352,6 @@ Name | Type |
 
 ___
 
-###  hasErrorFor
-
-▸ **hasErrorFor**(`key`: string): *boolean*
-
-*Defined in [src/view-models/result-record.ts:78](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/47e6187/src/view-models/result-record.ts#L78)*
-
-Determines if the result contains an error for the supplied key
-
-**Parameters:**
-
-Name | Type | Description |
------- | ------ | ------ |
-`key` | string | error key for which to search  |
-
-**Returns:** *boolean*
-
-___
-
-###  hasErrors
-
-▸ **hasErrors**(): *boolean*
-
-*Defined in [src/view-models/result-record.ts:89](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/47e6187/src/view-models/result-record.ts#L89)*
-
-Evaluates whether there are any errors on the result
-
-**Returns:** *boolean*
-
-___
-
 ###  hasIn
 
 ▸ **hasIn**(`keyPath`: Iterable‹any›): *boolean*
@@ -508,30 +379,6 @@ ___
 Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2494
 
 **Returns:** *number*
-
-___
-
-###  listErrorMessages
-
-▸ **listErrorMessages**(): *string[]*
-
-*Defined in [src/view-models/result-record.ts:107](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/47e6187/src/view-models/result-record.ts#L107)*
-
-Map all error messages into a simple string array.
-
-**Returns:** *string[]*
-
-___
-
-###  listErrors
-
-▸ **listErrors**(): *string[]*
-
-*Defined in [src/view-models/result-record.ts:96](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/47e6187/src/view-models/result-record.ts#L96)*
-
-Map all errors into simple string array
-
-**Returns:** *string[]*
 
 ___
 
@@ -871,26 +718,6 @@ Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2578
 **`see`** `Map#wasAltered`
 
 **Returns:** *boolean*
-
-___
-
-###  with
-
-▸ **with**(`values`: Partial‹[Result](../interfaces/result.md)‹T››): *[ResultRecord](resultrecord.md)‹T›*
-
-*Defined in [src/view-models/result-record.ts:124](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/47e6187/src/view-models/result-record.ts#L124)*
-
-Merges new values into the record and returns a new instance.
-
-**`memberof`** ResultRecord
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`values` | Partial‹[Result](../interfaces/result.md)‹T›› |
-
-**Returns:** *[ResultRecord](resultrecord.md)‹T›*
 
 ___
 
