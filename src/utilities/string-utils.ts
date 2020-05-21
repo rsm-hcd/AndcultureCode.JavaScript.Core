@@ -1,4 +1,12 @@
 // -----------------------------------------------------------------------------------------
+// #region Constants
+// -----------------------------------------------------------------------------------------
+
+const REGEX_VALID_EMAIL = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+//#endregion Constants
+
+// -----------------------------------------------------------------------------------------
 // #region Functions
 // -----------------------------------------------------------------------------------------
 
@@ -11,7 +19,7 @@
  */
 const hasValue = (value?: string): boolean =>
     // toString is called here to ensure handling all edge cases when a non string value is passed in this fuction
-    value != null && value.toString().trim() !== "";
+    value != null && value?.toString().trim() !== "";
 
 /**
  * Determines whether or not the provided value is `undefined`, `null`, or an empty string
@@ -29,10 +37,7 @@ const isEmpty = (value?: string): boolean =>
  * @param value
  */
 const isValidEmail = (value?: string): boolean =>
-    value != null &&
-    new RegExp(
-        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    ).test(value);
+    value != null && REGEX_VALID_EMAIL.test(value);
 
 const truncateRight = (value: string, truncateAtPos: number): string => {
     if (value.length <= truncateAtPos) {
