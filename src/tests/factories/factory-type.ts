@@ -1,5 +1,4 @@
 const FactoryType = {
-    AxiosResponse: "AxiosResponse",
     StubResourceRecord: "StubResourceRecord",
 };
 

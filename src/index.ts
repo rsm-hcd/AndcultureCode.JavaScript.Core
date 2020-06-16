@@ -30,25 +30,6 @@ export * from "./interfaces/service-response";
 //#endregion Interfaces
 
 // -----------------------------------------------------------------------------------------
-// #region Tests
-// -----------------------------------------------------------------------------------------
-
-// factories
-export * from "./tests/factories/axios-response-factory";
-export * from "./tests/factories/factory-type";
-export * from "./tests/factories/stub-resource-record-factory";
-
-// mocks
-export * from "./__mocks__/axios";
-export * from "./tests/mocks/mock-axios";
-
-// stubs
-export * from "./tests/stubs/stub-resource";
-export * from "./tests/stubs/stub-resource-record";
-
-//#endregion Tests
-
-// -----------------------------------------------------------------------------------------
 // #region Types
 // -----------------------------------------------------------------------------------------
 

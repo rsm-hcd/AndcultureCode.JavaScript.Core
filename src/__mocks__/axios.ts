@@ -1,17 +1,2 @@
-export default {
-    defaults: {
-        headers: {
-            post: {},
-            put: {},
-        },
-    },
-    delete: jest.fn(() => Promise.resolve({ data: {} })),
-    get: jest.fn(() => Promise.resolve({ data: {} })),
-    interceptors: {
-        response: {
-            use: jest.fn(),
-        },
-    },
-    post: jest.fn(() => Promise.resolve({ data: {} })),
-    put: jest.fn(() => Promise.resolve({ data: {} })),
-};
+// Hook into jest mocking, but re-export from testing
+export * from "andculturecode-javascript-testing/dist/mocks/axios";
