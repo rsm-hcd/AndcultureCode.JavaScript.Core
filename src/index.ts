@@ -30,20 +30,6 @@ export * from "./interfaces/service-response";
 //#endregion Interfaces
 
 // -----------------------------------------------------------------------------------------
-// #region Tests
-// -----------------------------------------------------------------------------------------
-
-// factories
-export * from "./tests/factories/factory-type";
-export * from "./tests/factories/stub-resource-record-factory";
-
-// stubs
-export * from "./tests/stubs/stub-resource";
-export * from "./tests/stubs/stub-resource-record";
-
-//#endregion Tests
-
-// -----------------------------------------------------------------------------------------
 // #region Types
 // -----------------------------------------------------------------------------------------
 
