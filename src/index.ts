@@ -1,3 +1,4 @@
+import { CultureParams } from "./interfaces/culture-params";
 // -----------------------------------------------------------------------------------------
 // #region Constants
 // -----------------------------------------------------------------------------------------
@@ -22,6 +23,8 @@ export { HttpVerb } from "./enumerations/http-verb";
 // #region Interfaces
 // -----------------------------------------------------------------------------------------
 
+export { Culture } from "./interfaces/culture";
+export { CultureParams } from "./interfaces/culture-params";
 export { KeyValuePair } from "./interfaces/key-value-pair";
 export { PagedResult } from "./interfaces/paged-result";
 export { Result } from "./interfaces/result";

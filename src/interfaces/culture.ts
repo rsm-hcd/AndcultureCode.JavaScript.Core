@@ -1,7 +1,7 @@
 /**
  * Localization culture information and related nested resources
  */
-export default interface Culture<TResources> {
+export interface Culture<TResources> {
     /**
      * RFC-4646 language code
      */
