@@ -66,7 +66,7 @@ const truncateRight = (value: string, truncateAtPos: number): string => {
 // #region Exports
 // -----------------------------------------------------------------------------------------
 
-const StringUtils = {
+export const StringUtils = {
     camelCase: _.camelCase,
     capitalize: _.capitalize,
     filename,
@@ -85,7 +85,5 @@ const StringUtils = {
     upperFirst: _.upperFirst,
     words: _.words,
 };
-
-export default StringUtils;
 
 // #endregion Exports
