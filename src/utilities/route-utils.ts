@@ -1,3 +1,5 @@
+import QueryString from "query-string";
+
 // -----------------------------------------------------------------------------------------
 // #region Constants
 // -----------------------------------------------------------------------------------------
@@ -73,6 +75,25 @@ const isAbsoluteUrl = (url: string): boolean =>
     new RegExp("^(?:[a-z]+:)?//", "i").test(url);
 
 /**
+ * Parse a query string and return an object of type T
+ * @param queryString current query string
+ * @param arrayFormat format to parse arrays from
+ * @param parseNumbers convert numbers to number type from string
+ * @param parseBooleans convert booleans to boolean type from string
+ */
+const queryStringToObject = <T>(
+    queryString: string,
+    arrayFormat: "bracket" | "index" | "comma" = "index",
+    parseNumbers: boolean = true,
+    parseBooleans: boolean = true
+): T =>
+    (QueryString.parse(queryString, {
+        arrayFormat,
+        parseNumbers,
+        parseBooleans,
+    }) as any) as T;
+
+/**
  * Replace routing components in supplied path with keys and values
  * of supplied pathParams.
  * @param path Path containing routing components (format: ':key').
@@ -110,6 +131,7 @@ export const RouteUtils = {
     getUrl,
     getUrlFromPath,
     isAbsoluteUrl,
+    queryStringToObject,
     replacePathParams,
 };
 

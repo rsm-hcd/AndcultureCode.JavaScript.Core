@@ -2,7 +2,8 @@
 // #region Constants
 // -----------------------------------------------------------------------------------------
 
-export * from "./constants/video-resolutions";
+export { Rfc4646LanguageCodes } from "./constants/rfc4646-language-codes";
+export { VideoResolutions } from "./constants/video-resolutions";
 
 //#endregion Constants
 
@@ -10,10 +11,10 @@ export * from "./constants/video-resolutions";
 // #region Enumerations
 // -----------------------------------------------------------------------------------------
 
-export * from "./enumerations/content-type";
-export * from "./enumerations/error-type";
-export * from "./enumerations/http-header";
-export * from "./enumerations/http-verb";
+export { ContentType } from "./enumerations/content-type";
+export { ErrorType } from "./enumerations/error-type";
+export { HttpHeader } from "./enumerations/http-header";
+export { HttpVerb } from "./enumerations/http-verb";
 
 //#endregion Enumerations
 
@@ -21,11 +22,13 @@ export * from "./enumerations/http-verb";
 // #region Interfaces
 // -----------------------------------------------------------------------------------------
 
-export * from "./interfaces/key-value-pair";
-export * from "./interfaces/paged-result";
-export * from "./interfaces/result";
-export * from "./interfaces/result-error";
-export * from "./interfaces/service-response";
+export { Culture } from "./interfaces/culture";
+export { CultureParams } from "./interfaces/culture-params";
+export { KeyValuePair } from "./interfaces/key-value-pair";
+export { PagedResult } from "./interfaces/paged-result";
+export { Result } from "./interfaces/result";
+export { ResultError } from "./interfaces/result-error";
+export { ServiceResponse } from "./interfaces/service-response";
 
 //#endregion Interfaces
 
@@ -33,7 +36,7 @@ export * from "./interfaces/service-response";
 // #region Types
 // -----------------------------------------------------------------------------------------
 
-export * from "./types/cancellable-promise";
+export { CancellablePromise } from "./types/cancellable-promise";
 
 //#endregion Types
 
@@ -41,13 +44,13 @@ export * from "./types/cancellable-promise";
 // #region Utilities
 // -----------------------------------------------------------------------------------------
 
-export * from "./utilities/collection-utils";
-export * from "./utilities/core-utils";
-export * from "./utilities/environment-utils";
-export * from "./utilities/promise-factory";
-export * from "./utilities/route-utils";
-export * from "./utilities/service-utils";
-export * from "./utilities/string-utils";
+export { CollectionUtils } from "./utilities/collection-utils";
+export { CoreUtils } from "./utilities/core-utils";
+export { EnvironmentUtils } from "./utilities/environment-utils";
+export { PromiseFactory } from "./utilities/promise-factory";
+export { RouteUtils } from "./utilities/route-utils";
+export { ServiceUtils } from "./utilities/service-utils";
+export { StringUtils } from "./utilities/string-utils";
 
 //#endregion Utilities
 
@@ -55,7 +58,7 @@ export * from "./utilities/string-utils";
 // #region View Models
 // -----------------------------------------------------------------------------------------
 
-export * from "./view-models/result-record";
-export * from "./view-models/result-error-record";
+export { ResultRecord } from "./view-models/result-record";
+export { ResultErrorRecord } from "./view-models/result-error-record";
 
 //#endregion View Models
