@@ -228,8 +228,7 @@ describe("RouteUtils", () => {
                 const result = RouteUtils.queryStringToObject<any>(inputString);
 
                 // Assert
-                expect(result).not.toBeNull();
-                expect(typeof result).toBe("object");
+                expect(result).toEqual({});
             }
         );
 
