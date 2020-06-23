@@ -211,6 +211,78 @@ describe("RouteUtils", () => {
     //#endregion isAbsoluteUrl
 
     // -----------------------------------------------------------------------------------------
+    // #region queryStringToObject
+    // -----------------------------------------------------------------------------------------
+
+    describe("queryStringToObject", () => {
+        test.each`
+            inputString
+            ${null}
+            ${undefined}
+            ${""}
+            ${" "}
+        `(
+            "given queryString is $inputString, returns empty object",
+            ({ inputString }) => {
+                // Arrange & Act
+                const result = RouteUtils.queryStringToObject<any>(inputString);
+
+                // Assert
+                expect(result).not.toBeNull();
+                expect(typeof result).toBe("object");
+            }
+        );
+
+        test("given queryString contains matching properties, returns typed object", () => {
+            // Arrange
+            interface TestStub {
+                testProp1: string;
+                testProp2: string;
+            }
+            const expectedValue1 = "testValue1";
+            const expectedValue2 = "testValue2";
+
+            const queryString = `testProp1=${expectedValue1}&testProp2=${expectedValue2}`;
+
+            // Act
+            const result = RouteUtils.queryStringToObject<TestStub>(
+                queryString
+            );
+
+            // Assert
+            expect(result).not.toBeNull();
+            expect(result.testProp1).toBe(expectedValue1);
+            expect(result.testProp2).toBe(expectedValue2);
+        });
+
+        test("given queryString contains unmatching properties, returns typed object with unmatched properties", () => {
+            // Arrange
+            interface TestStub {
+                testProp1: string;
+            }
+            const expectedTypedValue1 = "testValue1";
+            const expectedUntypedProperty2 = "testProp2";
+            const expectedUntypedValue2 = "testValue2";
+
+            const queryString = `testProp1=${expectedTypedValue1}&${expectedUntypedProperty2}=${expectedUntypedValue2}`;
+
+            // Act
+            const result = RouteUtils.queryStringToObject<TestStub>(
+                queryString
+            );
+
+            // Assert
+            expect(result).not.toBeNull();
+            expect(result.testProp1).toBe(expectedTypedValue1);
+            expect(result[expectedUntypedProperty2]).toBe(
+                expectedUntypedValue2
+            );
+        });
+    });
+
+    //#endregion queryStringToObject
+
+    // -----------------------------------------------------------------------------------------
     // #region replacePathParams
     // -----------------------------------------------------------------------------------------
 
