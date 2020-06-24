@@ -8,6 +8,15 @@ export { VideoResolutions } from "./constants/video-resolutions";
 //#endregion Constants
 
 // -----------------------------------------------------------------------------------------
+// #region Cultures
+// -----------------------------------------------------------------------------------------
+
+export { BaseEnglishUnitedStates } from "./cultures/base-english-united-states";
+export { BaseSpanishSpain } from "./cultures/base-spanish-spain";
+
+//#endregion Cultures
+
+// -----------------------------------------------------------------------------------------
 // #region Enumerations
 // -----------------------------------------------------------------------------------------
 
@@ -47,6 +56,7 @@ export { CancellablePromise } from "./types/cancellable-promise";
 export { CollectionUtils } from "./utilities/collection-utils";
 export { CoreUtils } from "./utilities/core-utils";
 export { EnvironmentUtils } from "./utilities/environment-utils";
+export { LocalizationUtils } from "./utilities/localization-utils";
 export { PromiseFactory } from "./utilities/promise-factory";
 export { RouteUtils } from "./utilities/route-utils";
 export { ServiceUtils } from "./utilities/service-utils";
