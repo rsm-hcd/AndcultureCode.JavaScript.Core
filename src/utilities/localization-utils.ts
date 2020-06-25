@@ -104,7 +104,7 @@ const detectCultureCode = () => {
 const initialize = <TResources>(
     module: any,
     cultures: Culture<TResources>[],
-    escapeValue: boolean = false // not needed for react as it escapes by default
+    escapeValue: boolean = false
 ) => {
     if (CollectionUtils.isEmpty(cultures)) {
         throw new Error(errorCultureIsRequired);

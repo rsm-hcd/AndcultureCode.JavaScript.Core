@@ -254,6 +254,12 @@ describe("LocalizationUtils", () => {
     // -----------------------------------------------------------------------------------------
 
     describe("initialize", () => {
+        let moduleStub;
+
+        beforeEach(() => {
+            moduleStub = { type: "backend" };
+        });
+
         test.each`
             culturesValue
             ${null}
@@ -293,12 +299,11 @@ describe("LocalizationUtils", () => {
 
             let isModuleInitialized = false;
 
-            const MyModule = {
-                type: "backend",
+            const MyModule = Object.assign({}, moduleStub, {
                 init() {
                     isModuleInitialized = true;
                 },
-            };
+            });
 
             // Act
             LocalizationUtils.initialize(MyModule, cultures);
@@ -320,15 +325,124 @@ describe("LocalizationUtils", () => {
                 culture
             );
 
-            const cultures = [EnglishUnitedStates];
-
             // Act
-            LocalizationUtils.initialize({ type: "backend" }, cultures);
+            LocalizationUtils.initialize(moduleStub, [EnglishUnitedStates]);
 
             // Assert
             expect(LocalizationUtils.t(expectedKey)).toBe(expectedValue);
         });
+
+        test("when cultures with resources, when escapeValue true, successfully configures escaped translations", () => {
+            // Arrange
+            const key = "testkey";
+            const valueTemplate = "my value {{value}}";
+            const unescapedValue = "<img />";
+            const escapedValue = "&lt;img &#x2F;&gt;";
+            const expectedValue = valueTemplate.replace(
+                "{{value}}",
+                escapedValue
+            );
+
+            const culture: Partial<Culture<any>> = { resources: {} };
+            culture.resources[key] = valueTemplate;
+
+            const EnglishUnitedStates = LocalizationUtils.cultureFactory<any>(
+                BaseEnglishUnitedStates,
+                culture
+            );
+
+            // Act
+            LocalizationUtils.initialize(
+                moduleStub,
+                [EnglishUnitedStates],
+                true // escapedValue
+            );
+
+            // Assert
+            expect(LocalizationUtils.t(key, { value: unescapedValue })).toBe(
+                expectedValue
+            );
+        });
     });
 
     //#endregion initialize
+
+    // -----------------------------------------------------------------------------------------
+    // #region translate (and 't' alias)
+    // -----------------------------------------------------------------------------------------
+
+    describe("translate, t", () => {
+        let moduleStub;
+
+        beforeEach(() => {
+            moduleStub = { type: "backend" };
+        });
+
+        test.each`
+            fn
+            ${LocalizationUtils.t}
+            ${LocalizationUtils.translate}
+        `("when key missing translation, returns key", ({ fn }) => {
+            // Arrange
+            const expected = faker.random.word();
+
+            // Act & Assert
+            expect(fn(expected)).toBe(expected);
+        });
+
+        test.each`
+            fn
+            ${LocalizationUtils.t}
+            ${LocalizationUtils.translate}
+        `("when key found, returns translated value", ({ fn }) => {
+            // Arrange
+            const key = "testkey";
+            const expected = faker.random.words();
+
+            const culture: Partial<Culture<any>> = { resources: {} };
+            culture.resources[key] = expected;
+
+            const EnglishUnitedStates = LocalizationUtils.cultureFactory<any>(
+                BaseEnglishUnitedStates,
+                culture
+            );
+
+            LocalizationUtils.initialize(moduleStub, [EnglishUnitedStates]);
+
+            // Act & Assert
+            expect(fn(key)).toBe(expected);
+        });
+
+        test.each`
+            fn
+            ${LocalizationUtils.t}
+            ${LocalizationUtils.translate}
+        `(
+            "when key found with templated value, returns translated and interpolated value",
+            ({ fn }) => {
+                // Arrange
+                const key = "testkey";
+                const valueTemplate = `${faker.random.words()} -- {{variable}}`;
+                const variable = faker.random.word();
+                const expected = valueTemplate.replace(
+                    "{{variable}}",
+                    variable
+                );
+
+                const culture: Partial<Culture<any>> = { resources: {} };
+                culture.resources[key] = valueTemplate;
+
+                const EnglishUnitedStates = LocalizationUtils.cultureFactory<
+                    any
+                >(BaseEnglishUnitedStates, culture);
+
+                LocalizationUtils.initialize(moduleStub, [EnglishUnitedStates]);
+
+                // Act & Assert
+                expect(fn(key, { variable })).toBe(expected);
+            }
+        );
+    });
+
+    //#endregion translate (and 't' alias)
 });
