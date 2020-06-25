@@ -15,7 +15,7 @@ describe("LocalizationUtils", () => {
             ${Rfc4646LanguageCodes.GL_ES}
             ${Rfc4646LanguageCodes.ZH_CHS}
         `(
-            "given cultureCode of $cultureCode, sets global language",
+            "when supplied cultureCode of $cultureCode, sets global language",
             ({ cultureCode }) => {
                 // Arrange
                 i18n.init();
@@ -116,7 +116,84 @@ describe("LocalizationUtils", () => {
     // -----------------------------------------------------------------------------------------
 
     describe("detectCultureCode", () => {
-        test.skip("TODO", () => {});
+        beforeEach(() => {
+            delete window.location; // Must delete pre-existing location before mocked assignment works
+        });
+
+        test(`given querystring '${LocalizationUtils.routeParam}' set, returns querystring value`, () => {
+            // Arrange
+            const expected = faker.random.locale();
+            window.location = {
+                search: `${LocalizationUtils.routeParam}=${expected}`,
+            } as any;
+
+            // Act
+            const result = LocalizationUtils.detectCultureCode();
+
+            // Assert
+            expect(result).toBe(expected);
+        });
+
+        test(`given querystring '${LocalizationUtils.routeParam}' set, configures global language`, () => {
+            // Arrange
+            i18n.init();
+            const expected = faker.random.locale();
+            window.location = {
+                search: `${LocalizationUtils.routeParam}=${expected}`,
+            } as any;
+
+            // Act
+            LocalizationUtils.detectCultureCode();
+
+            // Assert
+            expect(i18n.language).toBe(expected);
+        });
+
+        test(`given querystring '${
+            LocalizationUtils.routeParam
+        }' missing, returns default of ${LocalizationUtils.defaultCultureCode()}`, () => {
+            // Arrange
+            window.location = { search: "" } as any;
+
+            // Act
+            const result = LocalizationUtils.detectCultureCode();
+
+            // Assert
+            expect(result).toBe(LocalizationUtils.defaultCultureCode());
+        });
+
+        test(`given querystring '${
+            LocalizationUtils.routeParam
+        }' missing, configures global language to default of ${LocalizationUtils.defaultCultureCode()}`, () => {
+            // Arrange
+            i18n.init();
+            window.location = { search: "" } as any;
+
+            // Act
+            LocalizationUtils.detectCultureCode();
+
+            // Assert
+            expect(i18n.language).toBe(LocalizationUtils.defaultCultureCode());
+        });
+
+        test(`given querystring '${LocalizationUtils.routeParam}' value matches current language, does not attempt to change language`, () => {
+            // Arrange
+            i18n.init();
+            const expected = faker.random.locale();
+            LocalizationUtils.changeCultureCode(expected);
+
+            window.location = {
+                search: `${LocalizationUtils.routeParam}=${expected}`,
+            } as any;
+
+            const i18nSpy = jest.spyOn(i18n, "changeLanguage");
+
+            // Act
+            LocalizationUtils.detectCultureCode();
+
+            // Assert
+            expect(i18nSpy).not.toHaveBeenCalled();
+        });
     });
 
     //#endregion detectCultureCode

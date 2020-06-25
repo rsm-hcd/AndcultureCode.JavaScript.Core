@@ -71,7 +71,7 @@ const detectCultureCode = () => {
 
     // If requested culture is missing, default to english
     if (StringUtils.isEmpty(culture)) {
-        culture = Rfc4646LanguageCodes.EN_US;
+        culture = defaultCultureCode();
     }
 
     if (culture === currentCultureCode()) {
