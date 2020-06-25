@@ -75,7 +75,7 @@ describe("LocalizationUtils", () => {
     // #region cultureFactory
     // -----------------------------------------------------------------------------------------
 
-    describe("currentCultureCode", () => {
+    describe("cultureFactory", () => {
         test("when base set and culture null, returns new culture with base properties", () => {
             // Arrange & Act
             const result = LocalizationUtils.cultureFactory(
