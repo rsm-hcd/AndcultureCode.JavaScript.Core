@@ -72,6 +72,55 @@ describe("LocalizationUtils", () => {
     //#endregion cultureCodeFromQueryString
 
     // -----------------------------------------------------------------------------------------
+    // #region cultureFactory
+    // -----------------------------------------------------------------------------------------
+
+    describe("currentCultureCode", () => {
+        test("when base set and culture null, returns new culture with base properties", () => {
+            // Arrange & Act
+            const result = LocalizationUtils.cultureFactory(
+                BaseEnglishUnitedStates,
+                null
+            );
+
+            // Assert
+            expect(result).not.toBeNull();
+            expect(result.code).toBe(BaseEnglishUnitedStates.code);
+        });
+
+        test("when base null and culture set, returns new culture with culture properties", () => {
+            // Arrange
+            const expected = faker.random.locale();
+            const childCulture: Partial<Culture<any>> = { code: expected };
+
+            // Act
+            const result = LocalizationUtils.cultureFactory(null, childCulture);
+
+            // Assert
+            expect(result).not.toBeNull();
+            expect(result.code).toBe(expected);
+        });
+
+        test("when base and culture set, returns new culture overwriting with child properties", () => {
+            // Arrange
+            const expected = faker.random.locale();
+            const childCulture: Partial<Culture<any>> = { code: expected };
+
+            // Act
+            const result = LocalizationUtils.cultureFactory(
+                BaseEnglishUnitedStates,
+                childCulture
+            );
+
+            // Assert
+            expect(result).not.toBeNull();
+            expect(result.code).toBe(expected);
+        });
+    });
+
+    //#endregion cultureFactory
+
+    // -----------------------------------------------------------------------------------------
     // #region currentCultureCode
     // -----------------------------------------------------------------------------------------
 
