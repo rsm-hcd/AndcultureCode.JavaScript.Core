@@ -8,6 +8,17 @@ import { Rfc4646LanguageCodes } from "./../constants/rfc4646-language-codes";
 import i18n from "i18next";
 
 // -----------------------------------------------------------------------------------------
+// #region Constants
+// -----------------------------------------------------------------------------------------
+
+/**
+ * Key name for handling language selection in routing (ie. queryString, path, etc...)
+ */
+const routeParam = "culture";
+
+//#endregion Constants
+
+// -----------------------------------------------------------------------------------------
 // #region Functions
 // -----------------------------------------------------------------------------------------
 
@@ -115,6 +126,7 @@ export const LocalizationUtils = {
     defaultCultureCode,
     detectCultureCode,
     initialize,
+    routeParam,
 };
 
 //#endregion Exports
