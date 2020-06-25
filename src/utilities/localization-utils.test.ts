@@ -2,6 +2,8 @@ import i18n from "i18next";
 import { LocalizationUtils } from "./localization-utils";
 import { Rfc4646LanguageCodes } from "../constants/rfc4646-language-codes";
 import faker from "faker";
+import { BaseEnglishUnitedStates } from "../cultures/base-english-united-states";
+import { Culture } from "../interfaces/culture";
 
 describe("LocalizationUtils", () => {
     // -----------------------------------------------------------------------------------------
@@ -203,7 +205,80 @@ describe("LocalizationUtils", () => {
     // -----------------------------------------------------------------------------------------
 
     describe("initialize", () => {
-        test.skip("TODO", () => {});
+        test.each`
+            culturesValue
+            ${null}
+            ${undefined}
+            ${[]}
+        `("when cultures $culturesValue, throws error", ({ cultures }) => {
+            expect.assertions(1);
+            try {
+                LocalizationUtils.initialize({}, cultures);
+            } catch (e) {
+                expect(e.message).toBe(
+                    LocalizationUtils.errorCultureIsRequired
+                );
+            }
+        });
+
+        test.each`
+            moduleValue
+            ${null}
+            ${undefined}
+        `("when module $moduleValue, throws error", ({ module }) => {
+            // Arrange
+            const cultures = [BaseEnglishUnitedStates];
+
+            // Act & Assert
+            expect.assertions(1);
+            try {
+                LocalizationUtils.initialize(module, cultures);
+            } catch (e) {
+                expect(e.message).toContain("module");
+            }
+        });
+
+        test("when valid module, initializes module", () => {
+            // Arrange
+            const cultures = [BaseEnglishUnitedStates];
+
+            let isModuleInitialized = false;
+
+            const MyModule = {
+                type: "backend",
+                init() {
+                    isModuleInitialized = true;
+                },
+            };
+
+            // Act
+            LocalizationUtils.initialize(MyModule, cultures);
+
+            // Assert
+            expect(isModuleInitialized).toBeTruthy();
+        });
+
+        test("when cultures with resources, successfully configures translations", () => {
+            // Arrange
+            const expectedKey = "testkey";
+            const expectedValue = faker.random.words();
+
+            const culture: Partial<Culture<any>> = { resources: {} };
+            culture.resources[expectedKey] = expectedValue;
+
+            const EnglishUnitedStates = LocalizationUtils.cultureFactory<any>(
+                BaseEnglishUnitedStates,
+                culture
+            );
+
+            const cultures = [EnglishUnitedStates];
+
+            // Act
+            LocalizationUtils.initialize({ type: "backend" }, cultures);
+
+            // Assert
+            expect(LocalizationUtils.t(expectedKey)).toBe(expectedValue);
+        });
     });
 
     //#endregion initialize

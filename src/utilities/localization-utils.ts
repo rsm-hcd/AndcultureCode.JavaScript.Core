@@ -11,6 +11,8 @@ import i18n from "i18next";
 // #region Constants
 // -----------------------------------------------------------------------------------------
 
+const errorCultureIsRequired = "Culture is required";
+
 /**
  * Key name for handling language selection in routing (ie. queryString, path, etc...)
  */
@@ -43,6 +45,16 @@ const cultureCodeFromQueryString = () => {
     const queryString = window.location.search;
     return RouteUtils.queryStringToObject<CultureParams>(queryString)?.culture;
 };
+
+/**
+ * Factory to build an inheritance chain for base to child Culture<TResource> types
+ * @param base Base culture from core package
+ * @param culture subclass culture's partial properties to override 'base'. Typically where providing culture resources
+ */
+const cultureFactory = <TResources>(
+    base: Culture<any>,
+    culture: Partial<Culture<TResources>>
+): Culture<TResources> => Object.assign({}, base, culture);
 
 const culturesToResources = <TResources>(cultures: Culture<TResources>[]) => {
     const resources: any = {};
@@ -95,7 +107,7 @@ const initialize = <TResources>(
     escapeValue: boolean = false // not needed for react as it escapes by default
 ) => {
     if (CollectionUtils.isEmpty(cultures)) {
-        throw new Error("Cultures are required");
+        throw new Error(errorCultureIsRequired);
     }
 
     i18n.use(module).init({
@@ -113,6 +125,20 @@ const initialize = <TResources>(
     return i18n;
 };
 
+/**
+ * Retrieve translation for given key in the currently configured language
+ * @param key culture resource key
+ * @param options object key/values for interpolation of dynamic values
+ */
+const translate = (key: string, options?: any): string => i18n.t(key, options);
+
+/**
+ * Retrieve translation for given key in the currently configured language
+ * @param key culture resource key
+ * @param options object key/values for interpolation of dynamic values
+ */
+const t = translate;
+
 //#endregion Functions
 
 // -----------------------------------------------------------------------------------------
@@ -122,11 +148,15 @@ const initialize = <TResources>(
 export const LocalizationUtils = {
     changeCultureCode,
     cultureCodeFromQueryString,
+    cultureFactory,
     currentCultureCode,
     defaultCultureCode,
     detectCultureCode,
+    errorCultureIsRequired,
     initialize,
     routeParam,
+    t,
+    translate,
 };
 
 //#endregion Exports
