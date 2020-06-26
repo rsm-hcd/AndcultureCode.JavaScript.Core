@@ -5,7 +5,7 @@
 export { Rfc4646LanguageCodes } from "./constants/rfc4646-language-codes";
 export { VideoResolutions } from "./constants/video-resolutions";
 
-//#endregion Constants
+// #endregion Constants
 
 // -----------------------------------------------------------------------------------------
 // #region Cultures
@@ -14,7 +14,7 @@ export { VideoResolutions } from "./constants/video-resolutions";
 export { BaseEnglishUnitedStates } from "./cultures/base-english-united-states";
 export { BaseSpanishSpain } from "./cultures/base-spanish-spain";
 
-//#endregion Cultures
+// #endregion Cultures
 
 // -----------------------------------------------------------------------------------------
 // #region Enumerations
@@ -25,7 +25,7 @@ export { ErrorType } from "./enumerations/error-type";
 export { HttpHeader } from "./enumerations/http-header";
 export { HttpVerb } from "./enumerations/http-verb";
 
-//#endregion Enumerations
+// #endregion Enumerations
 
 // -----------------------------------------------------------------------------------------
 // #region Interfaces
@@ -39,7 +39,7 @@ export { Result } from "./interfaces/result";
 export { ResultError } from "./interfaces/result-error";
 export { ServiceResponse } from "./interfaces/service-response";
 
-//#endregion Interfaces
+// #endregion Interfaces
 
 // -----------------------------------------------------------------------------------------
 // #region Types
@@ -47,7 +47,7 @@ export { ServiceResponse } from "./interfaces/service-response";
 
 export { CancellablePromise } from "./types/cancellable-promise";
 
-//#endregion Types
+// #endregion Types
 
 // -----------------------------------------------------------------------------------------
 // #region Utilities
@@ -62,7 +62,7 @@ export { RouteUtils } from "./utilities/route-utils";
 export { ServiceUtils } from "./utilities/service-utils";
 export { StringUtils } from "./utilities/string-utils";
 
-//#endregion Utilities
+// #endregion Utilities
 
 // -----------------------------------------------------------------------------------------
 // #region View Models
@@ -71,4 +71,4 @@ export { StringUtils } from "./utilities/string-utils";
 export { ResultRecord } from "./view-models/result-record";
 export { ResultErrorRecord } from "./view-models/result-error-record";
 
-//#endregion View Models
+// #endregion View Models

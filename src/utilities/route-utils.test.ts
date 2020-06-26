@@ -208,7 +208,7 @@ describe("RouteUtils", () => {
         });
     });
 
-    //#endregion isAbsoluteUrl
+    // #endregion isAbsoluteUrl
 
     // -----------------------------------------------------------------------------------------
     // #region queryStringToObject
@@ -279,7 +279,7 @@ describe("RouteUtils", () => {
         });
     });
 
-    //#endregion queryStringToObject
+    // #endregion queryStringToObject
 
     // -----------------------------------------------------------------------------------------
     // #region replacePathParams

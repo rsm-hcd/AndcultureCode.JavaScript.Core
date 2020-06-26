@@ -32,7 +32,7 @@ describe("LocalizationUtils", () => {
         );
     });
 
-    //#endregion changeCultureCode
+    // #endregion changeCultureCode
 
     // -----------------------------------------------------------------------------------------
     // #region cultureCodeFromQueryString
@@ -69,7 +69,7 @@ describe("LocalizationUtils", () => {
         });
     });
 
-    //#endregion cultureCodeFromQueryString
+    // #endregion cultureCodeFromQueryString
 
     // -----------------------------------------------------------------------------------------
     // #region cultureFactory
@@ -118,7 +118,7 @@ describe("LocalizationUtils", () => {
         });
     });
 
-    //#endregion cultureFactory
+    // #endregion cultureFactory
 
     // -----------------------------------------------------------------------------------------
     // #region currentCultureCode
@@ -146,7 +146,7 @@ describe("LocalizationUtils", () => {
         );
     });
 
-    //#endregion currentCultureCode
+    // #endregion currentCultureCode
 
     // -----------------------------------------------------------------------------------------
     // #region defaultCultureCode
@@ -160,7 +160,7 @@ describe("LocalizationUtils", () => {
         });
     });
 
-    //#endregion defaultCultureCode
+    // #endregion defaultCultureCode
 
     // -----------------------------------------------------------------------------------------
     // #region detectCultureCode
@@ -247,7 +247,7 @@ describe("LocalizationUtils", () => {
         });
     });
 
-    //#endregion detectCultureCode
+    // #endregion detectCultureCode
 
     // -----------------------------------------------------------------------------------------
     // #region initialize
@@ -365,7 +365,7 @@ describe("LocalizationUtils", () => {
         });
     });
 
-    //#endregion initialize
+    // #endregion initialize
 
     // -----------------------------------------------------------------------------------------
     // #region translate (and 't' alias)
@@ -444,5 +444,5 @@ describe("LocalizationUtils", () => {
         );
     });
 
-    //#endregion translate (and 't' alias)
+    // #endregion translate (and 't' alias)
 });

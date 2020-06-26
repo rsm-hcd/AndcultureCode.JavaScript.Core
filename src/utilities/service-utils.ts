@@ -15,7 +15,7 @@ import { ContentType } from "../enumerations/content-type";
 let _currentCultureCode: string;
 const _defaultApiUrl = "/api/v1";
 
-//#endregion Variables
+// #endregion Variables
 
 // -----------------------------------------------------------------------------------------
 // #region Functions

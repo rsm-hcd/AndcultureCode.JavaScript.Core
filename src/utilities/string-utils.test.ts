@@ -25,7 +25,7 @@ describe("StringUtils", () => {
         );
     });
 
-    //#endregion filename
+    // #endregion filename
 
     // -------------------------------------------------------------------------------------------------
     // #region hasValue

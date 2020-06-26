@@ -18,7 +18,7 @@ const errorCultureIsRequired = "Culture is required";
  */
 const routeParam = "culture";
 
-//#endregion Constants
+// #endregion Constants
 
 // -----------------------------------------------------------------------------------------
 // #region Functions
@@ -139,7 +139,7 @@ const translate = (key: string, options?: any): string => i18n.t(key, options);
  */
 const t = translate;
 
-//#endregion Functions
+// #endregion Functions
 
 // -----------------------------------------------------------------------------------------
 // #region Exports
@@ -159,4 +159,4 @@ export const LocalizationUtils = {
     translate,
 };
 
-//#endregion Exports
+// #endregion Exports

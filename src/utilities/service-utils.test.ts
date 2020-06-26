@@ -23,7 +23,7 @@ describe("ServiceUtils", () => {
             ${""}
             ${" "}
         `(
-            "when cultureCode of $cultureCode, configures baseUrl with default culture code",
+            "when supplied cultureCode of $cultureCode, configures baseUrl with default culture code",
             ({ cultureCode }) => {
                 // Arrange
                 const expected = LocalizationUtils.defaultCultureCode().toLowerCase();
@@ -71,7 +71,7 @@ describe("ServiceUtils", () => {
         });
     });
 
-    //#endregion configure
+    // #endregion configure
 
     // -----------------------------------------------------------------------------------------
     // #region configureCultureCode
@@ -110,7 +110,7 @@ describe("ServiceUtils", () => {
         });
     });
 
-    //#endregion configureCultureCode
+    // #endregion configureCultureCode
 
     // -----------------------------------------------------------------------------------------
     // #region mapAxiosResponse
