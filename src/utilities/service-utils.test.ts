@@ -17,19 +17,19 @@ describe("ServiceUtils", () => {
 
     describe("configure", () => {
         test.each`
-            cultureCode
+            invalidCultureCode
             ${null}
             ${undefined}
             ${""}
             ${" "}
         `(
-            "when supplied cultureCode of $cultureCode, configures baseUrl with default culture code",
-            ({ cultureCode }) => {
+            "when supplied cultureCode is $invalidCultureCode, configures baseUrl with default culture code",
+            ({ invalidCultureCode }) => {
                 // Arrange
                 const expected = LocalizationUtils.defaultCultureCode().toLowerCase();
 
                 // Act
-                ServiceUtils.configure(cultureCode);
+                ServiceUtils.configure(invalidCultureCode);
 
                 // Assert
                 expect(axios.defaults.baseURL).toContain(expected);
