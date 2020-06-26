@@ -1,3 +1,5 @@
+import faker from "faker";
+import { LocalizationUtils } from "./localization-utils";
 import { ServiceUtils } from "./service-utils";
 import { StubResourceRecord } from "../tests/stubs/stub-resource-record";
 import { Factory } from "rosie";
@@ -5,9 +7,111 @@ import { AxiosResponse } from "axios";
 import { FactoryType } from "../tests/factories/factory-type";
 import { FactoryType as AndcultureCodeFactoryType } from "andculturecode-javascript-testing";
 import { ResultRecord } from "../view-models/result-record";
+import axios from "axios";
 import "jest-extended";
 
 describe("ServiceUtils", () => {
+    // -----------------------------------------------------------------------------------------
+    // #region configure
+    // -----------------------------------------------------------------------------------------
+
+    describe("configure", () => {
+        test.each`
+            invalidCultureCode
+            ${null}
+            ${undefined}
+            ${""}
+            ${" "}
+        `(
+            "when supplied cultureCode is $invalidCultureCode, configures baseUrl with default culture code",
+            ({ invalidCultureCode }) => {
+                // Arrange
+                const expected = LocalizationUtils.defaultCultureCode().toLowerCase();
+
+                // Act
+                ServiceUtils.configure(invalidCultureCode);
+
+                // Assert
+                expect(axios.defaults.baseURL).toContain(expected);
+            }
+        );
+
+        test("when cultureCode set, configures baseUrl with provided value", () => {
+            // Arrange
+            const expected = faker.random.locale();
+
+            // Act
+            ServiceUtils.configure(expected);
+
+            // Assert
+            expect(axios.defaults.baseURL).toContain(expected.toLowerCase());
+        });
+
+        test("when API response handlers set, configures axio response interceptors", () => {
+            // Arrange
+            const expectedErrorHandler = (): any => {};
+            const expectedSuccessHandler = (): any => {};
+            const interceptorSpy = jest.spyOn(
+                axios.interceptors.response,
+                "use"
+            );
+
+            // Act
+            ServiceUtils.configure(
+                faker.random.locale(),
+                expectedErrorHandler,
+                expectedSuccessHandler
+            );
+
+            // Assert
+            expect(interceptorSpy).toHaveBeenCalledWith(
+                expectedSuccessHandler,
+                expectedErrorHandler
+            );
+        });
+    });
+
+    // #endregion configure
+
+    // -----------------------------------------------------------------------------------------
+    // #region configureCultureCode
+    // -----------------------------------------------------------------------------------------
+
+    describe("configureCultureCode", () => {
+        test.each`
+            cultureCode
+            ${null}
+            ${undefined}
+            ${""}
+            ${" "}
+        `(
+            "when cultureCode of $cultureCode, configures baseUrl with default culture code",
+            ({ cultureCode }) => {
+                // Arrange
+                const expected = LocalizationUtils.defaultCultureCode().toLowerCase();
+
+                // Act
+                ServiceUtils.configureCultureCode(cultureCode);
+
+                // Assert
+                expect(axios.defaults.baseURL).toContain(expected);
+            }
+        );
+
+        test("when cultureCode set, configures baseUrl with provided value", () => {
+            // Arrange
+            const expected = faker.random.locale();
+
+            // Act
+            ServiceUtils.configureCultureCode(expected);
+
+            // Assert
+            expect(axios.defaults.baseURL).toContain(expected.toLowerCase());
+        });
+    });
+
+    // #endregion configureCultureCode
+
     // -----------------------------------------------------------------------------------------
     // #region mapAxiosResponse
     // -----------------------------------------------------------------------------------------
