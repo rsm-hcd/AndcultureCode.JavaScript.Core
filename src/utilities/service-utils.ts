@@ -123,19 +123,24 @@ const _mapPagedAxiosResponse = <TRecord>(
     if (axiosResponse == null) {
         return null!;
     }
-    const data = axiosResponse.data;
+    const { data } = axiosResponse;
 
     // Ensure result data is wrapped within records
     let resultObjects;
+    let rowCount = 0;
     if (data?.resultObject?.length != null && data.resultObject.length > 0) {
-        resultObjects = data.resultObject.map((r) => new recordType(r));
-        data.resultObject = resultObjects;
+        resultObjects = data.resultObject.map((r: any) => new recordType(r));
+        rowCount = resultObjects.length;
+    }
+
+    if (data.rowCount != null) {
+        rowCount = data.rowCount;
     }
 
     return {
         results: new ResultRecord<TRecord[]>(data),
         resultObjects: resultObjects,
-        rowCount: data?.resultObject?.length ?? 0,
+        rowCount: rowCount,
         status: axiosResponse.status,
     };
 };
