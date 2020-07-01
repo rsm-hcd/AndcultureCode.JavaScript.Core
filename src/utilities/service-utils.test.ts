@@ -369,7 +369,7 @@ describe("ServiceUtils", () => {
             expect(result.resultObjects).toBeUndefined();
         });
 
-        test("it returns rowCount equal to the resultObject list length", () => {
+        test("when response.data.rowCount is undefined, it returns rowCount equal to the resultObject list length", () => {
             // Arrange
             const resultObject: StubResourceRecord[] = Factory.buildList(
                 FactoryType.StubResourceRecord,
@@ -380,6 +380,7 @@ describe("ServiceUtils", () => {
                 {
                     data: {
                         resultObject: resultObject,
+                        rowCount: undefined, // This is the important setup
                     },
                 }
             );
@@ -392,6 +393,61 @@ describe("ServiceUtils", () => {
 
             // Assert
             expect(result.rowCount).toBe(resultObject.length);
+        });
+
+        test("when response.data.rowCount is null, it returns rowCount equal to the resultObject list length", () => {
+            // Arrange
+            const resultObject: StubResourceRecord[] = Factory.buildList(
+                FactoryType.StubResourceRecord,
+                2
+            );
+            const axiosResponse = Factory.build<AxiosResponse>(
+                AndcultureCodeFactoryType.AxiosResponse,
+                {
+                    data: {
+                        resultObject: resultObject,
+                        rowCount: null, // This is the important setup
+                    },
+                }
+            );
+
+            // Act
+            const result = ServiceUtils.mapPagedAxiosResponse(
+                StubResourceRecord,
+                axiosResponse
+            );
+
+            // Assert
+            expect(result.rowCount).toBe(resultObject.length);
+        });
+
+        test("when response.data.rowCount has a value, it returns the mapped rowCount from the original response", () => {
+            // Arrange
+            const resultObject: StubResourceRecord[] = Factory.buildList(
+                FactoryType.StubResourceRecord,
+                2
+            );
+            const rowCount = faker.random.number({
+                min: resultObject.length + 1,
+            }); // This is the important setup (should be different from resultObject.length)
+            const axiosResponse = Factory.build<AxiosResponse>(
+                AndcultureCodeFactoryType.AxiosResponse,
+                {
+                    data: {
+                        resultObject: resultObject,
+                        rowCount: rowCount,
+                    },
+                }
+            );
+
+            // Act
+            const result = ServiceUtils.mapPagedAxiosResponse(
+                StubResourceRecord,
+                axiosResponse
+            );
+
+            // Assert
+            expect(result.rowCount).toBe(rowCount);
         });
 
         test("it returns the mapped status from the original response", () => {
