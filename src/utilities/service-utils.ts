@@ -7,6 +7,7 @@ import { ResultRecord } from "../view-models/result-record";
 import { PagedResult } from "../interfaces/paged-result";
 import { HttpHeader } from "../enumerations/http-header";
 import { ContentType } from "../enumerations/content-type";
+import { CollectionUtils } from "utilities/collection-utils";
 
 // -----------------------------------------------------------------------------------------
 // #region Variables
@@ -123,19 +124,27 @@ const _mapPagedAxiosResponse = <TRecord>(
     if (axiosResponse == null) {
         return null!;
     }
-    const data = axiosResponse.data;
+    const { data } = axiosResponse;
 
     // Ensure result data is wrapped within records
     let resultObjects;
-    if (data?.resultObject?.length != null && data.resultObject.length > 0) {
-        resultObjects = data.resultObject.map((r) => new recordType(r));
-        data.resultObject = resultObjects;
+    let rowCount = 0;
+    if (CollectionUtils.hasValues(data?.resultObject)) {
+        resultObjects = data.resultObject!.map((r: any) => new recordType(r));
+
+        // For now, record rowCount as the number of resultObjects we got back. We'll check the
+        // response for a rowCount of the total query set if the value was returned.
+        rowCount = resultObjects.length;
+    }
+
+    if (data?.rowCount != null) {
+        rowCount = data.rowCount;
     }
 
     return {
         results: new ResultRecord<TRecord[]>(data),
         resultObjects: resultObjects,
-        rowCount: data?.resultObject?.length ?? 0,
+        rowCount: rowCount,
         status: axiosResponse.status,
     };
 };
