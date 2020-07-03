@@ -7,7 +7,7 @@ import { ResultRecord } from "../view-models/result-record";
 import { PagedResult } from "../interfaces/paged-result";
 import { HttpHeader } from "../enumerations/http-header";
 import { ContentType } from "../enumerations/content-type";
-import { CollectionUtils } from "utilities/collection-utils";
+import { CollectionUtils } from "./collection-utils";
 
 // -----------------------------------------------------------------------------------------
 // #region Variables
