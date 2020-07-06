@@ -15,7 +15,7 @@
 
 • **Accept**: = "Accept"
 
-*Defined in [src/enumerations/http-header.ts:2](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/6cfbb93/src/enumerations/http-header.ts#L2)*
+*Defined in [src/enumerations/http-header.ts:2](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/5903fc4/src/enumerations/http-header.ts#L2)*
 
 ___
 
@@ -23,4 +23,4 @@ ___
 
 • **ContentType**: = "Content-Type"
 
-*Defined in [src/enumerations/http-header.ts:3](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/6cfbb93/src/enumerations/http-header.ts#L3)*
+*Defined in [src/enumerations/http-header.ts:3](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/5903fc4/src/enumerations/http-header.ts#L3)*
