@@ -58,7 +58,6 @@ const _equalsBy = function<T, V>(
 const _hasValues = (
     ...collections: Array<any[] | List<any> | undefined>
 ): boolean => {
-
     let hasValues = false;
     collections.forEach((collection: any[] | List<any> | undefined) => {
         if (!_isEmpty(collection)) {
@@ -82,7 +81,6 @@ const _hasValues = (
 const _isEmpty = (
     ...collections: Array<any[] | List<any> | undefined>
 ): boolean => {
-
     let isEmpty = true;
 
     collections.forEach((collection: any[] | List<any> | undefined) => {
