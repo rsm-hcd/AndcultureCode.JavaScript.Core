@@ -4,7 +4,7 @@ import { ResultRecord } from "../view-models/result-record";
 
 describe("CollectionUtils", () => {
     describe("hasValues", () => {
-        test("when collections param is null, it returns false", (): void => {
+        test("given collections is null, it returns false", (): void => {
             // Arrange
             const collection = null;
 
@@ -15,7 +15,7 @@ describe("CollectionUtils", () => {
             expect(result).toBeFalse();
         });
 
-        test("when collections param is undefined, it returns false", (): void => {
+        test("given collections is undefined, it returns false", (): void => {
             // Arrange
             const collection = undefined;
 
@@ -133,7 +133,7 @@ describe("CollectionUtils", () => {
     }); // end hasValues
 
     describe("isEmpty", () => {
-        test(`when collections is null, it returns true`, (): void => {
+        test(`given collections is null, it returns true`, (): void => {
             // Arrange
             const collection = null;
 
@@ -144,7 +144,7 @@ describe("CollectionUtils", () => {
             expect(result).toBeTrue();
         });
 
-        test(`when collections is undefined, it returns true`, (): void => {
+        test(`given collections is undefined, it returns true`, (): void => {
             // Arrange
             const collection = undefined;
 
