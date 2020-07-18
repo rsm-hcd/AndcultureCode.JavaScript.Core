@@ -72,7 +72,7 @@ describe("CollectionUtils", () => {
             expect(result).toBeFalse();
         });
 
-        test("when collections param is undefined, it returns false", (): void => {
+        test("given collections is undefined, it returns false", (): void => {
             // Arrange & Act
             const result = CollectionUtils.hasValues(
                 (undefined as unknown) as any[]
@@ -82,7 +82,7 @@ describe("CollectionUtils", () => {
             expect(result).toBeFalse();
         });
 
-        test("when collections param is null, it returns false", (): void => {
+        test("given collections is null, it returns false", (): void => {
             // Arrange & Act
             const result = CollectionUtils.hasValues(
                 (null as unknown) as any[]
@@ -179,7 +179,7 @@ describe("CollectionUtils", () => {
             expect(result).toBeTrue();
         });
 
-        test("when collections param is undefined, it returns true", (): void => {
+        test("given collections is undefined, it returns true", (): void => {
             // Arrange & Act
             const result = CollectionUtils.isEmpty(
                 (undefined as unknown) as any[]
@@ -189,7 +189,7 @@ describe("CollectionUtils", () => {
             expect(result).toBeTrue();
         });
 
-        test("when collections param is null, it returns true", (): void => {
+        test("given collections is null, it returns true", (): void => {
             // Arrange & Act
             const result = CollectionUtils.isEmpty((null as unknown) as any[]);
 
