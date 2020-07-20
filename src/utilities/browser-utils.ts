@@ -14,6 +14,10 @@ const _isIE = (): boolean => {
   return /*@cc_on!@*/ false || !!document.documentMode;
 };
 
+/**
+ * Returns true if the brower is NOT Internet Explorer.
+ * @returns boolean
+ */
 const _isNotIE = (): boolean => !_isIE();
 
 export const BrowserUtils = {
