@@ -24,6 +24,7 @@
         "@types/node": "13.11.0",
         "@types/rosie": "0.0.37",
         "andculturecode-javascript-testing": "0.0.1",
+        "cross-env": "6.0.3",
         "faker": "4.1.0",
         "jest": "25.5.4",
         "jest-extended": "0.11.5",
@@ -63,6 +64,7 @@
         "docs": "typedoc --mode file --excludeExternals --plugin typedoc-plugin-markdown --readme none",
         "format": "prettier --write \"src/**/*.ts\" --trailing-comma es5",
         "postbuild": "npm run docs",
+        "postpublish": "cross-env-shell \"git add -A && git commit -m \"$npm_package_version\" && git push origin master",
         "prebuild": "npm run clean && npm run format && echo Using TypeScript && tsc --version",
         "prepublishOnly": "npm run build",
         "test": "jest ./src",
@@ -71,5 +73,5 @@
         "watch:test": "jest ./src --watch"
     },
     "types": "dist/index",
-    "version": "0.1.2"
+    "version": "0.1.3"
 }

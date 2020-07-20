@@ -2,17 +2,17 @@
  * Allows us to use the documentMode for feature detection on globalThis.Document
  */
 declare global {
-  interface Document {
-      documentMode?: any;
-  }
+    interface Document {
+        documentMode?: any;
+    }
 }
 
 /**
-* Returns true if the detected browser is Internet Explorer.
-* @returns boolean
-*/
+ * Returns true if the detected browser is Internet Explorer.
+ * @returns boolean
+ */
 const _isIE = (): boolean => {
-  return /*@cc_on!@*/ false || !!document.documentMode;
+    return /*@cc_on!@*/ false || !!document.documentMode;
 };
 
 /**
@@ -22,6 +22,6 @@ const _isIE = (): boolean => {
 const _isNotIE = (): boolean => !_isIE();
 
 export const BrowserUtils = {
-  isIE: _isIE,
-  isNotIE: _isNotIE,
+    isIE: _isIE,
+    isNotIE: _isNotIE,
 };

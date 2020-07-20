@@ -24,7 +24,7 @@
 
 • **key**? : *undefined | string*
 
-*Defined in [src/interfaces/result-error.ts:8](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/5903fc4/src/interfaces/result-error.ts#L8)*
+*Defined in [src/interfaces/result-error.ts:8](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/3b4702e/src/interfaces/result-error.ts#L8)*
 
 ___
 
@@ -32,7 +32,7 @@ ___
 
 • **message**? : *undefined | string*
 
-*Defined in [src/interfaces/result-error.ts:9](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/5903fc4/src/interfaces/result-error.ts#L9)*
+*Defined in [src/interfaces/result-error.ts:9](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/3b4702e/src/interfaces/result-error.ts#L9)*
 
 ___
 
@@ -40,4 +40,4 @@ ___
 
 • **type**? : *[ErrorType](../enums/errortype.md)*
 
-*Defined in [src/interfaces/result-error.ts:10](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/5903fc4/src/interfaces/result-error.ts#L10)*
+*Defined in [src/interfaces/result-error.ts:10](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/3b4702e/src/interfaces/result-error.ts#L10)*
