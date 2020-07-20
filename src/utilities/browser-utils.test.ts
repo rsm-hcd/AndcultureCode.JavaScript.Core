@@ -7,7 +7,7 @@ describe("BrowserUtils", () => {
     });
 
     describe("isIE", () => {
-        it("when wondow.document.documentMode is undefined, then returns false", () => {
+        it("when window.document.documentMode is undefined, then returns false", () => {
             // Arrange
             window.document.documentMode = undefined;
 
@@ -31,7 +31,7 @@ describe("BrowserUtils", () => {
     });
 
     describe("isNotIE", () => {
-        it("when wondow.document.documentMode is undefined, then returns true", () => {
+        it("when window.document.documentMode is undefined, then returns true", () => {
             // Arrange
             window.document.documentMode = undefined;
 
