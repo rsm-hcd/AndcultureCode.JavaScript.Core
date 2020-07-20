@@ -14,6 +14,9 @@ const _isIE = (): boolean => {
   return /*@cc_on!@*/ false || !!document.documentMode;
 };
 
+const _isNotIE = (): boolean => !_isIE();
+
 export const BrowserUtils = {
   isIE: _isIE,
+  isNotIE: _isNotIE,
 };
