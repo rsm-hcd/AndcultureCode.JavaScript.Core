@@ -6,6 +6,7 @@ declare global {
       documentMode?: any;
   }
 }
+
 /**
 * Returns true if the detected browser is Internet Explorer.
 * @returns boolean
