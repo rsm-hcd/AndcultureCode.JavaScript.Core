@@ -1,5 +1,4 @@
 import { BrowserUtils } from "./browser-utils";
-import { JSDom } from "jsdom";
 
 describe("BrowserUtils", () => {
   describe("isIE", () => {
