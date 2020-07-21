@@ -5,6 +5,45 @@ import _ from "lodash";
 // #region Private Methods
 // -----------------------------------------------------------------------------------------
 
+/**
+ * Transforms an enum into an array of its values
+ *
+ * @example
+ * const roleTypes = TestUtils.enumToArray<RoleType>(RoleType);
+ * // Returns [0, 1, 2, 3, 4, 5]
+ * @template TEnum The enum to be transformed
+ * @param {*} enumObject The enum to be transformed (cannot be typed to TEnum, or TS will return 'typeof TEnum'
+ * instead of a value of TEnum)
+ * @returns {TEnum[]}
+ */
+const _enumToArray = <TEnum = any>(enumObject: any): TEnum[] =>
+    _objectToArray(_numericEnumToPojo(enumObject)) as TEnum[];
+
+/**
+ * Returns a random enum value from its type
+ *
+ * @example
+ * const randomRoleType = TestUtils.getRandomEnum<RoleType>(RoleType);
+ * // Might return the value '1', which is the value of RoleType.Team
+ * @template TEnum The enum to be transformed
+ * @param {*} enumObject The enum to be transformed (cannot be typed to TEnum, or TS will return 'typeof TEnum'
+ * instead of a value of TEnum)
+ * @param {TEnum} [excludeElement] A specific enum value to be excluded from the random selection.
+ * @returns {TEnum}
+ */
+const _getRandomEnum = <TEnum = any>(
+    enumObject: any,
+    excludeElement?: TEnum
+): TEnum => {
+    let enumValues = _enumToArray(enumObject);
+
+    if (excludeElement != null) {
+        enumValues = enumValues.filter((e: any) => e !== excludeElement);
+    }
+
+    return enumValues[Math.floor(Math.random() * enumValues.length)];
+};
+
 const _numericEnumToPojo = (enumObject: any): {} => {
     let pojo: { [k: string]: any } = {};
 
@@ -87,6 +126,8 @@ const _timer = (name: string) => {
 export const CoreUtils = {
     bindAll: _.bindAll,
     curry: _.curry,
+    enumToArray: _enumToArray,
+    getRandomEnum: _getRandomEnum,
     memoize: _.memoize,
     numericEnumToPojo: _numericEnumToPojo,
     objectToArray: _objectToArray,
