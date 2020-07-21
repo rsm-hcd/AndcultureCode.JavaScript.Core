@@ -2,6 +2,7 @@
 // #region Constants
 // -----------------------------------------------------------------------------------------
 
+export { EmailConstants } from "./constants/email-constants";
 export { Rfc4646LanguageCodes } from "./constants/rfc4646-language-codes";
 export { VideoResolutions } from "./constants/video-resolutions";
 
