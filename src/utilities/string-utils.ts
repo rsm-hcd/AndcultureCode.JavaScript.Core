@@ -1,3 +1,4 @@
+import { CollectionUtils } from "./collection-utils";
 import _ from "lodash";
 
 // -----------------------------------------------------------------------------------------
@@ -48,6 +49,22 @@ const isEmpty = (value?: string): boolean =>
 const isValidEmail = (value?: string): boolean =>
     value != null && REGEX_VALID_EMAIL.test(value);
 
+/**
+ * Joins an array of strings into one string with a separator. If the array is empty, it will return an empty string.
+ *
+ * @default ""
+ * @param {string[]} values Values to join into one string.
+ * @param {string} [separator=","] String to seperate each of the given values.
+ * @returns {string}
+ */
+const join = (values: string[], separator: string = ","): string => {
+    if (CollectionUtils.isEmpty(values)) {
+        return "";
+    }
+
+    return values.join(separator);
+};
+
 const truncateRight = (value: string, truncateAtPos: number): string => {
     if (value.length <= truncateAtPos) {
         return value;
@@ -73,6 +90,7 @@ export const StringUtils = {
     hasValue,
     isEmpty,
     isValidEmail,
+    join,
     lowerFirst: _.lowerFirst,
     pad: _.pad,
     padEnd: _.padEnd,

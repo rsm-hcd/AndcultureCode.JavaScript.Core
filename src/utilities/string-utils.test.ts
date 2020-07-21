@@ -115,6 +115,55 @@ describe("StringUtils", () => {
     // #endregion isValidEmail
 
     // -----------------------------------------------------------------------------------------
+    // #region join()
+    // -----------------------------------------------------------------------------------------
+
+    describe("join()", () => {
+        describe("with the default separator", () => {
+            type JoinTestTypes = [string[], string];
+
+            test.each<JoinTestTypes>([
+                [[], ""],
+                [["a"], "a"],
+                [["a"], "a"],
+                [["a", "b"], "a,b"],
+            ])(
+                "when values is %p,  returns %p",
+                (values: string[], expected: string) => {
+                    // Arrange & Act
+                    const result: string = StringUtils.join(values);
+
+                    // Assert
+                    expect(result).toBe(expected);
+                }
+            );
+        });
+
+        describe("with a separator argument", () => {
+            type JoinTestTypesWithSeparator = [string[], string, string];
+
+            test.each<JoinTestTypesWithSeparator>([
+                [[], "", ""],
+                [["a"], "", "a"],
+                [["a"], ",", "a"],
+                [["a", "b"], "", "ab"],
+                [["a", "b"], " ", "a b"],
+            ])(
+                "when values is %p and separator is %p, returns %p",
+                (values: string[], separator: string, expected: string) => {
+                    // Arrange & Act
+                    const result: string = StringUtils.join(values, separator);
+
+                    // Assert
+                    expect(result).toBe(expected);
+                }
+            );
+        });
+    });
+
+    // #endregion join
+
+    // -----------------------------------------------------------------------------------------
     // #region truncateRight()
     // -----------------------------------------------------------------------------------------
 
