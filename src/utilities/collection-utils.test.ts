@@ -326,7 +326,7 @@ describe("CollectionUtils", () => {
         type TestType = { id: number };
         const selector = (t: TestType) => t.id;
 
-        it("When collections are different lengths, then returns false", () => {
+        it("when collections are different lengths, then returns false", () => {
             // Arrange
             const arr1: Array<TestType> = [{ id: 1 }, { id: 2 }];
             const arr2: Array<TestType> = [{ id: 1 }];
@@ -338,7 +338,7 @@ describe("CollectionUtils", () => {
             expect(result).toBe(false);
         });
 
-        it("When one of the collections is null, then returns false", () => {
+        it("when one of the collections is null, then returns false", () => {
             // Arrange
             const arr1: Array<TestType> = [{ id: 1 }, { id: 2 }];
 
@@ -349,7 +349,7 @@ describe("CollectionUtils", () => {
             expect(result).toBe(false);
         });
 
-        it("When both collections are null, then returns true", () => {
+        it("when both collections are null, then returns true", () => {
             // Act
             const result = CollectionUtils.equalsBy(
                 selector,
@@ -361,7 +361,7 @@ describe("CollectionUtils", () => {
             expect(result).toBe(true);
         });
 
-        it("When collections are equal size but contain different elements, then returns false", () => {
+        it("when collections are equal size but contain different elements, then returns false", () => {
             // Arrange
             const arr1: Array<TestType> = [{ id: 1 }, { id: 2 }];
             const arr2: Array<TestType> = [{ id: 2 }, { id: 3 }];
@@ -373,7 +373,7 @@ describe("CollectionUtils", () => {
             expect(result).toBe(false);
         });
 
-        it("When collections are identical, then returns true", () => {
+        it("when collections are identical, then returns true", () => {
             // Arrange
             const arr1: Array<TestType> = [{ id: 1 }, { id: 2 }];
             const arr2: Array<TestType> = [...arr1];
@@ -383,6 +383,45 @@ describe("CollectionUtils", () => {
 
             // Assert
             expect(result).toBe(true);
+        });
+    });
+
+    describe("#removeElementAt", () => {
+        it("when index i < 0, returns source array", () => {
+            // Arrange
+            const arr = ["one", "two", "three"];
+            const expected = [...arr];
+
+            // Act
+            const result = CollectionUtils.removeElementAt(arr, -1);
+
+            // Assert
+            expect(result).toStrictEqual(expected);
+        });
+
+        it("when index > array.length, returns source array", () => {
+            // Arrange
+            const arr = ["one", "two", "three"];
+            const expected = [...arr];
+
+            // Act
+            const result = CollectionUtils.removeElementAt(arr, 50);
+
+            // Assert
+            expect(result).toStrictEqual(expected);
+        });
+
+        it("when index is in range, then removes element at index", () => {
+            // Arrange
+            const arr = ["one", "two", "three"];
+            const expected = ["one", "three"];
+            const indexToRemove = 1;
+
+            // Act
+            const result = CollectionUtils.removeElementAt(arr, indexToRemove);
+
+            // Assert
+            expect(result).toStrictEqual(expected);
         });
     });
 
