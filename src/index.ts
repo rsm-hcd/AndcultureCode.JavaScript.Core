@@ -32,8 +32,10 @@ export { HttpVerb } from "./enumerations/http-verb";
 // #region Interfaces
 // -----------------------------------------------------------------------------------------
 
+export { Auditable } from "./interfaces/auditable";
 export { Culture } from "./interfaces/culture";
 export { CultureParams } from "./interfaces/culture-params";
+export { Entity } from "./interfaces/entity";
 export { KeyValuePair } from "./interfaces/key-value-pair";
 export { PagedResult } from "./interfaces/paged-result";
 export { Result } from "./interfaces/result";

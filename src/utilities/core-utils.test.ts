@@ -1,6 +1,14 @@
 import { CoreUtils } from "./core-utils";
 
 describe("CoreUtils", () => {
+    describe("enumToArray", () => {
+        test.skip("TODO: Backfill tests to complete issue https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/issues/29", () => {});
+    });
+
+    describe("getRandomEnum", () => {
+        test.skip("TODO: Backfill tests to complete issue https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/issues/29", () => {});
+    });
+
     describe("timer", () => {
         test("returns timer object", () => {
             // Act
