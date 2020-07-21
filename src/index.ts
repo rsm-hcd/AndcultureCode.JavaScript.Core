@@ -38,6 +38,7 @@ export { KeyValuePair } from "./interfaces/key-value-pair";
 export { PagedResult } from "./interfaces/paged-result";
 export { Result } from "./interfaces/result";
 export { ResultError } from "./interfaces/result-error";
+export { ScrollOptions } from "./interfaces/scroll-options";
 export { ServiceResponse } from "./interfaces/service-response";
 
 // #endregion Interfaces
@@ -60,6 +61,7 @@ export { EnvironmentUtils } from "./utilities/environment-utils";
 export { LocalizationUtils } from "./utilities/localization-utils";
 export { PromiseFactory } from "./utilities/promise-factory";
 export { RouteUtils } from "./utilities/route-utils";
+export { ScrollUtils } from "./utilities/scroll-utils";
 export { ServiceUtils } from "./utilities/service-utils";
 export { StringUtils } from "./utilities/string-utils";
 

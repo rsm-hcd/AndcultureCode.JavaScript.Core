@@ -139,6 +139,21 @@ const _length = (arr: Array<any> | List<any>): number => {
 };
 
 /**
+ * Removes a supplied element by index
+ * @param source original array
+ * @param index array index to remove
+ */
+const _removeElementAt = <T>(source: Array<T>, index: number): Array<T> => {
+    if (index < 0 || index > source.length) {
+        return source;
+    }
+
+    const newArr = [...source];
+    newArr.splice(index, 1);
+    return newArr;
+};
+
+/**
  * Returns a NEW array with the element at the specified index
  * replaced with the specified value. Since it returns a new array,
  * this can be safely used as the value for a React.SetStateAction
@@ -181,6 +196,7 @@ export const CollectionUtils = {
     isEmpty: _isEmpty,
     isNotEmpty: _isNotEmpty,
     length: _length,
+    removeElementAt: _removeElementAt,
     replaceElementAt: _replaceElementAt,
     sample: _.sample,
     sampleSize: _.sampleSize,

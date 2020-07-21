@@ -386,6 +386,45 @@ describe("CollectionUtils", () => {
         });
     });
 
+    describe("#removeElementAt", () => {
+        it("When index i < 0, returns source array", () => {
+            // Arrange
+            const arr = ["one", "two", "three"];
+            const expected = [...arr];
+
+            // Act
+            const result = CollectionUtils.removeElementAt(arr, -1);
+
+            // Assert
+            expect(result).toStrictEqual(expected);
+        });
+
+        it("When index > array.length, returns source array", () => {
+            // Arrange
+            const arr = ["one", "two", "three"];
+            const expected = [...arr];
+
+            // Act
+            const result = CollectionUtils.removeElementAt(arr, 50);
+
+            // Assert
+            expect(result).toStrictEqual(expected);
+        });
+
+        it("When index is in range, then removes element at index", () => {
+            // Arrange
+            const arr = ["one", "two", "three"];
+            const expected = ["one", "three"];
+            const indexToRemove = 1;
+
+            // Act
+            const result = CollectionUtils.removeElementAt(arr, indexToRemove);
+
+            // Assert
+            expect(result).toStrictEqual(expected);
+        });
+    });
+
     describe("#replaceElementAt", () => {
         it("Replaces element at specified index and returns a new array", () => {
             // Arrange
