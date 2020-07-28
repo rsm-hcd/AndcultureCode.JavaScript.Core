@@ -164,6 +164,36 @@ describe("StringUtils", () => {
     // #endregion join
 
     // -----------------------------------------------------------------------------------------
+    // #region pluralize
+    // -----------------------------------------------------------------------------------------
+
+    describe("pluralize()", () => {
+        test.each`
+            count        | singular     | plural         | returnValue
+            ${0}         | ${"turtle"}  | ${"turtles"}   | ${"turtles"}
+            ${1}         | ${"turtle"}  | ${"turtles"}   | ${"turtle"}
+            ${2}         | ${"turtle"}  | ${"turtleses"} | ${"turtleses"}
+            ${undefined} | ${"turtle"}  | ${"turtles"}   | ${null}
+            ${1}         | ${undefined} | ${"turtles"}   | ${null}
+            ${1}         | ${"turtle"}  | ${undefined}   | ${"turtle"}
+            ${2}         | ${"turtle"}  | ${undefined}   | ${"turtles"}
+        `(
+            `when count is $count, singular is $singular, plural is $plural, pluralize returns $returnValue`,
+            ({ count, singular, plural, returnValue }: any): void => {
+                // Arrange & Act
+                const result = StringUtils.pluralize(count, singular, plural);
+
+                // Assert
+                expect(result).toBe(returnValue);
+            }
+        );
+    });
+
+
+    // #endregion pluralize
+
+
+    // -----------------------------------------------------------------------------------------
     // #region truncateRight()
     // -----------------------------------------------------------------------------------------
 
