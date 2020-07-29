@@ -1,5 +1,6 @@
-import { CollectionUtils } from "./collection-utils";
+import Humanize from "humanize-plus";
 import _ from "lodash";
+import { CollectionUtils } from "./collection-utils";
 
 // -----------------------------------------------------------------------------------------
 // #region Constants
@@ -95,6 +96,7 @@ export const StringUtils = {
     pad: _.pad,
     padEnd: _.padEnd,
     padStart: _.padStart,
+    pluralize: Humanize.pluralize,
     repeat: _.repeat,
     snakeCase: _.snakeCase,
     startCase: _.startCase,
