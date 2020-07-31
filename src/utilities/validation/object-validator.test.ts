@@ -1,7 +1,5 @@
-import {
-    ObjectValidationResult,
-    ObjectValidator,
-} from "./object-validator";
+import { ObjectValidator } from "./object-validator";
+import { ObjectValidationResult } from "../../types/object-validation-result";
 import { CollectionUtils } from "../../utilities/collection-utils";
 import { StringUtils } from "../../utilities/string-utils";
 
