@@ -1,12 +1,6 @@
-// -----------------------------------------------------------------------------------------
-// #region Types
-// -----------------------------------------------------------------------------------------
-
 import { CollectionUtils } from "../../utilities/collection-utils";
 import { ObjectValidatorInterface } from "../../interfaces/object-validator";
 import { ObjectValidationResult } from "../../types/object-validation-result";
-
-// #endregion Types
 
 // -----------------------------------------------------------------------------------------
 // #region ObjectValidator class

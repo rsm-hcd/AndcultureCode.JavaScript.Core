@@ -1,5 +1,5 @@
 import { ObjectValidationResult } from "../types/object-validation-result";
-import { ObjectValidator } from "utilities/validation/object-validator";
+
 interface ObjectValidatorInterface<T> {
     /**
      * Returns a validation object that will contain keys of the same name as the object being
