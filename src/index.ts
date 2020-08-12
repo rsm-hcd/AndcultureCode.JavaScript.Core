@@ -40,8 +40,10 @@ export { KeyValuePair } from "./interfaces/key-value-pair";
 export { PagedResult } from "./interfaces/paged-result";
 export { Result } from "./interfaces/result";
 export { ResultError } from "./interfaces/result-error";
+export { Role } from "./interfaces/role";
 export { ScrollOptions } from "./interfaces/scroll-options";
 export { ServiceResponse } from "./interfaces/service-response";
+export { User } from "./interfaces/user";
 
 // #endregion Interfaces
 
@@ -50,6 +52,7 @@ export { ServiceResponse } from "./interfaces/service-response";
 // -----------------------------------------------------------------------------------------
 
 export { CancellablePromise } from "./types/cancellable-promise";
+export { Constructor } from "./types/constructor";
 
 // #endregion Types
 
@@ -62,6 +65,7 @@ export { CoreUtils } from "./utilities/core-utils";
 export { EnvironmentUtils } from "./utilities/environment-utils";
 export { LocalizationUtils } from "./utilities/localization-utils";
 export { PromiseFactory } from "./utilities/promise-factory";
+export { RecordUtils } from "./utilities/record-utils";
 export { RouteUtils } from "./utilities/route-utils";
 export { ScrollUtils } from "./utilities/scroll-utils";
 export { ServiceUtils } from "./utilities/service-utils";
