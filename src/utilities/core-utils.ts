@@ -129,6 +129,7 @@ export const CoreUtils = {
     enumToArray: _enumToArray,
     getRandomEnum: _getRandomEnum,
     memoize: _.memoize,
+    merge: _.merge,
     numericEnumToPojo: _numericEnumToPojo,
     objectToArray: _objectToArray,
     range: _.range,
