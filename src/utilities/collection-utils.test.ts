@@ -322,6 +322,40 @@ describe("CollectionUtils", () => {
         });
     }); // end isNotEmpty
 
+    describe("#length", () => {
+        test(`when collections param is an array and has elements, it returns the length`, (): void => {
+            // Arrange
+            const array = ["test", "test"];
+
+            // Act
+            const result = CollectionUtils.length(array);
+
+            // Assert
+            expect(result).toBe(2);
+        });
+
+        test(`when collections param is null, it returns -1`, (): void => {
+            // Arrange
+            const array = null;
+
+            // Act
+            const result = CollectionUtils.length(array);
+
+            // Assert
+            expect(result).toBe(-1);
+        });
+
+        test(`when collections param is a list and has elements, it returns the length`, (): void => {
+            // Arrange
+            const list = List(["test","test"]);
+
+            // Act
+            const result = CollectionUtils.length(list);
+
+            // Assert
+            expect(result).toBe(2);
+        });
+    })
     describe("#equalsBy", () => {
         type TestType = { id: number };
         const selector = (t: TestType) => t.id;
@@ -442,5 +476,61 @@ describe("CollectionUtils", () => {
             );
             expect(equals).toBe(true);
         });
+
+        it("When source array has no values it, then returns the source array", () => {
+            // Arrange
+            const arr = [];
+
+            // Act
+            const result = CollectionUtils.replaceElementAt(arr, 1, "replaced");
+
+            // Assert
+            expect(result).toBe(arr);
+        })
+
+        it("When source array has 1 item it, then returns new array with 1 item", () => {
+            // Arrange
+            const arr = ["test"];
+            const expected = ["replaced-test"];
+
+            // Act
+            const result = CollectionUtils.replaceElementAt(arr, 2, "replaced-test");
+
+            // Assert
+            const equals = CollectionUtils.equalsBy(
+                (s: string) => s,
+                result,
+                expected
+            );
+            expect(equals).toBe(true);
+        })
+
+        it("When index is last element of source it, then returns new array with value at the end", () => {
+            // Arrange
+            const arr = ["zero", "one", "two", "three", "four"];
+            const expected = ["zero", "one", "two", "three", "replaced"];
+
+            // Act
+            const result = CollectionUtils.replaceElementAt(arr, 4, "replaced");
+
+            // Assert
+            const equals = CollectionUtils.equalsBy(
+                (s: string) => s,
+                result,
+                expected
+            );
+            expect(equals).toBe(true);
+        })
+
+        it("When index i < 0, then returns the source array", () => {
+            // Arrange
+            const arr = ["zero", "one", "two", "three", "four"];
+
+            // Act
+            const result = CollectionUtils.replaceElementAt(arr, -1, "replaced");
+
+            // Assert
+            expect(result).toBe(arr);
+        })
     });
 });

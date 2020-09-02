@@ -155,7 +155,8 @@ const _removeElementAt = <T>(source: Array<T>, index: number): Array<T> => {
 
 /**
  * Returns a NEW array with the element at the specified index
- * replaced with the specified value. Since it returns a new array,
+ * replaced with the specified value if the index provided is
+ * greater than zero, else it returns the source array. Since it returns a new array,
  * this can be safely used as the value for a React.SetStateAction
  * i.e. setMyArray(CollectionUtils.replaceElementAt(myArray, index, newValue));
  * @param source
@@ -167,7 +168,7 @@ const _replaceElementAt = <T>(
     index: number,
     value: T
 ): Array<T> => {
-    if (source.length === 0) {
+    if (source.length === 0 || index < 0) {
         return source;
     }
     if (source.length === 1) {
