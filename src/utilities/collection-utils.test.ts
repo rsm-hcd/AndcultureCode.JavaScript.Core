@@ -369,7 +369,7 @@ describe("CollectionUtils", () => {
 
         test(`when collections param is a list and has elements, it returns the length`, (): void => {
             // Arrange
-            const list = List(["test","test"]);
+            const list = List(["test", "test"]);
 
             // Act
             const result = CollectionUtils.length(list);
@@ -377,7 +377,7 @@ describe("CollectionUtils", () => {
             // Assert
             expect(result).toBe(list.size);
         });
-    })
+    });
 
     // #endregion length
 
@@ -523,7 +523,7 @@ describe("CollectionUtils", () => {
 
             // Assert
             expect(result).toBe(arr);
-        })
+        });
 
         it("When source array has 1 item it, then returns new array with 1 item", () => {
             // Arrange
@@ -531,12 +531,16 @@ describe("CollectionUtils", () => {
             const expected = ["replaced-test"];
 
             // Act
-            const result = CollectionUtils.replaceElementAt(arr, 2, "replaced-test");
+            const result = CollectionUtils.replaceElementAt(
+                arr,
+                2,
+                "replaced-test"
+            );
 
             // Assert
             expect(result).not.toBe(arr);
             expect(result).toStrictEqual(expected);
-        })
+        });
 
         it("When index is last element of source it, then returns new array with value at the end", () => {
             // Arrange
@@ -549,18 +553,22 @@ describe("CollectionUtils", () => {
             // Assert
             expect(result).not.toBe(arr);
             expect(result).toStrictEqual(expected);
-        })
+        });
 
         it("When index i < 0, then returns the source array", () => {
             // Arrange
             const arr = ["zero", "one", "two", "three", "four"];
 
             // Act
-            const result = CollectionUtils.replaceElementAt(arr, -1, "replaced");
+            const result = CollectionUtils.replaceElementAt(
+                arr,
+                -1,
+                "replaced"
+            );
 
             // Assert
             expect(result).toBe(arr);
-        })
+        });
     });
 
     // #endregion replaceElementAt
