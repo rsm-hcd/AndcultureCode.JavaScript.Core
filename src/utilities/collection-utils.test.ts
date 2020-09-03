@@ -3,6 +3,10 @@ import { CollectionUtils } from "./collection-utils";
 import { ResultRecord } from "../view-models/result-record";
 
 describe("CollectionUtils", () => {
+    // -----------------------------------------------------------------------------------------
+    // #region hasValues
+    // -----------------------------------------------------------------------------------------
+
     describe("hasValues", () => {
         test("when collections param is an array and has elements, it returns true", (): void => {
             // Arrange
@@ -108,7 +112,13 @@ describe("CollectionUtils", () => {
             // Assert
             expect(result).toBeTrue();
         });
-    }); // end hasValues
+    });
+
+    // #endregion hasValues
+
+    // -----------------------------------------------------------------------------------------
+    // #region isEmpty
+    // -----------------------------------------------------------------------------------------
 
     describe("isEmpty", () => {
         test(`when collections param is an array and has elements, it returns false`, (): void => {
@@ -213,7 +223,13 @@ describe("CollectionUtils", () => {
             // Assert
             expect(result).toBeFalse();
         });
-    }); // end isEmpty()
+    });
+
+    // #endregion isEmpty
+
+    // -----------------------------------------------------------------------------------------
+    // #region isNotEmpty
+    // -----------------------------------------------------------------------------------------
 
     describe("#isNotEmpty", () => {
         test(`when collections param is an array and has elements, it returns true`, (): void => {
@@ -320,7 +336,13 @@ describe("CollectionUtils", () => {
             // Assert
             expect(result).toBeTrue();
         });
-    }); // end isNotEmpty
+    });
+
+    // #endregion isNotEmpty
+
+    // -----------------------------------------------------------------------------------------
+    // #region length
+    // -----------------------------------------------------------------------------------------
 
     describe("#length", () => {
         test(`when collections param is an array and has elements, it returns the length`, (): void => {
@@ -331,7 +353,7 @@ describe("CollectionUtils", () => {
             const result = CollectionUtils.length(array);
 
             // Assert
-            expect(result).toBe(2);
+            expect(result).toBe(array.length);
         });
 
         test(`when collections param is null, it returns -1`, (): void => {
@@ -353,9 +375,16 @@ describe("CollectionUtils", () => {
             const result = CollectionUtils.length(list);
 
             // Assert
-            expect(result).toBe(2);
+            expect(result).toBe(list.size);
         });
     })
+
+    // #endregion length
+
+    // -----------------------------------------------------------------------------------------
+    // #region equalsBy
+    // -----------------------------------------------------------------------------------------
+
     describe("#equalsBy", () => {
         type TestType = { id: number };
         const selector = (t: TestType) => t.id;
@@ -420,6 +449,12 @@ describe("CollectionUtils", () => {
         });
     });
 
+    // #endregion equalsBy
+
+    // -----------------------------------------------------------------------------------------
+    // #region removeElementAt
+    // -----------------------------------------------------------------------------------------
+
     describe("#removeElementAt", () => {
         it("when index i < 0, returns source array", () => {
             // Arrange
@@ -459,6 +494,12 @@ describe("CollectionUtils", () => {
         });
     });
 
+    // #endregion removeElementAt
+
+    // -----------------------------------------------------------------------------------------
+    // #region replaceElementAt
+    // -----------------------------------------------------------------------------------------
+
     describe("#replaceElementAt", () => {
         it("Replaces element at specified index and returns a new array", () => {
             // Arrange
@@ -469,12 +510,8 @@ describe("CollectionUtils", () => {
             const result = CollectionUtils.replaceElementAt(arr, 1, "replaced");
 
             // Assert
-            const equals = CollectionUtils.equalsBy(
-                (s: string) => s,
-                result,
-                expected
-            );
-            expect(equals).toBe(true);
+            expect(result).not.toBe(arr);
+            expect(result).toStrictEqual(expected);
         });
 
         it("When source array has no values it, then returns the source array", () => {
@@ -497,12 +534,8 @@ describe("CollectionUtils", () => {
             const result = CollectionUtils.replaceElementAt(arr, 2, "replaced-test");
 
             // Assert
-            const equals = CollectionUtils.equalsBy(
-                (s: string) => s,
-                result,
-                expected
-            );
-            expect(equals).toBe(true);
+            expect(result).not.toBe(arr);
+            expect(result).toStrictEqual(expected);
         })
 
         it("When index is last element of source it, then returns new array with value at the end", () => {
@@ -514,12 +547,8 @@ describe("CollectionUtils", () => {
             const result = CollectionUtils.replaceElementAt(arr, 4, "replaced");
 
             // Assert
-            const equals = CollectionUtils.equalsBy(
-                (s: string) => s,
-                result,
-                expected
-            );
-            expect(equals).toBe(true);
+            expect(result).not.toBe(arr);
+            expect(result).toStrictEqual(expected);
         })
 
         it("When index i < 0, then returns the source array", () => {
@@ -533,4 +562,6 @@ describe("CollectionUtils", () => {
             expect(result).toBe(arr);
         })
     });
+
+    // #endregion replaceElementAt
 });
