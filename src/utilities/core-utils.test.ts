@@ -26,8 +26,7 @@ describe("CoreUtils", () => {
             const result = CoreUtils.enumToArray(null);
 
             // Assert
-            expect(result).toHaveLength(0);
-            expect(result).toBeInstanceOf(Array);
+            expect(result).toBeEmpty();
         });
     });
 
