@@ -19,6 +19,7 @@ describe("CoreUtils", () => {
             // Assert
             expect(result).toContain(testEnum.first);
             expect(result).toContain(testEnum.second);
+            expect(result).toHaveLength(2);
         });
 
         test("when given null enum, returns empty array", () => {
@@ -49,13 +50,19 @@ describe("CoreUtils", () => {
                 testEnum.second,
                 testEnum.third,
             ];
+            let resultArray = [];
 
             // Act
-            const result = CoreUtils.getRandomEnum(testEnum);
+            const singleResult = CoreUtils.getRandomEnum(testEnum);
+            for (let i = 0; i < 50; i++) {
+                resultArray.push(CoreUtils.getRandomEnum(testEnum));
+            }
+            resultArray.sort();
 
             // Assert
-            expect(result).not.toBeNull();
-            expect(expectedValues).toContain(result);
+            expect(resultArray).not.toBeNull();
+            expect(expectedValues).toContain(singleResult);
+            expect(resultArray[0]).not.toEqual(resultArray[resultArray.length - 1]);
         });
 
         test("when given enum and exclude element, returns random value and not excluded element", () => {
@@ -65,15 +72,16 @@ describe("CoreUtils", () => {
                 second = "Second",
                 third = "Third",
             }
-            const expectedValues = [testEnum.first, testEnum.second];
+            const resultArray = [];
 
             // Act
-            const result = CoreUtils.getRandomEnum(testEnum, testEnum.third);
+            for (let i = 0; i < 50; i++) {
+                resultArray.push(CoreUtils.getRandomEnum(testEnum, testEnum.third));
+            }
 
             // Assert
-            expect(result).not.toBeNull();
-            expect(expectedValues).toContain(result);
-            expect(result).not.toBe(testEnum.third);
+            expect(resultArray).not.toBeEmpty();
+            expect(resultArray).not.toContain(testEnum.third);
         });
     });
 
