@@ -25,7 +25,7 @@
 
 • **key**: *TKey*
 
-*Defined in [src/interfaces/key-value-pair.ts:2](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/3e5d1e9/src/interfaces/key-value-pair.ts#L2)*
+*Defined in [src/interfaces/key-value-pair.ts:2](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/bc87312/src/interfaces/key-value-pair.ts#L2)*
 
 ___
 
@@ -33,4 +33,4 @@ ___
 
 • **value**: *TValue*
 
-*Defined in [src/interfaces/key-value-pair.ts:3](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/3e5d1e9/src/interfaces/key-value-pair.ts#L3)*
+*Defined in [src/interfaces/key-value-pair.ts:3](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/bc87312/src/interfaces/key-value-pair.ts#L3)*

@@ -62,7 +62,9 @@ describe("CoreUtils", () => {
             // Assert
             expect(resultArray).not.toBeNull();
             expect(expectedValues).toContain(singleResult);
-            expect(resultArray[0]).not.toEqual(resultArray[resultArray.length - 1]);
+            expect(resultArray[0]).not.toEqual(
+                resultArray[resultArray.length - 1]
+            );
         });
 
         test("when given enum and exclude element, returns random value and not excluded element", () => {
@@ -76,7 +78,9 @@ describe("CoreUtils", () => {
 
             // Act
             for (let i = 0; i < 50; i++) {
-                resultArray.push(CoreUtils.getRandomEnum(testEnum, testEnum.third));
+                resultArray.push(
+                    CoreUtils.getRandomEnum(testEnum, testEnum.third)
+                );
             }
 
             // Assert
