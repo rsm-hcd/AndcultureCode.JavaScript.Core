@@ -1,27 +1,36 @@
 {
   "compilerOptions": {
-      "allowJs": true,
-      "allowSyntheticDefaultImports": true,
-      "baseUrl": "./src",
-      "declaration": true,
-      "emitDecoratorMetadata": true,
-      "esModuleInterop": true,
-      "experimentalDecorators": true,
-      "forceConsistentCasingInFileNames": false,
-      "inlineSourceMap": true,
-      "inlineSources": true,
-      "lib": ["dom", "dom.iterable", "esnext"],
-      "jsx": "react",
-      "module": "commonjs",
-      "moduleResolution": "node",
-      "noUnusedParameters": true,
-      "outDir": "./dist",
-      "removeComments": true,
-      "resolveJsonModule": true,
-      "skipLibCheck": true,
-      "strict": true,
-      "target": "es5"
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": false,
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "jsx": "react",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noUnusedParameters": true,
+    "outDir": "./dist",
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "es5"
   },
-  "exclude": ["**/*.test.*", "node_modules", "src/setupTests.ts"],
-  "include": ["src"]
+  "exclude": [
+    "**/*.test.*",
+    "node_modules",
+    "src/setupTests.ts"
+  ],
+  "include": [
+    "src"
+  ]
 }
