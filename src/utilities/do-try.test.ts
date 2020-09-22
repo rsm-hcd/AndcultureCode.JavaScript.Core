@@ -29,7 +29,6 @@ describe("do-try.ts", () => {
             // since jest is using node promises, it fails the test as soon as the error
             // is thrown if we actually await the promise. expect.assertions(5) waits for
             // 5 assertions to be called.
-            expect.assertions(5);
             Do.try(workload).catch(
                 (result?: ResultRecord<any>, error?: any) => {
                     expect(result).not.toBeUndefined();
@@ -39,6 +38,7 @@ describe("do-try.ts", () => {
                     expect(result!.errors).toHaveLength(1);
                 }
             );
+            expect.assertions(5);
         });
 
         it("When passed an async method and a Javascript error occurs, then passes along regular error", async () => {
@@ -48,7 +48,6 @@ describe("do-try.ts", () => {
             };
 
             // Act & Assert
-            expect.assertions(3);
             Do.try(workload).catch(
                 (result?: ResultRecord<any>, error?: any) => {
                     expect(error).not.toBeNull();
@@ -56,6 +55,7 @@ describe("do-try.ts", () => {
                     expect(result).toBeUndefined();
                 }
             );
+            expect.assertions(3);
         });
 
         it("When no errors occur, then catch handler is never called", async () => {
