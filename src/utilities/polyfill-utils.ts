@@ -7,18 +7,18 @@
  */
 /* tslint:disable */
 const registerPromiseFinallyPolyfill = () => {
-  Promise.prototype.finally =
-      Promise.prototype.finally ??
-      function(callback: () => any) {
-          // @ts-ignore
-          return this.then(
-              (value: any) => Promise.resolve(callback()).then(() => value),
-              (reason: any) =>
-                  Promise.resolve(callback()).then(() => {
-                      throw reason;
-                  })
-          );
-      };
+    Promise.prototype.finally =
+        Promise.prototype.finally ??
+        function(callback: () => any) {
+            // @ts-ignore
+            return this.then(
+                (value: any) => Promise.resolve(callback()).then(() => value),
+                (reason: any) =>
+                    Promise.resolve(callback()).then(() => {
+                        throw reason;
+                    })
+            );
+        };
 };
 /* tslint:enable */
 
@@ -29,7 +29,7 @@ const registerPromiseFinallyPolyfill = () => {
 // -----------------------------------------------------------------------------------------
 
 const PolyfillUtils = {
-  registerPromiseFinallyPolyfill,
+    registerPromiseFinallyPolyfill,
 };
 
 export { PolyfillUtils };

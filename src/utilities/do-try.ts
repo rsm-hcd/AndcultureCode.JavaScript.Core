@@ -164,7 +164,7 @@ class DoSync<TResourceType, TReturnVal = void> {
     public static try<TResourceType, TReturnVal = void>(
         workload: SyncWorkload<TReturnVal>
     ) {
-        return new DoSync(workload);
+        return new DoSync<TResourceType, TReturnVal>(workload);
     }
 }
 
