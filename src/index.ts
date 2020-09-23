@@ -54,8 +54,12 @@ export { User } from "./interfaces/user";
 // #region Types
 // -----------------------------------------------------------------------------------------
 
+export { AsyncWorkload } from "./types/do-try-types";
 export { CancellablePromise } from "./types/cancellable-promise";
+export { CatchHandler } from "./types/do-try-types";
 export { Constructor } from "./types/constructor";
+export { FinallyHandler } from "./types/do-try-types";
+export { SyncWorkload } from "./types/do-try-types";
 
 // #endregion Types
 
@@ -65,8 +69,11 @@ export { Constructor } from "./types/constructor";
 
 export { CollectionUtils } from "./utilities/collection-utils";
 export { CoreUtils } from "./utilities/core-utils";
+export { Do } from "./utilities/do-try";
+export { DoSync } from "./utilities/do-try";
 export { EnvironmentUtils } from "./utilities/environment-utils";
 export { LocalizationUtils } from "./utilities/localization-utils";
+export { PolyfillUtils } from "./utilities/polyfill-utils";
 export { PromiseFactory } from "./utilities/promise-factory";
 export { RecordUtils } from "./utilities/record-utils";
 export { RouteUtils } from "./utilities/route-utils";
