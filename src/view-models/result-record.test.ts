@@ -2,6 +2,8 @@ import { ResultRecord } from "./result-record";
 import { ErrorType } from "../enumerations/error-type";
 import { ResultErrorRecord } from "./result-error-record";
 import { ResultError } from "../interfaces/result-error";
+import { Factory } from "rosie";
+import { FactoryType } from "../tests/factories/factory-type";
 
 describe("ResultRecord", () => {
     // -----------------------------------------------------------------------------------------
@@ -202,6 +204,97 @@ describe("ResultRecord", () => {
     }); // end errorCount
 
     // #endregion errorCount
+
+    // -----------------------------------------------------------------------------------------
+    // #region doesNotHaveErrors
+    // -----------------------------------------------------------------------------------------
+
+    describe("doesNotHaveErrors", () => {
+        test("when errors is null, returns true", () => {
+            expect(
+                Factory.build<ResultRecord<any>>(FactoryType.ResultRecord, {
+                    errors: (null as unknown) as any[],
+                }).doesNotHaveErrors()
+            ).toBeTrue();
+        });
+
+        test("when errors is undefined, returns true", () => {
+            expect(
+                Factory.build<ResultRecord<any>>(FactoryType.ResultRecord, {
+                    errors: undefined,
+                }).doesNotHaveErrors()
+            ).toBeTrue();
+        });
+
+        test("when errors is empty array, returns true", () => {
+            expect(
+                Factory.build<ResultRecord<any>>(FactoryType.ResultRecord, {
+                    errors: [],
+                }).doesNotHaveErrors()
+            ).toBeTrue();
+        });
+
+        test("when errors is not empty, returns false", () => {
+            // Arrange
+            const errors = [
+                Factory.build<ResultErrorRecord>(FactoryType.ResultErrorRecord),
+            ];
+
+            // Act & Assert
+            expect(
+                Factory.build<ResultRecord<any>>(FactoryType.ResultRecord, {
+                    errors: errors,
+                }).doesNotHaveErrors()
+            ).toBeFalse();
+        });
+    }); // end doesNotHaveErrors
+
+    // -----------------------------------------------------------------------------------------
+    // #region getErrorMessageFor
+    // -----------------------------------------------------------------------------------------
+
+    describe("#getErrorMessageFor", () => {
+        it("When no error exists for given key, then returns undefined", () => {
+            // Arrange
+            const errorKey = "TEST_ERROR_KEY";
+            const resultRecord = Factory.build<ResultRecord<any>>(
+                FactoryType.ResultRecord,
+                {
+                    errors: [],
+                }
+            );
+
+            // Act
+            const result = resultRecord.getErrorMessageFor(errorKey);
+
+            // Assert
+            expect(result).toBeNil();
+        });
+
+        it("When an error exists for the given key, then returns the error message", () => {
+            // Arrange
+            const errorKey = "TEST_ERROR_KEY";
+            const resultRecord = Factory.build<ResultRecord<any>>(
+                FactoryType.ResultRecord,
+                {
+                    errors: [
+                        Factory.build<ResultErrorRecord>(
+                            FactoryType.ResultErrorRecord,
+                            {
+                                key: errorKey,
+                            }
+                        ),
+                    ],
+                }
+            );
+
+            // Act
+            const result = resultRecord.getErrorMessageFor(errorKey);
+
+            // Assert
+            expect(result).not.toBeNil();
+        });
+    }); // end getErrorMessageFor
 
     // -----------------------------------------------------------------------------------------
     // #region hasErrorFor
