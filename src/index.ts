@@ -39,6 +39,7 @@ export { Culture } from "./interfaces/culture";
 export { CultureParams } from "./interfaces/culture-params";
 export { Entity } from "./interfaces/entity";
 export { KeyValuePair } from "./interfaces/key-value-pair";
+export { PagedQuery } from "./interfaces/paged-query";
 export { PagedResult } from "./interfaces/paged-result";
 export { Result } from "./interfaces/result";
 export { ResultError } from "./interfaces/result-error";
