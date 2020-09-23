@@ -61,6 +61,14 @@ class ResultRecord<T> extends Record(defaultValues) implements Result<T> {
     }
 
     /**
+     * Evaluates whether there are any errors on the result
+     * @returns {boolean}
+     */
+    public doesNotHaveErrors(): boolean {
+        return !this.hasErrors();
+    }
+
+    /**
      * Returns total number of errors
      */
     public errorCount(): number {
@@ -69,6 +77,14 @@ class ResultRecord<T> extends Record(defaultValues) implements Result<T> {
         }
 
         return CollectionUtils.hasValues(this.errors) ? this.errors.length : 0;
+    }
+
+    /**
+     * Returns an error message for a given key
+     * @param key
+     */
+    public getErrorMessageFor(key: string): string | undefined {
+        return this.errors?.find((e) => e.key === key)?.message;
     }
 
     /**
