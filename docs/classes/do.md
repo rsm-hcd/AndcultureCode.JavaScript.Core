@@ -40,7 +40,7 @@ the Do.catch method takes a callback where the parameters are:
 
 \+ **new Do**(`workload`: [AsyncWorkload](../README.md#asyncworkload)‹TReturnVal›): *[Do](do.md)*
 
-*Defined in [src/utilities/do-try.ts:20](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ba68f27/src/utilities/do-try.ts#L20)*
+*Defined in [src/utilities/do-try.ts:20](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/2a85dc3/src/utilities/do-try.ts#L20)*
 
 **Parameters:**
 
@@ -56,7 +56,7 @@ Name | Type |
 
 • **promise**: *Promise‹TReturnVal›*
 
-*Defined in [src/utilities/do-try.ts:20](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ba68f27/src/utilities/do-try.ts#L20)*
+*Defined in [src/utilities/do-try.ts:20](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/2a85dc3/src/utilities/do-try.ts#L20)*
 
 ## Methods
 
@@ -64,7 +64,7 @@ Name | Type |
 
 ▸ **catch**(`errorHandler`: [CatchHandler](../README.md#catchhandler)‹TResourceType›): *[Do](do.md)‹TResourceType, TReturnVal›*
 
-*Defined in [src/utilities/do-try.ts:35](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ba68f27/src/utilities/do-try.ts#L35)*
+*Defined in [src/utilities/do-try.ts:35](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/2a85dc3/src/utilities/do-try.ts#L35)*
 
 Handle errors from the workload.
 If errors are in the shape of a {ResultRecord},
@@ -88,7 +88,7 @@ ___
 
 ▸ **finally**(`finallyHandler`: [FinallyHandler](../README.md#finallyhandler)): *[Do](do.md)‹TResourceType, TReturnVal›*
 
-*Defined in [src/utilities/do-try.ts:56](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ba68f27/src/utilities/do-try.ts#L56)*
+*Defined in [src/utilities/do-try.ts:56](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/2a85dc3/src/utilities/do-try.ts#L56)*
 
 Run some handler when the function completes, whether the
 catch() was hit or not.
@@ -109,7 +109,7 @@ ___
 
 ▸ **getAwaiter**(): *Promise‹TReturnVal›*
 
-*Defined in [src/utilities/do-try.ts:70](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ba68f27/src/utilities/do-try.ts#L70)*
+*Defined in [src/utilities/do-try.ts:70](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/2a85dc3/src/utilities/do-try.ts#L70)*
 
 Awaits the internal promise being tracked by the Do instance,
 and returns the result. This way, you can await a Do.try
@@ -126,7 +126,7 @@ ___
 
 ▸ **try**<**TResourceType**, **TReturnVal**>(`workload`: [AsyncWorkload](../README.md#asyncworkload)‹TReturnVal›): *[Do](do.md)‹TResourceType, TReturnVal›*
 
-*Defined in [src/utilities/do-try.ts:81](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ba68f27/src/utilities/do-try.ts#L81)*
+*Defined in [src/utilities/do-try.ts:81](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/2a85dc3/src/utilities/do-try.ts#L81)*
 
 Static factory method for Do class.
 Start a workload (sync or async) that you can then
