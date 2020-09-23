@@ -21,10 +21,12 @@ export { BaseSpanishSpain } from "./cultures/base-spanish-spain";
 // #region Enumerations
 // -----------------------------------------------------------------------------------------
 
+export { AnchorTargetTypes } from "./enumerations/anchor-target-types";
 export { ContentType } from "./enumerations/content-type";
 export { ErrorType } from "./enumerations/error-type";
 export { HttpHeader } from "./enumerations/http-header";
 export { HttpVerb } from "./enumerations/http-verb";
+export { UnitOfTime } from "./enumerations/unit-of-time";
 
 // #endregion Enumerations
 
@@ -37,6 +39,7 @@ export { Culture } from "./interfaces/culture";
 export { CultureParams } from "./interfaces/culture-params";
 export { Entity } from "./interfaces/entity";
 export { KeyValuePair } from "./interfaces/key-value-pair";
+export { PagedQuery } from "./interfaces/paged-query";
 export { PagedResult } from "./interfaces/paged-result";
 export { Result } from "./interfaces/result";
 export { ResultError } from "./interfaces/result-error";
