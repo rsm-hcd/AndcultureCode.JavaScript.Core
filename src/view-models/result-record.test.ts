@@ -2,10 +2,8 @@ import { ResultRecord } from "./result-record";
 import { ErrorType } from "../enumerations/error-type";
 import { ResultErrorRecord } from "./result-error-record";
 import { ResultError } from "../interfaces/result-error";
-import {
-    ResultRecordFactory,
-    ResultErrorRecordFactory,
-} from "../tests/factories";
+import { Factory } from "rosie";
+import { FactoryType } from "../tests/factories/factory-type";
 
 describe("ResultRecord", () => {
     // -----------------------------------------------------------------------------------------
@@ -214,7 +212,7 @@ describe("ResultRecord", () => {
     describe("doesNotHaveErrors", () => {
         test("when errors is null, returns true", () => {
             expect(
-                ResultRecordFactory.build({
+                Factory.build<ResultRecord<any>>(FactoryType.ResultRecord, {
                     errors: (null as unknown) as any[],
                 }).doesNotHaveErrors()
             ).toBeTrue();
@@ -222,7 +220,7 @@ describe("ResultRecord", () => {
 
         test("when errors is undefined, returns true", () => {
             expect(
-                ResultRecordFactory.build({
+                Factory.build<ResultRecord<any>>(FactoryType.ResultRecord, {
                     errors: undefined,
                 }).doesNotHaveErrors()
             ).toBeTrue();
@@ -230,17 +228,21 @@ describe("ResultRecord", () => {
 
         test("when errors is empty array, returns true", () => {
             expect(
-                ResultRecordFactory.build({ errors: [] }).doesNotHaveErrors()
+                Factory.build<ResultRecord<any>>(FactoryType.ResultRecord, {
+                    errors: [],
+                }).doesNotHaveErrors()
             ).toBeTrue();
         });
 
         test("when errors is not empty, returns false", () => {
             // Arrange
-            const errors = ResultErrorRecordFactory.buildList(1);
+            const errors = [
+                Factory.build<ResultErrorRecord>(FactoryType.ResultErrorRecord),
+            ];
 
             // Act & Assert
             expect(
-                ResultRecordFactory.build({
+                Factory.build<ResultRecord<any>>(FactoryType.ResultRecord, {
                     errors: errors,
                 }).doesNotHaveErrors()
             ).toBeFalse();
@@ -255,9 +257,12 @@ describe("ResultRecord", () => {
         it("When no error exists for given key, then returns undefined", () => {
             // Arrange
             const errorKey = "TEST_ERROR_KEY";
-            const resultRecord = ResultRecordFactory.build({
-                errors: [],
-            });
+            const resultRecord = Factory.build<ResultRecord<any>>(
+                FactoryType.ResultRecord,
+                {
+                    errors: [],
+                }
+            );
 
             // Act
             const result = resultRecord.getErrorMessageFor(errorKey);
@@ -269,11 +274,19 @@ describe("ResultRecord", () => {
         it("When an error exists for the given key, then returns the error message", () => {
             // Arrange
             const errorKey = "TEST_ERROR_KEY";
-            const resultRecord = ResultRecordFactory.build({
-                errors: ResultErrorRecordFactory.buildList(1, {
-                    key: errorKey,
-                }),
-            });
+            const resultRecord = Factory.build<ResultRecord<any>>(
+                FactoryType.ResultRecord,
+                {
+                    errors: [
+                        Factory.build<ResultErrorRecord>(
+                            FactoryType.ResultErrorRecord,
+                            {
+                                key: errorKey,
+                            }
+                        ),
+                    ],
+                }
+            );
 
             // Act
             const result = resultRecord.getErrorMessageFor(errorKey);
