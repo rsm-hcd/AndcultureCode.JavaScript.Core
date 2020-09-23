@@ -16,7 +16,7 @@ describe("do-try.ts", () => {
             // Arrange
             const workload = async () => {
                 throw ResultRecordFactory.build({
-                    errors: [ResultErrorRecordFactory.build()],
+                    errors: ResultErrorRecordFactory.buildList(1),
                 });
             };
 
@@ -136,7 +136,7 @@ describe("do-try.ts", () => {
             // Arrange
             const workload = () => {
                 throw ResultRecordFactory.build({
-                    errors: [ResultErrorRecordFactory.build()],
+                    errors: ResultErrorRecordFactory.buildList(1),
                 });
             };
 

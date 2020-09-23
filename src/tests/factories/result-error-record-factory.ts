@@ -1,4 +1,4 @@
-import { ResultErrorRecord } from "../..//view-models/result-error-record";
+import { ResultErrorRecord } from "../../view-models/result-error-record";
 import { Factory } from "rosie";
 import { FactoryType } from "./factory-type";
 
