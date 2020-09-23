@@ -21,10 +21,12 @@ export { BaseSpanishSpain } from "./cultures/base-spanish-spain";
 // #region Enumerations
 // -----------------------------------------------------------------------------------------
 
+export { AnchorTargetTypes } from "./enumerations/anchor-target-types";
 export { ContentType } from "./enumerations/content-type";
 export { ErrorType } from "./enumerations/error-type";
 export { HttpHeader } from "./enumerations/http-header";
 export { HttpVerb } from "./enumerations/http-verb";
+export { UnitOfTime } from "./enumerations/unit-of-time";
 
 // #endregion Enumerations
 
@@ -37,6 +39,7 @@ export { Culture } from "./interfaces/culture";
 export { CultureParams } from "./interfaces/culture-params";
 export { Entity } from "./interfaces/entity";
 export { KeyValuePair } from "./interfaces/key-value-pair";
+export { PagedQuery } from "./interfaces/paged-query";
 export { PagedResult } from "./interfaces/paged-result";
 export { Result } from "./interfaces/result";
 export { ResultError } from "./interfaces/result-error";
@@ -51,8 +54,12 @@ export { User } from "./interfaces/user";
 // #region Types
 // -----------------------------------------------------------------------------------------
 
+export { AsyncWorkload } from "./types/do-try-types";
 export { CancellablePromise } from "./types/cancellable-promise";
+export { CatchHandler } from "./types/do-try-types";
 export { Constructor } from "./types/constructor";
+export { FinallyHandler } from "./types/do-try-types";
+export { SyncWorkload } from "./types/do-try-types";
 
 // #endregion Types
 
@@ -62,8 +69,11 @@ export { Constructor } from "./types/constructor";
 
 export { CollectionUtils } from "./utilities/collection-utils";
 export { CoreUtils } from "./utilities/core-utils";
+export { Do } from "./utilities/do-try";
+export { DoSync } from "./utilities/do-try";
 export { EnvironmentUtils } from "./utilities/environment-utils";
 export { LocalizationUtils } from "./utilities/localization-utils";
+export { PolyfillUtils } from "./utilities/polyfill-utils";
 export { PromiseFactory } from "./utilities/promise-factory";
 export { RecordUtils } from "./utilities/record-utils";
 export { RouteUtils } from "./utilities/route-utils";
