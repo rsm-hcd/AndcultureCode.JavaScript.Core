@@ -3,6 +3,7 @@ import { Record } from "immutable";
 import { ResultErrorRecord } from "./result-error-record";
 import { Result } from "../interfaces/result";
 import { ErrorType } from "../enumerations/error-type";
+import { RecordUtils } from "../utilities/record-utils";
 
 const defaultValues: Result<any> = {
     errors: undefined,
@@ -19,15 +20,13 @@ class ResultRecord<T> extends Record(defaultValues) implements Result<T> {
 
     constructor(params?: Result<T>) {
         if (params == null) {
-            params = {};
+            params = Object.assign(defaultValues, params);
         }
 
         if (CollectionUtils.hasValues(params.errors)) {
             const errors = params.errors as any[];
             params.errors = errors.map((error) =>
-                error instanceof ResultErrorRecord
-                    ? error
-                    : new ResultErrorRecord(error)
+                RecordUtils.ensureRecord(error, ResultErrorRecord)
             );
         }
 
@@ -62,7 +61,6 @@ class ResultRecord<T> extends Record(defaultValues) implements Result<T> {
 
     /**
      * Evaluates whether there are any errors on the result
-     * @returns {boolean}
      */
     public doesNotHaveErrors(): boolean {
         return !this.hasErrors();
@@ -72,11 +70,11 @@ class ResultRecord<T> extends Record(defaultValues) implements Result<T> {
      * Returns total number of errors
      */
     public errorCount(): number {
-        if (this.errors == null) {
+        if (this.doesNotHaveErrors()) {
             return 0;
         }
 
-        return CollectionUtils.hasValues(this.errors) ? this.errors.length : 0;
+        return this.errors!.length;
     }
 
     /**
@@ -88,15 +86,17 @@ class ResultRecord<T> extends Record(defaultValues) implements Result<T> {
     }
 
     /**
-     * Determines if the result contains an error for the supplied key
-     * @param key error key for which to search
+     * Determines if the result contains an error for the supplied key(s)
+     * @param keys error keys for which to search
      */
-    public hasErrorFor(key: string): boolean {
-        if (this.errors == null || !this.hasErrors()) {
+    public hasErrorFor(...keys: string[]): boolean {
+        if (this.doesNotHaveErrors()) {
             return false;
         }
 
-        return this.errors.some((e) => e.key === key);
+        return this.errors!.some((error: ResultErrorRecord) =>
+            keys.some((key: string) => key === error.key)
+        );
     }
 
     /**
@@ -110,7 +110,7 @@ class ResultRecord<T> extends Record(defaultValues) implements Result<T> {
      * Map all errors into simple string array
      */
     public listErrors(): string[] {
-        if (!this.hasErrors()) {
+        if (this.doesNotHaveErrors()) {
             return [];
         }
         const errors = this.errors as ResultErrorRecord[];
@@ -121,9 +121,10 @@ class ResultRecord<T> extends Record(defaultValues) implements Result<T> {
      * Map all error messages into a simple string array.
      */
     public listErrorMessages(): string[] {
-        if (!this.hasErrors()) {
+        if (this.doesNotHaveErrors()) {
             return [];
         }
+
         const errors = this.errors as ResultErrorRecord[];
         return errors
             .map((e) => String(e.message) || "")
@@ -134,7 +135,7 @@ class ResultRecord<T> extends Record(defaultValues) implements Result<T> {
      * Merges new values into the record and returns a new instance.
      *
      * @param {Partial<Result<T>>} values
-     * @returns {ResultRecord}
+     * @returns {ResultRecord<T>}
      * @memberof ResultRecord
      */
     public with(values: Partial<Result<T>>): ResultRecord<T> {
@@ -169,9 +170,9 @@ class ResultRecord<T> extends Record(defaultValues) implements Result<T> {
 }
 
 // -----------------------------------------------------------------------------------------
-// #region Export
+// #region Exports
 // -----------------------------------------------------------------------------------------
 
 export { ResultRecord };
 
-// #endregion Export
+// #endregion Exports
