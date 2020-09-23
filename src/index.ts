@@ -21,10 +21,12 @@ export { BaseSpanishSpain } from "./cultures/base-spanish-spain";
 // #region Enumerations
 // -----------------------------------------------------------------------------------------
 
+export { AnchorTargetTypes } from "./enumerations/anchor-target-types";
 export { ContentType } from "./enumerations/content-type";
 export { ErrorType } from "./enumerations/error-type";
 export { HttpHeader } from "./enumerations/http-header";
 export { HttpVerb } from "./enumerations/http-verb";
+export { UnitOfTime } from "./enumerations/unit-of-time";
 
 // #endregion Enumerations
 
