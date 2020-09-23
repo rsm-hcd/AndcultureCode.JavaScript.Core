@@ -16,12 +16,7 @@ describe("do-try.ts", () => {
             // Arrange
             const workload = async () => {
                 throw ResultRecordFactory.build({
-                    errors: [
-                        ResultErrorRecordFactory.build({
-                            key: "TEST_ERROR_KEY",
-                            message: "This is an error",
-                        }),
-                    ],
+                    errors: [ResultErrorRecordFactory.build()],
                 });
             };
 
@@ -141,12 +136,7 @@ describe("do-try.ts", () => {
             // Arrange
             const workload = () => {
                 throw ResultRecordFactory.build({
-                    errors: [
-                        ResultErrorRecordFactory.build({
-                            key: "TEST_ERROR_KEY",
-                            message: "This is an error",
-                        }),
-                    ],
+                    errors: [ResultErrorRecordFactory.build()],
                 });
             };
 
