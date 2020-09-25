@@ -76,7 +76,7 @@ describe("do-try.ts", () => {
         it("When no errors occur, then catch handler is never called", async () => {
             // Arrange
             const catchHandler = jest.fn();
-            const workload = async () => jest.fn()();
+            const workload = async () => {};
 
             // Act
             await Do.try(workload)
@@ -90,7 +90,7 @@ describe("do-try.ts", () => {
         it("When no errors occur, then finally handler is still called", async () => {
             // Arrange
             const finallyHandler = jest.fn();
-            const workload = async () => jest.fn()();
+            const workload = async () => {};
 
             // Act
             await Do.try(workload)
