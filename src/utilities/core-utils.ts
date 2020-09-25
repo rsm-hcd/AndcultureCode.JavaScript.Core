@@ -92,6 +92,14 @@ const _sleep = (milliseconds: number, debug: boolean = false) => {
     );
 };
 
+const _sleepSync = (milliseconds: number) => {
+    let now = Date.now(),
+        start = now;
+    while (now - start < milliseconds) {
+        now = Date.now();
+    }
+};
+
 /**
  * Creates a timer instance that when stopped will supply elapsed time in milliseconds.
  * Useful for benchmarking or providing counters
@@ -134,6 +142,7 @@ export const CoreUtils = {
     objectToArray: _objectToArray,
     range: _.range,
     sleep: _sleep,
+    sleepSync: _sleepSync,
     throttle: _.throttle,
     timer: _timer,
     times: _.times,

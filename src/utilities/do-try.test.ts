@@ -7,11 +7,33 @@ import {
 import { Do, DoSync } from "../utilities/do-try";
 import { PolyfillUtils } from "../utilities/polyfill-utils";
 import { StubResourceRecord } from "../tests/stubs/stub-resource-record";
+import { CoreUtils } from "../utilities/core-utils";
 
 PolyfillUtils.registerPromiseFinallyPolyfill();
 
 describe("do-try.ts", () => {
     describe("Do.try", () => {
+        it("When a catch handler exists, finally is called after catch resolves", async () => {
+            // Arrange
+            let catchRanAtTimestamp: number;
+            let finallyRanAtTimestamp: number;
+            const workload = async () => {
+                throw Error();
+            };
+
+            // Act
+            await Do.try(workload)
+                .catch(() => {
+                    catchRanAtTimestamp = Date.now();
+                    CoreUtils.sleepSync(1000);
+                })
+                .finally(() => (finallyRanAtTimestamp = Date.now()))
+                .getAwaiter();
+
+            // Assert
+            expect(catchRanAtTimestamp).toBeLessThan(finallyRanAtTimestamp);
+        });
+
         it("When validation errors occur (i.e. error is a ResultRecord), then passes typed errors to catch handler", async () => {
             // Arrange
             const workload = async () => {
@@ -54,7 +76,7 @@ describe("do-try.ts", () => {
         it("When no errors occur, then catch handler is never called", async () => {
             // Arrange
             const catchHandler = jest.fn();
-            const workload = jest.fn();
+            const workload = async () => jest.fn()();
 
             // Act
             await Do.try(workload)
@@ -68,7 +90,7 @@ describe("do-try.ts", () => {
         it("When no errors occur, then finally handler is still called", async () => {
             // Arrange
             const finallyHandler = jest.fn();
-            const workload = jest.fn();
+            const workload = async () => jest.fn()();
 
             // Act
             await Do.try(workload)
