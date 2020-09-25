@@ -97,8 +97,8 @@ const _sleep = (milliseconds: number, debug: boolean = false) => {
  * @param milliseconds the delay
  */
 const _sleepSync = (milliseconds: number) => {
-    let now = Date.now(),
-        start = now;
+    let now = Date.now();
+    const start = now;
     while (now - start < milliseconds) {
         now = Date.now();
     }
