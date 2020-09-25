@@ -92,6 +92,10 @@ const _sleep = (milliseconds: number, debug: boolean = false) => {
     );
 };
 
+/**
+ * Block execution for specified number of milliseconds, synchronously.
+ * @param milliseconds the delay
+ */
 const _sleepSync = (milliseconds: number) => {
     let now = Date.now(),
         start = now;
