@@ -93,6 +93,18 @@ const _sleep = (milliseconds: number, debug: boolean = false) => {
 };
 
 /**
+ * Block execution for specified number of milliseconds, synchronously.
+ * @param milliseconds the delay
+ */
+const _sleepSync = (milliseconds: number) => {
+    let now = Date.now();
+    const start = now;
+    while (now - start < milliseconds) {
+        now = Date.now();
+    }
+};
+
+/**
  * Creates a timer instance that when stopped will supply elapsed time in milliseconds.
  * Useful for benchmarking or providing counters
  * @param name Useful name to identify the timer
@@ -134,6 +146,7 @@ export const CoreUtils = {
     objectToArray: _objectToArray,
     range: _.range,
     sleep: _sleep,
+    sleepSync: _sleepSync,
     throttle: _.throttle,
     timer: _timer,
     times: _.times,

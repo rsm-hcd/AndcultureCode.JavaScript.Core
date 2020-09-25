@@ -17,10 +17,10 @@ import {
  * - error?: any -- if it's a Javascript error, will not be null
  */
 class Do<TResourceType, TReturnVal = void> {
-    private readonly promise: Promise<TReturnVal>;
+    private promise: Promise<TReturnVal>;
 
     private constructor(workload: AsyncWorkload<TReturnVal>) {
-        this.promise = Promise.resolve(workload());
+        this.promise = workload();
     }
 
     /**
@@ -35,14 +35,14 @@ class Do<TResourceType, TReturnVal = void> {
     public catch(
         errorHandler: CatchHandler<TResourceType>
     ): Do<TResourceType, TReturnVal> {
-        this.promise.catch((err: any) => {
+        this.promise = this.promise.catch((err: any) => {
             if (err instanceof ResultRecord) {
                 errorHandler(err, undefined);
                 return;
             }
 
             errorHandler(undefined, err);
-        });
+        }) as Promise<TReturnVal>;
 
         return this;
     }
@@ -56,7 +56,7 @@ class Do<TResourceType, TReturnVal = void> {
     public finally(
         finallyHandler: FinallyHandler
     ): Do<TResourceType, TReturnVal> {
-        this.promise.finally(finallyHandler);
+        this.promise = this.promise.finally(finallyHandler);
         return this;
     }
 
