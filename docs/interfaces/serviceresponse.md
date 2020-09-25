@@ -27,7 +27,7 @@
 
 • **result**? : *[ResultRecord](../classes/resultrecord.md)‹T›*
 
-*Defined in [src/interfaces/service-response.ts:8](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/2a85dc3/src/interfaces/service-response.ts#L8)*
+*Defined in [src/interfaces/service-response.ts:8](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/0b0f3de/src/interfaces/service-response.ts#L8)*
 
 Result object containing detailed response information,
 such as; errors, result data, etc...
@@ -38,7 +38,7 @@ ___
 
 • **resultObject**? : *T*
 
-*Defined in [src/interfaces/service-response.ts:14](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/2a85dc3/src/interfaces/service-response.ts#L14)*
+*Defined in [src/interfaces/service-response.ts:14](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/0b0f3de/src/interfaces/service-response.ts#L14)*
 
 Convenience property to read result's nested record
 
@@ -48,7 +48,7 @@ ___
 
 • **resultObjects**? : *T[]*
 
-*Defined in [src/interfaces/service-response.ts:15](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/2a85dc3/src/interfaces/service-response.ts#L15)*
+*Defined in [src/interfaces/service-response.ts:15](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/0b0f3de/src/interfaces/service-response.ts#L15)*
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 • **results**? : *[ResultRecord](../classes/resultrecord.md)‹T[]›*
 
-*Defined in [src/interfaces/service-response.ts:9](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/2a85dc3/src/interfaces/service-response.ts#L9)*
+*Defined in [src/interfaces/service-response.ts:9](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/0b0f3de/src/interfaces/service-response.ts#L9)*
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 • **rowCount**: *number*
 
-*Defined in [src/interfaces/service-response.ts:22](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/2a85dc3/src/interfaces/service-response.ts#L22)*
+*Defined in [src/interfaces/service-response.ts:22](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/0b0f3de/src/interfaces/service-response.ts#L22)*
 
 Totoal possible records available for the initial service request. If greater
 than total results in this response, additional pages of results can be
@@ -76,6 +76,6 @@ ___
 
 • **status**: *number*
 
-*Defined in [src/interfaces/service-response.ts:27](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/2a85dc3/src/interfaces/service-response.ts#L27)*
+*Defined in [src/interfaces/service-response.ts:27](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/0b0f3de/src/interfaces/service-response.ts#L27)*
 
 HTTP status code of the response
