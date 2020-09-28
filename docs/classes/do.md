@@ -32,7 +32,12 @@ the Do.catch method takes a callback where the parameters are:
 * [catch](do.md#catch)
 * [finally](do.md#finally)
 * [getAwaiter](do.md#getawaiter)
+* [configure](do.md#static-configure)
 * [try](do.md#static-try)
+
+### Object literals
+
+* [config](do.md#static-private-config)
 
 ## Constructors
 
@@ -40,7 +45,7 @@ the Do.catch method takes a callback where the parameters are:
 
 \+ **new Do**(`workload`: [AsyncWorkload](../README.md#asyncworkload)‹TReturnVal›): *[Do](do.md)*
 
-*Defined in [src/utilities/do-try.ts:20](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/0b0f3de/src/utilities/do-try.ts#L20)*
+*Defined in [src/utilities/do-try.ts:23](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/utilities/do-try.ts#L23)*
 
 **Parameters:**
 
@@ -56,15 +61,15 @@ Name | Type |
 
 • **promise**: *Promise‹TReturnVal›*
 
-*Defined in [src/utilities/do-try.ts:20](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/0b0f3de/src/utilities/do-try.ts#L20)*
+*Defined in [src/utilities/do-try.ts:19](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/utilities/do-try.ts#L19)*
 
 ## Methods
 
 ###  catch
 
-▸ **catch**(`errorHandler`: [CatchHandler](../README.md#catchhandler)‹TResourceType›): *[Do](do.md)‹TResourceType, TReturnVal›*
+▸ **catch**(`errorHandler`: [CatchResultHandler](../README.md#catchresulthandler)‹TResourceType›): *[Do](do.md)‹TResourceType, TReturnVal›*
 
-*Defined in [src/utilities/do-try.ts:35](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/0b0f3de/src/utilities/do-try.ts#L35)*
+*Defined in [src/utilities/do-try.ts:46](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/utilities/do-try.ts#L46)*
 
 Handle errors from the workload.
 If errors are in the shape of a {ResultRecord},
@@ -76,7 +81,7 @@ you'll get an {any} as the second parameter.
 
 Name | Type | Description |
 ------ | ------ | ------ |
-`errorHandler` | [CatchHandler](../README.md#catchhandler)‹TResourceType› | handle errors, either as a {ResultRecord} or {any} |
+`errorHandler` | [CatchResultHandler](../README.md#catchresulthandler)‹TResourceType› | handle errors, either as a {ResultRecord} or {any} |
 
 **Returns:** *[Do](do.md)‹TResourceType, TReturnVal›*
 
@@ -88,7 +93,7 @@ ___
 
 ▸ **finally**(`finallyHandler`: [FinallyHandler](../README.md#finallyhandler)): *[Do](do.md)‹TResourceType, TReturnVal›*
 
-*Defined in [src/utilities/do-try.ts:56](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/0b0f3de/src/utilities/do-try.ts#L56)*
+*Defined in [src/utilities/do-try.ts:75](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/utilities/do-try.ts#L75)*
 
 Run some handler when the function completes, whether the
 catch() was hit or not.
@@ -109,7 +114,7 @@ ___
 
 ▸ **getAwaiter**(): *Promise‹TReturnVal›*
 
-*Defined in [src/utilities/do-try.ts:70](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/0b0f3de/src/utilities/do-try.ts#L70)*
+*Defined in [src/utilities/do-try.ts:89](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/utilities/do-try.ts#L89)*
 
 Awaits the internal promise being tracked by the Do instance,
 and returns the result. This way, you can await a Do.try
@@ -122,11 +127,29 @@ the result of the promise.
 
 ___
 
+### `Static` configure
+
+▸ **configure**(`config`: [DoTryConfig](../interfaces/dotryconfig.md)): *void*
+
+*Defined in [src/utilities/do-try.ts:65](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/utilities/do-try.ts#L65)*
+
+Sets the global configuration object for class {Do}
+
+**Parameters:**
+
+Name | Type | Description |
+------ | ------ | ------ |
+`config` | [DoTryConfig](../interfaces/dotryconfig.md) | the {DoTryConfig} object to set  |
+
+**Returns:** *void*
+
+___
+
 ### `Static` try
 
 ▸ **try**<**TResourceType**, **TReturnVal**>(`workload`: [AsyncWorkload](../README.md#asyncworkload)‹TReturnVal›): *[Do](do.md)‹TResourceType, TReturnVal›*
 
-*Defined in [src/utilities/do-try.ts:81](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/0b0f3de/src/utilities/do-try.ts#L81)*
+*Defined in [src/utilities/do-try.ts:100](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/utilities/do-try.ts#L100)*
 
 Static factory method for Do class.
 Start a workload (sync or async) that you can then
@@ -147,3 +170,17 @@ Name | Type | Description |
 **Returns:** *[Do](do.md)‹TResourceType, TReturnVal›*
 
 a new instance of Do
+
+## Object literals
+
+### `Static` `Private` config
+
+### ▪ **config**: *object*
+
+*Defined in [src/utilities/do-try.ts:21](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/utilities/do-try.ts#L21)*
+
+###  defaultErrorHandler
+
+• **defaultErrorHandler**: *undefined* = undefined
+
+*Defined in [src/utilities/do-try.ts:22](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/utilities/do-try.ts#L22)*

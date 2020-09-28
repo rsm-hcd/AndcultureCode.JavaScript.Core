@@ -29,7 +29,12 @@
 * [catch](dosync.md#catch)
 * [execute](dosync.md#execute)
 * [finally](dosync.md#finally)
+* [configure](dosync.md#static-configure)
 * [try](dosync.md#static-try)
+
+### Object literals
+
+* [config](dosync.md#static-private-config)
 
 ## Constructors
 
@@ -37,7 +42,7 @@
 
 \+ **new DoSync**(`workload`: [SyncWorkload](../README.md#syncworkload)‹TReturnVal›): *[DoSync](dosync.md)*
 
-*Defined in [src/utilities/do-try.ts:97](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/0b0f3de/src/utilities/do-try.ts#L97)*
+*Defined in [src/utilities/do-try.ts:120](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/utilities/do-try.ts#L120)*
 
 **Parameters:**
 
@@ -53,7 +58,7 @@ Name | Type |
 
 • **catchHandler**? : *undefined | function*
 
-*Defined in [src/utilities/do-try.ts:96](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/0b0f3de/src/utilities/do-try.ts#L96)*
+*Defined in [src/utilities/do-try.ts:115](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/utilities/do-try.ts#L115)*
 
 ___
 
@@ -61,7 +66,7 @@ ___
 
 • **finallyHandler**? : *[FinallyHandler](../README.md#finallyhandler)*
 
-*Defined in [src/utilities/do-try.ts:97](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/0b0f3de/src/utilities/do-try.ts#L97)*
+*Defined in [src/utilities/do-try.ts:116](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/utilities/do-try.ts#L116)*
 
 ___
 
@@ -69,15 +74,15 @@ ___
 
 • **workload**: *[SyncWorkload](../README.md#syncworkload)‹TReturnVal›*
 
-*Defined in [src/utilities/do-try.ts:95](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/0b0f3de/src/utilities/do-try.ts#L95)*
+*Defined in [src/utilities/do-try.ts:114](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/utilities/do-try.ts#L114)*
 
 ## Methods
 
 ###  catch
 
-▸ **catch**(`errorHandler`: [CatchHandler](../README.md#catchhandler)‹TResourceType›): *[DoSync](dosync.md)‹TResourceType, TReturnVal›*
+▸ **catch**(`errorHandler`: [CatchResultHandler](../README.md#catchresulthandler)‹TResourceType›): *[DoSync](dosync.md)‹TResourceType, TReturnVal›*
 
-*Defined in [src/utilities/do-try.ts:111](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/0b0f3de/src/utilities/do-try.ts#L111)*
+*Defined in [src/utilities/do-try.ts:134](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/utilities/do-try.ts#L134)*
 
 Add a catch handler to the DoSync call chain.
 If errors are in the shape of a {ResultRecord},
@@ -89,7 +94,7 @@ you'll get an {any} as the second parameter.
 
 Name | Type | Description |
 ------ | ------ | ------ |
-`errorHandler` | [CatchHandler](../README.md#catchhandler)‹TResourceType› | handle errors, either as a {ResultRecord} or {any}  |
+`errorHandler` | [CatchResultHandler](../README.md#catchresulthandler)‹TResourceType› | handle errors, either as a {ResultRecord} or {any}  |
 
 **Returns:** *[DoSync](dosync.md)‹TResourceType, TReturnVal›*
 
@@ -99,7 +104,7 @@ ___
 
 ▸ **execute**(): *TReturnVal | undefined*
 
-*Defined in [src/utilities/do-try.ts:131](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/0b0f3de/src/utilities/do-try.ts#L131)*
+*Defined in [src/utilities/do-try.ts:162](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/utilities/do-try.ts#L162)*
 
 Execute the entire DoSync call chain. For the synchronous version, i.e. DoSync,
 you must manually call .execute() for the call chain to be executed.
@@ -114,7 +119,7 @@ ___
 
 ▸ **finally**(`finallyHandler`: [FinallyHandler](../README.md#finallyhandler)): *[DoSync](dosync.md)‹TResourceType, TReturnVal›*
 
-*Defined in [src/utilities/do-try.ts:147](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/0b0f3de/src/utilities/do-try.ts#L147)*
+*Defined in [src/utilities/do-try.ts:185](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/utilities/do-try.ts#L185)*
 
 Run some handler when the function completes, whether the
 catch() was hit or not.
@@ -131,11 +136,29 @@ this
 
 ___
 
+### `Static` configure
+
+▸ **configure**(`config`: [DoTryConfig](../interfaces/dotryconfig.md)): *void*
+
+*Defined in [src/utilities/do-try.ts:153](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/utilities/do-try.ts#L153)*
+
+Sets the global configuration for class {DySync}.
+
+**Parameters:**
+
+Name | Type | Description |
+------ | ------ | ------ |
+`config` | [DoTryConfig](../interfaces/dotryconfig.md) | the {DoTryConfig} object to set  |
+
+**Returns:** *void*
+
+___
+
 ### `Static` try
 
 ▸ **try**<**TResourceType**, **TReturnVal**>(`workload`: [SyncWorkload](../README.md#syncworkload)‹TReturnVal›): *[DoSync](dosync.md)‹TResourceType, TReturnVal›*
 
-*Defined in [src/utilities/do-try.ts:159](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/0b0f3de/src/utilities/do-try.ts#L159)*
+*Defined in [src/utilities/do-try.ts:197](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/utilities/do-try.ts#L197)*
 
 Static factory method for DoSync. Creates a new DoSync
 with the given workload.
@@ -153,3 +176,17 @@ Name | Type | Description |
 `workload` | [SyncWorkload](../README.md#syncworkload)‹TReturnVal› |   |
 
 **Returns:** *[DoSync](dosync.md)‹TResourceType, TReturnVal›*
+
+## Object literals
+
+### `Static` `Private` config
+
+### ▪ **config**: *object*
+
+*Defined in [src/utilities/do-try.ts:118](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/utilities/do-try.ts#L118)*
+
+###  defaultErrorHandler
+
+• **defaultErrorHandler**: *undefined* = undefined
+
+*Defined in [src/utilities/do-try.ts:119](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/utilities/do-try.ts#L119)*
