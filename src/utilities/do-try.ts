@@ -1,11 +1,9 @@
 import { ResultRecord } from "../view-models/result-record";
-import {
-    AsyncWorkload,
-    CatchHandler,
-    DoTryConfig,
-    FinallyHandler,
-    SyncWorkload,
-} from "../types/do-try-types";
+import { DoTryConfig } from "../interfaces/do-try-config";
+import { AsyncWorkload } from "../types/async-workload";
+import { CatchResultHandler } from "../types/catch-result-handler";
+import { FinallyHandler } from "../types/finally-handler";
+import { SyncWorkload } from "../types/sync-workload";
 
 // -----------------------------------------------------------------------------------------
 // #region Do
@@ -46,7 +44,7 @@ class Do<TResourceType, TReturnVal = void> {
      * @returns this
      */
     public catch(
-        errorHandler: CatchHandler<TResourceType>
+        errorHandler: CatchResultHandler<TResourceType>
     ): Do<TResourceType, TReturnVal> {
         this.promise = this.promise.catch((err: any) => {
             if (err instanceof ResultRecord) {
@@ -134,7 +132,7 @@ class DoSync<TResourceType, TReturnVal = void> {
      * @param errorHandler handle errors, either as a {ResultRecord} or {any}
      */
     public catch(
-        errorHandler: CatchHandler<TResourceType>
+        errorHandler: CatchResultHandler<TResourceType>
     ): DoSync<TResourceType, TReturnVal> {
         this.catchHandler = (err: any) => {
             if (err instanceof ResultRecord) {

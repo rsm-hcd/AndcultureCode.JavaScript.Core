@@ -8,7 +8,7 @@ import { Do, DoSync } from "../utilities/do-try";
 import { PolyfillUtils } from "../utilities/polyfill-utils";
 import { StubResourceRecord } from "../tests/stubs/stub-resource-record";
 import { CoreUtils } from "../utilities/core-utils";
-import { CatchHandler } from "../types/do-try-types";
+import { CatchResultHandler } from "../types/catch-result-handler";
 
 PolyfillUtils.registerPromiseFinallyPolyfill();
 
@@ -123,7 +123,7 @@ describe("do-try.ts", () => {
     describe("Do.configure", () => {
         it("When defaultErrorHandler configured and catch() is in call chain, then defaultErrorHandler is still executed", async () => {
             // Arrange
-            const defaultErrorHandler: CatchHandler<any> = jest.fn();
+            const defaultErrorHandler: CatchResultHandler<any> = jest.fn();
             Do.configure({ defaultErrorHandler });
             const catchHandler = jest.fn();
             const workload = async () => {
@@ -142,7 +142,7 @@ describe("do-try.ts", () => {
 
         it("When defaultErrorHandler configured and no catch() is in call chain, the defaultErrorHandler is still executed", async () => {
             // Arrange
-            const defaultErrorHandler: CatchHandler<any> = jest.fn();
+            const defaultErrorHandler: CatchResultHandler<any> = jest.fn();
             Do.configure({ defaultErrorHandler });
             const workload = async () => {
                 throw Error();
@@ -245,7 +245,7 @@ describe("do-try.ts", () => {
     describe("DoSync.configure", () => {
         it("When defaultErrorHandler configured and catch() in call chain, then defaultErrorHandler is still executed", () => {
             // Arrange
-            const defaultErrorHandler: CatchHandler<any> = jest.fn();
+            const defaultErrorHandler: CatchResultHandler<any> = jest.fn();
             DoSync.configure({ defaultErrorHandler });
             const catchHandler = jest.fn();
             const workload = () => {
@@ -264,7 +264,7 @@ describe("do-try.ts", () => {
 
         it("When defaultErrorHandler configured and no catch() is in call chain, the defaultErrorHandler is still executed", () => {
             // Arrange
-            const defaultErrorHandler: CatchHandler<any> = jest.fn();
+            const defaultErrorHandler: CatchResultHandler<any> = jest.fn();
             DoSync.configure({ defaultErrorHandler });
             const workload = () => {
                 throw Error();
