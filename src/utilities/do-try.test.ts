@@ -8,6 +8,7 @@ import { Do, DoSync } from "../utilities/do-try";
 import { PolyfillUtils } from "../utilities/polyfill-utils";
 import { StubResourceRecord } from "../tests/stubs/stub-resource-record";
 import { CoreUtils } from "../utilities/core-utils";
+import { CatchHandler } from "../types/do-try-types";
 
 PolyfillUtils.registerPromiseFinallyPolyfill();
 
@@ -119,6 +120,42 @@ describe("do-try.ts", () => {
         });
     });
 
+    describe("Do.configure", () => {
+        it("When defaultErrorHandler configured and no catch() in call chain, then defaultErrorHandler is still executed", async () => {
+            // Arrange
+            const defaultErrorHandler: CatchHandler<any> = jest.fn();
+            Do.configure({ defaultErrorHandler });
+            const catchHandler = jest.fn();
+            const workload = async () => {
+                throw Error();
+            };
+
+            // Act & Assert
+            Do.try(workload)
+                .catch(catchHandler)
+                .finally(() => {
+                    expect(catchHandler).toHaveBeenCalled();
+                    expect(defaultErrorHandler).toHaveBeenCalled();
+                });
+            expect.assertions(2);
+        });
+
+        it("When defaultErrorHandler configured and catch() is in call chain, the defaultErrorHandler is still executed", async () => {
+            // Arrange
+            const defaultErrorHandler: CatchHandler<any> = jest.fn();
+            Do.configure({ defaultErrorHandler });
+            const workload = async () => {
+                throw Error();
+            };
+
+            // Act & Assert
+            Do.try(workload).finally(() => {
+                expect(defaultErrorHandler).toHaveBeenCalled();
+            });
+            expect.assertions(1);
+        });
+    });
+
     describe("DoSync.try", () => {
         it("When no errors occur, then .execute() returns the workload return value", () => {
             // Arrange
@@ -202,6 +239,42 @@ describe("do-try.ts", () => {
             // Assert
             expect(result).toBeInstanceOf(StubResourceRecord);
             expect(finallyHandler).toHaveBeenCalled();
+        });
+    });
+
+    describe("DoSync.configure", () => {
+        it("When defaultErrorHandler configured and no catch() in call chain, then defaultErrorHandler is still executed", () => {
+            // Arrange
+            const defaultErrorHandler: CatchHandler<any> = jest.fn();
+            DoSync.configure({ defaultErrorHandler });
+            const catchHandler = jest.fn();
+            const workload = () => {
+                throw Error();
+            };
+
+            // Act
+            DoSync.try(workload)
+                .catch(catchHandler)
+                .execute();
+
+            // Assert
+            expect(catchHandler).toHaveBeenCalled();
+            expect(defaultErrorHandler).toHaveBeenCalled();
+        });
+
+        it("When defaultErrorHandler configured and catch() is in call chain, the defaultErrorHandler is still executed", () => {
+            // Arrange
+            const defaultErrorHandler: CatchHandler<any> = jest.fn();
+            DoSync.configure({ defaultErrorHandler });
+            const workload = () => {
+                throw Error();
+            };
+
+            // Act
+            DoSync.try(workload).execute();
+
+            // Assert
+            expect(defaultErrorHandler).toHaveBeenCalled();
         });
     });
 });
