@@ -121,7 +121,7 @@ describe("do-try.ts", () => {
     });
 
     describe("Do.configure", () => {
-        it("When defaultErrorHandler configured and no catch() in call chain, then defaultErrorHandler is still executed", async () => {
+        it("When defaultErrorHandler configured and catch() is in call chain, then defaultErrorHandler is still executed", async () => {
             // Arrange
             const defaultErrorHandler: CatchHandler<any> = jest.fn();
             Do.configure({ defaultErrorHandler });
@@ -140,7 +140,7 @@ describe("do-try.ts", () => {
             expect.assertions(2);
         });
 
-        it("When defaultErrorHandler configured and catch() is in call chain, the defaultErrorHandler is still executed", async () => {
+        it("When defaultErrorHandler configured and no catch() is in call chain, the defaultErrorHandler is still executed", async () => {
             // Arrange
             const defaultErrorHandler: CatchHandler<any> = jest.fn();
             Do.configure({ defaultErrorHandler });
@@ -243,7 +243,7 @@ describe("do-try.ts", () => {
     });
 
     describe("DoSync.configure", () => {
-        it("When defaultErrorHandler configured and no catch() in call chain, then defaultErrorHandler is still executed", () => {
+        it("When defaultErrorHandler configured and catch() in call chain, then defaultErrorHandler is still executed", () => {
             // Arrange
             const defaultErrorHandler: CatchHandler<any> = jest.fn();
             DoSync.configure({ defaultErrorHandler });
@@ -262,7 +262,7 @@ describe("do-try.ts", () => {
             expect(defaultErrorHandler).toHaveBeenCalled();
         });
 
-        it("When defaultErrorHandler configured and catch() is in call chain, the defaultErrorHandler is still executed", () => {
+        it("When defaultErrorHandler configured and no catch() is in call chain, the defaultErrorHandler is still executed", () => {
             // Arrange
             const defaultErrorHandler: CatchHandler<any> = jest.fn();
             DoSync.configure({ defaultErrorHandler });
