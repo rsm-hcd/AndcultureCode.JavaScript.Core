@@ -54,12 +54,12 @@ export { User } from "./interfaces/user";
 // #region Types
 // -----------------------------------------------------------------------------------------
 
-export { AsyncWorkload } from "./types/do-try-types";
+export { AsyncWorkload } from "./types/async-workload";
 export { CancellablePromise } from "./types/cancellable-promise";
-export { CatchHandler } from "./types/do-try-types";
+export { CatchResultHandler } from "./types/catch-result-handler";
 export { Constructor } from "./types/constructor";
-export { FinallyHandler } from "./types/do-try-types";
-export { SyncWorkload } from "./types/do-try-types";
+export { FinallyHandler } from "./types/finally-handler";
+export { SyncWorkload } from "./types/sync-workload";
 
 // #endregion Types
 

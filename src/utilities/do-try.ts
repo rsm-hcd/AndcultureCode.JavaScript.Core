@@ -1,10 +1,9 @@
 import { ResultRecord } from "../view-models/result-record";
-import {
-    AsyncWorkload,
-    SyncWorkload,
-    CatchHandler,
-    FinallyHandler,
-} from "../types/do-try-types";
+import { DoTryConfig } from "../interfaces/do-try-config";
+import { AsyncWorkload } from "../types/async-workload";
+import { CatchResultHandler } from "../types/catch-result-handler";
+import { FinallyHandler } from "../types/finally-handler";
+import { SyncWorkload } from "../types/sync-workload";
 
 // -----------------------------------------------------------------------------------------
 // #region Do
@@ -19,8 +18,20 @@ import {
 class Do<TResourceType, TReturnVal = void> {
     private promise: Promise<TReturnVal>;
 
+    private static config: DoTryConfig = {
+        defaultErrorHandler: undefined,
+    };
+
     private constructor(workload: AsyncWorkload<TReturnVal>) {
-        this.promise = workload();
+        this.promise = workload().catch((err: any) => {
+            if (err instanceof ResultRecord) {
+                Do.config.defaultErrorHandler?.(err, undefined);
+                throw err; // rethrow so it doesn't interrupt call chain
+            }
+
+            Do.config.defaultErrorHandler?.(undefined, err);
+            throw err; // rethrow so it doesn't interrupt call chain
+        });
     }
 
     /**
@@ -33,7 +44,7 @@ class Do<TResourceType, TReturnVal = void> {
      * @returns this
      */
     public catch(
-        errorHandler: CatchHandler<TResourceType>
+        errorHandler: CatchResultHandler<TResourceType>
     ): Do<TResourceType, TReturnVal> {
         this.promise = this.promise.catch((err: any) => {
             if (err instanceof ResultRecord) {
@@ -45,6 +56,14 @@ class Do<TResourceType, TReturnVal = void> {
         }) as Promise<TReturnVal>;
 
         return this;
+    }
+
+    /**
+     * Sets the global configuration object for class {Do}
+     * @param config the {DoTryConfig} object to set
+     */
+    public static configure(config: DoTryConfig): void {
+        Do.config = config;
     }
 
     /**
@@ -96,6 +115,10 @@ class DoSync<TResourceType, TReturnVal = void> {
     private catchHandler?: (err: any) => void;
     private finallyHandler?: FinallyHandler;
 
+    private static config: DoTryConfig = {
+        defaultErrorHandler: undefined,
+    };
+
     private constructor(workload: SyncWorkload<TReturnVal>) {
         this.workload = workload;
     }
@@ -109,7 +132,7 @@ class DoSync<TResourceType, TReturnVal = void> {
      * @param errorHandler handle errors, either as a {ResultRecord} or {any}
      */
     public catch(
-        errorHandler: CatchHandler<TResourceType>
+        errorHandler: CatchResultHandler<TResourceType>
     ): DoSync<TResourceType, TReturnVal> {
         this.catchHandler = (err: any) => {
             if (err instanceof ResultRecord) {
@@ -124,6 +147,14 @@ class DoSync<TResourceType, TReturnVal = void> {
     }
 
     /**
+     * Sets the global configuration for class {DySync}.
+     * @param config the {DoTryConfig} object to set
+     */
+    public static configure(config: DoTryConfig): void {
+        DoSync.config = config;
+    }
+
+    /**
      * Execute the entire DoSync call chain. For the synchronous version, i.e. DoSync,
      * you must manually call .execute() for the call chain to be executed.
      * @returns TReturnVal the value returned from the workload, or undefined if an error occurred.
@@ -132,6 +163,13 @@ class DoSync<TResourceType, TReturnVal = void> {
         try {
             return this.workload();
         } catch (e) {
+            if (e instanceof ResultRecord) {
+                DoSync.config.defaultErrorHandler?.(e, undefined);
+                this.catchHandler?.(e);
+                return;
+            }
+
+            DoSync.config.defaultErrorHandler?.(undefined, e);
             this.catchHandler?.(e);
         } finally {
             this.finallyHandler?.();
