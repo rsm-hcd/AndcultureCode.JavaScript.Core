@@ -9,6 +9,7 @@ import { FactoryType as AndcultureCodeFactoryType } from "andculturecode-javascr
 import { ResultRecord } from "../view-models/result-record";
 import axios from "axios";
 import "jest-extended";
+import { PagedResult } from "../interfaces/paged-result";
 
 describe("ServiceUtils", () => {
     // -----------------------------------------------------------------------------------------
@@ -271,6 +272,30 @@ describe("ServiceUtils", () => {
     // -----------------------------------------------------------------------------------------
 
     describe("mapPagedAxiosResponse", () => {
+        test("when resultObject is empty array, it properly maps an empty array to resultObjects", () => {
+            // Arrange
+            const response = Factory.build<AxiosResponse>(
+                AndcultureCodeFactoryType.AxiosResponse,
+                {
+                    data: {
+                        resultObject: [],
+                        rowCount: 0,
+                    },
+                }
+            );
+
+            // Act
+            const result = ServiceUtils.mapPagedAxiosResponse(
+                StubResourceRecord,
+                response
+            );
+
+            // Assert
+            expect(result.resultObjects).not.toBeNil();
+            expect(result.resultObjects).toBeArray();
+            expect(result.resultObjects).toHaveLength(0);
+        });
+
         test("when axiosResponse is undefined, it returns null", () => {
             // Arrange & Act
             const result = ServiceUtils.mapPagedAxiosResponse(

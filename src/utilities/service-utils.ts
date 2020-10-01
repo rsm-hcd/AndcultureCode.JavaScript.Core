@@ -129,7 +129,7 @@ const _mapPagedAxiosResponse = <TRecord>(
     // Ensure result data is wrapped within records
     let resultObjects;
     let rowCount = 0;
-    if (CollectionUtils.hasValues(data?.resultObject)) {
+    if (Array.isArray(data?.resultObject)) {
         resultObjects = data.resultObject!.map((r: any) => new recordType(r));
 
         // For now, record rowCount as the number of resultObjects we got back. We'll check the
