@@ -45,17 +45,20 @@ describe("ScrollUtils", () => {
         });
 
         it("when element is retrieved, then attempts to scroll", () => {
-            // Arrange
+            //Arrange
             const element = document.createElement("div");
-            element.setAttribute("id", "#test");
-            const location: any = { hash: "#test" }
-            const elementSpy: any = jest.spyOn(element, "scrollIntoView");
+            const scrollIntoViewMock = jest.fn();
+            element.scrollIntoView = scrollIntoViewMock;
+            jest.spyOn(document, "getElementById").mockImplementation(
+                () => element
+            );
+            const location: any = { hash: "#test" };
 
             // Act
             ScrollUtils.scrollToHash(location);
 
             // Assert
-            expect(elementSpy).toBeCalled();
+            expect(scrollIntoViewMock).toBeCalled();
         });
     });
 });

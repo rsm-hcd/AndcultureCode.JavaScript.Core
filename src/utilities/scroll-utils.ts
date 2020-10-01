@@ -79,7 +79,7 @@ const _scrollToHash = (
     }
 
     const id = location.hash.replace("#", "");
-    _scrollToElementById(id, options);
+    ScrollUtils.scrollToElementById(id, options);
 };
 
 // #endregion Functions
