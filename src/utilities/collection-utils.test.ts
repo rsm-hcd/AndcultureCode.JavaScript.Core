@@ -634,6 +634,7 @@ describe("CollectionUtils", () => {
             const array = [
                 { letter: "" },
                 { letter: "B" },
+                { letter: "" },
                 { letter: "A" },
                 { letter: "C" },
             ];
@@ -642,7 +643,23 @@ describe("CollectionUtils", () => {
                 { letter: "B" },
                 { letter: "C" },
                 { letter: "" },
+                { letter: "" },
             ];
+
+            // Act
+            const result = CollectionUtils.sortByString(array, selector);
+
+            // Assert
+            expect(result).toEqual(expected);
+        });
+
+        it("When strings are exactly equal, then returns array in same order", () => {
+            // Arrange
+            const array = [
+                { id: 1, letter: "A" },
+                { id: 2, letter: "A" },
+            ];
+            const expected = [...array];
 
             // Act
             const result = CollectionUtils.sortByString(array, selector);
