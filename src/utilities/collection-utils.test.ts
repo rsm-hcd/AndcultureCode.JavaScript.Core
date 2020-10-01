@@ -572,4 +572,107 @@ describe("CollectionUtils", () => {
     });
 
     // #endregion replaceElementAt
+
+    // -----------------------------------------------------------------------------------------
+    // #region sortByString
+    // -----------------------------------------------------------------------------------------
+
+    describe("#sortByString", () => {
+        type TestType = { letter: string };
+        const selector = (t: TestType) => t.letter;
+
+        it("Sorts an array by specified selector", () => {
+            // Arrange
+            const array = [
+                { letter: "E" },
+                { letter: "C" },
+                { letter: "A" },
+                { letter: "B" },
+                { letter: "D" },
+            ];
+            const expected = [
+                { letter: "A" },
+                { letter: "B" },
+                { letter: "C" },
+                { letter: "D" },
+                { letter: "E" },
+            ];
+
+            // Act
+            const result = CollectionUtils.sortByString(array, selector);
+
+            // Assert
+            expect(result).toEqual(expected);
+        });
+
+        it("Ignores case sensitivity when sorting", () => {
+            // Arrange
+            const array = [
+                { letter: "E" },
+                { letter: "c" },
+                { letter: "A" },
+                { letter: "b" },
+                { letter: "D" },
+            ];
+            const expected = [
+                { letter: "A" },
+                { letter: "b" },
+                { letter: "c" },
+                { letter: "D" },
+                { letter: "E" },
+            ];
+
+            // Act
+            const result = CollectionUtils.sortByString(array, selector);
+
+            // Assert
+            expect(result).toEqual(expected);
+        });
+
+        it("Puts empty string values at the end", () => {
+            // Arrange
+            const array = [
+                { letter: "" },
+                { letter: "B" },
+                { letter: "A" },
+                { letter: "C" },
+            ];
+            const expected = [
+                { letter: "A" },
+                { letter: "B" },
+                { letter: "C" },
+                { letter: "" },
+            ];
+
+            // Act
+            const result = CollectionUtils.sortByString(array, selector);
+
+            // Assert
+            expect(result).toEqual(expected);
+        });
+
+        it("When caseSensitive is true, then sorts alphabetically with capitals before lower case letters", () => {
+            // Arrange
+            const array = [
+                { letter: "A" },
+                { letter: "a" },
+                { letter: "B" },
+                { letter: "b" },
+            ];
+            const expected = [
+                { letter: "A" },
+                { letter: "B" },
+                { letter: "a" },
+                { letter: "b" },
+            ];
+
+            // Act
+            const result = CollectionUtils.sortByString(array, selector, true);
+
+            // Assert
+            expect(result).toEqual(expected);
+        });
+    });
+
+    // #endregion sortByString
 });

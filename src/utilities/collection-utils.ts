@@ -182,6 +182,45 @@ const _replaceElementAt = <T>(
     return [...source.slice(0, index), value, ...source.slice(index + 1)];
 };
 
+/**
+ * Sort an array of items alphabetically by one property of the item.
+ * @param array the source array of items
+ * @param selector function returning property to sort by from item
+ * @param caseSensitive whether to consider letter case when sorting
+ */
+const _sortByString = <T extends any>(
+    array: Array<T>,
+    selector: (element: T) => string,
+    caseSensitive: boolean = false
+) =>
+    array.sort((a: T, b: T) => {
+        let aString = selector(a);
+        let bString = selector(b);
+
+        if (!caseSensitive) {
+            aString = aString.toLowerCase();
+            bString = bString.toLowerCase();
+        }
+
+        if (aString === "" || aString === null) {
+            return 1;
+        }
+
+        if (bString === "" || bString === null) {
+            return -1;
+        }
+
+        if (aString === bString) {
+            return 0;
+        }
+
+        if (aString < bString) {
+            return -1;
+        }
+
+        return 1;
+    });
+
 // #endregion Private Methods
 
 // -----------------------------------------------------------------------------------------
@@ -201,6 +240,7 @@ export const CollectionUtils = {
     replaceElementAt: _replaceElementAt,
     sample: _.sample,
     sampleSize: _.sampleSize,
+    sortByString: _sortByString,
     take: _.take,
 };
 
