@@ -1,4 +1,5 @@
-import QueryString from "query-string";
+import QueryString, { StringifyOptions } from "query-string";
+import { QueryStringArrayFormat } from "../types/query-string-array-format";
 
 // -----------------------------------------------------------------------------------------
 // #region Constants
@@ -16,17 +17,33 @@ const _routeParamRegEx = /(:[a-z_-]*)/gi;
  * Appends the supplied query params object as a query string to path. Even if path is null.
  * @param path Existing path (can be null)
  * @param queryParams Object to transform into query string
+ * @param arrayFormat Format to serialize arrays to a query string with. Defaults to "index".
+ * @param arrayFormatSeparator Seaparator character to use if using arrayFormat="separator"
  */
-const appendQueryParams = (path: string, queryParams: any) => {
-    if (queryParams == null) {
-        return path;
-    }
-
+const appendQueryParams = (
+    path: string,
+    queryParams: any,
+    arrayFormat: QueryStringArrayFormat = "index",
+    arrayFormatSeparator: string | undefined = undefined
+) => {
     if (path == null) {
         path = "";
     }
 
-    const queryString = new URLSearchParams(queryParams).toString();
+    if (queryParams == null) {
+        return path;
+    }
+
+    let options: StringifyOptions = { arrayFormat };
+
+    // assign arrayFormatSeparator only if not null/undefined
+    // for some reason, if you define it when it's undefined,
+    // it comes through to query-string as the string "undefined"
+    if (arrayFormatSeparator != null) {
+        options = { ...options, arrayFormatSeparator };
+    }
+
+    const queryString = QueryString.stringify(queryParams, options);
 
     // If no query string could be parsed from the given query params, return the unmodified path.
     if (queryString.length === 0) {
@@ -83,7 +100,7 @@ const isAbsoluteUrl = (url: string): boolean =>
  */
 const queryStringToObject = <T>(
     queryString: string,
-    arrayFormat: "bracket" | "index" | "comma" = "index",
+    arrayFormat: QueryStringArrayFormat = "index",
     parseNumbers: boolean = true,
     parseBooleans: boolean = true
 ): T =>
