@@ -1,49 +1,11 @@
 import { ScrollUtils } from "./scroll-utils";
-import { expression } from "@babel/template";
-import { doc } from "prettier";
+import faker from "faker";
 
 describe("ScrollUtils", () => {
-
-    describe("scrollToHash", () => {
-        it("when location hash is empty, then returns", () => {
-            // Arrange
-            const location: any = { hash: "" };
-
-            // Act
-            const result = ScrollUtils.scrollToHash(location);
-
-            // Assert
-            expect(result).toBeUndefined();
-        });
-
-        it("when location is null, then returns", () => {
-            // Arrange & Act
-            const result = ScrollUtils.scrollToHash(null);
-
-            // Assert
-            expect(result).toBeUndefined();
-        });
-
-        it("when location is undefined, then returns", () => {
-            // Arrange & Act
-            const result = ScrollUtils.scrollToHash(undefined);
-
-            // Assert
-            expect(result).toBeUndefined();
-        });
-
-        it("when location hash has value, then attempts to retrieve element by id", () => {
-            // Arrange
-            const location: any = { hash: "#test" }
-            const documentSpy = jest.spyOn(document, "getElementById");
-
-            // Act
-            ScrollUtils.scrollToHash(location);
-
-            // Assert
-            expect(documentSpy).toBeCalled();
-        });
-
+    // -----------------------------------------------------------------------------------------
+    // #region scrollToElementById
+    // -----------------------------------------------------------------------------------------
+    describe("scrollToElementById", () => {
         it("when element is retrieved, then attempts to scroll", () => {
             //Arrange
             const element = document.createElement("div");
@@ -52,13 +14,59 @@ describe("ScrollUtils", () => {
             jest.spyOn(document, "getElementById").mockImplementation(
                 () => element
             );
-            const location: any = { hash: "#test" };
-
+            const elementId = faker.random.uuid();
             // Act
-            ScrollUtils.scrollToHash(location);
-
+            ScrollUtils.scrollToElementById(elementId);
             // Assert
             expect(scrollIntoViewMock).toBeCalled();
         });
+
+        test("when element is not found, it attempts to retrieve the element up to 50 times", () => {
+            // Arrange
+            // Act
+            // Assert
+        });
     });
+    // #endregion scrollToElementById
+    // -----------------------------------------------------------------------------------------
+    // #region scrollToHash
+    // -----------------------------------------------------------------------------------------
+    describe("scrollToHash", () => {
+        it("when location hash is empty, then returns", () => {
+            // Arrange
+            const location: any = { hash: "" };
+            // Act
+            const result = ScrollUtils.scrollToHash(location);
+            // Assert
+            expect(result).toBeUndefined();
+        });
+
+        it("when location is null, then returns", () => {
+            // Arrange & Act
+            const result = ScrollUtils.scrollToHash(null);
+            // Assert
+            expect(result).toBeUndefined();
+        });
+
+        it("when location is undefined, then returns", () => {
+            // Arrange & Act
+            const result = ScrollUtils.scrollToHash(undefined);
+            // Assert
+            expect(result).toBeUndefined();
+        });
+
+        it("when location hash has value, then calls scrollToElementById", () => {
+            // Arrange
+            const location: any = { hash: "#test" };
+            const scrollToElementByIdSpy = jest.spyOn(
+                ScrollUtils,
+                "scrollToElementById"
+            );
+            // Act
+            ScrollUtils.scrollToHash(location);
+            // Assert
+            expect(scrollToElementByIdSpy).toBeCalled();
+        });
+    });
+    // #endregion scrollToHash
 });
