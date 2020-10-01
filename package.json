@@ -8,13 +8,13 @@
         "url": "https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/issues"
     },
     "dependencies": {
+        "@types/lodash": "4.14.108",
         "axios": "0.19.2",
         "humanize-plus": "1.8.2",
         "i18next": "19.4.5",
         "immutable": "4.0.0-rc.12",
         "lodash": "4.17.19",
-        "query-string": "6.13.1",
-        "@types/lodash": "4.14.108"
+        "query-string": "6.13.1"
     },
     "description": "Common patterns, functions, etc... used when building react applications",
     "devDependencies": {
