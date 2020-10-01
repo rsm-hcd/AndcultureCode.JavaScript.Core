@@ -74,7 +74,7 @@ const _scrollToHash = (
     location: any,
     options: ScrollOptions = DefaultScrollOptions
 ) => {
-    if (StringUtils.isEmpty(location.hash)) {
+    if (StringUtils.isEmpty(location?.hash)) {
         return;
     }
 
@@ -89,7 +89,8 @@ const _scrollToHash = (
 // -----------------------------------------------------------------------------------------
 
 export const ScrollUtils = {
-    scrollToHash: _scrollToHash,
+    scrollToElementById: _scrollToElementById,
+    scrollToHash: _scrollToHash
 };
 
 // #endregion Exports
