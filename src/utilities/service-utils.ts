@@ -126,10 +126,19 @@ const _mapPagedAxiosResponse = <TRecord>(
     }
     const { data } = axiosResponse;
 
+    if (data?.resultObject == null) {
+        return {
+            results: new ResultRecord<TRecord[]>(data),
+            resultObjects: undefined,
+            rowCount: 0,
+            status: axiosResponse.status,
+        };
+    }
+
     // Ensure result data is wrapped within records
-    let resultObjects;
+    let resultObjects: Array<TRecord> = [];
     let rowCount = 0;
-    if (Array.isArray(data?.resultObject)) {
+    if (CollectionUtils.hasValues(data.resultObject)) {
         resultObjects = data.resultObject!.map((r: any) => new recordType(r));
 
         // For now, record rowCount as the number of resultObjects we got back. We'll check the
@@ -137,7 +146,7 @@ const _mapPagedAxiosResponse = <TRecord>(
         rowCount = resultObjects.length;
     }
 
-    if (data?.rowCount != null) {
+    if (data.rowCount != null) {
         rowCount = data.rowCount;
     }
 
