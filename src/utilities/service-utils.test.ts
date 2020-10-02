@@ -318,7 +318,7 @@ describe("ServiceUtils", () => {
             expect(result).toBeNull();
         });
 
-        test("when response.data is undefined, it returns the mapped resultObjects as undefined", () => {
+        test("when response.data is undefined, it returns the mapped resultObjects as empty array", () => {
             // Arrange
             const axiosResponse = Factory.build<AxiosResponse>(
                 AndcultureCodeFactoryType.AxiosResponse,
@@ -332,10 +332,10 @@ describe("ServiceUtils", () => {
             );
 
             // Assert
-            expect(result.resultObjects).toBeUndefined();
+            expect(result.resultObjects).toBeArrayOfSize(0);
         });
 
-        test("when response.data is null, it returns the mapped resultObjects as undefined", () => {
+        test("when response.data is null, it returns the mapped resultObjects as empty array", () => {
             // Arrange
             const axiosResponse = Factory.build<AxiosResponse>(
                 AndcultureCodeFactoryType.AxiosResponse,
@@ -349,10 +349,10 @@ describe("ServiceUtils", () => {
             );
 
             // Assert
-            expect(result.resultObjects).toBeUndefined();
+            expect(result.resultObjects).toBeArrayOfSize(0);
         });
 
-        test("when response.data.resultObject is undefined, it returns the mapped resultObjects as undefined", () => {
+        test("when response.data.resultObject is undefined, it returns the mapped resultObjects as empty array", () => {
             // Arrange
             const axiosResponse = Factory.build<AxiosResponse>(
                 AndcultureCodeFactoryType.AxiosResponse,
@@ -370,10 +370,10 @@ describe("ServiceUtils", () => {
             );
 
             // Assert
-            expect(result.resultObjects).toBeUndefined();
+            expect(result.resultObjects).toBeArrayOfSize(0);
         });
 
-        test("when response.data.resultObject is null, it returns the mapped resultObjects as undefined", () => {
+        test("when response.data.resultObject is null, it returns the mapped resultObjects as empty array", () => {
             // Arrange
             const axiosResponse = Factory.build<AxiosResponse>(
                 AndcultureCodeFactoryType.AxiosResponse,
@@ -391,7 +391,7 @@ describe("ServiceUtils", () => {
             );
 
             // Assert
-            expect(result.resultObjects).toBeUndefined();
+            expect(result.resultObjects).toBeArrayOfSize(0);
         });
 
         test("when response.data.rowCount is undefined, it returns rowCount equal to the resultObject list length", () => {
