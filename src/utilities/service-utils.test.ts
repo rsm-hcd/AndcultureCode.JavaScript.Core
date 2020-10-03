@@ -215,6 +215,29 @@ describe("ServiceUtils", () => {
             expect(result.resultObject).toBeUndefined();
         });
 
+        test("when response.data.resultObject is not null, it wraps the result object in a record.", () => {
+            // Arrange
+            const axiosResponse = Factory.build<AxiosResponse>(
+                AndcultureCodeFactoryType.AxiosResponse,
+                {
+                    data: {
+                        resultObject: {
+                            test: 1, // <--- Intentionally not stubbing the object with record properties to ensure they're added by mapAxiosResponse
+                        },
+                    },
+                }
+            );
+
+            // Act
+            const result = ServiceUtils.mapAxiosResponse(
+                StubResourceRecord,
+                axiosResponse
+            );
+
+            // Assert
+            expect(result.resultObject).toBeInstanceOf(StubResourceRecord);
+        });
+
         test("it returns rowCount as 1", () => {
             // Arrange
             const axiosResponse = Factory.build<AxiosResponse>(
