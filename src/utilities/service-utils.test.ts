@@ -9,6 +9,8 @@ import { FactoryType as AndcultureCodeFactoryType } from "andculturecode-javascr
 import { ResultRecord } from "../view-models/result-record";
 import axios from "axios";
 import "jest-extended";
+import { Record } from "immutable";
+import { Result } from "../interfaces/result";
 
 describe("ServiceUtils", () => {
     // -----------------------------------------------------------------------------------------
@@ -213,6 +215,30 @@ describe("ServiceUtils", () => {
 
             // Assert
             expect(result.resultObject).toBeUndefined();
+        });
+
+        test("when response.data.resultObject is not null, it wraps the result object in a record.", () => {
+            // Arrange
+            const resultObject: StubResourceRecord = Factory.build<
+                StubResourceRecord
+            >(FactoryType.StubResourceRecord);
+            const axiosResponse = Factory.build<AxiosResponse>(
+                AndcultureCodeFactoryType.AxiosResponse,
+                {
+                    data: {
+                        resultObject: resultObject,
+                    },
+                }
+            );
+
+            // Act
+            const result = ServiceUtils.mapAxiosResponse(
+                StubResourceRecord,
+                axiosResponse
+            );
+
+            // Assert
+            expect(result.resultObject).toEqual(resultObject);
         });
 
         test("it returns rowCount as 1", () => {
