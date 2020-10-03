@@ -235,9 +235,7 @@ describe("ServiceUtils", () => {
             );
 
             // Assert
-            expect(
-                result.resultObject instanceof StubResourceRecord
-            ).toBeTrue();
+            expect(result.resultObject).toBeInstanceOf(StubResourceRecord);
         });
 
         test("it returns rowCount as 1", () => {
