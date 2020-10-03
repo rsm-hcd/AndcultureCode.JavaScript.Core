@@ -9,8 +9,6 @@ import { FactoryType as AndcultureCodeFactoryType } from "andculturecode-javascr
 import { ResultRecord } from "../view-models/result-record";
 import axios from "axios";
 import "jest-extended";
-import { Record } from "immutable";
-import { Result } from "../interfaces/result";
 
 describe("ServiceUtils", () => {
     // -----------------------------------------------------------------------------------------
