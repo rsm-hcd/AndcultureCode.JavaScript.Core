@@ -1,4 +1,4 @@
-import { List } from "immutable";
+import Immutable from "immutable";
 import _ from "lodash";
 
 // -----------------------------------------------------------------------------------------
@@ -16,10 +16,10 @@ import _ from "lodash";
  * @returns true if both arrays contain all the same elements of the other,
  *          not considering order, false otherwise.
  */
-const _equalsBy = function<T, V>(
+const _equalsBy = function <T, V>(
     selector: (element: T) => V,
-    array1: Array<T> | List<any> | undefined,
-    array2: Array<T> | List<any> | undefined
+    array1: Array<T> | Immutable.List<any> | undefined,
+    array2: Array<T> | Immutable.List<any> | undefined
 ) {
     if (array1 == null) {
         return array2 == null;
@@ -51,15 +51,15 @@ const _equalsBy = function<T, V>(
  * Uses ... syntax to allow a single collection or multiple collections to be passed in, ie
  * CollectionUtils.hasValues([]) or CollectionUtils.hasValues([], [], [])
  *
- * @param {(...Array<(any[] | List<any>)} collections
+ * @param {(...Array<(any[] | Immutable.List<any>)} collections
  * @returns {boolean} False if `collections` is null/undefined, or every element is also null/undefined,
  * or has no sub-elements. True if any element has sub-elements.
  */
 const _hasValues = (
-    ...collections: Array<any[] | List<any> | undefined>
+    ...collections: Array<any[] | Immutable.List<any> | undefined>
 ): boolean => {
     let hasValues = false;
-    collections.forEach((collection: any[] | List<any> | undefined) => {
+    collections.forEach((collection: any[] | Immutable.List<any> | undefined) => {
         if (!_isEmpty(collection)) {
             hasValues = true;
         }
@@ -74,21 +74,21 @@ const _hasValues = (
  * Uses ... syntax to allow a single collection or multiple collections to be passed in, ie
  * CollectionUtils.isEmpty([]) or CollectionUtils.isEmpty([], [], [])
  *
- * @param {(...Array<(any[] | List<any>)} collections
+ * @param {(...Array<(any[] | Immutable.List<any>)} collections
  * @returns {boolean} True if `collections` is null/undefined, or every element is also null/undefined,
  * or has no sub-elements. False if any element has sub-elements.
  */
 const _isEmpty = (
-    ...collections: Array<any[] | List<any> | undefined>
+    ...collections: Array<any[] | Immutable.List<any> | undefined>
 ): boolean => {
     let isEmpty = true;
 
-    collections.forEach((collection: any[] | List<any> | undefined) => {
+    collections.forEach((collection: any[] | Immutable.List<any> | undefined) => {
         if (collection == null) {
             return;
         }
-        if (collection instanceof List) {
-            const collectionList = collection as List<any>;
+        if (collection instanceof Immutable.List) {
+            const collectionList = collection as Immutable.List<any>;
             if (collectionList.size !== 0) {
                 isEmpty = false;
             }
@@ -110,29 +110,29 @@ const _isEmpty = (
  * Uses ... syntax to allow a single collection or multiple collections to be passed in, ie
  * CollectionUtils.isNotEmpty([]) or CollectionUtils.isNotEmpty([], [], [])
  *
- * @param {(...Array<(any[] | List<any>)} collections
+ * @param {(...Array<(any[] | Immutable.List<any>)} collections
  * @returns {boolean} False if `collections` is null/undefined, or every element is also null/undefined,
  * or has no sub-elements. True if any element has sub-elements.
  */
 const _isNotEmpty = (
-    ...collections: Array<any[] | List<any> | undefined>
+    ...collections: Array<any[] | Immutable.List<any> | undefined>
 ): boolean => {
     return !_isEmpty(...collections);
 };
 
 /**
  * Utility function to get the length of a collection
- * when the collection might be either a List or an Array
+ * when the collection might be either a Immutable.List or an Array
  * @param arr the collection
  * @returns number the length of the collection
  */
-const _length = (arr: Array<any> | List<any>): number => {
+const _length = (arr: Array<any> | Immutable.List<any>): number => {
     if (arr == null) {
         return -1;
     }
 
-    if (arr instanceof List) {
-        return (arr as List<any>).size;
+    if (arr instanceof Immutable.List) {
+        return (arr as Immutable.List<any>).size;
     }
 
     return (arr as Array<any>).length;
