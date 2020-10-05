@@ -8,6 +8,7 @@
         "url": "https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/issues"
     },
     "dependencies": {
+        "@types/lodash": "4.14.108",
         "axios": "0.19.2",
         "humanize-plus": "1.8.2",
         "i18next": "19.4.5",
@@ -22,7 +23,6 @@
         "@types/faker": "^4.1.12",
         "@types/humanize-plus": "1.8.0",
         "@types/jest": "25.1.5",
-        "@types/lodash": "4.14.108",
         "@types/node": "13.11.0",
         "@types/rosie": "0.0.37",
         "andculturecode-javascript-testing": "0.0.1",
