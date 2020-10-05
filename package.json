@@ -14,7 +14,9 @@
         "i18next": "19.4.5",
         "immutable": "4.0.0-rc.12",
         "lodash": "4.17.19",
-        "query-string": "6.13.1"
+        "query-string": "6.13.1",
+        "ts-loader": "^8.0.4",
+        "webpack": "^4.44.2"
     },
     "description": "Common patterns, functions, etc... used when building react applications",
     "devDependencies": {
@@ -38,7 +40,8 @@
         "tslint-config-prettier": "1.18.0",
         "typedoc": "^0.17.6",
         "typedoc-plugin-markdown": "^2.2.17",
-        "typescript": "3.8.3"
+        "typescript": "3.8.3",
+        "webpack-cli": "^3.3.12"
     },
     "files": [
         "dist"
@@ -61,6 +64,7 @@
     },
     "scripts": {
         "build": "tsc --pretty",
+        "build-global": "npx webpack",
         "clean": "rimraf dist && rimraf coverage",
         "configure:git": "echo Ensuring git hooksPath is set to .githooks directory && git config core.hooksPath .githooks && chmod +x .githooks/*",
         "coverage": "jest ./src --coverage",
