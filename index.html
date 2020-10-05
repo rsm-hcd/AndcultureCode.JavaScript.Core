@@ -10,15 +10,24 @@
     <div id="greet"></div>
     <script src="https://unpkg.com/lodash@4.9.0/lodash.js"></script>
     <script src="https://unpkg.com/immutable@3.8.2/dist/immutable.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/19.6.3/i18next.min.js"></script>
     <script src="./dist/global/andculture-code.js"></script>
     <script>
-        // alert('working!');
-        // alert(AndcultureCode);
-        // var source = [1, 2];
-        // var index = 0;
-        // var value = 3;
-        // AndcultureCode.CollectionUtils.replaceElementAt(source, index, value);
-        // alert('worked!');
+
+        // Testing immutable usage
+        AndcultureCode.CollectionUtils.length([1, 2]);
+
+        // Testing Lodash usage
+        AndcultureCode.CollectionUtils.difference([1, 2], [1]);
+
+        // Testing i18next usage
+        AndcultureCode.LocalizationUtils.initialize({ type: "backend", init() { }, }, [{
+            code: "en_US",
+            resources: null,
+        }]);
+        AndcultureCode.LocalizationUtils.changeCultureCode("en-UK");
+
+
         debugger;
     </script>
 </body>

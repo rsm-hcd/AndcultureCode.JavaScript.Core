@@ -68,11 +68,11 @@ export { SyncWorkload } from "./types/sync-workload";
 // -----------------------------------------------------------------------------------------
 
 export { CollectionUtils } from "./utilities/collection-utils";
-// export { CoreUtils } from "./utilities/core-utils";
-// export { Do } from "./utilities/do-try";
-// export { DoSync } from "./utilities/do-try";
-// export { EnvironmentUtils } from "./utilities/environment-utils";
-// export { LocalizationUtils } from "./utilities/localization-utils";
+export { CoreUtils } from "./utilities/core-utils";
+export { Do } from "./utilities/do-try";
+export { DoSync } from "./utilities/do-try";
+export { EnvironmentUtils } from "./utilities/environment-utils";
+export { LocalizationUtils } from "./utilities/localization-utils";
 // export { PolyfillUtils } from "./utilities/polyfill-utils";
 // export { PromiseFactory } from "./utilities/promise-factory";
 // export { RecordUtils } from "./utilities/record-utils";
