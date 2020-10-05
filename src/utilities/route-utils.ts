@@ -23,7 +23,7 @@ const _routeParamRegEx = /(:[a-z_-]*)/gi;
 const appendQueryParams = (
     path: string,
     queryParams: any,
-    arrayFormat: QueryStringArrayFormat = "index",
+    arrayFormat: QueryStringArrayFormat = QueryStringArrayFormat.Index,
     arrayFormatSeparator: string | undefined = undefined
 ) => {
     if (path == null) {
