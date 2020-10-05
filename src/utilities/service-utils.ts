@@ -108,6 +108,7 @@ const _mapAxiosResponse = <TRecord>(
     return {
         result: new ResultRecord<TRecord>(axiosResponse.data),
         resultObject: resultObject,
+        resultObjects: [],
         rowCount: 1,
         status: axiosResponse.status,
     };
