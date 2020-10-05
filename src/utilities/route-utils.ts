@@ -1,5 +1,5 @@
 import QueryString, { StringifyOptions } from "query-string";
-import { QueryStringArrayFormat } from "../types/query-string-array-format";
+import { QueryStringArrayFormat } from "../enumerations/query-string-array-format";
 
 // -----------------------------------------------------------------------------------------
 // #region Constants
