@@ -100,7 +100,7 @@ const isAbsoluteUrl = (url: string): boolean =>
  */
 const queryStringToObject = <T>(
     queryString: string,
-    arrayFormat: QueryStringArrayFormat = "index",
+    arrayFormat: QueryStringArrayFormat = QueryStringArrayFormat.Index,
     parseNumbers: boolean = true,
     parseBooleans: boolean = true
 ): T =>
