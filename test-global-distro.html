@@ -20,26 +20,32 @@
     <script>
 
         // Testing immutable usage
-        AndcultureCode.CollectionUtils.length([1, 2]);
+        console.log("AndcultureCode.CollectionUtils.length([1, 2])");
+        console.log(AndcultureCode.CollectionUtils.length([1, 2]));
 
         // Testing Lodash usage
-        AndcultureCode.CollectionUtils.difference([1, 2], [1]);
+        console.log("AndcultureCode.CollectionUtils.difference([1, 2], [1])");
+        console.log(AndcultureCode.CollectionUtils.difference([1, 2], [1]));
 
         // Testing i18next usage
         AndcultureCode.LocalizationUtils.initialize({ type: "backend", init() { }, }, [{
             code: "en_US",
             resources: null,
         }]);
-        AndcultureCode.LocalizationUtils.changeCultureCode("en-UK");
+        console.log("AndcultureCode.LocalizationUtils.changeCultureCode("en - UK")");
+        console.log(AndcultureCode.LocalizationUtils.changeCultureCode("en-UK"));
 
         // Testing query-string usage
+        console.log("AndcultureCode.RouteUtils.queryStringToObject('#token=bada55cafe')");
         console.log(AndcultureCode.RouteUtils.queryStringToObject('#token=bada55cafe'));
 
         // Testing axios usage
-        AndcultureCode.ServiceUtils.configure();
+        console.log("AndcultureCode.ServiceUtils.configure()");
+        console.log(AndcultureCode.ServiceUtils.configure());
 
         // Testing humanize-plus usage
-        console.log(AndcultureCode.StringUtils.pluralize(3, "duck"));
+        console.log("AndcultureCode.StringUtils.pluralize(3, 'duck')");
+        console.log(AndcultureCode.StringUtils.pluralize(3, 'duck'));
     </script>
 </body>
 
