@@ -63,8 +63,7 @@
         "url": "git+https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core.git"
     },
     "scripts": {
-        "build": "tsc --pretty",
-        "build-global": "npx webpack",
+        "build": "tsc --pretty && webpack",
         "clean": "rimraf dist && rimraf coverage",
         "configure:git": "echo Ensuring git hooksPath is set to .githooks directory && git config core.hooksPath .githooks && chmod +x .githooks/*",
         "coverage": "jest ./src --coverage",
