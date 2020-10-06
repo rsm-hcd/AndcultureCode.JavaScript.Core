@@ -91,7 +91,7 @@ const _configureInterceptors = (
  * type for consumption throughout the system
  */
 const _mapAxiosResponse = <TRecord>(
-    recordType: { new (props: Partial<TRecord>): TRecord },
+    recordType: { new(props: Partial<TRecord>): TRecord },
     axiosResponse: AxiosResponse<Result<TRecord>>
 ): ServiceResponse<TRecord> => {
     if (axiosResponse == null) {
@@ -118,7 +118,7 @@ const _mapAxiosResponse = <TRecord>(
  * type for consumption throughout the system
  */
 const _mapPagedAxiosResponse = <TRecord>(
-    recordType: { new (props: Partial<TRecord>): TRecord },
+    recordType: { new(props: Partial<TRecord>): TRecord },
     axiosResponse: AxiosResponse<PagedResult<TRecord>>
 ): ServiceResponse<TRecord> => {
     if (axiosResponse == null) {

@@ -3,14 +3,19 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Linking External JavaScript</title>
+    <title>Linking Required Peer JavaScript Dependencies</title>
 </head>
 
 <body>
     <div id="greet"></div>
+
+    <!---References here are necessary since not included in wrapped AndcultureCode library -->
     <script src="https://unpkg.com/lodash@4.9.0/lodash.js"></script>
     <script src="https://unpkg.com/immutable@3.8.2/dist/immutable.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/19.6.3/i18next.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/humanize-plus/1.8.2/humanize.min.js"></script>
+
     <script src="./dist/global/andculture-code.js"></script>
     <script>
 
@@ -27,8 +32,14 @@
         }]);
         AndcultureCode.LocalizationUtils.changeCultureCode("en-UK");
 
+        // Testing query-string usage
+        console.log(AndcultureCode.RouteUtils.queryStringToObject('#token=bada55cafe'));
 
-        debugger;
+        // Testing axios usage
+        AndcultureCode.ServiceUtils.configure();
+
+        // Testing humanize-plus usage
+        console.log(AndcultureCode.StringUtils.pluralize(3, "duck"));
     </script>
 </body>
 
