@@ -5,7 +5,7 @@ import { CultureParams } from "./../interfaces/culture-params";
 import { RouteUtils } from "./route-utils";
 import { StringUtils } from "./string-utils";
 import { Rfc4646LanguageCodes } from "./../constants/rfc4646-language-codes";
-import i18next from "i18next";
+import i18n from "i18next";
 
 // -----------------------------------------------------------------------------------------
 // #region Constants
@@ -39,7 +39,7 @@ const routeParam = "culture";
  * @param cultureCode RFC-4646 culture code
  */
 const changeCultureCode = (cultureCode: string) =>
-    i18next.changeLanguage(cultureCode);
+    i18n.changeLanguage(cultureCode);
 
 const cultureCodeFromQueryString = () => {
     const queryString = window.location.search;
@@ -69,7 +69,7 @@ const culturesToResources = <TResources>(cultures: Culture<TResources>[]) => {
 /**
  * Returns currently configured RFC-4646 culture code
  */
-const currentCultureCode = () => i18next.language;
+const currentCultureCode = () => i18n.language;
 
 const defaultCultureCode = () => Rfc4646LanguageCodes.EN_US;
 
@@ -96,7 +96,7 @@ const detectCultureCode = () => {
 };
 
 /**
- * Initialize frontend i18next module - typically in root/startup of application
+ * Initialize frontend i18n module - typically in root/startup of application
  * @param module Third party module for use with i18next (ie. initReactI18next)
  * @param cultures List of supported language cultures
  * @param escapeValue Optional flag to set interpolation value escaping. False by default being react does this by default
@@ -110,7 +110,7 @@ const initialize = <TResources>(
         throw new Error(errorCultureIsRequired);
     }
 
-    i18next.use(module).init({
+    i18n.use(module).init({
         cleanCode: true, // language will be lowercased EN --> en while leaving full locales like en-US
         debug: EnvironmentUtils.isDevelopment(), // logs info level to console output. Helps finding issues with loading not working.
         // detection: detectionOptions, // TODO: Issue #12 - Uncomment and implement when enabling translation by way of routes (ie. /en-us/xyz)
@@ -122,7 +122,7 @@ const initialize = <TResources>(
         resources: culturesToResources<TResources>(cultures),
     });
 
-    return i18next;
+    return i18n;
 };
 
 /**
@@ -130,7 +130,7 @@ const initialize = <TResources>(
  * @param key culture resource key
  * @param options object key/values for interpolation of dynamic values
  */
-const translate = (key: string, options?: any): string => i18next.t(key, options);
+const translate = (key: string, options?: any): string => i18n.t(key, options);
 
 /**
  * Retrieve translation for given key in the currently configured language

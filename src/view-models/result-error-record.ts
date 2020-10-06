@@ -1,4 +1,4 @@
-import immutable from "immutable";
+import { Record } from "immutable";
 import { ResultError } from "../interfaces/result-error";
 import { ErrorType } from "../enumerations/error-type";
 
@@ -8,7 +8,7 @@ const defaultValues: ResultError = {
     type: ErrorType.Error,
 };
 
-class ResultErrorRecord extends immutable.Record(defaultValues) implements ResultError {
+class ResultErrorRecord extends Record(defaultValues) implements ResultError {
     // Do NOT set properties on immutable records due to babel and typescript transpilation issue
     // See https://github.com/facebook/create-react-app/issues/6506
 
