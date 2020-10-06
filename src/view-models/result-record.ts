@@ -1,5 +1,5 @@
 import { CollectionUtils } from "../utilities/collection-utils";
-import Immutable from "immutable";
+import { Record } from "immutable";
 import { ResultErrorRecord } from "./result-error-record";
 import { Result } from "../interfaces/result";
 import { ErrorType } from "../enumerations/error-type";
@@ -10,8 +10,8 @@ const defaultValues: Result<any> = {
     resultObject: undefined,
 };
 
-class ResultRecord<T> extends Immutable.Record(defaultValues) implements Result<T> {
-    // Do NOT set properties on Immutable records due to babel and typescript transpilation issue
+class ResultRecord<T> extends Record(defaultValues) implements Result<T> {
+    // Do NOT set properties on immutable records due to babel and typescript transpilation issue
     // See https://github.com/facebook/create-react-app/issues/6506
 
     // -----------------------------------------------------------------------------------------
