@@ -1,9 +1,0 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var FactoryType = {
-    ResultErrorRecord: "ResultErrorRecord",
-    ResultRecord: "ResultRecord",
-    StubResourceRecord: "StubResourceRecord",
-};
-exports.FactoryType = FactoryType;
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZmFjdG9yeS10eXBlLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vc3JjL3Rlc3RzL2ZhY3Rvcmllcy9mYWN0b3J5LXR5cGUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxJQUFNLFdBQVcsR0FBRztJQUNoQixpQkFBaUIsRUFBRSxtQkFBbUI7SUFDdEMsWUFBWSxFQUFFLGNBQWM7SUFDNUIsa0JBQWtCLEVBQUUsb0JBQW9CO0NBQzNDLENBQUM7QUFFTyxrQ0FBVyIsInNvdXJjZXNDb250ZW50IjpbImNvbnN0IEZhY3RvcnlUeXBlID0ge1xyXG4gICAgUmVzdWx0RXJyb3JSZWNvcmQ6IFwiUmVzdWx0RXJyb3JSZWNvcmRcIixcclxuICAgIFJlc3VsdFJlY29yZDogXCJSZXN1bHRSZWNvcmRcIixcclxuICAgIFN0dWJSZXNvdXJjZVJlY29yZDogXCJTdHViUmVzb3VyY2VSZWNvcmRcIixcclxufTtcclxuXHJcbmV4cG9ydCB7IEZhY3RvcnlUeXBlIH07XHJcbiJdfQ==
