@@ -42,14 +42,8 @@ module.exports = {
             amd: 'lodash',
             root: '_',
         },
-        // queryString: {
-        //     commonjs: 'query-string',
-        //     commonjs2: 'query-string',
-        //     amd: 'query-string',
-        //     root: 'QueryString',
-        // },
     },
-    mode: 'production', // 'development' or 'production'
+    mode: 'production',
     module: {
         rules: [
             {
