@@ -147,11 +147,11 @@ describe("CoreUtils", () => {
     // #region ObjectToArray
     // -------------------------------------------------------------------------------------------------
 
-    describe("onjectToArray", () => {
-        test("convert object to array of values", async () => {
+    describe("objectToArray", () => {
+        test("convert object to array of values", () => {
             // Arrange
             const testObject = {
-                name: "jane",
+                name: "Jane",
                 age:  30
             }
 
@@ -165,7 +165,7 @@ describe("CoreUtils", () => {
         });
 
 
-        test("convert object to array of values", async () => {
+        test("convert object to array of values", () => {
             // Arrange
             const testObject = {};
 
