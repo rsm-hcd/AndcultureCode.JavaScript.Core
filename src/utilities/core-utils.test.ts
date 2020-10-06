@@ -212,6 +212,24 @@ describe("CoreUtils", () => {
 
     // #endregion sleep
 
+    // -------------------------------------------------------------------------------------------------
+    // #region sleepSync
+    // -------------------------------------------------------------------------------------------------
+
+    describe("sleepSync", () => {
+        test("delay n milliseconds", () => {
+            // Arrange && Act
+            const firstCall = performance.now();
+            CoreUtils.sleepSync(3000);
+            const secondCall = performance.now()
+
+            // Assert
+            expect(Math.ceil(secondCall-firstCall)).toBe(3000);
+        });
+    });
+
+    // #endregion sleepSync
+
     // -----------------------------------------------------------------------------------------
     // #region timer
     // -----------------------------------------------------------------------------------------
