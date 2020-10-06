@@ -7,8 +7,6 @@
 </head>
 
 <body>
-    <div id="greet"></div>
-
     <!--- Must reference peer dependencies here first since these are not included in wrapped global package -->
     <script src="https://unpkg.com/lodash@4.9.0/lodash.js"></script>
     <script src="https://unpkg.com/immutable@3.8.2/dist/immutable.js"></script>
@@ -20,7 +18,6 @@
     <script src="./dist/global/index.js"></script>
 
     <script>
-
         // Testing 'immutable' peer dependency usage
         console.log("AndcultureCode.CollectionUtils.length([1, 2])");
         console.log(AndcultureCode.CollectionUtils.length([1, 2]));
