@@ -221,10 +221,10 @@ describe("CoreUtils", () => {
             // Arrange && Act
             const firstCall = performance.now();
             CoreUtils.sleepSync(3000);
-            const secondCall = performance.now()
+            const secondCall = performance.now();
 
             // Assert
-            expect(Math.ceil(secondCall-firstCall)).toBe(3000);
+            expect(Math.ceil(secondCall-firstCall)).toBeGreaterThanOrEqual(3000);
         });
     });
 
