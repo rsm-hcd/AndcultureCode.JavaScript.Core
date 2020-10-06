@@ -165,7 +165,7 @@ describe("CoreUtils", () => {
         });
 
 
-        test("convert object to array of values", () => {
+        test("given an empty object, return an empty array", () => {
             // Arrange
             const testObject = {};
 
@@ -173,7 +173,6 @@ describe("CoreUtils", () => {
             const result = CoreUtils.objectToArray(testObject);
 
             // Assert
-            expect(result).toMatchObject({});
             expect(result).toBeEmpty();
         });
     });
