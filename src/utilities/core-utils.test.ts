@@ -92,6 +92,127 @@ describe("CoreUtils", () => {
     // #endregion getRandomEnum
 
     // -----------------------------------------------------------------------------------------
+    // #region numericEnumToPojo
+    // -----------------------------------------------------------------------------------------
+
+    describe("numericEnumToPojo ", () => {
+        test("when given numeric enum, returns an object of values", () => {
+            // Arrange
+            enum testEnum {
+                first,
+                second,
+                third,
+            }
+
+            // Act
+            const result = CoreUtils.numericEnumToPojo(testEnum);
+            const values = CoreUtils.objectToArray(result);
+
+            // Assert
+            expect(values).toContain(testEnum.first);
+            expect(values).toContain(testEnum.second);
+            expect(values).toContain(testEnum.third);
+            expect(values).toHaveLength(3);
+        });
+
+        test("when given non numeric enum, returns object of values", () => {
+            // Arrange
+            enum testEnum {
+                first = "First", second = "Second",
+            }
+
+            // Act
+            const result = CoreUtils.numericEnumToPojo(testEnum);
+            const values = CoreUtils.objectToArray(result);
+
+            // Assert
+            expect(values).toContain(testEnum.first);
+            expect(values).toContain(testEnum.second);
+            expect(values).toHaveLength(2);
+        });
+
+        test("when given null enum, returns empty object", () => {
+            // Act
+            const result = CoreUtils.numericEnumToPojo(null);
+
+            // Assert
+            expect(result).toMatchObject({});
+            expect(result).toBeEmpty();
+        });
+    });
+
+    // #endregion numericEnumToPojo
+
+    // -------------------------------------------------------------------------------------------------
+    // #region ObjectToArray
+    // -------------------------------------------------------------------------------------------------
+
+    describe("onjectToArray", () => {
+        test("convert object to array of values", async () => {
+            // Arrange
+            const testObject = {
+                name: "jane",
+                age:  30
+            }
+
+            // Act
+            const result = CoreUtils.objectToArray(testObject);
+
+            // Assert
+            expect(result).toContain(testObject.name);
+            expect(result).toContain(testObject.age);
+            expect(result).toHaveLength(2);
+        });
+
+
+        test("convert object to array of values", async () => {
+            // Arrange
+            const testObject = {};
+
+            // Act
+            const result = CoreUtils.objectToArray(testObject);
+
+            // Assert
+            expect(result).toMatchObject({});
+            expect(result).toBeEmpty();
+        });
+    });
+
+    // #endregion ObjectToArray
+
+    // -------------------------------------------------------------------------------------------------
+    // #region sleep
+    // -------------------------------------------------------------------------------------------------
+
+    describe("sleep", () => {
+        test("schedule n milliseconds", () => {
+            // Arrange
+            jest.useFakeTimers();
+            const consoleSpy = jest.spyOn(console, "log");
+
+            // Act
+            CoreUtils.sleep(2000, true);
+
+            // At this point in time, only sleep start is printed out
+            expect(consoleSpy).toHaveBeenLastCalledWith("sleep start");
+
+            // Run 1 second later, "sleep end" has not been called yet
+            jest.advanceTimersByTime(1000);
+            expect(consoleSpy).not.toHaveBeenLastCalledWith("sleep end");
+
+            // Fast-forward until all timers have been executed
+            jest.runAllTimers();
+
+            // Assert
+            expect(consoleSpy).toHaveBeenLastCalledWith("sleep end");
+            jest.clearAllTimers();
+            jest.useRealTimers();
+        });
+    });
+
+    // #endregion sleep
+
+    // -----------------------------------------------------------------------------------------
     // #region timer
     // -----------------------------------------------------------------------------------------
 
