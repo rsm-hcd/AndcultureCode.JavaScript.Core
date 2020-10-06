@@ -1,7 +1,7 @@
 # How to Contribute
 
 ## Considerations
-This repo is now distributing packages for both module loaded applications as well as global distrubtion for things such as websites.  What this means is:
+This repo is now distributing packages for both module loaded applications as well as global distribution for things such as websites.  What this means is:
 
 1.  When adding new peer dependencies to this repo, please make sure to handle them appropriately within [webpack.config.js](./webpack.config.js).
 2.  Please add any new needed `<script />` peer dependency references to  [sample-global-distro.html](./sample-global-distro.html).
