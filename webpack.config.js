@@ -49,7 +49,7 @@ module.exports = {
         //     root: 'QueryString',
         // },
     },
-    mode: 'development', // 'development' or 'production'
+    mode: 'production', // 'development' or 'production'
     module: {
         rules: [
             {
@@ -61,7 +61,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist/global'),
-        filename: 'andculture-code.js',
+        filename: 'index.js',
         library: 'AndcultureCode',
         libraryTarget: 'umd',
     },

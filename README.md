@@ -26,6 +26,19 @@ import {
 } from "andculturecode-javascript-core";
 ```
 
+You can also reference the global distribution package within a website which gives you access to the `AndcultureCode` namespace. See the example below
+
+```html
+<script src="https://unpkg.com/browse/andculturecode-javascript-core@[version-number]/dist/global/index.js"></script>
+
+<script>
+    var myAuthObject = AndcultureCode.RouteUtils.queryStringToObject('#token=bada55cafe')
+</script>
+
+```
+
+**NOTE** - This source code relies on several peer dependencies, most of which are not included in this bundled global distribution.  You will need to reference these in your website prior to referencing the `andculture-javascript-core` global package.  See [sample-global-distro.html](./sample-global-distro.html) for the full list of dependencies.
+
 ## Documentation
 
 [Full API documentation](docs/README.md)
