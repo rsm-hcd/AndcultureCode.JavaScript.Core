@@ -4,7 +4,7 @@ module.exports = {
     entry: './src/index.ts',
 
     /*
-        Externals below defines those peer dependencies that should not be bundled in global output
+        Externals below define those peer dependencies that should not be bundled in global output
         file and instead be loaded by the consumer prior to loading the distributable that webpack
         generates.
 
@@ -42,6 +42,7 @@ module.exports = {
             amd: 'lodash',
             root: '_',
         },
+        // BUNDLED: query-string
     },
     mode: 'production',
     module: {
