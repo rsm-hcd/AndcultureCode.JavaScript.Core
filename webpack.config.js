@@ -9,7 +9,7 @@ module.exports = {
         generates.
 
         NOTE: Any externals that are commented out below are being included in the webpack
-            distriburatable
+            distributable
     */
     externals: {
         "axios": {
