@@ -118,7 +118,8 @@ describe("CoreUtils", () => {
         test("when given non numeric enum, returns object of values", () => {
             // Arrange
             enum testEnum {
-                first = "First", second = "Second",
+                first = "First",
+                second = "Second",
             }
 
             // Act
