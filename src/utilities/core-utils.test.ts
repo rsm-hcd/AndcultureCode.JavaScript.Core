@@ -1,3 +1,4 @@
+import { Interface } from "readline";
 import { CoreUtils } from "./core-utils";
 
 describe("CoreUtils", () => {
@@ -99,19 +100,19 @@ describe("CoreUtils", () => {
         test("when given numeric enum, returns an object of values", () => {
             // Arrange
             enum testEnum {
-                first,
-                second,
-                third,
+                first  = 0,
+                second = 1,
+                third  = 2,
             }
 
             // Act
             const result = CoreUtils.numericEnumToPojo(testEnum);
-            const values = CoreUtils.objectToArray(result);
+            const values = Object.values(result);
 
             // Assert
-            expect(values).toContain(testEnum.first);
-            expect(values).toContain(testEnum.second);
-            expect(values).toContain(testEnum.third);
+            expect(values[0]).toBe(testEnum.first);
+            expect(values[1]).toBe(testEnum.second);
+            expect(values[2]).toBe(testEnum.third);
             expect(values).toHaveLength(3);
         });
 
@@ -124,11 +125,11 @@ describe("CoreUtils", () => {
 
             // Act
             const result = CoreUtils.numericEnumToPojo(testEnum);
-            const values = CoreUtils.objectToArray(result);
+            const values = Object.values(result);
 
             // Assert
-            expect(values).toContain(testEnum.first);
-            expect(values).toContain(testEnum.second);
+            expect(values[0]).toBe(testEnum.first);
+            expect(values[1]).toBe(testEnum.second);
             expect(values).toHaveLength(2);
         });
 
@@ -149,7 +150,7 @@ describe("CoreUtils", () => {
     // -------------------------------------------------------------------------------------------------
 
     describe("objectToArray", () => {
-        test("convert object to array of values", () => {
+        test("given an object, convert it to array of values", () => {
             // Arrange
             const testObject = {
                 name: "Jane",
@@ -185,7 +186,7 @@ describe("CoreUtils", () => {
     // -------------------------------------------------------------------------------------------------
 
     describe("sleep", () => {
-        test("schedule n milliseconds", () => {
+        test("given n milliseconds in debug mode, outputs a log at start and end of scheduled duration", () => {
             // Arrange
             jest.useFakeTimers();
             const consoleSpy = jest.spyOn(console, "log");
@@ -217,7 +218,7 @@ describe("CoreUtils", () => {
     // -------------------------------------------------------------------------------------------------
 
     describe("sleepSync", () => {
-        test("delay n milliseconds", () => {
+        test("given n milliseconds, it blocks the execution until delay duration has completed", () => {
             // Arrange && Act
             const firstCall = performance.now();
             CoreUtils.sleepSync(3000);
