@@ -12,7 +12,7 @@ interface ServiceResponse<T> {
      * Convenience property to read result's nested record
      */
     resultObject?: T;
-    resultObjects?: T[];
+    resultObjects: T[];
 
     /**
      * Totoal possible records available for the initial service request. If greater
