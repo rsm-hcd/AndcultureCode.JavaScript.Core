@@ -59,7 +59,7 @@ function validateDependencies() {
             continue;
         }
 
-        // depepdency is being bundled
+        // dependency is being bundled
         if (dependencyBundlesConfig.bundles.indexOf(dependencyName) > -1) {
             continue;
         }
