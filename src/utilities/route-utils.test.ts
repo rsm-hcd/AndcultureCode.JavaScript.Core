@@ -45,6 +45,97 @@ describe("RouteUtils", () => {
             // Assert
             expect(result).toBe("path?skip=1&take=2");
         });
+
+        test("When queryParams has an array value, then array is serialized using array format by default", () => {
+            // Arrange
+            const path = "path";
+            const queryParams = {
+                entityIds: [1, 2, 3],
+            };
+
+            // Act
+            const result = RouteUtils.appendQueryParams(path, queryParams);
+
+            // Assert
+            expect(result).toBe(
+                "path?entityIds[0]=1&entityIds[1]=2&entityIds[2]=3"
+            );
+        });
+
+        test("When given arrayFormat='bracket', then serializes array using bracket format", () => {
+            // Arrange
+            const path = "path";
+            const queryParams = {
+                entityIds: [1, 2, 3],
+            };
+
+            // Act
+            const result = RouteUtils.appendQueryParams(
+                path,
+                queryParams,
+                "bracket"
+            );
+
+            // Assert
+            expect(result).toBe(
+                "path?entityIds[]=1&entityIds[]=2&entityIds[]=3"
+            );
+        });
+
+        test("When given arrayFormat='comma', then serializes array using comma format", () => {
+            // Arrange
+            const path = "path";
+            const queryParams = {
+                entityIds: [1, 2, 3],
+            };
+
+            // Act
+            const result = RouteUtils.appendQueryParams(
+                path,
+                queryParams,
+                "comma"
+            );
+
+            // Assert
+            expect(result).toBe("path?entityIds=1,2,3");
+        });
+
+        test("When given arrayFormat='separator', then serializes array using separator format", () => {
+            // Arrange
+            const path = "path";
+            const queryParams = {
+                entityIds: [1, 2, 3],
+            };
+
+            // Act
+            const result = RouteUtils.appendQueryParams(
+                path,
+                queryParams,
+                "separator",
+                "|"
+            );
+
+            // Assert
+            expect(result).toBe("path?entityIds=1|2|3");
+        });
+
+        test("When given arrayFormat='none', then serializes array using duplicate key format", () => {
+            // Arrange
+            const path = "path";
+            const queryParams = {
+                entityIds: [1, 2, 3],
+            };
+
+            // Act
+            const result = RouteUtils.appendQueryParams(
+                path,
+                queryParams,
+                "none"
+            );
+
+            // Assert
+            expect(result).toBe("path?entityIds=1&entityIds=2&entityIds=3");
+        });
     });
 
     // #endregion appendQueryParams
