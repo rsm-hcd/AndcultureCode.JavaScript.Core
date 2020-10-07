@@ -1,66 +1,52 @@
 const path = require('path');
+const fs = require('fs');
 
-module.exports = {
-    entry: './src/index.ts',
+const currentWorkingDirectory = __dirname;
 
-    /*
-        Externals below define those peer dependencies that should not be bundled in global output
-        file and instead be loaded by the consumer prior to loading the distributable that webpack
-        generates.
+const configPromise = new Promise(function (resolve, reject) {
 
-        NOTE: Any externals that are commented out below are being included in the webpack
-            distributable
-    */
-    externals: {
-        "axios": {
-            commonjs: 'axios',
-            commonjs2: 'axios',
-            amd: 'axios',
-            root: 'axios',
-        },
-        "humanize-plus": {
-            commonjs: 'humanize-plus',
-            commonjs2: 'humanize-plus',
-            amd: 'humanize-plus',
-            root: 'Humanize',
-        },
-        "i18next": {
-            commonjs: 'i18next',
-            commonjs2: 'i18next',
-            amd: 'i18next',
-            root: 'i18next',
-        },
-        "immutable": {
-            commonjs: 'immutable',
-            commonjs2: 'immutable',
-            amd: 'immutable',
-            root: 'Immutable',
-        },
-        "lodash": {
-            commonjs: 'lodash',
-            commonjs2: 'lodash',
-            amd: 'lodash',
-            root: '_',
-        },
-        // BUNDLED: query-string
-    },
-    mode: 'production',
-    module: {
-        rules: [
-            {
-                test: /\.tsx?$/,
-                use: 'ts-loader',
-                exclude: /node_modules/,
+    // read the webpack dependency externals config from a separate JSON file
+    fs.readFile('dependency-externals.json', 'utf8', (err, externalsData) => {
+        if (err) {
+            reject(`Unable to read './dependency-externals.json' file.  Reason: ${err}`);
+        }
+
+        let externalsConfig = {};
+        try {
+            externalsConfig = JSON.parse(externalsData);
+        }
+        catch (e) {
+            reject(`Unable to convert './dependency-externals.json' file data to JSON object.  Reason: ${e}`);
+        }
+
+        const webpackConfig = {
+            entry: path.resolve(currentWorkingDirectory, 'src/index.ts'),
+            mode: 'production',
+            module: {
+                rules: [
+                    {
+                        test: /\.tsx?$/,
+                        use: 'ts-loader',
+                        exclude: /node_modules/,
+                    },
+                ],
             },
-        ],
-    },
-    output: {
-        path: path.resolve(__dirname, 'dist-global'),
-        filename: 'index.js',
-        library: 'AndcultureCode',
-        libraryTarget: 'umd',
-    },
-    resolve: {
-        extensions: ['.ts', '.js'],
-    },
-};
+            output: {
+                path: path.resolve(__dirname, 'dist-global'),
+                filename: 'index.js',
+                library: 'AndcultureCode',
+                libraryTarget: 'umd',
+            },
+            resolve: {
+                extensions: ['.ts', '.js'],
+            },
+        };
+
+        // add the externals config to the webpack config
+        Object.assign(webpackConfig, externalsConfig);
+
+        resolve(webpackConfig);
+    });
+});
+
+module.exports = configPromise;
