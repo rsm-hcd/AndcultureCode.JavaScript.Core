@@ -1,4 +1,3 @@
-import { Interface } from "readline";
 import { CoreUtils } from "./core-utils";
 
 describe("CoreUtils", () => {
