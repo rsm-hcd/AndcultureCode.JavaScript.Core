@@ -50,7 +50,7 @@ function validateDependencies() {
         const dependencyName = dependenciesNames[i];
 
         // ignore definitely typed dependencies
-        if (dependencyName[0] === "@") {
+        if (dependencyName.startsWith("@types")) {
             continue;
         }
 
