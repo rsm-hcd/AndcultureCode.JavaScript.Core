@@ -1,4 +1,3 @@
-const { exception } = require('console');
 const fs = require('fs');
 
 let dependencyBundlesConfig = {};
@@ -76,7 +75,11 @@ function validateDependencies() {
         ];
         throw error.join(" ");
     }
+
+    console.info("Finished validating all peer dependencies.  All package.json dependencies have been accounted for!");
 }
+
+console.info("Starting process to validate peer dependencies.");
 
 // start the process by reading the first configuration file
 readDependencyBundles();

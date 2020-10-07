@@ -64,7 +64,7 @@
         "url": "git+https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core.git"
     },
     "scripts": {
-        "build": "tsc --pretty && webpack && npm run test-peer-dependencies",
+        "build": "tsc --pretty && webpack && npm run validate-peer-dependencies",
         "clean": "rimraf dist && rimraf coverage",
         "configure:git": "echo Ensuring git hooksPath is set to .githooks directory && git config core.hooksPath .githooks && chmod +x .githooks/*",
         "coverage": "jest ./src --coverage",
@@ -76,7 +76,7 @@
         "prepublishOnly": "npm run build",
         "test": "jest ./src",
         "test-cypress": "cypress run",
-        "test-peer-dependencies": "node test-peer-dependencies.js",
+        "validate-peer-dependencies": "node validate-peer-dependencies.js",
         "watch": "npm run build -- --watch",
         "watch:coverage": "jest ./src --coverage --watch",
         "watch:test": "jest ./src --watch"
