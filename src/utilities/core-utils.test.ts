@@ -99,9 +99,9 @@ describe("CoreUtils", () => {
         test("when given numeric enum, returns an object of values", () => {
             // Arrange
             enum testEnum {
-                first  = 0,
+                first = 0,
                 second = 1,
-                third  = 2,
+                third = 2,
             }
 
             // Act
@@ -154,7 +154,7 @@ describe("CoreUtils", () => {
             const testObject = {
                 name: "Jane",
                 age:  30
-            }
+            };
 
             // Act
             const result = CoreUtils.objectToArray(testObject);
