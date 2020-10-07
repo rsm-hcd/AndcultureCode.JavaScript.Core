@@ -36,11 +36,17 @@ function readPackage() {
         }
 
         packageConfig = JSON.parse(data);
-        validateDependencies();
+        validatedLoadedConfig();
     });
 };
 
 function validateDependencies() {
+    console.info("Starting process to validate peer dependencies.");
+
+    readDependencyBundles();
+}
+
+function validatedLoadedConfig() {
     const dependencies = packageConfig.dependencies;
     const dependenciesNames = Object.keys(dependencies);
 
@@ -79,7 +85,5 @@ function validateDependencies() {
     console.info("Finished validating all peer dependencies.  All package.json dependencies have been accounted for!");
 }
 
-console.info("Starting process to validate peer dependencies.");
-
 // start the process by reading the first configuration file
-readDependencyBundles();
+validateDependencies();
