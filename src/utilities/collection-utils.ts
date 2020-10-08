@@ -196,6 +196,8 @@ export const CollectionUtils = {
     hasValues: _hasValues,
     isEmpty: _isEmpty,
     isNotEmpty: _isNotEmpty,
+    intersection: _.intersection,
+    intersectionWith: _.intersectionWith,
     length: _length,
     removeElementAt: _removeElementAt,
     replaceElementAt: _replaceElementAt,

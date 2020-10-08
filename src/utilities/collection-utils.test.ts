@@ -16,7 +16,7 @@ describe("CollectionUtils", () => {
             const result = CollectionUtils.hasValues(collection);
 
             // Assert
-            expect(result).toBeTrue();
+            expect(result).toBe(true);
         });
 
         test("when collections param is an array and has no elements, it returns false", (): void => {
@@ -27,7 +27,7 @@ describe("CollectionUtils", () => {
             const result = CollectionUtils.hasValues(collection);
 
             // Assert
-            expect(result).toBeFalse();
+            expect(result).toBe(false);
         });
 
         test("when collections param is a list and has elements, it returns true", (): void => {
@@ -38,7 +38,7 @@ describe("CollectionUtils", () => {
             const result = CollectionUtils.hasValues(collection);
 
             // Assert
-            expect(result).toBeTrue();
+            expect(result).toBe(true);
         });
 
         test("when collections param is a list and has no elements, it returns false", (): void => {
@@ -49,7 +49,7 @@ describe("CollectionUtils", () => {
             const result = CollectionUtils.hasValues(collection);
 
             // Assert
-            expect(result).toBeFalse();
+            expect(result).toBe(false);
         });
 
         test("when collections param has at least one non-empty collection, it returns true", (): void => {
@@ -61,7 +61,7 @@ describe("CollectionUtils", () => {
             const result = CollectionUtils.hasValues(collection1, collection2);
 
             // Assert
-            expect(result).toBeTrue();
+            expect(result).toBe(true);
         });
 
         test("when collections param contains only empty collections, it returns false", (): void => {
@@ -73,7 +73,7 @@ describe("CollectionUtils", () => {
             const result = CollectionUtils.hasValues(collection1, collection2);
 
             // Assert
-            expect(result).toBeFalse();
+            expect(result).toBe(false);
         });
 
         test("given collections is undefined, it returns false", (): void => {
@@ -83,7 +83,7 @@ describe("CollectionUtils", () => {
             );
 
             // Assert
-            expect(result).toBeFalse();
+            expect(result).toBe(false);
         });
 
         test("given collections is null, it returns false", (): void => {
@@ -93,7 +93,7 @@ describe("CollectionUtils", () => {
             );
 
             // Assert
-            expect(result).toBeFalse();
+            expect(result).toBe(false);
         });
 
         test("when collections param contains undefined, null, and at least one collection with values, it returns true", (): void => {
@@ -110,7 +110,7 @@ describe("CollectionUtils", () => {
             );
 
             // Assert
-            expect(result).toBeTrue();
+            expect(result).toBe(true);
         });
     });
 
@@ -129,7 +129,7 @@ describe("CollectionUtils", () => {
             const result = CollectionUtils.isEmpty(collection);
 
             // Assert
-            expect(result).toBeFalse();
+            expect(result).toBe(false);
         });
 
         test("when collections param is an array and has no elements, it returns true", (): void => {
@@ -140,7 +140,7 @@ describe("CollectionUtils", () => {
             const result = CollectionUtils.isEmpty(collection);
 
             // Assert
-            expect(result).toBeTrue();
+            expect(result).toBe(true);
         });
 
         test("when collections param is a list and has elements, it returns false", (): void => {
@@ -151,7 +151,7 @@ describe("CollectionUtils", () => {
             const result = CollectionUtils.isEmpty(collection);
 
             // Assert
-            expect(result).toBeFalse();
+            expect(result).toBe(false);
         });
 
         test("when collections param is a list and has no elements, it returns true", (): void => {
@@ -162,7 +162,7 @@ describe("CollectionUtils", () => {
             const result = CollectionUtils.isEmpty(collection);
 
             // Assert
-            expect(result).toBeTrue();
+            expect(result).toBe(true);
         });
 
         test("when collections param has at least one non-empty collection, it returns false", (): void => {
@@ -174,7 +174,7 @@ describe("CollectionUtils", () => {
             const result = CollectionUtils.isEmpty(collection1, collection2);
 
             // Assert
-            expect(result).toBeFalse();
+            expect(result).toBe(false);
         });
 
         test("when collections param has multiple empty collections, it returns true", (): void => {
@@ -186,7 +186,7 @@ describe("CollectionUtils", () => {
             const result = CollectionUtils.isEmpty(collection1, collection2);
 
             // Assert
-            expect(result).toBeTrue();
+            expect(result).toBe(true);
         });
 
         test("given collections is undefined, it returns true", (): void => {
@@ -196,7 +196,7 @@ describe("CollectionUtils", () => {
             );
 
             // Assert
-            expect(result).toBeTrue();
+            expect(result).toBe(true);
         });
 
         test("given collections is null, it returns true", (): void => {
@@ -204,7 +204,7 @@ describe("CollectionUtils", () => {
             const result = CollectionUtils.isEmpty((null as unknown) as any[]);
 
             // Assert
-            expect(result).toBeTrue();
+            expect(result).toBe(true);
         });
 
         test("when collections param contains undefined, null, and at least one collection with values, it returns false", (): void => {
@@ -221,7 +221,7 @@ describe("CollectionUtils", () => {
             );
 
             // Assert
-            expect(result).toBeFalse();
+            expect(result).toBe(false);
         });
     });
 
@@ -240,7 +240,7 @@ describe("CollectionUtils", () => {
             const result = CollectionUtils.isNotEmpty(collection);
 
             // Assert
-            expect(result).toBeTrue();
+            expect(result).toBe(true);
         });
 
         test("when collections param is an array and has no elements, it returns false", (): void => {
@@ -251,7 +251,7 @@ describe("CollectionUtils", () => {
             const result = CollectionUtils.isNotEmpty(collection);
 
             // Assert
-            expect(result).toBeFalse();
+            expect(result).toBe(false);
         });
 
         test("when collections param is a list and has elements, it returns true", (): void => {
@@ -262,7 +262,7 @@ describe("CollectionUtils", () => {
             const result = CollectionUtils.isNotEmpty(collection);
 
             // Assert
-            expect(result).toBeTrue();
+            expect(result).toBe(true);
         });
 
         test("when collections param is a list and has no elements, it returns false", (): void => {
@@ -273,7 +273,7 @@ describe("CollectionUtils", () => {
             const result = CollectionUtils.isNotEmpty(collection);
 
             // Assert
-            expect(result).toBeFalse();
+            expect(result).toBe(false);
         });
 
         test("when collections param has at least one non-empty collection, it returns true", (): void => {
@@ -285,7 +285,7 @@ describe("CollectionUtils", () => {
             const result = CollectionUtils.isNotEmpty(collection1, collection2);
 
             // Assert
-            expect(result).toBeTrue();
+            expect(result).toBe(true);
         });
 
         test("when collections param has multiple empty collections, it returns false", (): void => {
@@ -297,7 +297,7 @@ describe("CollectionUtils", () => {
             const result = CollectionUtils.isNotEmpty(collection1, collection2);
 
             // Assert
-            expect(result).toBeFalse();
+            expect(result).toBe(false);
         });
 
         test("when collections param is undefined, it returns false", (): void => {
@@ -307,7 +307,7 @@ describe("CollectionUtils", () => {
             );
 
             // Assert
-            expect(result).toBeFalse();
+            expect(result).toBe(false);
         });
 
         test("when collections param is null, it returns false", (): void => {
@@ -317,7 +317,7 @@ describe("CollectionUtils", () => {
             );
 
             // Assert
-            expect(result).toBeFalse();
+            expect(result).toBe(false);
         });
 
         test("when collections param contains undefined, null, and at least one collection with values, it returns true", (): void => {
@@ -334,7 +334,7 @@ describe("CollectionUtils", () => {
             );
 
             // Assert
-            expect(result).toBeTrue();
+            expect(result).toBe(true);
         });
     });
 
