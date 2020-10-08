@@ -24,7 +24,7 @@
 
 • **errors**? : *[ResultErrorRecord](../classes/resulterrorrecord.md)[]*
 
-*Defined in [src/interfaces/paged-result.ts:8](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/interfaces/paged-result.ts#L8)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/interfaces/paged-result.ts:8
 
 ___
 
@@ -32,7 +32,7 @@ ___
 
 • **resultObject**? : *T[]*
 
-*Defined in [src/interfaces/paged-result.ts:9](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/interfaces/paged-result.ts#L9)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/interfaces/paged-result.ts:9
 
 ___
 
@@ -40,4 +40,4 @@ ___
 
 • **rowCount**: *number*
 
-*Defined in [src/interfaces/paged-result.ts:10](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/interfaces/paged-result.ts#L10)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/interfaces/paged-result.ts:10

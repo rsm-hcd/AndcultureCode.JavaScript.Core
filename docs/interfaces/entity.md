@@ -20,4 +20,4 @@
 
 • **id**? : *undefined | number*
 
-*Defined in [src/interfaces/entity.ts:2](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/interfaces/entity.ts#L2)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/interfaces/entity.ts:2

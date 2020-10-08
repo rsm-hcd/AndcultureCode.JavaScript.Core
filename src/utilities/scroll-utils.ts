@@ -90,7 +90,7 @@ const _scrollToHash = (
 
 export const ScrollUtils = {
     scrollToElementById: _scrollToElementById,
-    scrollToHash: _scrollToHash
+    scrollToHash: _scrollToHash,
 };
 
 // #endregion Exports

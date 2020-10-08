@@ -17,7 +17,7 @@
 
 • **Blank**: = "_blank"
 
-*Defined in [src/enumerations/anchor-target-types.ts:2](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/enumerations/anchor-target-types.ts#L2)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/enumerations/anchor-target-types.ts:2
 
 ___
 
@@ -25,7 +25,7 @@ ___
 
 • **Parent**: = "_parent"
 
-*Defined in [src/enumerations/anchor-target-types.ts:3](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/enumerations/anchor-target-types.ts#L3)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/enumerations/anchor-target-types.ts:3
 
 ___
 
@@ -33,7 +33,7 @@ ___
 
 • **Self**: = "_self"
 
-*Defined in [src/enumerations/anchor-target-types.ts:4](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/enumerations/anchor-target-types.ts#L4)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/enumerations/anchor-target-types.ts:4
 
 ___
 
@@ -41,4 +41,4 @@ ___
 
 • **Top**: = "_top"
 
-*Defined in [src/enumerations/anchor-target-types.ts:5](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/enumerations/anchor-target-types.ts#L5)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/enumerations/anchor-target-types.ts:5

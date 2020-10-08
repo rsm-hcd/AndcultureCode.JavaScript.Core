@@ -29,7 +29,7 @@
 
 • **Day**: = "day"
 
-*Defined in [src/enumerations/unit-of-time.ts:2](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/enumerations/unit-of-time.ts#L2)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/enumerations/unit-of-time.ts:2
 
 ___
 
@@ -37,7 +37,7 @@ ___
 
 • **Days**: = "days"
 
-*Defined in [src/enumerations/unit-of-time.ts:3](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/enumerations/unit-of-time.ts#L3)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/enumerations/unit-of-time.ts:3
 
 ___
 
@@ -45,7 +45,7 @@ ___
 
 • **Hour**: = "hour"
 
-*Defined in [src/enumerations/unit-of-time.ts:4](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/enumerations/unit-of-time.ts#L4)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/enumerations/unit-of-time.ts:4
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 • **Hours**: = "hours"
 
-*Defined in [src/enumerations/unit-of-time.ts:5](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/enumerations/unit-of-time.ts#L5)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/enumerations/unit-of-time.ts:5
 
 ___
 
@@ -61,7 +61,7 @@ ___
 
 • **Millisecond**: = "millisecond"
 
-*Defined in [src/enumerations/unit-of-time.ts:6](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/enumerations/unit-of-time.ts#L6)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/enumerations/unit-of-time.ts:6
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 • **Milliseconds**: = "milliseconds"
 
-*Defined in [src/enumerations/unit-of-time.ts:7](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/enumerations/unit-of-time.ts#L7)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/enumerations/unit-of-time.ts:7
 
 ___
 
@@ -77,7 +77,7 @@ ___
 
 • **Minute**: = "minute"
 
-*Defined in [src/enumerations/unit-of-time.ts:8](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/enumerations/unit-of-time.ts#L8)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/enumerations/unit-of-time.ts:8
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 • **Minutes**: = "minutes"
 
-*Defined in [src/enumerations/unit-of-time.ts:9](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/enumerations/unit-of-time.ts#L9)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/enumerations/unit-of-time.ts:9
 
 ___
 
@@ -93,7 +93,7 @@ ___
 
 • **Month**: = "month"
 
-*Defined in [src/enumerations/unit-of-time.ts:10](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/enumerations/unit-of-time.ts#L10)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/enumerations/unit-of-time.ts:10
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 • **Months**: = "months"
 
-*Defined in [src/enumerations/unit-of-time.ts:11](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/enumerations/unit-of-time.ts#L11)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/enumerations/unit-of-time.ts:11
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 • **Second**: = "second"
 
-*Defined in [src/enumerations/unit-of-time.ts:12](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/enumerations/unit-of-time.ts#L12)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/enumerations/unit-of-time.ts:12
 
 ___
 
@@ -117,7 +117,7 @@ ___
 
 • **Seconds**: = "seconds"
 
-*Defined in [src/enumerations/unit-of-time.ts:13](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/enumerations/unit-of-time.ts#L13)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/enumerations/unit-of-time.ts:13
 
 ___
 
@@ -125,7 +125,7 @@ ___
 
 • **Week**: = "week"
 
-*Defined in [src/enumerations/unit-of-time.ts:14](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/enumerations/unit-of-time.ts#L14)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/enumerations/unit-of-time.ts:14
 
 ___
 
@@ -133,7 +133,7 @@ ___
 
 • **Weeks**: = "weeks"
 
-*Defined in [src/enumerations/unit-of-time.ts:15](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/enumerations/unit-of-time.ts#L15)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/enumerations/unit-of-time.ts:15
 
 ___
 
@@ -141,7 +141,7 @@ ___
 
 • **Year**: = "year"
 
-*Defined in [src/enumerations/unit-of-time.ts:16](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/enumerations/unit-of-time.ts#L16)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/enumerations/unit-of-time.ts:16
 
 ___
 
@@ -149,4 +149,4 @@ ___
 
 • **Years**: = "years"
 
-*Defined in [src/enumerations/unit-of-time.ts:17](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/enumerations/unit-of-time.ts#L17)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/enumerations/unit-of-time.ts:17

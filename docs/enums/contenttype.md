@@ -19,7 +19,7 @@
 
 • **Css**: = "text/css"
 
-*Defined in [src/enumerations/content-type.ts:2](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/enumerations/content-type.ts#L2)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/enumerations/content-type.ts:2
 
 ___
 
@@ -27,7 +27,7 @@ ___
 
 • **Html**: = "text/html"
 
-*Defined in [src/enumerations/content-type.ts:3](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/enumerations/content-type.ts#L3)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/enumerations/content-type.ts:3
 
 ___
 
@@ -35,7 +35,7 @@ ___
 
 • **Javascript**: = "text/javascript"
 
-*Defined in [src/enumerations/content-type.ts:4](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/enumerations/content-type.ts#L4)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/enumerations/content-type.ts:4
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 • **Json**: = "application/json"
 
-*Defined in [src/enumerations/content-type.ts:5](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/enumerations/content-type.ts#L5)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/enumerations/content-type.ts:5
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 • **Pdf**: = "application/pdf"
 
-*Defined in [src/enumerations/content-type.ts:6](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/enumerations/content-type.ts#L6)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/enumerations/content-type.ts:6
 
 ___
 
@@ -59,4 +59,4 @@ ___
 
 • **Xml**: = "application/xml"
 
-*Defined in [src/enumerations/content-type.ts:7](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/enumerations/content-type.ts#L7)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/enumerations/content-type.ts:7
