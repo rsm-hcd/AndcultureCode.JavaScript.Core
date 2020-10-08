@@ -212,6 +212,24 @@ describe("CoreUtils", () => {
 
     // #endregion sleep
 
+    // -------------------------------------------------------------------------------------------------
+    // #region sleepSync
+    // -------------------------------------------------------------------------------------------------
+
+    describe("sleepSync", () => {
+        test("given n milliseconds, it blocks the execution until delay duration has completed", () => {
+            // Arrange && Act
+            const firstCall = performance.now();
+            CoreUtils.sleepSync(3000);
+            const secondCall = performance.now();
+
+            // Assert
+            expect(Math.ceil(secondCall-firstCall)).toBeGreaterThanOrEqual(3000);
+        });
+    });
+
+    // #endregion sleepSync
+
     // -----------------------------------------------------------------------------------------
     // #region timer
     // -----------------------------------------------------------------------------------------
