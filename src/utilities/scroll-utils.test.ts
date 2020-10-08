@@ -62,8 +62,10 @@ describe("ScrollUtils", () => {
             ScrollUtils.scrollToElementById(elementId, options);
 
             // Assert
-            expect(setTimeoutMock).toBeCalled();
-            expect(setTimeoutMock.mock.calls[0][1]).toBe(options.initialDelay);
+            expect(setTimeoutMock).toBeCalledWith(
+                expect.any(Function),
+                options.initialDelay
+            );
         });
     });
     // #endregion scrollToElementById
