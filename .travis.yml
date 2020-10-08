@@ -9,6 +9,7 @@ before_script:
 script:
 - npm run build
 - npm run coverage
+- npm run test-cypress
 - codecov --disable=gcov
 notifications:
   slack:
