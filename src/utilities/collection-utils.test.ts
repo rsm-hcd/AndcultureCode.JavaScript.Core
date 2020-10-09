@@ -581,7 +581,7 @@ describe("CollectionUtils", () => {
         type TestType = { letter: string };
         const selector = (t: TestType) => t.letter;
 
-        it("Sorts an array by specified selector", () => {
+        it("sorts an array by specified selector", () => {
             // Arrange
             const array = [
                 { letter: "E" },
@@ -605,7 +605,7 @@ describe("CollectionUtils", () => {
             expect(result).toEqual(expected);
         });
 
-        it("Ignores case sensitivity when sorting", () => {
+        it("when caseSensitive is false, then case is ignored then sorting", () => {
             // Arrange
             const array = [
                 { letter: "E" },
@@ -629,7 +629,7 @@ describe("CollectionUtils", () => {
             expect(result).toEqual(expected);
         });
 
-        it("Puts empty string values at the end", () => {
+        it("when strings are empty, then they are sorted to the end of the list", () => {
             // Arrange
             const array = [
                 { letter: "" },
@@ -653,7 +653,7 @@ describe("CollectionUtils", () => {
             expect(result).toEqual(expected);
         });
 
-        it("When strings are exactly equal, then returns array in same order", () => {
+        it("when strings are exactly equal, then returns array in same order", () => {
             // Arrange
             const array = [
                 { id: 1, letter: "A" },
@@ -668,7 +668,7 @@ describe("CollectionUtils", () => {
             expect(result).toEqual(expected);
         });
 
-        it("When caseSensitive is true, then sorts alphabetically with capitals before lower case letters", () => {
+        it("when caseSensitive is true, then sorts alphabetically with capitals before lower case letters", () => {
             // Arrange
             const array = [
                 { letter: "A" },

@@ -198,15 +198,15 @@ const _sortByString = <T extends any>(
         let bString = selector(b);
 
         if (!caseSensitive) {
-            aString = aString.toLowerCase();
-            bString = bString.toLowerCase();
+            aString = aString?.toLowerCase();
+            bString = bString?.toLowerCase();
         }
 
-        if (aString === "" || aString === null) {
+        if (aString === "" || aString == null) {
             return 1;
         }
 
-        if (bString === "" || bString === null) {
+        if (bString === "" || bString == null) {
             return -1;
         }
 
