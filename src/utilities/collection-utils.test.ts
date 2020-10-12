@@ -378,24 +378,6 @@ describe("CollectionUtils", () => {
             expect(result).toBe(list.size);
         });
     });
-
-  describe("#Lodash", () => {
-    test(`when collections param is an array and has elements, it returns the length`, (): void => {
-      // Arrange
-      const arr = [
-        [1,2,3],
-        [4,5,6],
-        [7,8,9]
-      ] ;
-      const expected = [2, 4, 5, 6];
-
-
-      // Act
-      const result = CollectionUtils.flattenDeep(arr);
-
-      // Assert
-      expect(result).toBe(5);
-    });
   });
 
     // #endregion length
