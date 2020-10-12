@@ -378,7 +378,6 @@ describe("CollectionUtils", () => {
             expect(result).toBe(list.size);
         });
     });
-  });
 
     // #endregion length
 
