@@ -398,7 +398,7 @@ describe("CollectionUtils", () => {
             const result = CollectionUtils.equalsBy(selector, arr1, arr2);
 
             // Assert
-            expect(result).toBe(false);
+            expect(result).toBeFalse();
         });
 
         it("when one of the collections is null, then returns false", () => {
@@ -409,7 +409,7 @@ describe("CollectionUtils", () => {
             const result = CollectionUtils.equalsBy(selector, arr1, undefined);
 
             // Assert
-            expect(result).toBe(false);
+            expect(result).toBeFalse();
         });
 
         it("when both collections are null, then returns true", () => {
@@ -421,7 +421,7 @@ describe("CollectionUtils", () => {
             );
 
             // Assert
-            expect(result).toBe(true);
+            expect(result).toBeTrue();
         });
 
         it("when collections are equal size but contain different elements, then returns false", () => {
@@ -433,7 +433,7 @@ describe("CollectionUtils", () => {
             const result = CollectionUtils.equalsBy(selector, arr1, arr2);
 
             // Assert
-            expect(result).toBe(false);
+            expect(result).toBeFalse();
         });
 
         it("when collections are identical, then returns true", () => {
@@ -445,7 +445,7 @@ describe("CollectionUtils", () => {
             const result = CollectionUtils.equalsBy(selector, arr1, arr2);
 
             // Assert
-            expect(result).toBe(true);
+            expect(result).toBeTrue();
         });
     });
 
