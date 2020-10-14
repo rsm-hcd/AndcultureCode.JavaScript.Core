@@ -1,7 +1,6 @@
 import * as Immutable from "immutable";
 import _ from "lodash";
 
-
 // -----------------------------------------------------------------------------------------
 // #region Private Methods
 // -----------------------------------------------------------------------------------------
@@ -45,7 +44,6 @@ const _equalsBy = function<T, V>(
     return !hasDifferingValues;
 };
 
-
 /**
  * Creates an array of unique array values not included in the other provided arrays using SameValueZero for
  * equality comparisons.
@@ -59,15 +57,14 @@ const _difference = <T>(
     ...values: Array<Array<T>>
 ): T[] => _.difference(array, ...values);
 
-
 /**
  * Recursively flattens a nested array.
  *
  * @param array The array to recursively flatten.
  * @return Returns the new flattened array.
  */
-const _flattenDeep = <T>(array: Array<T> | null | undefined): T[] => _.flattenDeep(array);
-
+const _flattenDeep = <T>(array: Array<T> | null | undefined): T[] =>
+    _.flattenDeep(array);
 
 /**
  * Checks for values in a collection/object. Returns false if the collection is undefined, null,
@@ -84,11 +81,13 @@ const _hasValues = (
     ...collections: Array<any[] | Immutable.List<any> | undefined>
 ): boolean => {
     let hasValues = false;
-    collections.forEach((collection: any[] | Immutable.List<any> | undefined) => {
-        if (!_isEmpty(collection)) {
-            hasValues = true;
+    collections.forEach(
+        (collection: any[] | Immutable.List<any> | undefined) => {
+            if (!_isEmpty(collection)) {
+                hasValues = true;
+            }
         }
-    });
+    );
     return hasValues;
 };
 
@@ -108,22 +107,24 @@ const _isEmpty = (
 ): boolean => {
     let isEmpty = true;
 
-    collections.forEach((collection: any[] | Immutable.List<any> | undefined) => {
-        if (collection == null) {
-            return;
-        }
-        if (collection instanceof Immutable.List) {
-            const collectionList = collection as Immutable.List<any>;
-            if (collectionList.size !== 0) {
-                isEmpty = false;
+    collections.forEach(
+        (collection: any[] | Immutable.List<any> | undefined) => {
+            if (collection == null) {
+                return;
             }
-        } else {
-            const collectionArray = collection as any[];
-            if (collectionArray.length !== 0) {
-                isEmpty = false;
+            if (collection instanceof Immutable.List) {
+                const collectionList = collection as Immutable.List<any>;
+                if (collectionList.size !== 0) {
+                    isEmpty = false;
+                }
+            } else {
+                const collectionArray = collection as any[];
+                if (collectionArray.length !== 0) {
+                    isEmpty = false;
+                }
             }
         }
-    });
+    );
 
     return isEmpty;
 };
@@ -163,7 +164,6 @@ const _length = (arr: Array<any> | Immutable.List<any>): number => {
     return (arr as Array<any>).length;
 };
 
-
 /**
  * Gets the first element of array.
  *
@@ -172,8 +172,8 @@ const _length = (arr: Array<any> | Immutable.List<any>): number => {
  * @param array The array to query.
  * @return Returns the first element of array.
  */
-const _head = <T>(array: Array<T> | null | undefined): T | undefined => _.head(array);
-
+const _head = <T>(array: Array<T> | null | undefined): T | undefined =>
+    _.head(array);
 
 /**
  * Creates an array of  unique values that are included in all of the provided arrays using SameValueZero for
@@ -182,9 +182,8 @@ const _head = <T>(array: Array<T> | null | undefined): T | undefined => _.head(a
  * @param arrays The arrays to inspect.
  * @return Returns the new array of shared values.
  */
-const _intersection = <T>(...arrays: Array<Array<T>>) => _.intersection(...arrays)
-
-
+const _intersection = <T>(...arrays: Array<Array<T>>) =>
+    _.intersection(...arrays);
 
 /**
  * Creates an array of unique `array` values not included in the other
@@ -210,7 +209,6 @@ const _intersectionWith = <T1, T2>(
     comparator: (a: T1, b: T2) => boolean
 ): T1[] => _.intersectionWith(array, values, comparator);
 
-
 /**
  * Removes a supplied element by index
  * @param source original array
@@ -225,7 +223,6 @@ const _removeElementAt = <T>(source: Array<T>, index: number): Array<T> => {
     newArr.splice(index, 1);
     return newArr;
 };
-
 
 /**
  * Returns a NEW array with the element at the specified index
@@ -262,10 +259,8 @@ const _replaceElementAt = <T>(
  * @param collection The collection to sample.
  * @return Returns the random element.
  */
-const _sample = <T>(
-    collection: Array<T> | null | undefined
-): T | undefined => _.sample(collection);
-
+const _sample = <T>(collection: Array<T> | null | undefined): T | undefined =>
+    _.sample(collection);
 
 /**
  * Gets n random elements at unique keys from collection up to the size of collection.
@@ -317,18 +312,16 @@ const _sortByString = <T extends any>(
 
         return 1;
     });
-            
-  /**
+
+/**
  * Creates a slice of array with n elements taken from the beginning.
  *
  * @param array The array to query.
  * @param n The number of elements to take.
  * @return Returns the slice of array.
  */
-const _take = <T>(
-    array: Array<T> | null | undefined,
-    n?: number
-): T[] => _.take(array, n);
+const _take = <T>(array: Array<T> | null | undefined, n?: number): T[] =>
+    _.take(array, n);
 
 // #endregion Private Methods
 

@@ -20,7 +20,7 @@ Named type alias for the {arrayFormat} property of {QueryString.stringifyOptions
 
 • **Bracket**: = "bracket"
 
-Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/enumerations/query-string-array-format.ts:5
+*Defined in [src/enumerations/query-string-array-format.ts:5](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/2fc3e99/src/enumerations/query-string-array-format.ts#L5)*
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 • **Comma**: = "comma"
 
-Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/enumerations/query-string-array-format.ts:7
+*Defined in [src/enumerations/query-string-array-format.ts:7](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/2fc3e99/src/enumerations/query-string-array-format.ts#L7)*
 
 ___
 
@@ -36,7 +36,7 @@ ___
 
 • **Index**: = "index"
 
-Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/enumerations/query-string-array-format.ts:6
+*Defined in [src/enumerations/query-string-array-format.ts:6](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/2fc3e99/src/enumerations/query-string-array-format.ts#L6)*
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 • **None**: = "none"
 
-Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/enumerations/query-string-array-format.ts:9
+*Defined in [src/enumerations/query-string-array-format.ts:9](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/2fc3e99/src/enumerations/query-string-array-format.ts#L9)*
 
 ___
 
@@ -52,4 +52,4 @@ ___
 
 • **Separator**: = "separator"
 
-Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/enumerations/query-string-array-format.ts:8
+*Defined in [src/enumerations/query-string-array-format.ts:8](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/2fc3e99/src/enumerations/query-string-array-format.ts#L8)*

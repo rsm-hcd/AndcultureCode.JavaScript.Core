@@ -15,7 +15,7 @@
 
 • **Error**: = 0
 
-Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/enumerations/error-type.ts:2
+*Defined in [src/enumerations/error-type.ts:2](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/2fc3e99/src/enumerations/error-type.ts#L2)*
 
 ___
 
@@ -23,4 +23,4 @@ ___
 
 • **ValidationError**: = 1
 
-Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/enumerations/error-type.ts:3
+*Defined in [src/enumerations/error-type.ts:3](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/2fc3e99/src/enumerations/error-type.ts#L3)*

@@ -48,7 +48,6 @@
         "dist"
     ],
     "homepage": "https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core#readme",
-    "license": "ISC",
     "jest": {
         "preset": "ts-jest"
     },
@@ -57,6 +56,7 @@
         "Node",
         "React"
     ],
+    "license": "ISC",
     "main": "dist/index",
     "name": "andculturecode-javascript-core",
     "repository": {
@@ -82,5 +82,5 @@
         "watch:test": "jest ./src --watch"
     },
     "types": "dist/index",
-    "version": "0.3.3"
+    "version": "0.3.4"
 }

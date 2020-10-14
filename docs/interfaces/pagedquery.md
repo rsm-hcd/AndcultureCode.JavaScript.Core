@@ -19,7 +19,7 @@
 
 • **skip**? : *undefined | number*
 
-Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/interfaces/paged-query.ts:9
+*Defined in [src/interfaces/paged-query.ts:9](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/2fc3e99/src/interfaces/paged-query.ts#L9)*
 
 Number of records to skip before retrieving rows.
 
@@ -29,7 +29,7 @@ ___
 
 • **take**? : *undefined | number*
 
-Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/interfaces/paged-query.ts:15
+*Defined in [src/interfaces/paged-query.ts:15](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/2fc3e99/src/interfaces/paged-query.ts#L15)*
 
 Number of records to take in the request. (_Up_ to this number of records will be returned,
 if available)
