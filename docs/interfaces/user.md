@@ -33,7 +33,7 @@
 
 *Inherited from [Auditable](auditable.md).[createdById](auditable.md#optional-createdbyid)*
 
-*Defined in [src/interfaces/auditable.ts:4](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/interfaces/auditable.ts#L4)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/interfaces/auditable.ts:4
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 *Inherited from [Auditable](auditable.md).[createdOn](auditable.md#optional-createdon)*
 
-*Defined in [src/interfaces/auditable.ts:5](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/interfaces/auditable.ts#L5)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/interfaces/auditable.ts:5
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 *Inherited from [Auditable](auditable.md).[deletedById](auditable.md#optional-deletedbyid)*
 
-*Defined in [src/interfaces/auditable.ts:6](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/interfaces/auditable.ts#L6)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/interfaces/auditable.ts:6
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 *Inherited from [Auditable](auditable.md).[deletedOn](auditable.md#optional-deletedon)*
 
-*Defined in [src/interfaces/auditable.ts:7](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/interfaces/auditable.ts#L7)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/interfaces/auditable.ts:7
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 • **email**? : *undefined | string*
 
-*Defined in [src/interfaces/user.ts:4](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/interfaces/user.ts#L4)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/interfaces/user.ts:4
 
 ___
 
@@ -79,7 +79,7 @@ ___
 
 • **firstName**: *string*
 
-*Defined in [src/interfaces/user.ts:5](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/interfaces/user.ts#L5)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/interfaces/user.ts:5
 
 ___
 
@@ -89,7 +89,7 @@ ___
 
 *Inherited from [Entity](entity.md).[id](entity.md#optional-id)*
 
-*Defined in [src/interfaces/entity.ts:2](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/interfaces/entity.ts#L2)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/interfaces/entity.ts:2
 
 ___
 
@@ -97,7 +97,7 @@ ___
 
 • **isSuperAdmin**? : *undefined | false | true*
 
-*Defined in [src/interfaces/user.ts:6](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/interfaces/user.ts#L6)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/interfaces/user.ts:6
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 • **lastName**: *string*
 
-*Defined in [src/interfaces/user.ts:7](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/interfaces/user.ts#L7)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/interfaces/user.ts:7
 
 ___
 
@@ -115,7 +115,7 @@ ___
 
 *Inherited from [Auditable](auditable.md).[updatedById](auditable.md#optional-updatedbyid)*
 
-*Defined in [src/interfaces/auditable.ts:8](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/interfaces/auditable.ts#L8)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/interfaces/auditable.ts:8
 
 ___
 
@@ -125,7 +125,7 @@ ___
 
 *Inherited from [Auditable](auditable.md).[updatedOn](auditable.md#optional-updatedon)*
 
-*Defined in [src/interfaces/auditable.ts:9](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/interfaces/auditable.ts#L9)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/interfaces/auditable.ts:9
 
 ___
 
@@ -133,4 +133,4 @@ ___
 
 • **userName**? : *undefined | string*
 
-*Defined in [src/interfaces/user.ts:8](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/interfaces/user.ts#L8)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/interfaces/user.ts:8

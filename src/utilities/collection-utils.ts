@@ -256,7 +256,6 @@ const _replaceElementAt = <T>(
     return [...source.slice(0, index), value, ...source.slice(index + 1)];
 };
 
-
 /**
  * Gets a random element from collection.
  *
@@ -280,8 +279,46 @@ const _sampleSize = <T>(
     n?: number
 ): T[] => _.sampleSize(collection, n);
 
-
 /**
+ * Sort an array of items alphabetically by one property of the item.
+ * @param array the source array of items
+ * @param selector function returning property to sort by from item
+ * @param caseSensitive whether to consider letter case when sorting
+ */
+const _sortByString = <T extends any>(
+    array: Array<T>,
+    selector: (element: T) => string,
+    caseSensitive: boolean = false
+) =>
+    array.sort((a: T, b: T) => {
+        let aString = selector(a);
+        let bString = selector(b);
+
+        if (!caseSensitive) {
+            aString = aString?.toLowerCase();
+            bString = bString?.toLowerCase();
+        }
+
+        if (aString === "" || aString == null) {
+            return 1;
+        }
+
+        if (bString === "" || bString == null) {
+            return -1;
+        }
+
+        if (aString === bString) {
+            return 0;
+        }
+
+        if (aString < bString) {
+            return -1;
+        }
+
+        return 1;
+    });
+            
+  /**
  * Creates a slice of array with n elements taken from the beginning.
  *
  * @param array The array to query.
@@ -314,6 +351,7 @@ export const CollectionUtils = {
     replaceElementAt: _replaceElementAt,
     sample: _sample,
     sampleSize: _sampleSize,
+    sortByString: _sortByString,
     take: _take,
 };
 

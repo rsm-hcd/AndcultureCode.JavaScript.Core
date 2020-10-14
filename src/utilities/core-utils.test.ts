@@ -153,7 +153,7 @@ describe("CoreUtils", () => {
             // Arrange
             const testObject = {
                 name: "Jane",
-                age:  30
+                age: 30,
             };
 
             // Act
@@ -164,7 +164,6 @@ describe("CoreUtils", () => {
             expect(result).toContain(testObject.age);
             expect(result).toHaveLength(2);
         });
-
 
         test("given an empty object, return an empty array", () => {
             // Arrange
@@ -211,6 +210,26 @@ describe("CoreUtils", () => {
     });
 
     // #endregion sleep
+
+    // -------------------------------------------------------------------------------------------------
+    // #region sleepSync
+    // -------------------------------------------------------------------------------------------------
+
+    describe("sleepSync", () => {
+        test("given n milliseconds, it blocks the execution until delay duration has completed", () => {
+            // Arrange && Act
+            const firstCall = performance.now();
+            CoreUtils.sleepSync(3000);
+            const secondCall = performance.now();
+
+            // Assert
+            expect(Math.ceil(secondCall - firstCall)).toBeGreaterThanOrEqual(
+                3000
+            );
+        });
+    });
+
+    // #endregion sleepSync
 
     // -----------------------------------------------------------------------------------------
     // #region timer

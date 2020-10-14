@@ -108,6 +108,7 @@ const _mapAxiosResponse = <TRecord>(
     return {
         result: new ResultRecord<TRecord>(axiosResponse.data),
         resultObject: resultObject,
+        resultObjects: [],
         rowCount: 1,
         status: axiosResponse.status,
     };
@@ -127,7 +128,7 @@ const _mapPagedAxiosResponse = <TRecord>(
     const { data } = axiosResponse;
 
     // Ensure result data is wrapped within records
-    let resultObjects;
+    let resultObjects: Array<TRecord> = [];
     let rowCount = 0;
     if (CollectionUtils.hasValues(data?.resultObject)) {
         resultObjects = data.resultObject!.map((r: any) => new recordType(r));

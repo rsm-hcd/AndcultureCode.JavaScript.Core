@@ -25,7 +25,7 @@
 
 *Inherited from [ScrollOptions](scrolloptions.md).[behavior](scrolloptions.md#optional-behavior)*
 
-Defined in node_modules/typescript/lib/lib.dom.d.ts:1677
+Defined in Clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/node_modules/typescript/lib/lib.dom.d.ts:1677
 
 ___
 
@@ -35,7 +35,7 @@ ___
 
 *Inherited from [ScrollOptions](scrolloptions.md).[block](scrolloptions.md#optional-block)*
 
-Defined in node_modules/typescript/lib/lib.dom.d.ts:1672
+Defined in Clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/node_modules/typescript/lib/lib.dom.d.ts:1672
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 • **initialDelay**? : *undefined | number*
 
-*Defined in [src/interfaces/scroll-options.ts:2](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/interfaces/scroll-options.ts#L2)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/interfaces/scroll-options.ts:2
 
 ___
 
@@ -53,4 +53,4 @@ ___
 
 *Inherited from [ScrollOptions](scrolloptions.md).[inline](scrolloptions.md#optional-inline)*
 
-Defined in node_modules/typescript/lib/lib.dom.d.ts:1673
+Defined in Clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/node_modules/typescript/lib/lib.dom.d.ts:1673

@@ -74,12 +74,12 @@ const _scrollToHash = (
     location: any,
     options: ScrollOptions = DefaultScrollOptions
 ) => {
-    if (StringUtils.isEmpty(location.hash)) {
+    if (StringUtils.isEmpty(location?.hash)) {
         return;
     }
 
     const id = location.hash.replace("#", "");
-    _scrollToElementById(id, options);
+    ScrollUtils.scrollToElementById(id, options);
 };
 
 // #endregion Functions
@@ -89,6 +89,7 @@ const _scrollToHash = (
 // -----------------------------------------------------------------------------------------
 
 export const ScrollUtils = {
+    scrollToElementById: _scrollToElementById,
     scrollToHash: _scrollToHash,
 };
 

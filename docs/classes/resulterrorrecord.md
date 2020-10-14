@@ -71,7 +71,7 @@
 
 ▸ (`values?`: Partial‹TProps› | Iterable‹[string, any]›): *[Record](resulterrorrecord.md#static-record)‹TProps› & Readonly‹TProps›*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2444
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/node_modules/immutable/dist/immutable-nonambient.d.ts:2444
 
 A Record.Factory is created by the `Record()` function. Record instances
 are created by passing it some of the accepted values for that Record
@@ -132,7 +132,7 @@ Name | Type |
 
 \+ **new Factory**(`values?`: Partial‹TProps› | Iterable‹[string, any]›): *[Record](resulterrorrecord.md#static-record)‹TProps› & Readonly‹TProps›*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2445
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/node_modules/immutable/dist/immutable-nonambient.d.ts:2445
 
 **Parameters:**
 
@@ -146,7 +146,7 @@ Name | Type |
 
 • **displayName**: *string*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2452
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/node_modules/immutable/dist/immutable-nonambient.d.ts:2452
 
 The name provided to `Record(values, name)` can be accessed with
 `displayName`.
@@ -157,7 +157,7 @@ The name provided to `Record(values, name)` can be accessed with
 
 \+ **new ResultErrorRecord**(`params?`: [ResultError](../interfaces/resulterror.md)): *[ResultErrorRecord](resulterrorrecord.md)*
 
-*Defined in [src/view-models/result-error-record.ts:11](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/view-models/result-error-record.ts#L11)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/view-models/result-error-record.ts:11
 
 **Parameters:**
 
@@ -175,7 +175,7 @@ Name | Type |
 
 *Inherited from [ResultErrorRecord](resulterrorrecord.md).[[Symbol.iterator]](resulterrorrecord.md#[symbol.iterator])*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2589
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/node_modules/immutable/dist/immutable-nonambient.d.ts:2589
 
 **Returns:** *IterableIterator‹[keyof TProps, TProps[keyof TProps]]›*
 
@@ -187,7 +187,7 @@ ___
 
 *Inherited from [ResultErrorRecord](resulterrorrecord.md).[asImmutable](resulterrorrecord.md#asimmutable)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2583
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/node_modules/immutable/dist/immutable-nonambient.d.ts:2583
 
 **`see`** `Map#asImmutable`
 
@@ -201,7 +201,7 @@ ___
 
 *Inherited from [ResultErrorRecord](resulterrorrecord.md).[asMutable](resulterrorrecord.md#asmutable)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2573
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/node_modules/immutable/dist/immutable-nonambient.d.ts:2573
 
 **`see`** `Map#asMutable`
 
@@ -215,7 +215,7 @@ ___
 
 *Inherited from [ResultErrorRecord](resulterrorrecord.md).[clear](resulterrorrecord.md#clear)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2525
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/node_modules/immutable/dist/immutable-nonambient.d.ts:2525
 
 Returns a new instance of this Record type with all values set
 to their default values.
@@ -230,7 +230,7 @@ ___
 
 *Inherited from [ResultErrorRecord](resulterrorrecord.md).[delete](resulterrorrecord.md#delete)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2518
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/node_modules/immutable/dist/immutable-nonambient.d.ts:2518
 
 Returns a new instance of this Record type with the value for the
 specific key set to its default value.
@@ -257,7 +257,7 @@ ___
 
 *Inherited from [ResultErrorRecord](resulterrorrecord.md).[deleteIn](resulterrorrecord.md#deletein)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2537
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/node_modules/immutable/dist/immutable-nonambient.d.ts:2537
 
 **`alias`** removeIn
 
@@ -277,7 +277,7 @@ ___
 
 *Inherited from [ResultErrorRecord](resulterrorrecord.md).[equals](resulterrorrecord.md#equals)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2493
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/node_modules/immutable/dist/immutable-nonambient.d.ts:2493
 
 **Parameters:**
 
@@ -293,7 +293,7 @@ ___
 
 ▸ **fullError**(): *string*
 
-*Defined in [src/view-models/result-error-record.ts:40](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/view-models/result-error-record.ts#L40)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/view-models/result-error-record.ts:40
 
 Display error key and message
 
@@ -307,7 +307,7 @@ ___
 
 *Inherited from [ResultErrorRecord](resulterrorrecord.md).[get](resulterrorrecord.md#get)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2483
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/node_modules/immutable/dist/immutable-nonambient.d.ts:2483
 
 Returns the value associated with the provided key, which may be the
 default value defined when creating the Record factory function.
@@ -333,7 +333,7 @@ Name | Type |
 
 *Inherited from [ResultErrorRecord](resulterrorrecord.md).[get](resulterrorrecord.md#get)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2484
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/node_modules/immutable/dist/immutable-nonambient.d.ts:2484
 
 **Type parameters:**
 
@@ -356,7 +356,7 @@ ___
 
 *Inherited from [ResultErrorRecord](resulterrorrecord.md).[getIn](resulterrorrecord.md#getin)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2489
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/node_modules/immutable/dist/immutable-nonambient.d.ts:2489
 
 **Parameters:**
 
@@ -374,7 +374,7 @@ ___
 
 *Inherited from [ResultErrorRecord](resulterrorrecord.md).[has](resulterrorrecord.md#has)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2473
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/node_modules/immutable/dist/immutable-nonambient.d.ts:2473
 
 **Parameters:**
 
@@ -392,7 +392,7 @@ ___
 
 *Inherited from [ResultErrorRecord](resulterrorrecord.md).[hasIn](resulterrorrecord.md#hasin)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2488
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/node_modules/immutable/dist/immutable-nonambient.d.ts:2488
 
 **Parameters:**
 
@@ -410,7 +410,7 @@ ___
 
 *Inherited from [ResultErrorRecord](resulterrorrecord.md).[hashCode](resulterrorrecord.md#hashcode)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2494
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/node_modules/immutable/dist/immutable-nonambient.d.ts:2494
 
 **Returns:** *number*
 
@@ -422,7 +422,7 @@ ___
 
 *Inherited from [ResultErrorRecord](resulterrorrecord.md).[merge](resulterrorrecord.md#merge)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2500
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/node_modules/immutable/dist/immutable-nonambient.d.ts:2500
 
 **Parameters:**
 
@@ -440,7 +440,7 @@ ___
 
 *Inherited from [ResultErrorRecord](resulterrorrecord.md).[mergeDeep](resulterrorrecord.md#mergedeep)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2501
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/node_modules/immutable/dist/immutable-nonambient.d.ts:2501
 
 **Parameters:**
 
@@ -458,7 +458,7 @@ ___
 
 *Inherited from [ResultErrorRecord](resulterrorrecord.md).[mergeDeepIn](resulterrorrecord.md#mergedeepin)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2532
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/node_modules/immutable/dist/immutable-nonambient.d.ts:2532
 
 **Parameters:**
 
@@ -477,7 +477,7 @@ ___
 
 *Inherited from [ResultErrorRecord](resulterrorrecord.md).[mergeDeepWith](resulterrorrecord.md#mergedeepwith)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2507
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/node_modules/immutable/dist/immutable-nonambient.d.ts:2507
 
 **Parameters:**
 
@@ -505,7 +505,7 @@ ___
 
 *Inherited from [ResultErrorRecord](resulterrorrecord.md).[mergeIn](resulterrorrecord.md#mergein)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2531
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/node_modules/immutable/dist/immutable-nonambient.d.ts:2531
 
 **Parameters:**
 
@@ -524,7 +524,7 @@ ___
 
 *Inherited from [ResultErrorRecord](resulterrorrecord.md).[mergeWith](resulterrorrecord.md#mergewith)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2503
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/node_modules/immutable/dist/immutable-nonambient.d.ts:2503
 
 **Parameters:**
 
@@ -552,7 +552,7 @@ ___
 
 *Inherited from [ResultErrorRecord](resulterrorrecord.md).[remove](resulterrorrecord.md#remove)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2519
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/node_modules/immutable/dist/immutable-nonambient.d.ts:2519
 
 **Type parameters:**
 
@@ -574,7 +574,7 @@ ___
 
 *Inherited from [ResultErrorRecord](resulterrorrecord.md).[removeIn](resulterrorrecord.md#removein)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2538
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/node_modules/immutable/dist/immutable-nonambient.d.ts:2538
 
 **Parameters:**
 
@@ -592,7 +592,7 @@ ___
 
 *Inherited from [ResultErrorRecord](resulterrorrecord.md).[set](resulterrorrecord.md#set)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2498
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/node_modules/immutable/dist/immutable-nonambient.d.ts:2498
 
 **Type parameters:**
 
@@ -615,7 +615,7 @@ ___
 
 *Inherited from [ResultErrorRecord](resulterrorrecord.md).[setIn](resulterrorrecord.md#setin)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2529
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/node_modules/immutable/dist/immutable-nonambient.d.ts:2529
 
 **Parameters:**
 
@@ -634,7 +634,7 @@ ___
 
 *Inherited from [ResultErrorRecord](resulterrorrecord.md).[toJS](resulterrorrecord.md#tojs)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2548
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/node_modules/immutable/dist/immutable-nonambient.d.ts:2548
 
 Deeply converts this Record to equivalent native JavaScript Object.
 
@@ -651,7 +651,7 @@ ___
 
 *Inherited from [ResultErrorRecord](resulterrorrecord.md).[toJSON](resulterrorrecord.md#tojson)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2553
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/node_modules/immutable/dist/immutable-nonambient.d.ts:2553
 
 Shallowly converts this Record to equivalent native JavaScript Object.
 
@@ -665,7 +665,7 @@ ___
 
 *Inherited from [ResultErrorRecord](resulterrorrecord.md).[toObject](resulterrorrecord.md#toobject)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2558
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/node_modules/immutable/dist/immutable-nonambient.d.ts:2558
 
 Shallowly converts this Record to equivalent JavaScript Object.
 
@@ -679,7 +679,7 @@ ___
 
 *Inherited from [ResultErrorRecord](resulterrorrecord.md).[toSeq](resulterrorrecord.md#toseq)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2587
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/node_modules/immutable/dist/immutable-nonambient.d.ts:2587
 
 **Returns:** *Keyed‹keyof TProps, TProps[keyof TProps]›*
 
@@ -691,7 +691,7 @@ ___
 
 *Inherited from [ResultErrorRecord](resulterrorrecord.md).[update](resulterrorrecord.md#update)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2499
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/node_modules/immutable/dist/immutable-nonambient.d.ts:2499
 
 **Type parameters:**
 
@@ -721,7 +721,7 @@ ___
 
 *Inherited from [ResultErrorRecord](resulterrorrecord.md).[updateIn](resulterrorrecord.md#updatein)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2530
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/node_modules/immutable/dist/immutable-nonambient.d.ts:2530
 
 **Parameters:**
 
@@ -747,7 +747,7 @@ ___
 
 *Inherited from [ResultErrorRecord](resulterrorrecord.md).[wasAltered](resulterrorrecord.md#wasaltered)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2578
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/node_modules/immutable/dist/immutable-nonambient.d.ts:2578
 
 **`see`** `Map#wasAltered`
 
@@ -759,7 +759,7 @@ ___
 
 ▸ **with**(`values`: Partial‹[ResultError](../interfaces/resulterror.md)›): *[ResultErrorRecord](resulterrorrecord.md)*
 
-*Defined in [src/view-models/result-error-record.ts:51](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/view-models/result-error-record.ts#L51)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/view-models/result-error-record.ts:51
 
 Merges new values into the record and returns a new instance.
 
@@ -781,7 +781,7 @@ ___
 
 *Inherited from [ResultErrorRecord](resulterrorrecord.md).[withMutations](resulterrorrecord.md#withmutations)*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2568
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/node_modules/immutable/dist/immutable-nonambient.d.ts:2568
 
 Note: Not all methods can be used on a mutable collection or within
 `withMutations`! Only `set` may be used mutatively.
@@ -808,7 +808,7 @@ ___
 
 ▸ **Factory**<**TProps**>(`values?`: Partial‹TProps› | Iterable‹[string, any]›): *[Record](resulterrorrecord.md#static-record)‹TProps› & Readonly‹TProps›*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2455
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/node_modules/immutable/dist/immutable-nonambient.d.ts:2455
 
 **Type parameters:**
 
@@ -828,7 +828,7 @@ ___
 
 ▸ **Record**<**TProps**>(`defaultValues`: TProps, `name?`: undefined | string): *[Factory](resulterrorrecord.md#factory)‹TProps›*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2467
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/node_modules/immutable/dist/immutable-nonambient.d.ts:2467
 
 Unlike other types in Immutable.js, the `Record()` function creates a new
 Record Factory, which is a function that creates Record instances.
@@ -857,7 +857,7 @@ ___
 
 ▸ **getDescriptiveName**(`record`: [Record](resulterrorrecord.md#static-record)‹any›): *string*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2392
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/node_modules/immutable/dist/immutable-nonambient.d.ts:2392
 
 Records allow passing a second parameter to supply a descriptive name
 that appears when converting a Record to a string or in any error
@@ -889,7 +889,7 @@ ___
 
 ▸ **isRecord**(`maybeRecord`: any): *maybeRecord is Record<any>*
 
-Defined in node_modules/immutable/dist/immutable-nonambient.d.ts:2373
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/node_modules/immutable/dist/immutable-nonambient.d.ts:2373
 
 True if `maybeRecord` is an instance of a Record.
 

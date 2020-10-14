@@ -18,7 +18,7 @@
 
 • **Delete**: = "DELETE"
 
-*Defined in [src/enumerations/http-verb.ts:2](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/enumerations/http-verb.ts#L2)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/enumerations/http-verb.ts:2
 
 ___
 
@@ -26,7 +26,7 @@ ___
 
 • **Get**: = "GET"
 
-*Defined in [src/enumerations/http-verb.ts:3](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/enumerations/http-verb.ts#L3)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/enumerations/http-verb.ts:3
 
 ___
 
@@ -34,7 +34,7 @@ ___
 
 • **Patch**: = "PATCH"
 
-*Defined in [src/enumerations/http-verb.ts:4](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/enumerations/http-verb.ts#L4)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/enumerations/http-verb.ts:4
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 • **Post**: = "POST"
 
-*Defined in [src/enumerations/http-verb.ts:5](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/enumerations/http-verb.ts#L5)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/enumerations/http-verb.ts:5
 
 ___
 
@@ -50,4 +50,4 @@ ___
 
 • **Put**: = "PUT"
 
-*Defined in [src/enumerations/http-verb.ts:6](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ca11227/src/enumerations/http-verb.ts#L6)*
+Defined in clients/andculture/kevinbusch-AndcultureCode.JavaScript.Core/src/enumerations/http-verb.ts:6
