@@ -23,7 +23,7 @@
 
 • **id**: *number*
 
-*Defined in [src/tests/stubs/stub-resource.ts:6](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/d084ed3/src/tests/stubs/stub-resource.ts#L6)*
+*Defined in [src/tests/stubs/stub-resource.ts:6](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/0fc84c2/src/tests/stubs/stub-resource.ts#L6)*
 
 ___
 
@@ -31,4 +31,4 @@ ___
 
 • **name**? : *undefined | string*
 
-*Defined in [src/tests/stubs/stub-resource.ts:7](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/d084ed3/src/tests/stubs/stub-resource.ts#L7)*
+*Defined in [src/tests/stubs/stub-resource.ts:7](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/0fc84c2/src/tests/stubs/stub-resource.ts#L7)*
