@@ -41,21 +41,6 @@ const curry = <T1, R>(
     arity?: number
 ): CurriedFunction1<T1, R> => _.curry(func, arity);
 
-
-/**
- * Recursively merges own and inherited enumerable properties of source
- * objects into the destination object, skipping source properties that resolve
- * to `undefined`. Array and plain object properties are merged recursively.
- * Other objects and value types are overridden by assignment. Source objects
- * are applied from left to right. Subsequent sources overwrite property
- * assignments of previous sources.
- */
-const merge = <TObject, TSource>(
-  object: TObject,
-  source: TSource
-): TObject & TSource => _.merge(object, source);
-
-
 /**
  * Transforms an enum into an array of its values
  *
@@ -69,6 +54,7 @@ const merge = <TObject, TSource>(
  */
 const enumToArray = <TEnum = any>(enumObject: any): TEnum[] =>
     objectToArray(numericEnumToPojo(enumObject)) as TEnum[];
+
 
 /**
  * Returns a random enum value from its type
@@ -95,22 +81,37 @@ const getRandomEnum = <TEnum = any>(
     return enumValues[Math.floor(Math.random() * enumValues.length)];
 };
 
-const numericEnumToPojo = (enumObject: any): {} => {
-    let pojo: { [k: string]: any } = {};
-
-    for (const key in enumObject) {
-        if (isNaN(parseInt(key))) {
-            pojo[key] = enumObject[key];
-        }
-    }
-
-    return pojo;
-};
-
 const memoize = <T extends (...args: any[]) => any>(
   func: T,
   resolver?: (...args: any[]) => any
 ): T & MemoizedFunction => _.memoize(func, resolver);
+
+
+/**
+ * Recursively merges own and inherited enumerable properties of source
+ * objects into the destination object, skipping source properties that resolve
+ * to `undefined`. Array and plain object properties are merged recursively.
+ * Other objects and value types are overridden by assignment. Source objects
+ * are applied from left to right. Subsequent sources overwrite property
+ * assignments of previous sources.
+ */
+const merge = <TObject, TSource>(
+  object: TObject,
+  source: TSource
+): TObject & TSource => _.merge(object, source);
+
+
+const numericEnumToPojo = (enumObject: any): {} => {
+  let pojo: { [k: string]: any } = {};
+
+  for (const key in enumObject) {
+    if (isNaN(parseInt(key))) {
+      pojo[key] = enumObject[key];
+    }
+  }
+
+  return pojo;
+};
 
 const objectToArray = (object: any): any[] => {
     const result: any[] = [];
