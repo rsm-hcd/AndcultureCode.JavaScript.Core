@@ -1,10 +1,7 @@
 import Humanize from "humanize-plus";
 import _ from "lodash";
 import { CollectionUtils } from "./collection-utils";
-import {
-    TemplateOptions,
-    TemplateExecutor
-} from "lodash";
+import { TemplateOptions, TemplateExecutor } from "lodash";
 
 // -----------------------------------------------------------------------------------------
 // #region Constants
@@ -94,7 +91,6 @@ const join = (values: string[], separator: string = ","): string => {
  */
 const lowerFirst = (string?: string): string => _.lowerCase(string);
 
-
 /**
  * Pads string on the left and right sides if it’s shorter than length. Padding characters are truncated if
  * they can’t be evenly divided by length.
@@ -104,12 +100,8 @@ const lowerFirst = (string?: string): string => _.lowerCase(string);
  * @param chars The string used as padding.
  * @return Returns the padded string.
  */
-const pad = (
-    string?: string,
-    length?: number,
-    chars?: string
-): string => _.pad(string, length, chars);
-
+const pad = (string?: string, length?: number, chars?: string): string =>
+    _.pad(string, length, chars);
 
 /**
  * Pads string on the right side if it’s shorter than length. Padding characters are truncated if they exceed
@@ -120,12 +112,8 @@ const pad = (
  * @param chars The string used as padding.
  * @return Returns the padded string.
  */
-const padEnd = (
-  string?: string,
-  length?: number,
-  chars?: string
-): string => _.padEnd(string, length, chars);
-
+const padEnd = (string?: string, length?: number, chars?: string): string =>
+    _.padEnd(string, length, chars);
 
 /**
  * Pads string on the left side if it’s shorter than length. Padding characters are truncated if they exceed
@@ -136,11 +124,8 @@ const padEnd = (
  * @param chars The string used as padding.
  * @return Returns the padded string.
  */
-const padStart = (
-  string?: string,
-  length?: number,
-  chars?: string
-): string => _.padStart(string, length, chars);
+const padStart = (string?: string, length?: number, chars?: string): string =>
+    _.padStart(string, length, chars);
 
 /**
  * Returns the plural version of a given word if the value is not 1. The default suffix is 's'.
@@ -170,11 +155,7 @@ const pluralize = (
  * @param n The number of times to repeat the string.
  * @return Returns the repeated string.
  */
-const repeat = (
-  string?: string,
-  n?: number
-): string => _.repeat(string, n);
-
+const repeat = (string?: string, n?: number): string => _.repeat(string, n);
 
 /**
  * Converts string to snake case.
@@ -191,7 +172,6 @@ const snakeCase = (string?: string): string => _.snakeCase(string);
  * @return Returns the start cased string.
  */
 const startCase = (string?: string): string => _.startCase(string);
-
 
 /**
  * Creates a compiled template function that can interpolate data properties in "interpolate" delimiters,
@@ -220,8 +200,8 @@ const startCase = (string?: string): string => _.startCase(string);
  * @return Returns the compiled template function.
  */
 const template = (
-  string?: string,
-  options?: TemplateOptions
+    string?: string,
+    options?: TemplateOptions
 ): TemplateExecutor => _.template(string, options);
 
 const truncateRight = (value: string, truncateAtPos: number): string => {
@@ -236,7 +216,6 @@ const truncateRight = (value: string, truncateAtPos: number): string => {
         : `${truncatedValue}...`;
 };
 
-
 /**
  * Converts the first character of `string` to upper case.
  *
@@ -245,7 +224,6 @@ const truncateRight = (value: string, truncateAtPos: number): string => {
  */
 const upperFirst = (string?: string): string => _.upperFirst(string);
 
-
 /**
  * Splits `string` into an array of its words.
  *
@@ -253,10 +231,8 @@ const upperFirst = (string?: string): string => _.upperFirst(string);
  * @param pattern The pattern to match words.
  * @return Returns the words of `string`.
  */
-const words = (
-  string?: string,
-  pattern?: string|RegExp
-): string[] => _.words(string, pattern);
+const words = (string?: string, pattern?: string | RegExp): string[] =>
+    _.words(string, pattern);
 
 // #endregion Functions
 

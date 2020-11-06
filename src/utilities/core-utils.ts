@@ -4,7 +4,7 @@ import {
     Cancelable,
     CurriedFunction1,
     MemoizedFunction,
-    ThrottleSettings
+    ThrottleSettings,
 } from "lodash";
 
 // -----------------------------------------------------------------------------------------
@@ -23,10 +23,8 @@ import {
  * method names.
  * @return Returns object.
  */
-const bindAll = <T>(
-  object: T,
-  ...methodNames: Array<string | string[]>
-): T => _.bindAll(object, ...methodNames);
+const bindAll = <T>(object: T, ...methodNames: Array<string | string[]>): T =>
+    _.bindAll(object, ...methodNames);
 
 /**
  * Creates a function that accepts one or more arguments of func that when called either invokes func returning
@@ -55,7 +53,6 @@ const curry = <T1, R>(
 const enumToArray = <TEnum = any>(enumObject: any): TEnum[] =>
     objectToArray(numericEnumToPojo(enumObject)) as TEnum[];
 
-
 /**
  * Returns a random enum value from its type
  *
@@ -82,10 +79,9 @@ const getRandomEnum = <TEnum = any>(
 };
 
 const memoize = <T extends (...args: any[]) => any>(
-  func: T,
-  resolver?: (...args: any[]) => any
+    func: T,
+    resolver?: (...args: any[]) => any
 ): T & MemoizedFunction => _.memoize(func, resolver);
-
 
 /**
  * Recursively merges own and inherited enumerable properties of source
@@ -96,21 +92,20 @@ const memoize = <T extends (...args: any[]) => any>(
  * assignments of previous sources.
  */
 const merge = <TObject, TSource>(
-  object: TObject,
-  source: TSource
+    object: TObject,
+    source: TSource
 ): TObject & TSource => _.merge(object, source);
 
-
 const numericEnumToPojo = (enumObject: any): {} => {
-  let pojo: { [k: string]: any } = {};
+    let pojo: { [k: string]: any } = {};
 
-  for (const key in enumObject) {
-    if (isNaN(parseInt(key))) {
-      pojo[key] = enumObject[key];
+    for (const key in enumObject) {
+        if (isNaN(parseInt(key))) {
+            pojo[key] = enumObject[key];
+        }
     }
-  }
 
-  return pojo;
+    return pojo;
 };
 
 const objectToArray = (object: any): any[] => {
@@ -139,11 +134,8 @@ const objectToArray = (object: any): any[] => {
  * @param step The value to increment or decrement by.
  * @return Returns a new range array.
  */
-const range = (
-    start: number,
-    end?: number,
-    step?: number
-): number[] => _.range(start, end, step);
+const range = (start: number, end?: number, step?: number): number[] =>
+    _.range(start, end, step);
 
 /**
  * Wrap timeout in a promise so tests can easily block execution for testing time
@@ -178,7 +170,6 @@ const sleepSync = (milliseconds: number) => {
     }
 };
 
-
 /**
  * Creates a throttled function that only invokes func at most once per every wait milliseconds. The throttled
  * function comes with a cancel method to cancel delayed invocations and a flush method to immediately invoke
@@ -196,9 +187,9 @@ const sleepSync = (milliseconds: number) => {
  * @return Returns the new throttled function.
  */
 const throttle = <T extends (...args: any[]) => any>(
-  func: T,
-  wait?: number,
-  options?: ThrottleSettings
+    func: T,
+    wait?: number,
+    options?: ThrottleSettings
 ): T & Cancelable => _.throttle(func, wait, options);
 
 /**
@@ -226,7 +217,6 @@ const timer = (name: string) => {
     };
 };
 
-
 /**
  * Invokes the iteratee function n times, returning an array of the results of each invocation. The iteratee
  * is invoked with one argument; (index).
@@ -236,8 +226,8 @@ const timer = (name: string) => {
  * @return Returns the array of results.
  */
 const times = <TResult>(
-  n: number,
-  iteratee: (num: number) => TResult
+    n: number,
+    iteratee: (num: number) => TResult
 ): TResult[] => _.times(n, iteratee);
 
 // #endregion Private Methods

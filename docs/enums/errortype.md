@@ -15,7 +15,7 @@
 
 • **Error**: = 0
 
-*Defined in [src/enumerations/error-type.ts:2](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/0fc84c2/src/enumerations/error-type.ts#L2)*
+*Defined in [src/enumerations/error-type.ts:2](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ec18c0a/src/enumerations/error-type.ts#L2)*
 
 ___
 
@@ -23,4 +23,4 @@ ___
 
 • **ValidationError**: = 1
 
-*Defined in [src/enumerations/error-type.ts:3](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/0fc84c2/src/enumerations/error-type.ts#L3)*
+*Defined in [src/enumerations/error-type.ts:3](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ec18c0a/src/enumerations/error-type.ts#L3)*

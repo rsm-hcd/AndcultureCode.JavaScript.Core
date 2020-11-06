@@ -5,7 +5,7 @@ import {
     Dictionary,
     List,
     ListOfRecursiveArraysOrValues,
-    NumericDictionary
+    NumericDictionary,
 } from "lodash";
 
 // -----------------------------------------------------------------------------------------
@@ -70,8 +70,9 @@ const difference = <T>(
  * @param array The array to recursively flatten.
  * @return Returns the new flattened array.
  */
-const flattenDeep = <T>(array: ListOfRecursiveArraysOrValues<T> | null | undefined): T[] =>
-    _.flattenDeep(array);
+const flattenDeep = <T>(
+    array: ListOfRecursiveArraysOrValues<T> | null | undefined
+): T[] => _.flattenDeep(array);
 
 /**
  * Checks for values in a collection/object. Returns false if the collection is undefined, null,
@@ -266,8 +267,14 @@ const replaceElementAt = <T>(
  * @param collection The collection to sample.
  * @return Returns the random element.
  */
-const sample = <T>(collection: List<T> | Dictionary<T> | NumericDictionary<T> | null | undefined): T | undefined =>
-    _.sample(collection);
+const sample = <T>(
+    collection:
+        | List<T>
+        | Dictionary<T>
+        | NumericDictionary<T>
+        | null
+        | undefined
+): T | undefined => _.sample(collection);
 
 /**
  * Gets n random elements at unique keys from collection up to the size of collection.
@@ -277,7 +284,12 @@ const sample = <T>(collection: List<T> | Dictionary<T> | NumericDictionary<T> | 
  * @return Returns the random elements.
  */
 const sampleSize = <T>(
-    collection: List<T> | Dictionary<T> | NumericDictionary<T> | null | undefined,
+    collection:
+        | List<T>
+        | Dictionary<T>
+        | NumericDictionary<T>
+        | null
+        | undefined,
     n?: number
 ): T[] => _.sampleSize(collection, n);
 
