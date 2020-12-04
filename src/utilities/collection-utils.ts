@@ -16,7 +16,7 @@ import _ from "lodash";
  * @returns true if both arrays contain all the same elements of the other,
  *          not considering order, false otherwise.
  */
-const _equalsBy = function<T, V>(
+const equalsBy = function<T, V>(
     selector: (element: T) => V,
     array1: Array<T> | Immutable.List<any> | undefined,
     array2: Array<T> | Immutable.List<any> | undefined
@@ -29,7 +29,7 @@ const _equalsBy = function<T, V>(
         return false;
     }
 
-    if (_length(array1) !== _length(array2)) {
+    if (length(array1) !== length(array2)) {
         return false;
     }
 
@@ -52,7 +52,7 @@ const _equalsBy = function<T, V>(
  * @param values The arrays of values to exclude.
  * @return Returns the new array of filtered values.
  */
-const _difference = <T>(
+const difference = <T>(
     array: Array<T> | null | undefined,
     ...values: Array<Array<T>>
 ): T[] => _.difference(array, ...values);
@@ -63,7 +63,7 @@ const _difference = <T>(
  * @param array The array to recursively flatten.
  * @return Returns the new flattened array.
  */
-const _flattenDeep = <T>(array: Array<T> | null | undefined): T[] =>
+const flattenDeep = <T>(array: Array<T> | null | undefined): T[] =>
     _.flattenDeep(array);
 
 /**
@@ -77,9 +77,9 @@ const _flattenDeep = <T>(array: Array<T> | null | undefined): T[] =>
  * @returns {boolean} False if `collection` is null/undefined
  * True if any element has sub-elements.
  */
-const _hasValues = (collection: any[] | Immutable.List<any> | undefined
+const hasValues = (collection: any[] | Immutable.List<any> | undefined
 ): collection is any[] | Immutable.List<any> | undefined => {
-    return !_isEmpty(collection);
+    return !isEmpty(collection);
 };
 
 /**
@@ -92,7 +92,7 @@ const _hasValues = (collection: any[] | Immutable.List<any> | undefined
  * False if collection has elements.
  * @param collection
  */
-const _isEmpty = (collection: any[] | Immutable.List<any> | undefined
+const isEmpty = (collection: any[] | Immutable.List<any> | undefined
 ): collection is any[] | Immutable.List<any> | undefined => {
     if (collection == null) {
         return true;
@@ -125,9 +125,9 @@ const _isEmpty = (collection: any[] | Immutable.List<any> | undefined
  * True if any element has sub-elements.
  * @param collection
  */
-const _isNotEmpty = (collection: any[] | Immutable.List<any> | undefined
+const isNotEmpty = (collection: any[] | Immutable.List<any> | undefined
 ): collection is any[] | Immutable.List<any> | undefined => {
-    return !_isEmpty(collection);
+    return !isEmpty(collection);
 };
 
 /**
@@ -136,7 +136,7 @@ const _isNotEmpty = (collection: any[] | Immutable.List<any> | undefined
  * @param arr the collection
  * @returns number the length of the collection
  */
-const _length = (arr: Array<any> | Immutable.List<any>): number => {
+const length = (arr: Array<any> | Immutable.List<any>): number => {
     if (arr == null) {
         return -1;
     }
@@ -156,7 +156,7 @@ const _length = (arr: Array<any> | Immutable.List<any>): number => {
  * @param array The array to query.
  * @return Returns the first element of array.
  */
-const _head = <T>(array: Array<T> | null | undefined): T | undefined =>
+const first = <T>(array: Array<T> | null | undefined): T | undefined =>
     _.head(array);
 
 /**
@@ -166,7 +166,7 @@ const _head = <T>(array: Array<T> | null | undefined): T | undefined =>
  * @param arrays The arrays to inspect.
  * @return Returns the new array of shared values.
  */
-const _intersection = <T>(...arrays: Array<Array<T>>) =>
+const intersection = <T>(...arrays: Array<Array<T>>) =>
     _.intersection(...arrays);
 
 /**
@@ -187,7 +187,7 @@ const _intersection = <T>(...arrays: Array<Array<T>>) =>
  * _.intersectionWith(objects, others, _.isEqual);
  * => [{ 'x': 1, 'y': 2 }]
  */
-const _intersectionWith = <T1, T2>(
+const intersectionWith = <T1, T2>(
     array: Array<T1>,
     values: Array<T2>,
     comparator: (a: T1, b: T2) => boolean
@@ -198,7 +198,7 @@ const _intersectionWith = <T1, T2>(
  * @param source original array
  * @param index array index to remove
  */
-const _removeElementAt = <T>(source: Array<T>, index: number): Array<T> => {
+const removeElementAt = <T>(source: Array<T>, index: number): Array<T> => {
     if (index < 0 || index > source.length) {
         return source;
     }
@@ -218,7 +218,7 @@ const _removeElementAt = <T>(source: Array<T>, index: number): Array<T> => {
  * @param index
  * @param value
  */
-const _replaceElementAt = <T>(
+const replaceElementAt = <T>(
     source: Array<T>,
     index: number,
     value: T
@@ -243,7 +243,7 @@ const _replaceElementAt = <T>(
  * @param collection The collection to sample.
  * @return Returns the random element.
  */
-const _sample = <T>(collection: Array<T> | null | undefined): T | undefined =>
+const sample = <T>(collection: Array<T> | null | undefined): T | undefined =>
     _.sample(collection);
 
 /**
@@ -253,7 +253,7 @@ const _sample = <T>(collection: Array<T> | null | undefined): T | undefined =>
  * @param n The number of elements to sample.
  * @return Returns the random elements.
  */
-const _sampleSize = <T>(
+const sampleSize = <T>(
     collection: Array<T> | null | undefined,
     n?: number
 ): T[] => _.sampleSize(collection, n);
@@ -264,7 +264,7 @@ const _sampleSize = <T>(
  * @param selector function returning property to sort by from item
  * @param caseSensitive whether to consider letter case when sorting
  */
-const _sortByString = <T extends any>(
+const sortByString = <T extends any>(
     array: Array<T>,
     selector: (element: T) => string,
     caseSensitive: boolean = false
@@ -304,7 +304,7 @@ const _sortByString = <T extends any>(
  * @param n The number of elements to take.
  * @return Returns the slice of array.
  */
-const _take = <T>(array: Array<T> | null | undefined, n?: number): T[] =>
+const take = <T>(array: Array<T> | null | undefined, n?: number): T[] =>
     _.take(array, n);
 
 // #endregion Private Methods
@@ -314,22 +314,22 @@ const _take = <T>(array: Array<T> | null | undefined, n?: number): T[] =>
 // -----------------------------------------------------------------------------------------
 
 export const CollectionUtils = {
-    difference: _difference,
-    equalsBy: _equalsBy,
-    first: _head,
-    flattenDeep: _flattenDeep,
-    hasValues: _hasValues,
-    isEmpty: _isEmpty,
-    isNotEmpty: _isNotEmpty,
-    intersection: _intersection,
-    intersectionWith: _intersectionWith,
-    length: _length,
-    removeElementAt: _removeElementAt,
-    replaceElementAt: _replaceElementAt,
-    sample: _sample,
-    sampleSize: _sampleSize,
-    sortByString: _sortByString,
-    take: _take,
+  difference,
+  equalsBy,
+  first,
+  flattenDeep,
+  hasValues,
+  isEmpty,
+  isNotEmpty,
+  intersection,
+  intersectionWith,
+  length,
+  removeElementAt,
+  replaceElementAt,
+  sample,
+  sampleSize,
+  sortByString,
+  take,
 };
 
 // #endregion Exports
