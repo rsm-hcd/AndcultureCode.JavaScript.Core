@@ -1,5 +1,12 @@
 import * as Immutable from "immutable";
 import _ from "lodash";
+import {
+    Comparator2,
+    Dictionary,
+    List,
+    ListOfRecursiveArraysOrValues,
+    NumericDictionary,
+} from "lodash";
 
 // -----------------------------------------------------------------------------------------
 // #region Private Methods
@@ -53,8 +60,8 @@ const equalsBy = function<T, V>(
  * @return Returns the new array of filtered values.
  */
 const difference = <T>(
-    array: Array<T> | null | undefined,
-    ...values: Array<Array<T>>
+    array: List<T> | null | undefined,
+    ...values: Array<List<T>>
 ): T[] => _.difference(array, ...values);
 
 /**
@@ -63,8 +70,9 @@ const difference = <T>(
  * @param array The array to recursively flatten.
  * @return Returns the new flattened array.
  */
-const flattenDeep = <T>(array: Array<T> | null | undefined): T[] =>
-    _.flattenDeep(array);
+const flattenDeep = <T>(
+    array: ListOfRecursiveArraysOrValues<T> | null | undefined
+): T[] => _.flattenDeep(array);
 
 /**
  * hasValue only take a SINGLE collection as parameter to make use of Typescript Type guard ability
@@ -156,7 +164,7 @@ const length = (arr: Array<any> | Immutable.List<any>): number => {
  * @param array The array to query.
  * @return Returns the first element of array.
  */
-const first = <T>(array: Array<T> | null | undefined): T | undefined =>
+const first = <T>(array: List<T> | null | undefined): T | undefined =>
     _.head(array);
 
 /**
@@ -166,7 +174,7 @@ const first = <T>(array: Array<T> | null | undefined): T | undefined =>
  * @param arrays The arrays to inspect.
  * @return Returns the new array of shared values.
  */
-const intersection = <T>(...arrays: Array<Array<T>>) =>
+const intersection = <T>(...arrays: Array<List<T>>) =>
     _.intersection(...arrays);
 
 /**
@@ -188,9 +196,9 @@ const intersection = <T>(...arrays: Array<Array<T>>) =>
  * => [{ 'x': 1, 'y': 2 }]
  */
 const intersectionWith = <T1, T2>(
-    array: Array<T1>,
-    values: Array<T2>,
-    comparator: (a: T1, b: T2) => boolean
+    array: List<T1>,
+    values: List<T2>,
+    comparator: Comparator2<T1, T2>
 ): T1[] => _.intersectionWith(array, values, comparator);
 
 /**
@@ -243,8 +251,14 @@ const replaceElementAt = <T>(
  * @param collection The collection to sample.
  * @return Returns the random element.
  */
-const sample = <T>(collection: Array<T> | null | undefined): T | undefined =>
-    _.sample(collection);
+const sample = <T>(
+    collection:
+        | List<T>
+        | Dictionary<T>
+        | NumericDictionary<T>
+        | null
+        | undefined
+): T | undefined => _.sample(collection);
 
 /**
  * Gets n random elements at unique keys from collection up to the size of collection.
@@ -254,7 +268,12 @@ const sample = <T>(collection: Array<T> | null | undefined): T | undefined =>
  * @return Returns the random elements.
  */
 const sampleSize = <T>(
-    collection: Array<T> | null | undefined,
+    collection:
+        | List<T>
+        | Dictionary<T>
+        | NumericDictionary<T>
+        | null
+        | undefined,
     n?: number
 ): T[] => _.sampleSize(collection, n);
 
@@ -304,7 +323,7 @@ const sortByString = <T extends any>(
  * @param n The number of elements to take.
  * @return Returns the slice of array.
  */
-const take = <T>(array: Array<T> | null | undefined, n?: number): T[] =>
+const take = <T>(array: List<T> | null | undefined, n?: number): T[] =>
     _.take(array, n);
 
 // #endregion Private Methods
@@ -314,22 +333,22 @@ const take = <T>(array: Array<T> | null | undefined, n?: number): T[] =>
 // -----------------------------------------------------------------------------------------
 
 export const CollectionUtils = {
-  difference,
-  equalsBy,
-  first,
-  flattenDeep,
-  hasValues,
-  isEmpty,
-  isNotEmpty,
-  intersection,
-  intersectionWith,
-  length,
-  removeElementAt,
-  replaceElementAt,
-  sample,
-  sampleSize,
-  sortByString,
-  take,
+    difference,
+    equalsBy,
+    first,
+    flattenDeep,
+    hasValues,
+    isEmpty,
+    isNotEmpty,
+    intersection,
+    intersectionWith,
+    length,
+    removeElementAt,
+    replaceElementAt,
+    sample,
+    sampleSize,
+    sortByString,
+    take,
 };
 
 // #endregion Exports
