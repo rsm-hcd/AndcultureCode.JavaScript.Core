@@ -28,7 +28,7 @@ const filename = (value?: string): string | undefined =>
  * @param {string} [value]
  * @returns {boolean}
  */
-const hasValue = (value?: string): boolean =>
+const hasValue = (value?: string): value is string =>
     // toString is called here to ensure handling all edge cases when a non string value is passed in this fuction
     value != null && value?.toString().trim() !== "";
 
@@ -39,7 +39,7 @@ const hasValue = (value?: string): boolean =>
  * @param {string} [value]
  * @returns {boolean}
  */
-const isEmpty = (value?: string): boolean =>
+const isEmpty = (value?: string): value is string =>
     // toString is called here to ensure handling all edge cases when a non string value is passed in this fuction
     value == null || value.toString().trim() === "";
 
@@ -47,7 +47,7 @@ const isEmpty = (value?: string): boolean =>
  * Validates a given string matches a valid email format
  * @param value
  */
-const isValidEmail = (value?: string): boolean =>
+const isValidEmail = (value?: string): value is string =>
     value != null && REGEX_VALID_EMAIL.test(value);
 
 /**
