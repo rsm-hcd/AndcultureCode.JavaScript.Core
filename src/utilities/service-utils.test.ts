@@ -9,6 +9,7 @@ import { FactoryType as AndcultureCodeFactoryType } from "andculturecode-javascr
 import { ResultRecord } from "../view-models/result-record";
 import axios from "axios";
 import "jest-extended";
+import { PagedResult } from "../interfaces/paged-result";
 
 describe("ServiceUtils", () => {
     // -----------------------------------------------------------------------------------------
@@ -294,6 +295,30 @@ describe("ServiceUtils", () => {
     // -----------------------------------------------------------------------------------------
 
     describe("mapPagedAxiosResponse", () => {
+        test("when resultObject is empty array, it properly maps an empty array to resultObjects", () => {
+            // Arrange
+            const response = Factory.build<AxiosResponse>(
+                AndcultureCodeFactoryType.AxiosResponse,
+                {
+                    data: {
+                        resultObject: [],
+                        rowCount: 0,
+                    },
+                }
+            );
+
+            // Act
+            const result = ServiceUtils.mapPagedAxiosResponse(
+                StubResourceRecord,
+                response
+            );
+
+            // Assert
+            expect(result.resultObjects).not.toBeNil();
+            expect(result.resultObjects).toBeArray();
+            expect(result.resultObjects).toHaveLength(0);
+        });
+
         test("when axiosResponse is undefined, it returns null", () => {
             // Arrange & Act
             const result = ServiceUtils.mapPagedAxiosResponse(
@@ -316,7 +341,7 @@ describe("ServiceUtils", () => {
             expect(result).toBeNull();
         });
 
-        test("when response.data is undefined, it returns the mapped resultObjects as undefined", () => {
+        test("when response.data is undefined, it returns the mapped resultObjects as empty array", () => {
             // Arrange
             const axiosResponse = Factory.build<AxiosResponse>(
                 AndcultureCodeFactoryType.AxiosResponse,
@@ -330,10 +355,10 @@ describe("ServiceUtils", () => {
             );
 
             // Assert
-            expect(result.resultObjects).toBeUndefined();
+            expect(result.resultObjects).toBeArrayOfSize(0);
         });
 
-        test("when response.data is null, it returns the mapped resultObjects as undefined", () => {
+        test("when response.data is null, it returns the mapped resultObjects as empty array", () => {
             // Arrange
             const axiosResponse = Factory.build<AxiosResponse>(
                 AndcultureCodeFactoryType.AxiosResponse,
@@ -347,10 +372,10 @@ describe("ServiceUtils", () => {
             );
 
             // Assert
-            expect(result.resultObjects).toBeUndefined();
+            expect(result.resultObjects).toBeArrayOfSize(0);
         });
 
-        test("when response.data.resultObject is undefined, it returns the mapped resultObjects as undefined", () => {
+        test("when response.data.resultObject is undefined, it returns the mapped resultObjects as empty array", () => {
             // Arrange
             const axiosResponse = Factory.build<AxiosResponse>(
                 AndcultureCodeFactoryType.AxiosResponse,
@@ -368,10 +393,10 @@ describe("ServiceUtils", () => {
             );
 
             // Assert
-            expect(result.resultObjects).toBeUndefined();
+            expect(result.resultObjects).toBeArrayOfSize(0);
         });
 
-        test("when response.data.resultObject is null, it returns the mapped resultObjects as undefined", () => {
+        test("when response.data.resultObject is null, it returns the mapped resultObjects as empty array", () => {
             // Arrange
             const axiosResponse = Factory.build<AxiosResponse>(
                 AndcultureCodeFactoryType.AxiosResponse,
@@ -389,7 +414,7 @@ describe("ServiceUtils", () => {
             );
 
             // Assert
-            expect(result.resultObjects).toBeUndefined();
+            expect(result.resultObjects).toBeArrayOfSize(0);
         });
 
         test("when response.data.rowCount is undefined, it returns rowCount equal to the resultObject list length", () => {

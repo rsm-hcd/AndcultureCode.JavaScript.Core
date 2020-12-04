@@ -1,4 +1,4 @@
-import { List } from "immutable";
+import * as Immutable from "immutable";
 import _ from "lodash";
 
 // -----------------------------------------------------------------------------------------
@@ -18,8 +18,8 @@ import _ from "lodash";
  */
 const _equalsBy = function<T, V>(
     selector: (element: T) => V,
-    array1: Array<T> | List<any> | undefined,
-    array2: Array<T> | List<any> | undefined
+    array1: Array<T> | Immutable.List<any> | undefined,
+    array2: Array<T> | Immutable.List<any> | undefined
 ) {
     if (array1 == null) {
         return array2 == null;
@@ -45,6 +45,28 @@ const _equalsBy = function<T, V>(
 };
 
 /**
+ * Creates an array of unique array values not included in the other provided arrays using SameValueZero for
+ * equality comparisons.
+ *
+ * @param array The array to inspect.
+ * @param values The arrays of values to exclude.
+ * @return Returns the new array of filtered values.
+ */
+const _difference = <T>(
+    array: Array<T> | null | undefined,
+    ...values: Array<Array<T>>
+): T[] => _.difference(array, ...values);
+
+/**
+ * Recursively flattens a nested array.
+ *
+ * @param array The array to recursively flatten.
+ * @return Returns the new flattened array.
+ */
+const _flattenDeep = <T>(array: Array<T> | null | undefined): T[] =>
+    _.flattenDeep(array);
+
+/**
  * hasValue only take a SINGLE collection as parameter to make use of Typescript Type guard ability
  *
  * Checks for values in a collection/object. Returns false if the collection is undefined, null,
@@ -55,8 +77,8 @@ const _equalsBy = function<T, V>(
  * @returns {boolean} False if `collection` is null/undefined
  * True if any element has sub-elements.
  */
-const _hasValues = (collection: any[] | List<any> | undefined
-): collection is any[] | List<any> | undefined => {
+const _hasValues = (collection: any[] | Immutable.List<any> | undefined
+): collection is any[] | Immutable.List<any> | undefined => {
     return !_isEmpty(collection);
 };
 
@@ -70,16 +92,16 @@ const _hasValues = (collection: any[] | List<any> | undefined
  * False if collection has elements.
  * @param collection
  */
-const _isEmpty = (collection: any[] | List<any> | undefined
-): collection is any[] | List<any> | undefined => {
+const _isEmpty = (collection: any[] | Immutable.List<any> | undefined
+): collection is any[] | Immutable.List<any> | undefined => {
     if (collection == null) {
         return true;
     }
 
     let isEmpty = true;
 
-    if (collection instanceof List) {
-        const collectionList = collection as List<any>;
+    if (collection instanceof Immutable.List) {
+        const collectionList = collection as Immutable.List<any>;
         if (collectionList.size !== 0) {
             isEmpty = false;
         }
@@ -103,28 +125,73 @@ const _isEmpty = (collection: any[] | List<any> | undefined
  * True if any element has sub-elements.
  * @param collection
  */
-const _isNotEmpty = (collection: any[] | List<any> | undefined
-): collection is any[] | List<any> | undefined => {
+const _isNotEmpty = (collection: any[] | Immutable.List<any> | undefined
+): collection is any[] | Immutable.List<any> | undefined => {
     return !_isEmpty(collection);
 };
 
 /**
  * Utility function to get the length of a collection
- * when the collection might be either a List or an Array
+ * when the collection might be either a Immutable.List or an Array
  * @param arr the collection
  * @returns number the length of the collection
  */
-const _length = (arr: Array<any> | List<any>): number => {
+const _length = (arr: Array<any> | Immutable.List<any>): number => {
     if (arr == null) {
         return -1;
     }
 
-    if (arr instanceof List) {
-        return (arr as List<any>).size;
+    if (arr instanceof Immutable.List) {
+        return (arr as Immutable.List<any>).size;
     }
 
     return (arr as Array<any>).length;
 };
+
+/**
+ * Gets the first element of array.
+ *
+ * @alias _.first
+ *
+ * @param array The array to query.
+ * @return Returns the first element of array.
+ */
+const _head = <T>(array: Array<T> | null | undefined): T | undefined =>
+    _.head(array);
+
+/**
+ * Creates an array of  unique values that are included in all of the provided arrays using SameValueZero for
+ * equality comparisons.
+ *
+ * @param arrays The arrays to inspect.
+ * @return Returns the new array of shared values.
+ */
+const _intersection = <T>(...arrays: Array<Array<T>>) =>
+    _.intersection(...arrays);
+
+/**
+ * Creates an array of unique `array` values not included in the other
+ * provided arrays using [`SameValueZero`](http://ecma-international.org/ecma-262/6.0/#sec-samevaluezero)
+ * for equality comparisons.
+ *
+ * @category Array
+ * @param array
+ * @param [values] The arrays to inspect.
+ * @param [comparator] The comparator invoked per element.
+ * @returns Returns the new array of filtered values.
+ * @example
+ *
+ * var objects = [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }];
+ * var others = [{ 'x': 1, 'y': 1 }, { 'x': 1, 'y': 2 }];
+
+ * _.intersectionWith(objects, others, _.isEqual);
+ * => [{ 'x': 1, 'y': 2 }]
+ */
+const _intersectionWith = <T1, T2>(
+    array: Array<T1>,
+    values: Array<T2>,
+    comparator: (a: T1, b: T2) => boolean
+): T1[] => _.intersectionWith(array, values, comparator);
 
 /**
  * Removes a supplied element by index
@@ -170,6 +237,76 @@ const _replaceElementAt = <T>(
     return [...source.slice(0, index), value, ...source.slice(index + 1)];
 };
 
+/**
+ * Gets a random element from collection.
+ *
+ * @param collection The collection to sample.
+ * @return Returns the random element.
+ */
+const _sample = <T>(collection: Array<T> | null | undefined): T | undefined =>
+    _.sample(collection);
+
+/**
+ * Gets n random elements at unique keys from collection up to the size of collection.
+ *
+ * @param collection The collection to sample.
+ * @param n The number of elements to sample.
+ * @return Returns the random elements.
+ */
+const _sampleSize = <T>(
+    collection: Array<T> | null | undefined,
+    n?: number
+): T[] => _.sampleSize(collection, n);
+
+/**
+ * Sort an array of items alphabetically by one property of the item.
+ * @param array the source array of items
+ * @param selector function returning property to sort by from item
+ * @param caseSensitive whether to consider letter case when sorting
+ */
+const _sortByString = <T extends any>(
+    array: Array<T>,
+    selector: (element: T) => string,
+    caseSensitive: boolean = false
+) =>
+    array.sort((a: T, b: T) => {
+        let aString = selector(a);
+        let bString = selector(b);
+
+        if (!caseSensitive) {
+            aString = aString?.toLowerCase();
+            bString = bString?.toLowerCase();
+        }
+
+        if (aString === "" || aString == null) {
+            return 1;
+        }
+
+        if (bString === "" || bString == null) {
+            return -1;
+        }
+
+        if (aString === bString) {
+            return 0;
+        }
+
+        if (aString < bString) {
+            return -1;
+        }
+
+        return 1;
+    });
+
+/**
+ * Creates a slice of array with n elements taken from the beginning.
+ *
+ * @param array The array to query.
+ * @param n The number of elements to take.
+ * @return Returns the slice of array.
+ */
+const _take = <T>(array: Array<T> | null | undefined, n?: number): T[] =>
+    _.take(array, n);
+
 // #endregion Private Methods
 
 // -----------------------------------------------------------------------------------------
@@ -177,19 +314,22 @@ const _replaceElementAt = <T>(
 // -----------------------------------------------------------------------------------------
 
 export const CollectionUtils = {
-    difference: _.difference,
+    difference: _difference,
     equalsBy: _equalsBy,
-    first: _.head,
-    flattenDeep: _.flattenDeep,
+    first: _head,
+    flattenDeep: _flattenDeep,
     hasValues: _hasValues,
     isEmpty: _isEmpty,
     isNotEmpty: _isNotEmpty,
+    intersection: _intersection,
+    intersectionWith: _intersectionWith,
     length: _length,
     removeElementAt: _removeElementAt,
     replaceElementAt: _replaceElementAt,
-    sample: _.sample,
-    sampleSize: _.sampleSize,
-    take: _.take,
+    sample: _sample,
+    sampleSize: _sampleSize,
+    sortByString: _sortByString,
+    take: _take,
 };
 
 // #endregion Exports

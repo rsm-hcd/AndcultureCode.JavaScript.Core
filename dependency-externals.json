@@ -1,0 +1,34 @@
+{
+    "externals": {
+        "axios": {
+            "commonjs": "axios",
+            "commonjs2": "axios",
+            "amd": "axios",
+            "root": "axios"
+        },
+        "humanize-plus": {
+            "commonjs": "humanize-plus",
+            "commonjs2": "humanize-plus",
+            "amd": "humanize-plus",
+            "root": "Humanize"
+        },
+        "i18next": {
+            "commonjs": "i18next",
+            "commonjs2": "i18next",
+            "amd": "i18next",
+            "root": "i18next"
+        },
+        "immutable": {
+            "commonjs": "immutable",
+            "commonjs2": "immutable",
+            "amd": "immutable",
+            "root": "Immutable"
+        },
+        "lodash": {
+            "commonjs": "lodash",
+            "commonjs2": "lodash",
+            "amd": "lodash",
+            "root": "_"
+        }
+    }
+}

@@ -149,9 +149,15 @@ describe("do-try.ts", () => {
             };
 
             // Act & Assert
-            Do.try(workload).finally(() => {
-                expect(defaultErrorHandler).toHaveBeenCalled();
-            });
+            try {
+                await Do.try(workload)
+                    .finally(() => {
+                        expect(defaultErrorHandler).toHaveBeenCalled();
+                    })
+                    .getAwaiter();
+            } catch (e) {
+                // ignored; this catch block just removes a warning about unhandled promise rejection
+            }
             expect.assertions(1);
         });
     });
