@@ -1,6 +1,5 @@
 import { List } from "immutable";
 import { CollectionUtils } from "./collection-utils";
-import { ResultRecord } from "../view-models/result-record";
 
 describe("CollectionUtils", () => {
     // -----------------------------------------------------------------------------------------
@@ -41,36 +40,20 @@ describe("CollectionUtils", () => {
             expect(result).toBeTrue();
         });
 
+        test("when collections param is an array with element, it returns true", (): void => {
+            // Arrange & Act
+            const result = CollectionUtils.hasValues([1, 2, 3]);
+
+            // Assert
+            expect(result).toBeTrue();
+        });
+
         test("when collections param is a list and has no elements, it returns false", (): void => {
             // Arrange
             const collection = List([]);
 
             // Act
             const result = CollectionUtils.hasValues(collection);
-
-            // Assert
-            expect(result).toBeFalse();
-        });
-
-        test("when collections param has at least one non-empty collection, it returns true", (): void => {
-            // Arrange
-            const collection1 = [new ResultRecord()];
-            const collection2 = List();
-
-            // Act
-            const result = CollectionUtils.hasValues(collection1, collection2);
-
-            // Assert
-            expect(result).toBeTrue();
-        });
-
-        test("when collections param contains only empty collections, it returns false", (): void => {
-            // Arrange
-            const collection1: any[] = [];
-            const collection2 = List();
-
-            // Act
-            const result = CollectionUtils.hasValues(collection1, collection2);
 
             // Assert
             expect(result).toBeFalse();
@@ -94,23 +77,6 @@ describe("CollectionUtils", () => {
 
             // Assert
             expect(result).toBeFalse();
-        });
-
-        test("when collections param contains undefined, null, and at least one collection with values, it returns true", (): void => {
-            // Arrange
-            const collection = [new ResultRecord()];
-            const nullCollection = (null as unknown) as any[];
-            const undefinedCollection = (undefined as unknown) as any[];
-
-            // Act
-            const result = CollectionUtils.hasValues(
-                undefinedCollection,
-                nullCollection,
-                collection
-            );
-
-            // Assert
-            expect(result).toBeTrue();
         });
     });
 
@@ -154,36 +120,20 @@ describe("CollectionUtils", () => {
             expect(result).toBeFalse();
         });
 
+        test("when collections param is an array with element, it returns false", (): void => {
+            // Arrange & Act
+            const result = CollectionUtils.isEmpty([1, 2, 3]);
+
+            // Assert
+            expect(result).toBeFalse();
+        });
+
         test("when collections param is a list and has no elements, it returns true", (): void => {
             // Arrange
             const collection = List([]);
 
             // Act
             const result = CollectionUtils.isEmpty(collection);
-
-            // Assert
-            expect(result).toBeTrue();
-        });
-
-        test("when collections param has at least one non-empty collection, it returns false", (): void => {
-            // Arrange
-            const collection1 = [new ResultRecord()];
-            const collection2 = List();
-
-            // Act
-            const result = CollectionUtils.isEmpty(collection1, collection2);
-
-            // Assert
-            expect(result).toBeFalse();
-        });
-
-        test("when collections param has multiple empty collections, it returns true", (): void => {
-            // Arrange
-            const collection1: any[] = [];
-            const collection2 = List();
-
-            // Act
-            const result = CollectionUtils.isEmpty(collection1, collection2);
 
             // Assert
             expect(result).toBeTrue();
@@ -205,23 +155,6 @@ describe("CollectionUtils", () => {
 
             // Assert
             expect(result).toBeTrue();
-        });
-
-        test("when collections param contains undefined, null, and at least one collection with values, it returns false", (): void => {
-            // Arrange
-            const collection = [new ResultRecord()];
-            const nullCollection = (null as unknown) as any[];
-            const undefinedCollection = (undefined as unknown) as any[];
-
-            // Act
-            const result = CollectionUtils.isEmpty(
-                undefinedCollection,
-                nullCollection,
-                collection
-            );
-
-            // Assert
-            expect(result).toBeFalse();
         });
     });
 
@@ -276,30 +209,6 @@ describe("CollectionUtils", () => {
             expect(result).toBeFalse();
         });
 
-        test("when collections param has at least one non-empty collection, it returns true", (): void => {
-            // Arrange
-            const collection1 = [new ResultRecord()];
-            const collection2 = List();
-
-            // Act
-            const result = CollectionUtils.isNotEmpty(collection1, collection2);
-
-            // Assert
-            expect(result).toBeTrue();
-        });
-
-        test("when collections param has multiple empty collections, it returns false", (): void => {
-            // Arrange
-            const collection1: any[] = [];
-            const collection2 = List();
-
-            // Act
-            const result = CollectionUtils.isNotEmpty(collection1, collection2);
-
-            // Assert
-            expect(result).toBeFalse();
-        });
-
         test("when collections param is undefined, it returns false", (): void => {
             // Arrange & Act
             const result = CollectionUtils.isNotEmpty(
@@ -320,18 +229,9 @@ describe("CollectionUtils", () => {
             expect(result).toBeFalse();
         });
 
-        test("when collections param contains undefined, null, and at least one collection with values, it returns true", (): void => {
-            // Arrange
-            const collection = [new ResultRecord()];
-            const nullCollection = (null as unknown) as any[];
-            const undefinedCollection = (undefined as unknown) as any[];
-
-            // Act
-            const result = CollectionUtils.isNotEmpty(
-                undefinedCollection,
-                nullCollection,
-                collection
-            );
+        test("when collections param is an array with element, it returns true", (): void => {
+            // Arrange & Act
+            const result = CollectionUtils.isNotEmpty([1, 2, 3]);
 
             // Assert
             expect(result).toBeTrue();
