@@ -85,7 +85,8 @@ const flattenDeep = <T>(
  * @returns {boolean} False if `collection` is null/undefined
  * True if any element has sub-elements.
  */
-const hasValues = (collection: any[] | Immutable.List<any> | undefined
+const hasValues = (
+    collection: any[] | Immutable.List<any> | undefined
 ): collection is any[] | Immutable.List<any> | undefined => {
     return !isEmpty(collection);
 };
@@ -100,7 +101,8 @@ const hasValues = (collection: any[] | Immutable.List<any> | undefined
  * False if collection has elements.
  * @param collection
  */
-const isEmpty = (collection: any[] | Immutable.List<any> | undefined
+const isEmpty = (
+    collection: any[] | Immutable.List<any> | undefined
 ): collection is any[] | Immutable.List<any> | undefined => {
     if (collection == null) {
         return true;
@@ -133,7 +135,8 @@ const isEmpty = (collection: any[] | Immutable.List<any> | undefined
  * True if any element has sub-elements.
  * @param collection
  */
-const isNotEmpty = (collection: any[] | Immutable.List<any> | undefined
+const isNotEmpty = (
+    collection: any[] | Immutable.List<any> | undefined
 ): collection is any[] | Immutable.List<any> | undefined => {
     return !isEmpty(collection);
 };
