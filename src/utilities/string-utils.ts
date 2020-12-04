@@ -1,6 +1,7 @@
 import Humanize from "humanize-plus";
 import _ from "lodash";
 import { CollectionUtils } from "./collection-utils";
+import { TemplateOptions, TemplateExecutor } from "lodash";
 
 // -----------------------------------------------------------------------------------------
 // #region Constants
@@ -13,6 +14,22 @@ const REGEX_VALID_EMAIL = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(
 // -----------------------------------------------------------------------------------------
 // #region Functions
 // -----------------------------------------------------------------------------------------
+
+/**
+ * Converts string to camel case.
+ *
+ * @param string The string to convert.
+ * @return Returns the camel cased string.
+ */
+const camelCase = (string?: string): string => _.camelCase(string);
+
+/**
+ * Converts the first character of string to upper case and the remaining to lower case.
+ *
+ * @param string The string to capitalize.
+ * @return Returns the capitalized string.
+ */
+const capitalize = (string?: string): string => _.capitalize(string);
 
 /**
  * Returns the filename from the supplied string, including extension
@@ -66,6 +83,127 @@ const join = (values: string[], separator: string = ","): string => {
     return values.join(separator);
 };
 
+/**
+ * Converts the first character of `string` to lower case.
+ *
+ * @param string The string to convert.
+ * @return Returns the converted string.
+ */
+const lowerFirst = (string?: string): string => _.lowerCase(string);
+
+/**
+ * Pads string on the left and right sides if it’s shorter than length. Padding characters are truncated if
+ * they can’t be evenly divided by length.
+ *
+ * @param string The string to pad.
+ * @param length The padding length.
+ * @param chars The string used as padding.
+ * @return Returns the padded string.
+ */
+const pad = (string?: string, length?: number, chars?: string): string =>
+    _.pad(string, length, chars);
+
+/**
+ * Pads string on the right side if it’s shorter than length. Padding characters are truncated if they exceed
+ * length.
+ *
+ * @param string The string to pad.
+ * @param length The padding length.
+ * @param chars The string used as padding.
+ * @return Returns the padded string.
+ */
+const padEnd = (string?: string, length?: number, chars?: string): string =>
+    _.padEnd(string, length, chars);
+
+/**
+ * Pads string on the left side if it’s shorter than length. Padding characters are truncated if they exceed
+ * length.
+ *
+ * @param string The string to pad.
+ * @param length The padding length.
+ * @param chars The string used as padding.
+ * @return Returns the padded string.
+ */
+const padStart = (string?: string, length?: number, chars?: string): string =>
+    _.padStart(string, length, chars);
+
+/**
+ * Returns the plural version of a given word if the value is not 1. The default suffix is 's'.
+ * @param number
+ * @param singular
+ * @param plural
+ * @example
+ * Humanize.pluralize(1, "duck")
+ * => "duck"
+
+ * Humanize.pluralize(3, "duck")
+ * => "ducks"
+
+ * Humanize.pluralize(3, "duck", "duckies")
+ * => "duckies"
+ */
+const pluralize = (
+    number: number,
+    singular?: string,
+    plural?: string
+): string => Humanize.pluralize(number, singular, plural);
+
+/**
+ * Repeats the given string n times.
+ *
+ * @param string The string to repeat.
+ * @param n The number of times to repeat the string.
+ * @return Returns the repeated string.
+ */
+const repeat = (string?: string, n?: number): string => _.repeat(string, n);
+
+/**
+ * Converts string to snake case.
+ *
+ * @param string The string to convert.
+ * @return Returns the snake cased string.
+ */
+const snakeCase = (string?: string): string => _.snakeCase(string);
+
+/**
+ * Converts string to start case.
+ *
+ * @param string The string to convert.
+ * @return Returns the start cased string.
+ */
+const startCase = (string?: string): string => _.startCase(string);
+
+/**
+ * Creates a compiled template function that can interpolate data properties in "interpolate" delimiters,
+ * HTML-escape interpolated data properties in "escape" delimiters, and execute JavaScript in "evaluate"
+ * delimiters. Data properties may be accessed as free variables in the template. If a setting object is
+ * provided it takes precedence over _.templateSettings values.
+ *
+ * Note: In the development build _.template utilizes
+ * [sourceURLs](http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/#toc-sourceurl) for easier
+ * debugging.
+ *
+ * For more information on precompiling templates see
+ * [lodash's custom builds documentation](https://lodash.com/custom-builds).
+ *
+ * For more information on Chrome extension sandboxes see
+ * [Chrome's extensions documentation](https://developer.chrome.com/extensions/sandboxingEval).
+ *
+ * @param string The template string.
+ * @param options The options object.
+ * @param options.escape The HTML "escape" delimiter.
+ * @param options.evaluate The "evaluate" delimiter.
+ * @param options.imports An object to import into the template as free variables.
+ * @param options.interpolate The "interpolate" delimiter.
+ * @param options.sourceURL The sourceURL of the template's compiled source.
+ * @param options.variable The data object variable name.
+ * @return Returns the compiled template function.
+ */
+const template = (
+    string?: string,
+    options?: TemplateOptions
+): TemplateExecutor => _.template(string, options);
+
 const truncateRight = (value: string, truncateAtPos: number): string => {
     if (value.length <= truncateAtPos) {
         return value;
@@ -78,6 +216,24 @@ const truncateRight = (value: string, truncateAtPos: number): string => {
         : `${truncatedValue}...`;
 };
 
+/**
+ * Converts the first character of `string` to upper case.
+ *
+ * @param string The string to convert.
+ * @return Returns the converted string.
+ */
+const upperFirst = (string?: string): string => _.upperFirst(string);
+
+/**
+ * Splits `string` into an array of its words.
+ *
+ * @param string The string to inspect.
+ * @param pattern The pattern to match words.
+ * @return Returns the words of `string`.
+ */
+const words = (string?: string, pattern?: string | RegExp): string[] =>
+    _.words(string, pattern);
+
 // #endregion Functions
 
 // -----------------------------------------------------------------------------------------
@@ -85,25 +241,25 @@ const truncateRight = (value: string, truncateAtPos: number): string => {
 // -----------------------------------------------------------------------------------------
 
 export const StringUtils = {
-    camelCase: _.camelCase,
-    capitalize: _.capitalize,
+    camelCase,
+    capitalize,
     filename,
     hasValue,
     isEmpty,
     isValidEmail,
     join,
-    lowerFirst: _.lowerFirst,
-    pad: _.pad,
-    padEnd: _.padEnd,
-    padStart: _.padStart,
-    pluralize: Humanize.pluralize,
-    repeat: _.repeat,
-    snakeCase: _.snakeCase,
-    startCase: _.startCase,
-    template: _.template,
+    lowerFirst,
+    pad,
+    padEnd,
+    padStart,
+    pluralize,
+    repeat,
+    snakeCase,
+    startCase,
+    template,
     truncateRight,
-    upperFirst: _.upperFirst,
-    words: _.words,
+    upperFirst,
+    words,
 };
 
 // #endregion Exports

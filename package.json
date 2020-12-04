@@ -45,7 +45,8 @@
         "webpack-cli": "3.3.12"
     },
     "files": [
-        "dist"
+        "dist",
+        "dist-global"
     ],
     "homepage": "https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core#readme",
     "jest": {
@@ -82,5 +83,5 @@
         "watch:test": "jest ./src --watch"
     },
     "types": "dist/index",
-    "version": "0.3.4"
+    "version": "0.3.7"
 }

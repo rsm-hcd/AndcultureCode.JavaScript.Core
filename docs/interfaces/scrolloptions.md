@@ -43,7 +43,7 @@ ___
 
 • **initialDelay**? : *undefined | number*
 
-*Defined in [src/interfaces/scroll-options.ts:2](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/2fc3e99/src/interfaces/scroll-options.ts#L2)*
+*Defined in [src/interfaces/scroll-options.ts:2](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/ec18c0a/src/interfaces/scroll-options.ts#L2)*
 
 ___
 

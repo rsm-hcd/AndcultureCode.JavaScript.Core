@@ -67,6 +67,7 @@ export { SyncWorkload } from "./types/sync-workload";
 // #region Utilities
 // -----------------------------------------------------------------------------------------
 
+export { BrowserUtils } from "./utilities/browser-utils";
 export { CollectionUtils } from "./utilities/collection-utils";
 export { CoreUtils } from "./utilities/core-utils";
 export { Do } from "./utilities/do-try";

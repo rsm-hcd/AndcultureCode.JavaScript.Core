@@ -43,6 +43,10 @@ You can also reference the global distribution package within a website which gi
 
 [Full API documentation](docs/README.md)
 
+# Community
+
+[![](https://sourcerer.io/fame/andCulture/AndcultureCode/AndcultureCode.JavaScript.Testing/images/0)](https://sourcerer.io/fame/andCulture/AndcultureCode/AndcultureCode.JavaScript.Testing/links/0)[![](https://sourcerer.io/fame/andCulture/AndcultureCode/AndcultureCode.JavaScript.Testing/images/1)](https://sourcerer.io/fame/andCulture/AndcultureCode/AndcultureCode.JavaScript.Testing/links/1)[![](https://sourcerer.io/fame/andCulture/AndcultureCode/AndcultureCode.JavaScript.Testing/images/2)](https://sourcerer.io/fame/andCulture/AndcultureCode/AndcultureCode.JavaScript.Testing/links/2)[![](https://sourcerer.io/fame/andCulture/AndcultureCode/AndcultureCode.JavaScript.Testing/images/3)](https://sourcerer.io/fame/andCulture/AndcultureCode/AndcultureCode.JavaScript.Testing/links/3)[![](https://sourcerer.io/fame/andCulture/AndcultureCode/AndcultureCode.JavaScript.Testing/images/4)](https://sourcerer.io/fame/andCulture/AndcultureCode/AndcultureCode.JavaScript.Testing/links/4)[![](https://sourcerer.io/fame/andCulture/AndcultureCode/AndcultureCode.JavaScript.Testing/images/5)](https://sourcerer.io/fame/andCulture/AndcultureCode/AndcultureCode.JavaScript.Testing/links/5)[![](https://sourcerer.io/fame/andCulture/AndcultureCode/AndcultureCode.JavaScript.Testing/images/6)](https://sourcerer.io/fame/andCulture/AndcultureCode/AndcultureCode.JavaScript.Testing/links/6)[![](https://sourcerer.io/fame/andCulture/AndcultureCode/AndcultureCode.JavaScript.Testing/images/7)](https://sourcerer.io/fame/andCulture/AndcultureCode/AndcultureCode.JavaScript.Testing/links/7)
+
 # Contributing
 
 Information on contributing to this repo is in the [Contributing Guide](CONTRIBUTING.md)
