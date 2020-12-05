@@ -75,71 +75,57 @@ const flattenDeep = <T>(
 ): T[] => _.flattenDeep(array);
 
 /**
- * hasValue only take a SINGLE collection as parameter to make use of Typescript Type guard ability
+ * Checks for values in a collection. Returns false if the collection is `undefined`, `null`,
+ * or the respective object type's "empty" state, ie length or size 0.
  *
- * Checks for values in a collection/object. Returns false if the collection is undefined, null,
- * or the respective object type's "empty" state, ie length 0, size 0, or has no keys.
+ * Note: only takes a single collection as parameter to make use of Typescript Type guard ability
  *
- *
- * @param {(any[] | List<any> | undefined)} collection
- * @returns {boolean} False if `collection` is null/undefined
- * True if any element has sub-elements.
+ * @param {(any[] | Immutable.List<any> | undefined)} collection
+ * @returns {boolean} False if `collection` is `undefined`, `null`, or has 0 elements.
+ * True if collection contains any elements.
  */
 const hasValues = (
     collection: any[] | Immutable.List<any> | undefined
-): collection is any[] | Immutable.List<any> | undefined => {
-    return !isEmpty(collection);
-};
+): collection is any[] | Immutable.List<any> => !isEmpty(collection);
 
 /**
- * isEmpty only take a SINGLE collection as parameter to make use of Typescript Type guard ability
+ * Checks if there aren't any values in a collection. Returns true if the collection is `undefined`,
+ * `null`, or the respective object type's "empty" state, ie length or size 0.
  *
- * Checks for values in a collection/object. Returns true if the collection is undefined, null,
- * or the respective object type's "empty" state, ie length 0, size 0, or has no keys.
+ * Note: only takes a single collection as parameter to make use of Typescript Type guard ability
  *
- * @returns {boolean} True if `collection` is null/undefined
- * False if collection has elements.
+ * @returns {boolean} True if `collection` is  `undefined`, `null`, or has 0 elements.
+ * False if collection contains any elements.
+ *
  * @param collection
  */
 const isEmpty = (
     collection: any[] | Immutable.List<any> | undefined
-): collection is any[] | Immutable.List<any> | undefined => {
+): collection is undefined => {
     if (collection == null) {
         return true;
     }
 
-    let isEmpty = true;
-
     if (collection instanceof Immutable.List) {
-        const collectionList = collection as Immutable.List<any>;
-        if (collectionList.size !== 0) {
-            isEmpty = false;
-        }
-    } else {
-        const collectionArray = collection as any[];
-        if (collectionArray.length !== 0) {
-            isEmpty = false;
-        }
+        return (collection as Immutable.List<any>).size === 0;
     }
 
-    return isEmpty;
+    return (collection as any[]).length === 0;
 };
 
 /**
- * isNotEmpty only take a SINGLE collection as parameter to make use of Typescript Type guard ability
+ * Checks for values in a collection. Returns false if the collection is `undefined`, `null`,
+ * or the respective object type's "empty" state, ie length or size 0. Alias for `CollectionUtils.hasValues`
  *
- * Checks if there aren't any values in a collection/object. Returns false if the collection is undefined, null,
- * or the respective object type's "empty" state, ie length 0, size 0, or has no keys.
+ * Note: only takes a single collection as parameter to make use of Typescript Type guard ability
  *
- * @returns {boolean} False if `collection` is null/undefined
- * True if any element has sub-elements.
- * @param collection
+ * @param {(any[] | Immutable.List<any> | undefined)} collection
+ * @returns {boolean} False if `collection` is `undefined`, `null`, or has 0 elements.
+ * True if collection contains any elements.
  */
 const isNotEmpty = (
     collection: any[] | Immutable.List<any> | undefined
-): collection is any[] | Immutable.List<any> | undefined => {
-    return !isEmpty(collection);
-};
+): collection is any[] | Immutable.List<any> => hasValues(collection);
 
 /**
  * Utility function to get the length of a collection
