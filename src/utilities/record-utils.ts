@@ -14,8 +14,8 @@ import { Constructor } from "../types/constructor";
  * @param maybeRecord Object or Record to be coalesced into a Record.
  * @param record Type of the Record to be instantiated
  */
-const _ensureRecord = <T>(maybeRecord: any, record: Constructor<T>): T =>
-    _isRecord(maybeRecord, record) ? maybeRecord : new record(maybeRecord);
+const ensureRecord = <T>(maybeRecord: any, record: Constructor<T>): T =>
+    isRecord(maybeRecord, record) ? maybeRecord : new record(maybeRecord);
 
 /**
  * Function to verify a given object is an instance of a specific Record `T`.
@@ -23,7 +23,10 @@ const _ensureRecord = <T>(maybeRecord: any, record: Constructor<T>): T =>
  * @param maybeRecord Object or Record to be checked as an instance of `T`
  * @param record Type of the Record to be checked
  */
-const _isRecord = <T>(maybeRecord: any, record: Constructor<T>): boolean =>
+const isRecord = <T>(
+    maybeRecord: any,
+    record: Constructor<T>
+): maybeRecord is T =>
     Record.isRecord(maybeRecord) && maybeRecord instanceof record;
 
 // #endregion Functions
@@ -33,8 +36,8 @@ const _isRecord = <T>(maybeRecord: any, record: Constructor<T>): boolean =>
 // -----------------------------------------------------------------------------------------
 
 const RecordUtils = {
-    ensureRecord: _ensureRecord,
-    isRecord: _isRecord,
+    ensureRecord,
+    isRecord,
 };
 
 export { RecordUtils };
