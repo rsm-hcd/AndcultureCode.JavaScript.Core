@@ -16,6 +16,7 @@
         "noUnusedParameters": true,
         "outDir": "./dist",
         "resolveJsonModule": true,
+        "removeComments": false,
         "skipLibCheck": true,
         "strict": true,
         "target": "es5"
