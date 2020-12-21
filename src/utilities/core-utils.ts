@@ -6,6 +6,7 @@ import {
     MemoizedFunction,
     ThrottleSettings,
 } from "lodash";
+import { TimerFunctionReturn } from "../types/timer-function-return";
 
 // -----------------------------------------------------------------------------------------
 // #region Public Methods
@@ -79,6 +80,16 @@ const CoreUtils = {
         return enumValues[Math.floor(Math.random() * enumValues.length)];
     },
 
+    /**
+     * Creates a function that memoizes the result of func. If resolver is provided it determines the cache key for
+     * storing the result based on the arguments provided to the memoized function. By default, the first argument
+     * provided to the memoized function is coerced to a string and used as the cache key. The func is invoked with
+     * the this binding of the memoized function.
+     *
+     * @param func The function to have its output memoized.
+     * @param resolver The function to resolve the cache key.
+     * @return Returns the new memoizing function.
+     */
     memoize<T extends (...args: any[]) => any>(
         func: T,
         resolver?: (...args: any[]) => any
@@ -101,6 +112,12 @@ const CoreUtils = {
         return _.merge(object, source);
     },
 
+    /**
+     * Returns a plain javascript object based on the given enum
+     *
+     * @param {*} enumObject
+     * @returns {*}
+     */
     numericEnumToPojo(enumObject: any): any {
         let pojo: { [k: string]: any } = {};
 
@@ -113,6 +130,12 @@ const CoreUtils = {
         return pojo;
     },
 
+    /**
+     * Returns an array of an object's values
+     *
+     * @param {*} object
+     * @returns {any[]}
+     */
     objectToArray(object: any): any[] {
         const result: any[] = [];
 
@@ -148,12 +171,12 @@ const CoreUtils = {
      * @param milliseconds
      * @param debug
      */
-    sleep(milliseconds: number, debug: boolean = false) {
+    sleep(milliseconds: number, debug: boolean = false): Promise<void> {
         if (debug) {
             console.log("sleep start");
         }
 
-        return new Promise((resolve) =>
+        return new Promise<void>((resolve) =>
             setTimeout(() => {
                 if (debug) {
                     console.log("sleep end");
@@ -168,7 +191,7 @@ const CoreUtils = {
      * Block execution for specified number of milliseconds, synchronously.
      * @param milliseconds the delay
      */
-    sleepSync(milliseconds: number) {
+    sleepSync(milliseconds: number): void {
         let now = Date.now();
         const start = now;
         while (now - start < milliseconds) {
@@ -191,7 +214,8 @@ const CoreUtils = {
      * @param options.leading Specify invoking on the leading edge of the timeout.
      * @param options.trailing Specify invoking on the trailing edge of the timeout.
      * @return Returns the new throttled function.
-     */ throttle<T extends (...args: any[]) => any>(
+     */
+    throttle<T extends (...args: any[]) => any>(
         func: T,
         wait?: number,
         options?: ThrottleSettings
@@ -204,7 +228,7 @@ const CoreUtils = {
      * Useful for benchmarking or providing counters
      * @param name Useful name to identify the timer
      */
-    timer(name: string) {
+    timer(name: string): TimerFunctionReturn {
         const start = new Date();
         return {
             /**
