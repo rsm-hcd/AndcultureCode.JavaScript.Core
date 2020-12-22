@@ -60,6 +60,7 @@ export { CatchResultHandler } from "./types/catch-result-handler";
 export { Constructor } from "./types/constructor";
 export { FinallyHandler } from "./types/finally-handler";
 export { SyncWorkload } from "./types/sync-workload";
+export { TimerFunctionReturn } from "./types/timer-function-return";
 
 // #endregion Types
 
