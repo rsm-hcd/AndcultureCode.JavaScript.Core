@@ -157,7 +157,7 @@ The name provided to `Record(values, name)` can be accessed with
 
 \+ **new ResultErrorRecord**(`params?`: [ResultError](../interfaces/resulterror.md)): *[ResultErrorRecord](resulterrorrecord.md)*
 
-*Defined in [src/view-models/result-error-record.ts:11](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/35ec7f7/src/view-models/result-error-record.ts#L11)*
+*Defined in [src/view-models/result-error-record.ts:11](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/1a5aab8/src/view-models/result-error-record.ts#L11)*
 
 **Parameters:**
 
@@ -293,7 +293,7 @@ ___
 
 ▸ **fullError**(): *string*
 
-*Defined in [src/view-models/result-error-record.ts:40](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/35ec7f7/src/view-models/result-error-record.ts#L40)*
+*Defined in [src/view-models/result-error-record.ts:40](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/1a5aab8/src/view-models/result-error-record.ts#L40)*
 
 Display error key and message
 
@@ -759,7 +759,7 @@ ___
 
 ▸ **with**(`values`: Partial‹[ResultError](../interfaces/resulterror.md)›): *[ResultErrorRecord](resulterrorrecord.md)*
 
-*Defined in [src/view-models/result-error-record.ts:51](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/35ec7f7/src/view-models/result-error-record.ts#L51)*
+*Defined in [src/view-models/result-error-record.ts:51](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/1a5aab8/src/view-models/result-error-record.ts#L51)*
 
 Merges new values into the record and returns a new instance.
 
