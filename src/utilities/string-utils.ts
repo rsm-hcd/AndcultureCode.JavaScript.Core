@@ -46,7 +46,7 @@ const filename = (value?: string): string | undefined =>
  * @returns {boolean}
  */
 const hasValue = (value?: string): value is string =>
-    // toString is called here to ensure handling all edge cases when a non string value is passed in this fuction
+    // toString is called here to ensure handling all edge cases when a non string value is passed in this function
     value != null && value?.toString().trim() !== "";
 
 /**
@@ -56,8 +56,8 @@ const hasValue = (value?: string): value is string =>
  * @param {string} [value]
  * @returns {boolean}
  */
-const isEmpty = (value?: string): value is string =>
-    // toString is called here to ensure handling all edge cases when a non string value is passed in this fuction
+const isEmpty = (value?: string): value is undefined =>
+    // toString is called here to ensure handling all edge cases when a non string value is passed in this function
     value == null || value.toString().trim() === "";
 
 /**
@@ -72,7 +72,7 @@ const isValidEmail = (value?: string): value is string =>
  *
  * @default ""
  * @param {string[]} values Values to join into one string.
- * @param {string} [separator=","] String to seperate each of the given values.
+ * @param {string} [separator=","] String to separate each of the given values.
  * @returns {string}
  */
 const join = (values: string[], separator: string = ","): string => {
