@@ -45,8 +45,8 @@ const filename = (value?: string): string | undefined =>
  * @param {string} [value]
  * @returns {boolean}
  */
-const hasValue = (value?: string): value is "" =>
-    // toString is called here to ensure handling all edge cases when a non string value is passed in this fuction
+const hasValue = (value?: string): value is string =>
+    // toString is called here to ensure handling all edge cases when a non string value is passed in this function
     value != null && value?.toString().trim() !== "";
 
 /**
@@ -56,15 +56,15 @@ const hasValue = (value?: string): value is "" =>
  * @param {string} [value]
  * @returns {boolean}
  */
-const isEmpty = (value?: string): value is "" =>
-    // toString is called here to ensure handling all edge cases when a non string value is passed in this fuction
+const isEmpty = (value?: string): value is undefined =>
+    // toString is called here to ensure handling all edge cases when a non string value is passed in this function
     value == null || value.toString().trim() === "";
 
 /**
  * Validates a given string matches a valid email format
  * @param value
  */
-const isValidEmail = (value?: string): value is "" =>
+const isValidEmail = (value?: string): value is string =>
     value != null && REGEX_VALID_EMAIL.test(value);
 
 /**
@@ -72,7 +72,7 @@ const isValidEmail = (value?: string): value is "" =>
  *
  * @default ""
  * @param {string[]} values Values to join into one string.
- * @param {string} [separator=","] String to seperate each of the given values.
+ * @param {string} [separator=","] String to separate each of the given values.
  * @returns {string}
  */
 const join = (values: string[], separator: string = ","): string => {
