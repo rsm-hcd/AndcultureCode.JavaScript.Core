@@ -5,7 +5,10 @@ import { CultureParams } from "./../interfaces/culture-params";
 import { RouteUtils } from "./route-utils";
 import { StringUtils } from "./string-utils";
 import { Rfc4646LanguageCodes } from "./../constants/rfc4646-language-codes";
-import i18n from "i18next";
+import i18n, { InitOptions, InterpolationOptions } from "i18next";
+import LanguageDetector, {
+    DetectorOptions,
+} from "i18next-browser-languagedetector";
 
 // -----------------------------------------------------------------------------------------
 // #region Constants
@@ -18,21 +21,33 @@ const errorCultureIsRequired = "Culture is required";
  */
 const routeParam = "culture";
 
+// TODO: Issue #12
+// i18next-browser-languageDetector options (@see https://github.com/i18next/i18next-browser-languageDetector)
+
+/**
+ * Defaults detection options for i18next-browser-languageDetector
+ */
+const detectionOptions: DetectorOptions = {
+    lookupFromPathIndex: 0,
+    lookupQuerystring: routeParam,
+    order: ["path", "querystring"], // order and from where user language should be detected
+};
+
 // #endregion Constants
+
+// -----------------------------------------------------------------------------------------
+// #region Interfaces
+// -----------------------------------------------------------------------------------------
+
+interface LocalizationInitOptions
+    extends Pick<InterpolationOptions, "escapeValue">,
+        Pick<InitOptions, "detection"> {}
+
+// #endregion Interfaces
 
 // -----------------------------------------------------------------------------------------
 // #region Functions
 // -----------------------------------------------------------------------------------------
-
-// TODO: Issue #12
-// i18next-browser-languageDetector options (@see https://github.com/i18next/i18next-browser-languageDetector)
-// const detectionOptions: DetectorOptions = {
-//     checkForSimilarInWhitelist: true, // fallback to a similar whitelist language
-//     checkWhitelist: true, // only detect languages that are in the whitelist
-//     lookupFromPathIndex: 0,
-//     lookupQuerystring: "culture",
-//     order: ["querystring", "path"], // order and from where user language should be detected
-// };
 
 /**
  * Updates application's configured language used for translations
@@ -44,6 +59,14 @@ const changeCultureCode = (cultureCode: string) =>
 const cultureCodeFromQueryString = () => {
     const queryString = window.location.search;
     return RouteUtils.queryStringToObject<CultureParams>(queryString)?.culture;
+};
+
+// TODO: Implement this for `detectCultureCode` function
+const cultureCodeFromRoute = () => {
+    const param = window.location.pathname.split("/")[0];
+    console.log("param:", param);
+
+    return param;
 };
 
 /**
@@ -104,23 +127,25 @@ const detectCultureCode = () => {
 const initialize = <TResources>(
     module: any,
     cultures: Culture<TResources>[],
-    escapeValue: boolean = false
+    escapeValue: boolean = false // TODO: Swap with LocalizationInitOptions interface
 ) => {
     if (CollectionUtils.isEmpty(cultures)) {
         throw new Error(errorCultureIsRequired);
     }
 
-    i18n.use(module).init({
-        cleanCode: true, // language will be lowercased EN --> en while leaving full locales like en-US
-        debug: EnvironmentUtils.isDevelopment(), // logs info level to console output. Helps finding issues with loading not working.
-        // detection: detectionOptions, // TODO: Issue #12 - Uncomment and implement when enabling translation by way of routes (ie. /en-us/xyz)
-        fallbackLng: defaultCultureCode(), // language to use if translations in user language are not available.
-        interpolation: {
-            escapeValue,
-        },
-        lng: defaultCultureCode(),
-        resources: culturesToResources<TResources>(cultures),
-    });
+    i18n.use(module)
+        .use(LanguageDetector)
+        .init({
+            // Cannot set lng value when using LanguageDetector (https://stackoverflow.com/a/55143859)
+            cleanCode: true, // language will be lowercased EN --> en while leaving full locales like en-US
+            debug: EnvironmentUtils.isDevelopment(), // logs info level to console output. Helps finding issues with loading not working.
+            detection: detectionOptions,
+            fallbackLng: defaultCultureCode(), // language to use if translations in user language are not available.
+            interpolation: {
+                escapeValue,
+            },
+            resources: culturesToResources<TResources>(cultures),
+        });
 
     return i18n;
 };
