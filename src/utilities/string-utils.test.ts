@@ -85,6 +85,50 @@ describe("StringUtils", () => {
 
     // #endregion isEmpty
 
+    // -----------------------------------------------------------------------------------------
+    // #region isValidCultureCode
+    // -----------------------------------------------------------------------------------------
+
+    describe("isValidCultureCode", () => {
+        test.each`
+            cultureCode         | expected
+            ${null}             | ${false}
+            ${undefined}        | ${false}
+            ${""}               | ${false}
+            ${" "}              | ${false}
+            ${"123"}            | ${false}
+            ${"Something blue"} | ${false}
+            ${"en"}             | ${true}
+            ${"es-es"}          | ${true}
+            ${"es-Es"}          | ${true}
+            ${"es-ES"}          | ${true}
+            ${"es-ES"}          | ${true}
+            ${"eS-ES"}          | ${true}
+            ${"ES-es"}          | ${true}
+            ${"ES-ES"}          | ${true}
+            ${"en_us"}          | ${true}
+            ${"en_Us"}          | ${true}
+            ${"en_US"}          | ${true}
+            ${"en_US"}          | ${true}
+            ${"eN_US"}          | ${true}
+            ${"EN_Us"}          | ${true}
+            ${"EN_US"}          | ${true}
+        `(
+            "when cultureCode is $cultureCode, returns $expected",
+            ({ cultureCode, expected }) => {
+                // Arrange & Act
+                const result: boolean = StringUtils.isValidCultureCode(
+                    cultureCode
+                );
+
+                // Assert
+                expect(result).toBe(expected);
+            }
+        );
+    });
+
+    // #endregion isValidCultureCode
+
     // -------------------------------------------------------------------------------------------------
     // #region isValidEmail
     // -------------------------------------------------------------------------------------------------

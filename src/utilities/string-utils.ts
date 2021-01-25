@@ -7,7 +7,18 @@ import { TemplateOptions, TemplateExecutor } from "lodash";
 // #region Constants
 // -----------------------------------------------------------------------------------------
 
-const REGEX_VALID_CULTURE_CODE = /^[a-z]{2}(-|_)[a-z]{2}$/;
+/**
+ * Validates a culture code format. Based off of https://regexr.com/3faf5, but looser to allow dashes
+ * or underscores as separators.
+ *
+ * @example
+ * en
+ * en-US
+ * en_US
+ * en_us
+ * EN_US
+ */
+const REGEX_VALID_CULTURE_CODE = /^([a-zA-Z]{2}((-|_)[a-zA-Z]{2})?)$/;
 const REGEX_VALID_EMAIL = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 // #endregion Constants

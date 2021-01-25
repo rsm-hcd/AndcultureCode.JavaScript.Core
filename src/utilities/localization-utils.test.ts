@@ -7,6 +7,17 @@ import { Culture } from "../interfaces/culture";
 
 describe("LocalizationUtils", () => {
     // -----------------------------------------------------------------------------------------
+    // #region Setup
+    // -----------------------------------------------------------------------------------------
+
+    const randomCultureCode = () => {
+        const separator = faker.random.arrayElement(["-", "_"]);
+        return `${faker.address.countryCode()}${separator}${faker.address.countryCode()}`;
+    };
+
+    // #endregion Setup
+
+    // -----------------------------------------------------------------------------------------
     // #region changeCultureCode
     // -----------------------------------------------------------------------------------------
 
@@ -56,7 +67,7 @@ describe("LocalizationUtils", () => {
 
         test(`given query string contains ${LocalizationUtils.routeParam}, returns value`, () => {
             // Arrange
-            const expected = faker.random.locale();
+            const expected = randomCultureCode();
             window.location = {
                 search: `${LocalizationUtils.routeParam}=${expected}`,
             } as any;
@@ -90,7 +101,7 @@ describe("LocalizationUtils", () => {
 
         test("when base null and culture set, returns new culture with culture properties", () => {
             // Arrange
-            const expected = faker.random.locale();
+            const expected = randomCultureCode();
             const childCulture: Partial<Culture<any>> = { code: expected };
 
             // Act
@@ -103,7 +114,7 @@ describe("LocalizationUtils", () => {
 
         test("when base and culture set, returns new culture overwriting with child properties", () => {
             // Arrange
-            const expected = faker.random.locale();
+            const expected = randomCultureCode();
             const childCulture: Partial<Culture<any>> = { code: expected };
 
             // Act
@@ -179,7 +190,7 @@ describe("LocalizationUtils", () => {
 
             test(`given querystring '${LocalizationUtils.routeParam}' set, returns querystring value`, () => {
                 // Arrange
-                const expected = faker.random.locale();
+                const expected = randomCultureCode();
                 window.location.search = `${LocalizationUtils.routeParam}=${expected}`;
 
                 // Act
@@ -192,7 +203,7 @@ describe("LocalizationUtils", () => {
             test(`given querystring '${LocalizationUtils.routeParam}' set, configures global language`, () => {
                 // Arrange
                 i18n.init();
-                const expected = faker.random.locale();
+                const expected = randomCultureCode();
                 window.location.search = `${LocalizationUtils.routeParam}=${expected}`;
 
                 // Act
@@ -234,7 +245,7 @@ describe("LocalizationUtils", () => {
             test(`given querystring '${LocalizationUtils.routeParam}' value matches current language, does not attempt to change language`, () => {
                 // Arrange
                 i18n.init();
-                const expected = faker.random.locale();
+                const expected = randomCultureCode();
                 LocalizationUtils.changeCultureCode(expected);
 
                 window.location.search = `${LocalizationUtils.routeParam}=${expected}`;
