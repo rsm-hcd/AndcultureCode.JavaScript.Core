@@ -106,12 +106,12 @@ const defaultCultureCode = () => Rfc4646LanguageCodes.EN_US;
 const detectCultureCode = () => {
     let culture = cultureCodeFromRoute();
 
-    if (StringUtils.isEmpty(culture)) {
+    if (!StringUtils.isValidCultureCode(culture)) {
         culture = cultureCodeFromQueryString();
     }
 
     // If requested culture is missing, default to english
-    if (StringUtils.isEmpty(culture)) {
+    if (!StringUtils.isValidCultureCode(culture)) {
         culture = defaultCultureCode();
     }
 
