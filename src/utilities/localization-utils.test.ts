@@ -171,79 +171,82 @@ describe("LocalizationUtils", () => {
             delete window.location; // Must delete pre-existing location before mocked assignment works
         });
 
-        test(`given querystring '${LocalizationUtils.routeParam}' set, returns querystring value`, () => {
-            // Arrange
-            const expected = faker.random.locale();
-            window.location = {
-                search: `${LocalizationUtils.routeParam}=${expected}`,
-            } as any;
+        describe("given route param is not set", () => {
+            beforeEach(() => {
+                window.location = {} as any;
+                window.location.pathname = "";
+            });
 
-            // Act
-            const result = LocalizationUtils.detectCultureCode();
+            test(`given querystring '${LocalizationUtils.routeParam}' set, returns querystring value`, () => {
+                // Arrange
+                const expected = faker.random.locale();
+                window.location.search = `${LocalizationUtils.routeParam}=${expected}`;
 
-            // Assert
-            expect(result).toBe(expected);
-        });
+                // Act
+                const result = LocalizationUtils.detectCultureCode();
 
-        test(`given querystring '${LocalizationUtils.routeParam}' set, configures global language`, () => {
-            // Arrange
-            i18n.init();
-            const expected = faker.random.locale();
-            window.location = {
-                search: `${LocalizationUtils.routeParam}=${expected}`,
-            } as any;
+                // Assert
+                expect(result).toBe(expected);
+            });
 
-            // Act
-            LocalizationUtils.detectCultureCode();
+            test(`given querystring '${LocalizationUtils.routeParam}' set, configures global language`, () => {
+                // Arrange
+                i18n.init();
+                const expected = faker.random.locale();
+                window.location.search = `${LocalizationUtils.routeParam}=${expected}`;
 
-            // Assert
-            expect(i18n.language).toBe(expected);
-        });
+                // Act
+                LocalizationUtils.detectCultureCode();
 
-        test(`given querystring '${
-            LocalizationUtils.routeParam
-        }' missing, returns default of ${LocalizationUtils.defaultCultureCode()}`, () => {
-            // Arrange
-            window.location = { search: "" } as any;
+                // Assert
+                expect(i18n.language).toBe(expected);
+            });
 
-            // Act
-            const result = LocalizationUtils.detectCultureCode();
+            test(`given querystring '${
+                LocalizationUtils.routeParam
+            }' missing, returns default of ${LocalizationUtils.defaultCultureCode()}`, () => {
+                // Arrange
+                window.location.search = "";
 
-            // Assert
-            expect(result).toBe(LocalizationUtils.defaultCultureCode());
-        });
+                // Act
+                const result = LocalizationUtils.detectCultureCode();
 
-        test(`given querystring '${
-            LocalizationUtils.routeParam
-        }' missing, configures global language to default of ${LocalizationUtils.defaultCultureCode()}`, () => {
-            // Arrange
-            i18n.init();
-            window.location = { search: "" } as any;
+                // Assert
+                expect(result).toBe(LocalizationUtils.defaultCultureCode());
+            });
 
-            // Act
-            LocalizationUtils.detectCultureCode();
+            test(`given querystring '${
+                LocalizationUtils.routeParam
+            }' missing, configures global language to default of ${LocalizationUtils.defaultCultureCode()}`, () => {
+                // Arrange
+                i18n.init();
+                window.location.search = "";
 
-            // Assert
-            expect(i18n.language).toBe(LocalizationUtils.defaultCultureCode());
-        });
+                // Act
+                LocalizationUtils.detectCultureCode();
 
-        test(`given querystring '${LocalizationUtils.routeParam}' value matches current language, does not attempt to change language`, () => {
-            // Arrange
-            i18n.init();
-            const expected = faker.random.locale();
-            LocalizationUtils.changeCultureCode(expected);
+                // Assert
+                expect(i18n.language).toBe(
+                    LocalizationUtils.defaultCultureCode()
+                );
+            });
 
-            window.location = {
-                search: `${LocalizationUtils.routeParam}=${expected}`,
-            } as any;
+            test(`given querystring '${LocalizationUtils.routeParam}' value matches current language, does not attempt to change language`, () => {
+                // Arrange
+                i18n.init();
+                const expected = faker.random.locale();
+                LocalizationUtils.changeCultureCode(expected);
 
-            const i18nSpy = jest.spyOn(i18n, "changeLanguage");
+                window.location.search = `${LocalizationUtils.routeParam}=${expected}`;
 
-            // Act
-            LocalizationUtils.detectCultureCode();
+                const i18nSpy = jest.spyOn(i18n, "changeLanguage");
 
-            // Assert
-            expect(i18nSpy).not.toHaveBeenCalled();
+                // Act
+                LocalizationUtils.detectCultureCode();
+
+                // Assert
+                expect(i18nSpy).not.toHaveBeenCalled();
+            });
         });
     });
 
@@ -352,11 +355,9 @@ describe("LocalizationUtils", () => {
             );
 
             // Act
-            LocalizationUtils.initialize(
-                moduleStub,
-                [EnglishUnitedStates],
-                true // escapedValue
-            );
+            LocalizationUtils.initialize(moduleStub, [EnglishUnitedStates], {
+                escapeValue: true,
+            });
 
             // Assert
             expect(LocalizationUtils.t(key, { value: unescapedValue })).toBe(

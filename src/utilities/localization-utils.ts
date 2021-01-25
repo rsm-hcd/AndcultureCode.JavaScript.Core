@@ -21,9 +21,6 @@ const errorCultureIsRequired = "Culture is required";
  */
 const routeParam = "culture";
 
-// TODO: Issue #12
-// i18next-browser-languageDetector options (@see https://github.com/i18next/i18next-browser-languageDetector)
-
 /**
  * Defaults detection options for i18next-browser-languageDetector
  */
@@ -31,6 +28,11 @@ const detectionOptions: DetectorOptions = {
     lookupFromPathIndex: 0,
     lookupQuerystring: routeParam,
     order: ["path", "querystring"], // order and from where user language should be detected
+};
+
+const defaultInitOptions: LocalizationInitOptions = {
+    detection: detectionOptions,
+    escapeValue: false,
 };
 
 // #endregion Constants
@@ -56,18 +58,18 @@ interface LocalizationInitOptions
 const changeCultureCode = (cultureCode: string) =>
     i18n.changeLanguage(cultureCode);
 
+/**
+ * Returns the culture code from the querystring, ie `/login?culture=en-us`
+ */
 const cultureCodeFromQueryString = () => {
     const queryString = window.location.search;
     return RouteUtils.queryStringToObject<CultureParams>(queryString)?.culture;
 };
 
-// TODO: Implement this for `detectCultureCode` function
-const cultureCodeFromRoute = () => {
-    const param = window.location.pathname.split("/")[0];
-    console.log("param:", param);
-
-    return param;
-};
+/**
+ * Returns the culture code from the first position in the route, ie `/en-us/xyz`
+ */
+const cultureCodeFromRoute = () => window.location.pathname.split("/")[1];
 
 /**
  * Factory to build an inheritance chain for base to child Culture<TResource> types
@@ -97,12 +99,16 @@ const currentCultureCode = () => i18n.language;
 const defaultCultureCode = () => Rfc4646LanguageCodes.EN_US;
 
 /**
- * Detect current language for which to provide translations
- * @param requestCulture Incoming requested culture
+ * Detect and set current language for which to provide translations
+ *
  * @returns string current RFC-4646 culture code
  */
 const detectCultureCode = () => {
-    let culture = cultureCodeFromQueryString();
+    let culture = cultureCodeFromRoute();
+
+    if (StringUtils.isEmpty(culture)) {
+        culture = cultureCodeFromQueryString();
+    }
 
     // If requested culture is missing, default to english
     if (StringUtils.isEmpty(culture)) {
@@ -122,12 +128,12 @@ const detectCultureCode = () => {
  * Initialize frontend i18n module - typically in root/startup of application
  * @param module Third party module for use with i18next (ie. initReactI18next)
  * @param cultures List of supported language cultures
- * @param escapeValue Optional flag to set interpolation value escaping. False by default being react does this by default
+ * @param {LocalizationInitOptions} [options=defaultInitOptions] Additional options for configuring i18n detection
  */
 const initialize = <TResources>(
     module: any,
     cultures: Culture<TResources>[],
-    escapeValue: boolean = false // TODO: Swap with LocalizationInitOptions interface
+    options: LocalizationInitOptions = defaultInitOptions
 ) => {
     if (CollectionUtils.isEmpty(cultures)) {
         throw new Error(errorCultureIsRequired);
@@ -139,10 +145,10 @@ const initialize = <TResources>(
             // Cannot set lng value when using LanguageDetector (https://stackoverflow.com/a/55143859)
             cleanCode: true, // language will be lowercased EN --> en while leaving full locales like en-US
             debug: EnvironmentUtils.isDevelopment(), // logs info level to console output. Helps finding issues with loading not working.
-            detection: detectionOptions,
+            detection: options.detection,
             fallbackLng: defaultCultureCode(), // language to use if translations in user language are not available.
             interpolation: {
-                escapeValue,
+                escapeValue: options.escapeValue,
             },
             resources: culturesToResources<TResources>(cultures),
         });
@@ -173,9 +179,11 @@ const t = translate;
 export const LocalizationUtils = {
     changeCultureCode,
     cultureCodeFromQueryString,
+    cultureCodeFromRoute,
     cultureFactory,
     currentCultureCode,
     defaultCultureCode,
+    defaultInitOptions,
     detectCultureCode,
     errorCultureIsRequired,
     initialize,
