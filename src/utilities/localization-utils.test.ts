@@ -217,6 +217,68 @@ describe("LocalizationUtils", () => {
             delete window.location; // Must delete pre-existing location before mocked assignment works
         });
 
+        describe("given route param is set", () => {
+            test(`given first path index is set, returns value`, () => {
+                // Arrange
+                const expected = randomCultureCode();
+                window.location = { pathname: `/${expected}` } as any;
+
+                // Act
+                const result = LocalizationUtils.detectCultureCode();
+
+                // Assert
+                expect(result).toBe(expected);
+            });
+
+            test(`given first path index is set, configures global language`, () => {
+                // Arrange
+                const expected = randomCultureCode();
+                window.location = { pathname: `/${expected}` } as any;
+
+                // Act
+                const result = LocalizationUtils.detectCultureCode();
+
+                // Assert
+                expect(result).toBe(expected);
+                expect(i18n.language).toBe(expected);
+            });
+
+            test(`given querystring '${LocalizationUtils.routeParam}' set, returns route value as priority`, () => {
+                // Arrange
+                const expected = randomCultureCode();
+                const unexpected = faker.address.countryCode();
+                window.location = {
+                    pathname: `/${expected}`,
+                    search: `${LocalizationUtils.routeParam}=${unexpected}`,
+                } as any;
+
+                // Act
+                const result = LocalizationUtils.detectCultureCode();
+
+                // Assert
+                expect(result).toBe(expected);
+                expect(i18n.language).toBe(expected);
+            });
+
+            test.skip(`given first path index value matches current language, does not attempt to change language`, () => {
+                // Arrange
+                const expected = randomCultureCode();
+                LocalizationUtils.changeCultureCode(expected);
+                window.location = {
+                    pathname: `/${expected}`,
+                } as any;
+
+                const i18nSpy = jest.spyOn(i18n, "changeLanguage");
+
+                // Act
+                const result = LocalizationUtils.detectCultureCode();
+
+                // Assert
+                expect(result).toBe(expected);
+                expect(i18nSpy).not.toHaveBeenCalled();
+            });
+        });
+
         describe("given route param is not set", () => {
             beforeEach(() => {
                 window.location = {} as any;
