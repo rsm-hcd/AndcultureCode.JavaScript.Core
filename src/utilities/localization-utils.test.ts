@@ -83,6 +83,41 @@ describe("LocalizationUtils", () => {
     // #endregion cultureCodeFromQueryString
 
     // -----------------------------------------------------------------------------------------
+    // #region cultureCodeFromRoute
+    // -----------------------------------------------------------------------------------------
+
+    describe("cultureCodeFromRoute", () => {
+        beforeEach(() => {
+            delete window.location; // Must delete pre-existing location before mocked assignment works
+        });
+
+        test(`given pathname does not have at least one '/', returns undefined`, () => {
+            // Arrange
+            window.location = { pathname: "" } as any;
+
+            // Act
+            const result = LocalizationUtils.cultureCodeFromRoute();
+
+            // Assert
+            expect(result).toBeUndefined();
+        });
+
+        test(`given pathname contains at least one '/', returns value`, () => {
+            // Arrange
+            const expected = randomCultureCode();
+            window.location = { pathname: `/${expected}` } as any;
+
+            // Act
+            const result = LocalizationUtils.cultureCodeFromRoute();
+
+            // Assert
+            expect(result).toBe(expected);
+        });
+    });
+
+    // #endregion cultureCodeFromQueryString
+
+    // -----------------------------------------------------------------------------------------
     // #region cultureFactory
     // -----------------------------------------------------------------------------------------
 
