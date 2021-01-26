@@ -218,7 +218,7 @@ describe("LocalizationUtils", () => {
         });
 
         describe("given route param is set", () => {
-            test(`given first path index is set, returns value`, () => {
+            test("given first path index is set, returns value", () => {
                 // Arrange
                 const expected = randomCultureCode();
                 window.location = { pathname: `/${expected}` } as any;
@@ -230,7 +230,7 @@ describe("LocalizationUtils", () => {
                 expect(result).toBe(expected);
             });
 
-            test(`given first path index is set, configures global language`, () => {
+            test("given first path index is set, configures global language", () => {
                 // Arrange
                 const expected = randomCultureCode();
                 window.location = { pathname: `/${expected}` } as any;
@@ -260,7 +260,8 @@ describe("LocalizationUtils", () => {
                 expect(i18n.language).toBe(expected);
             });
 
-            test.skip(`given first path index value matches current language, does not attempt to change language`, () => {
+            // This test setup may need to be tweaked - test is currently not passing but not sure why.
+            test.skip("given first path index value matches current language, does not attempt to change language", () => {
                 // Arrange
                 const expected = randomCultureCode();
                 LocalizationUtils.changeCultureCode(expected);
