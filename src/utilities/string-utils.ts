@@ -7,6 +7,18 @@ import { TemplateOptions, TemplateExecutor } from "lodash";
 // #region Constants
 // -----------------------------------------------------------------------------------------
 
+/**
+ * Validates a culture code format. Based off of https://regexr.com/3faf5, but looser to allow dashes
+ * or underscores as separators.
+ *
+ * @example
+ * en
+ * en-US
+ * en_US
+ * en_us
+ * EN_US
+ */
+const REGEX_VALID_CULTURE_CODE = /^([a-zA-Z]{2}((-|_)[a-zA-Z]{2})?)$/;
 const REGEX_VALID_EMAIL = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 // #endregion Constants
@@ -59,6 +71,15 @@ const hasValue = (value?: string): value is string =>
 const isEmpty = (value?: string): value is undefined =>
     // toString is called here to ensure handling all edge cases when a non string value is passed in this function
     value == null || value.toString().trim() === "";
+
+/**
+ * Validates the given string as RFC-4646 culture code format
+ *
+ * @param cultureCode
+ */
+const isValidCultureCode = (cultureCode?: string): cultureCode is string =>
+    hasValue(cultureCode) &&
+    REGEX_VALID_CULTURE_CODE.test(cultureCode.toLowerCase());
 
 /**
  * Validates a given string matches a valid email format
@@ -246,6 +267,7 @@ export const StringUtils = {
     filename,
     hasValue,
     isEmpty,
+    isValidCultureCode,
     isValidEmail,
     join,
     lowerFirst,

@@ -5,7 +5,10 @@ import { CultureParams } from "./../interfaces/culture-params";
 import { RouteUtils } from "./route-utils";
 import { StringUtils } from "./string-utils";
 import { Rfc4646LanguageCodes } from "./../constants/rfc4646-language-codes";
-import i18n from "i18next";
+import i18n, { InitOptions, InterpolationOptions } from "i18next";
+import LanguageDetector, {
+    DetectorOptions,
+} from "i18next-browser-languagedetector";
 
 // -----------------------------------------------------------------------------------------
 // #region Constants
@@ -18,21 +21,35 @@ const errorCultureIsRequired = "Culture is required";
  */
 const routeParam = "culture";
 
+/**
+ * Defaults detection options for i18next-browser-languageDetector
+ */
+const detectionOptions: DetectorOptions = {
+    lookupFromPathIndex: 0,
+    lookupQuerystring: routeParam,
+    order: ["path", "querystring"], // order and from where user language should be detected
+};
+
+const defaultInitOptions: LocalizationInitOptions = {
+    detection: detectionOptions,
+    escapeValue: false,
+};
+
 // #endregion Constants
+
+// -----------------------------------------------------------------------------------------
+// #region Interfaces
+// -----------------------------------------------------------------------------------------
+
+interface LocalizationInitOptions
+    extends Pick<InterpolationOptions, "escapeValue">,
+        Pick<InitOptions, "detection"> {}
+
+// #endregion Interfaces
 
 // -----------------------------------------------------------------------------------------
 // #region Functions
 // -----------------------------------------------------------------------------------------
-
-// TODO: Issue #12
-// i18next-browser-languageDetector options (@see https://github.com/i18next/i18next-browser-languageDetector)
-// const detectionOptions: DetectorOptions = {
-//     checkForSimilarInWhitelist: true, // fallback to a similar whitelist language
-//     checkWhitelist: true, // only detect languages that are in the whitelist
-//     lookupFromPathIndex: 0,
-//     lookupQuerystring: "culture",
-//     order: ["querystring", "path"], // order and from where user language should be detected
-// };
 
 /**
  * Updates application's configured language used for translations
@@ -41,10 +58,18 @@ const routeParam = "culture";
 const changeCultureCode = (cultureCode: string) =>
     i18n.changeLanguage(cultureCode);
 
+/**
+ * Returns the culture code from the querystring, ie `/login?culture=en-us`
+ */
 const cultureCodeFromQueryString = () => {
     const queryString = window.location.search;
     return RouteUtils.queryStringToObject<CultureParams>(queryString)?.culture;
 };
+
+/**
+ * Returns the culture code from the first position in the route, ie `/en-us/xyz`
+ */
+const cultureCodeFromRoute = () => window.location.pathname.split("/")[1];
 
 /**
  * Factory to build an inheritance chain for base to child Culture<TResource> types
@@ -74,15 +99,19 @@ const currentCultureCode = () => i18n.language;
 const defaultCultureCode = () => Rfc4646LanguageCodes.EN_US;
 
 /**
- * Detect current language for which to provide translations
- * @param requestCulture Incoming requested culture
+ * Detect and set current language for which to provide translations
+ *
  * @returns string current RFC-4646 culture code
  */
 const detectCultureCode = () => {
-    let culture = cultureCodeFromQueryString();
+    let culture = cultureCodeFromRoute();
+
+    if (!StringUtils.isValidCultureCode(culture)) {
+        culture = cultureCodeFromQueryString();
+    }
 
     // If requested culture is missing, default to english
-    if (StringUtils.isEmpty(culture)) {
+    if (!StringUtils.isValidCultureCode(culture)) {
         culture = defaultCultureCode();
     }
 
@@ -99,28 +128,30 @@ const detectCultureCode = () => {
  * Initialize frontend i18n module - typically in root/startup of application
  * @param module Third party module for use with i18next (ie. initReactI18next)
  * @param cultures List of supported language cultures
- * @param escapeValue Optional flag to set interpolation value escaping. False by default being react does this by default
+ * @param {LocalizationInitOptions} [options=defaultInitOptions] Additional options for configuring i18n detection
  */
 const initialize = <TResources>(
     module: any,
     cultures: Culture<TResources>[],
-    escapeValue: boolean = false
+    options: LocalizationInitOptions = defaultInitOptions
 ) => {
     if (CollectionUtils.isEmpty(cultures)) {
         throw new Error(errorCultureIsRequired);
     }
 
-    i18n.use(module).init({
-        cleanCode: true, // language will be lowercased EN --> en while leaving full locales like en-US
-        debug: EnvironmentUtils.isDevelopment(), // logs info level to console output. Helps finding issues with loading not working.
-        // detection: detectionOptions, // TODO: Issue #12 - Uncomment and implement when enabling translation by way of routes (ie. /en-us/xyz)
-        fallbackLng: defaultCultureCode(), // language to use if translations in user language are not available.
-        interpolation: {
-            escapeValue,
-        },
-        lng: defaultCultureCode(),
-        resources: culturesToResources<TResources>(cultures),
-    });
+    i18n.use(module)
+        .use(LanguageDetector)
+        .init({
+            // Cannot set lng value when using LanguageDetector (https://stackoverflow.com/a/55143859)
+            cleanCode: true, // language will be lowercased EN --> en while leaving full locales like en-US
+            debug: EnvironmentUtils.isDevelopment(), // logs info level to console output. Helps finding issues with loading not working.
+            detection: options.detection,
+            fallbackLng: defaultCultureCode(), // language to use if translations in user language are not available.
+            interpolation: {
+                escapeValue: options.escapeValue,
+            },
+            resources: culturesToResources<TResources>(cultures),
+        });
 
     return i18n;
 };
@@ -148,9 +179,11 @@ const t = translate;
 export const LocalizationUtils = {
     changeCultureCode,
     cultureCodeFromQueryString,
+    cultureCodeFromRoute,
     cultureFactory,
     currentCultureCode,
     defaultCultureCode,
+    defaultInitOptions,
     detectCultureCode,
     errorCultureIsRequired,
     initialize,

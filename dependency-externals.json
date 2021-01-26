@@ -18,6 +18,12 @@
             "amd": "i18next",
             "root": "i18next"
         },
+        "i18next-browser-languagedetector": {
+            "commonjs": "i18next-browser-languagedetector",
+            "commonjs2": "i18next-browser-languagedetector",
+            "amd": "i18next-browser-languagedetector",
+            "root": "i18next-browser-languagedetector"
+        },
         "immutable": {
             "commonjs": "immutable",
             "commonjs2": "immutable",
