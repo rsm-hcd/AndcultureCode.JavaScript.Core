@@ -115,7 +115,7 @@ describe("LocalizationUtils", () => {
         });
     });
 
-    // #endregion cultureCodeFromQueryString
+    // #endregion cultureCodeFromRoute
 
     // -----------------------------------------------------------------------------------------
     // #region cultureFactory
