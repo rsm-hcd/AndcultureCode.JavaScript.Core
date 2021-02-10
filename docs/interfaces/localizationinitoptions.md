@@ -8,4 +8,6 @@
 
 * object
 
+* object
+
   ↳ **LocalizationInitOptions**

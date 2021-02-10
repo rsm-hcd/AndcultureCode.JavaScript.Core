@@ -168,7 +168,7 @@ The name provided to `Record(values, name)` can be accessed with
 
 \+ **new ResultRecord**(`params?`: [Result](../interfaces/result.md)‹T›): *[ResultRecord](resultrecord.md)*
 
-*Defined in [src/view-models/result-record.ts:13](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/beaa8a5/src/view-models/result-record.ts#L13)*
+*Defined in [src/view-models/result-record.ts:13](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/f9bf075/src/view-models/result-record.ts#L13)*
 
 **Parameters:**
 
@@ -196,7 +196,7 @@ ___
 
 ▸ **_addErrorByType**(`key`: string, `message`: string, `errorType`: [ErrorType](../enums/errortype.md)): *[ResultRecord](resultrecord.md)‹T›*
 
-*Defined in [src/view-models/result-record.ts:151](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/beaa8a5/src/view-models/result-record.ts#L151)*
+*Defined in [src/view-models/result-record.ts:151](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/f9bf075/src/view-models/result-record.ts#L151)*
 
 **Parameters:**
 
@@ -214,7 +214,7 @@ ___
 
 ▸ **addError**(`key`: string, `message`: string): *[ResultRecord](resultrecord.md)‹T›*
 
-*Defined in [src/view-models/result-record.ts:48](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/beaa8a5/src/view-models/result-record.ts#L48)*
+*Defined in [src/view-models/result-record.ts:48](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/f9bf075/src/view-models/result-record.ts#L48)*
 
 Adds a new error with the supplied details and returns a new ResultRecord
 
@@ -233,7 +233,7 @@ ___
 
 ▸ **addValidationError**(`key`: string, `message`: string): *[ResultRecord](resultrecord.md)‹T›*
 
-*Defined in [src/view-models/result-record.ts:58](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/beaa8a5/src/view-models/result-record.ts#L58)*
+*Defined in [src/view-models/result-record.ts:58](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/f9bf075/src/view-models/result-record.ts#L58)*
 
 Adds a new validation error with the supplied details and returns a new ResultRecord
 
@@ -342,7 +342,7 @@ ___
 
 ▸ **doesNotHaveErrors**(): *boolean*
 
-*Defined in [src/view-models/result-record.ts:65](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/beaa8a5/src/view-models/result-record.ts#L65)*
+*Defined in [src/view-models/result-record.ts:65](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/f9bf075/src/view-models/result-record.ts#L65)*
 
 Evaluates whether there are any errors on the result
 
@@ -372,7 +372,7 @@ ___
 
 ▸ **errorCount**(): *number*
 
-*Defined in [src/view-models/result-record.ts:72](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/beaa8a5/src/view-models/result-record.ts#L72)*
+*Defined in [src/view-models/result-record.ts:72](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/f9bf075/src/view-models/result-record.ts#L72)*
 
 Returns total number of errors
 
@@ -433,7 +433,7 @@ ___
 
 ▸ **getErrorMessageFor**(`key`: string): *string | undefined*
 
-*Defined in [src/view-models/result-record.ts:84](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/beaa8a5/src/view-models/result-record.ts#L84)*
+*Defined in [src/view-models/result-record.ts:84](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/f9bf075/src/view-models/result-record.ts#L84)*
 
 Returns an error message for a given key
 
@@ -487,7 +487,7 @@ ___
 
 ▸ **hasErrorFor**(...`keys`: string[]): *boolean*
 
-*Defined in [src/view-models/result-record.ts:92](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/beaa8a5/src/view-models/result-record.ts#L92)*
+*Defined in [src/view-models/result-record.ts:92](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/f9bf075/src/view-models/result-record.ts#L92)*
 
 Determines if the result contains an error for the supplied key(s)
 
@@ -505,7 +505,7 @@ ___
 
 ▸ **hasErrors**(): *boolean*
 
-*Defined in [src/view-models/result-record.ts:105](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/beaa8a5/src/view-models/result-record.ts#L105)*
+*Defined in [src/view-models/result-record.ts:105](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/f9bf075/src/view-models/result-record.ts#L105)*
 
 Evaluates whether there are any errors on the result
 
@@ -547,7 +547,7 @@ ___
 
 ▸ **listErrorMessages**(): *string[]*
 
-*Defined in [src/view-models/result-record.ts:123](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/beaa8a5/src/view-models/result-record.ts#L123)*
+*Defined in [src/view-models/result-record.ts:123](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/f9bf075/src/view-models/result-record.ts#L123)*
 
 Map all error messages into a simple string array.
 
@@ -559,7 +559,7 @@ ___
 
 ▸ **listErrors**(): *string[]*
 
-*Defined in [src/view-models/result-record.ts:112](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/beaa8a5/src/view-models/result-record.ts#L112)*
+*Defined in [src/view-models/result-record.ts:112](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/f9bf075/src/view-models/result-record.ts#L112)*
 
 Map all errors into simple string array
 
@@ -910,7 +910,7 @@ ___
 
 ▸ **with**(`values`: Partial‹[Result](../interfaces/result.md)‹T››): *[ResultRecord](resultrecord.md)‹T›*
 
-*Defined in [src/view-models/result-record.ts:141](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/beaa8a5/src/view-models/result-record.ts#L141)*
+*Defined in [src/view-models/result-record.ts:141](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/f9bf075/src/view-models/result-record.ts#L141)*
 
 Merges new values into the record and returns a new instance.
 

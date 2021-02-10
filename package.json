@@ -84,5 +84,5 @@
         "watch:test": "jest ./src --watch"
     },
     "types": "dist/index",
-    "version": "0.5.0"
+    "version": "0.5.1"
 }
