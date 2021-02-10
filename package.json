@@ -79,7 +79,7 @@
         "test": "jest ./src",
         "test-cypress": "cypress run",
         "validate-peer-dependencies": "node validate-peer-dependencies.js",
-        "watch": "npm run build -- --watch",
+        "watch": "tsc --pretty --watch",
         "watch:coverage": "jest ./src --coverage --watch",
         "watch:test": "jest ./src --watch"
     },

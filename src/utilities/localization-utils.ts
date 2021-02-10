@@ -31,6 +31,7 @@ const detectionOptions: DetectorOptions = {
 };
 
 const defaultInitOptions: LocalizationInitOptions = {
+    debug: EnvironmentUtils.isDevelopment(),
     detection: detectionOptions,
     escapeValue: false,
 };
@@ -42,8 +43,9 @@ const defaultInitOptions: LocalizationInitOptions = {
 // -----------------------------------------------------------------------------------------
 
 interface LocalizationInitOptions
-    extends Pick<InterpolationOptions, "escapeValue">,
-        Pick<InitOptions, "detection"> {}
+    extends Pick<InitOptions, "debug">,
+        Pick<InitOptions, "detection">,
+        Pick<InterpolationOptions, "escapeValue"> {}
 
 // #endregion Interfaces
 
@@ -128,7 +130,7 @@ const detectCultureCode = () => {
  * Initialize frontend i18n module - typically in root/startup of application
  * @param module Third party module for use with i18next (ie. initReactI18next)
  * @param cultures List of supported language cultures
- * @param {LocalizationInitOptions} [options=defaultInitOptions] Additional options for configuring i18n detection
+ * @param options Additional options for configuring i18n detection
  */
 const initialize = <TResources>(
     module: any,
@@ -144,7 +146,7 @@ const initialize = <TResources>(
         .init({
             // Cannot set lng value when using LanguageDetector (https://stackoverflow.com/a/55143859)
             cleanCode: true, // language will be lowercased EN --> en while leaving full locales like en-US
-            debug: EnvironmentUtils.isDevelopment(), // logs info level to console output. Helps finding issues with loading not working.
+            debug: options.debug, // logs info level to console output. Helps finding issues with loading not working.
             detection: options.detection,
             fallbackLng: defaultCultureCode(), // language to use if translations in user language are not available.
             interpolation: {
