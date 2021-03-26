@@ -5,10 +5,11 @@ import { CultureParams } from "./../interfaces/culture-params";
 import { RouteUtils } from "./route-utils";
 import { StringUtils } from "./string-utils";
 import { Rfc4646LanguageCodes } from "./../constants/rfc4646-language-codes";
-import i18n, { InitOptions, InterpolationOptions } from "i18next";
+import i18n from "i18next";
 import LanguageDetector, {
     DetectorOptions,
 } from "i18next-browser-languagedetector";
+import { LocalizationInitOptions } from "../interfaces/localization-init-options";
 
 // -----------------------------------------------------------------------------------------
 // #region Constants
@@ -37,17 +38,6 @@ const defaultInitOptions: LocalizationInitOptions = {
 };
 
 // #endregion Constants
-
-// -----------------------------------------------------------------------------------------
-// #region Interfaces
-// -----------------------------------------------------------------------------------------
-
-interface LocalizationInitOptions
-    extends Pick<InitOptions, "debug">,
-        Pick<InitOptions, "detection">,
-        Pick<InterpolationOptions, "escapeValue"> {}
-
-// #endregion Interfaces
 
 // -----------------------------------------------------------------------------------------
 // #region Functions
