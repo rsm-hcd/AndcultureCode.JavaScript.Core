@@ -20,10 +20,7 @@ yarn add andculturecode-javascript-core --dev
 From there you can import the variety of modules.
 
 ```typescript
-import {
-    CollectionUtils,
-    CoreUtils
-} from "andculturecode-javascript-core";
+import { CollectionUtils, CoreUtils } from "andculturecode-javascript-core";
 ```
 
 You can also reference the global distribution package within a website which gives you access to the `AndcultureCode` namespace. See the example below
@@ -32,12 +29,17 @@ You can also reference the global distribution package within a website which gi
 <script src="https://unpkg.com/browse/andculturecode-javascript-core@[version-number]/dist/global/index.js"></script>
 
 <script>
-    var myAuthObject = AndcultureCode.RouteUtils.queryStringToObject('#token=bada55cafe')
+    var myAuthObject = AndcultureCode.RouteUtils.queryStringToObject(
+        "#token=bada55cafe"
+    );
 </script>
-
 ```
 
-**NOTE** - This source code relies on several peer dependencies, most of which are not included in this bundled global distribution.  You will likely want to reference these in your website prior to referencing the `andculture-javascript-core` global package.  See [test-global-distribution.html](./test-global-distribution.html) for the full list of dependencies.  Also note that peer dependencies are only required if your code will be executing code paths that utilize any of those peer dependencies.
+## Peer dependencies
+
+This package wraps several external packages for our own configuration and ease of use, such as `axios`, `i18next`, `lodash`, etc. If you are using the standard distribution of this package, these will need to be installed alongside this package, even if you do not plan on leveraging features that rely on them.
+
+If using the global distribution, you will likely want to reference these in your website prior to referencing this package. See [test-global-distribution.html](./test-global-distribution.html) for the full list of dependencies. Unlike the standard distribution, peer dependencies are only required if your code will be executing code paths that rely on those packages.
 
 ## Documentation
 
