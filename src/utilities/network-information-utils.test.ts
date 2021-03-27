@@ -1,4 +1,7 @@
-import { NetworkInformationUtils } from "./network-information-utils";
+import {
+    ConnectionVariants,
+    NetworkInformationUtils,
+} from "./network-information-utils";
 
 describe("NetworkInformationUtils", () => {
     // -----------------------------------------------------------------------------------------
@@ -11,7 +14,6 @@ describe("NetworkInformationUtils", () => {
     }): void => {
         const { connectionProperty: connectionPropertyName, onLine = false } =
             options ?? {};
-        const connectionGetter = jest.spyOn(window, "navigator", "get");
 
         const connection =
             connectionPropertyName != null
@@ -20,10 +22,15 @@ describe("NetworkInformationUtils", () => {
                   }
                 : {};
 
-        connectionGetter.mockReturnValue(({
+        const mockedNavigatorValue = ({
             ...connection,
             onLine,
-        } as unknown) as Navigator);
+        } as unknown) as Navigator;
+
+        jest.clearAllMocks();
+        jest.spyOn(window, "navigator", "get").mockReturnValue(
+            mockedNavigatorValue
+        );
     };
 
     // #endregion Mocks
@@ -33,40 +40,26 @@ describe("NetworkInformationUtils", () => {
     // -----------------------------------------------------------------------------------------
 
     describe("getNavigatorConnection", () => {
-        test("window.navigator has connection, it returns connection", () => {
-            // Arrange
-            mockWindowNavigator({ connectionProperty: "connection" });
+        test.each`
+            connectionProperty
+            ${ConnectionVariants.Standard}
+            ${ConnectionVariants.Mozilla}
+            ${ConnectionVariants.Webkit}
+        `(
+            "window.navigator has $connectionProperty, it returns connection",
+            ({ connectionProperty }) => {
+                // Arrange
+                mockWindowNavigator({ connectionProperty });
 
-            // Act
-            const connection = NetworkInformationUtils.getNavigatorConnection();
+                // Act
+                const navigatorConnection = NetworkInformationUtils.getNavigatorConnection();
 
-            // Assert
-            expect(connection).not.toBeUndefined();
-        });
+                // Assert
+                expect(navigatorConnection).not.toBeUndefined();
+            }
+        );
 
-        test("window.navigator has mozConnection, it returns connection", () => {
-            // Arrange
-            mockWindowNavigator({ connectionProperty: "mozConnection" });
-
-            // Act
-            const connection = NetworkInformationUtils.getNavigatorConnection();
-
-            // Assert
-            expect(connection).not.toBeUndefined();
-        });
-
-        test("window.navigator has webkitConnection, it returns connection", () => {
-            // Arrange
-            mockWindowNavigator({ connectionProperty: "webkitConnection" });
-
-            // Act
-            const connection = NetworkInformationUtils.getNavigatorConnection();
-
-            // Assert
-            expect(connection).not.toBeUndefined();
-        });
-
-        test("window.navigator does not have connection, mozConnection nor webkitConnection, it returns undefined", () => {
+        test("window.navigator does not have a known connection property, it returns undefined", () => {
             // Arrange
             mockWindowNavigator();
 
@@ -90,44 +83,42 @@ describe("NetworkInformationUtils", () => {
             mockWindowNavigator();
 
             // Act
-            const connection = NetworkInformationUtils.getNetworkConnection();
+            const networkConnection = NetworkInformationUtils.getNetworkConnection();
 
             // Assert
-            expect(connection).toBeDefined();
+            expect(networkConnection).toBeDefined();
         });
 
         test("getConnection has value, it returns a value", () => {
             // Arrange
-            mockWindowNavigator({ connectionProperty: "connection" });
+            mockWindowNavigator({
+                connectionProperty: ConnectionVariants.Standard,
+            });
 
             // Act
-            const connection = NetworkInformationUtils.getNetworkConnection();
+            const networkConnection = NetworkInformationUtils.getNetworkConnection();
 
             // Assert
-            expect(connection).toBeDefined();
+            expect(networkConnection).toBeDefined();
         });
 
-        test("window.navigator onLine is false, isOnline is false", () => {
-            // Arrange
-            mockWindowNavigator({ onLine: false });
+        test.each`
+            onLine
+            ${false}
+            ${true}
+        `(
+            "window.navigator onLine is $onLine, isOnline is $onLine",
+            ({ onLine }) => {
+                // Arrange
+                mockWindowNavigator({ onLine });
 
-            // Act
-            const connection = NetworkInformationUtils.getNetworkConnection();
+                // Act
+                const networkConnection = NetworkInformationUtils.getNetworkConnection();
 
-            // Assert
-            expect(connection.isOnline).toEqual(false);
-        });
-
-        test("window.navigator onLine is true, isOnline is true", () => {
-            // Arrange
-            mockWindowNavigator({ onLine: true });
-
-            // Act
-            const connection = NetworkInformationUtils.getNetworkConnection();
-
-            // Assert
-            expect(connection.isOnline).toEqual(true);
-        });
+                // Assert
+                expect(networkConnection.isOnline).toEqual(onLine);
+            }
+        );
     });
 
     // #endregion getNetworkConnection
