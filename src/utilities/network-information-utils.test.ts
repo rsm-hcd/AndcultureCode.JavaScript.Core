@@ -1,7 +1,5 @@
-import {
-    ConnectionVariants,
-    NetworkInformationUtils,
-} from "./network-information-utils";
+import { NavigatorConnectionVariants } from "../enumerations/navigator-connection-variants";
+import { NetworkInformationUtils } from "./network-information-utils";
 
 describe("NetworkInformationUtils", () => {
     // -----------------------------------------------------------------------------------------
@@ -42,9 +40,9 @@ describe("NetworkInformationUtils", () => {
     describe("getNavigatorConnection", () => {
         test.each`
             connectionProperty
-            ${ConnectionVariants.Standard}
-            ${ConnectionVariants.Mozilla}
-            ${ConnectionVariants.Webkit}
+            ${NavigatorConnectionVariants.Standard}
+            ${NavigatorConnectionVariants.Mozilla}
+            ${NavigatorConnectionVariants.Webkit}
         `(
             "window.navigator has $connectionProperty, it returns connection",
             ({ connectionProperty }) => {
@@ -92,7 +90,7 @@ describe("NetworkInformationUtils", () => {
         test("getConnection has value, it returns a value", () => {
             // Arrange
             mockWindowNavigator({
-                connectionProperty: ConnectionVariants.Standard,
+                connectionProperty: NavigatorConnectionVariants.Standard,
             });
 
             // Act

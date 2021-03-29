@@ -1,14 +1,20 @@
+import { NavigatorConnectionVariants } from "../enumerations/navigator-connection-variants";
 import { NavigatorConnection } from "./navigator-connection";
 
 // -----------------------------------------------------------------------------------------
 // #region Interfaces
 // -----------------------------------------------------------------------------------------
 
-interface NetworkConnection extends NavigatorConnection {
-    /**
-     * Returns a true or false indicating whether the browser is working online.
-     */
-    isOnline: boolean;
+interface StandardNavigator extends Navigator {
+    [NavigatorConnectionVariants.Standard]: NavigatorConnection;
+}
+
+interface MozillaNavigator extends Navigator {
+    [NavigatorConnectionVariants.Mozilla]: NavigatorConnection;
+}
+
+interface WebkitNavigator extends Navigator {
+    [NavigatorConnectionVariants.Webkit]: NavigatorConnection;
 }
 
 // #endregion Interfaces
@@ -17,6 +23,6 @@ interface NetworkConnection extends NavigatorConnection {
 // #region Export
 // -----------------------------------------------------------------------------------------
 
-export { NetworkConnection };
+export { StandardNavigator, MozillaNavigator, WebkitNavigator };
 
 // #endregion Export

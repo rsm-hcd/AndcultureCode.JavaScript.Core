@@ -1,39 +1,38 @@
+import { NavigatorConnection } from "../interfaces/navigator-connection";
+import {
+    MozillaNavigator,
+    StandardNavigator,
+    WebkitNavigator,
+} from "../interfaces/navigator";
 import { NetworkConnection } from "../interfaces/network-connection";
-
-// -----------------------------------------------------------------------------------------
-// #region Enums
-// -----------------------------------------------------------------------------------------
-
-export enum ConnectionVariants {
-    Standard = "connection",
-    Mozilla = "mozConnection",
-    Webkit = "webkitConnection",
-}
-
-// #endregion Enums
+import { NavigatorConnectionVariants } from "../enumerations/navigator-connection-variants";
 
 // -----------------------------------------------------------------------------------------
 // #region Functions
 // -----------------------------------------------------------------------------------------
 
-const getNavigatorConnection = ():
-    | Exclude<NetworkConnection, "isOnline">
-    | undefined => {
-    if (ConnectionVariants.Standard in window.navigator) {
-        return (window.navigator as any).connection;
+/**
+ * Returns a NavigatorConnection object if one exists
+ */
+const getNavigatorConnection = (): NavigatorConnection | undefined => {
+    if (isStandardNavigator(window.navigator)) {
+        return window.navigator.connection;
     }
 
-    if (ConnectionVariants.Mozilla in window.navigator) {
-        return (window.navigator as any).mozConnection;
+    if (isMozillaNavigator(window.navigator)) {
+        return window.navigator.mozConnection;
     }
 
-    if (ConnectionVariants.Webkit in window.navigator) {
-        return (window.navigator as any).webkitConnection;
+    if (isWebkitNavigator(window.navigator)) {
+        return window.navigator.webkitConnection;
     }
 
     return undefined;
 };
 
+/**
+ * Returns a `NetworkConnection` object which is an aggregate of `navigator.connection` and `navigator.onLine`
+ */
 const getNetworkConnection = (): NetworkConnection => {
     const { onLine: isOnline } = window.navigator;
     const navigatorConnection = getNavigatorConnection() ?? {};
@@ -42,6 +41,20 @@ const getNetworkConnection = (): NetworkConnection => {
         ...navigatorConnection,
         isOnline,
     };
+};
+
+const isStandardNavigator = (
+    navigator: any
+): navigator is StandardNavigator => {
+    return navigator[NavigatorConnectionVariants.Standard] != null;
+};
+
+const isMozillaNavigator = (navigator: any): navigator is MozillaNavigator => {
+    return navigator[NavigatorConnectionVariants.Mozilla] != null;
+};
+
+const isWebkitNavigator = (navigator: any): navigator is WebkitNavigator => {
+    return navigator[NavigatorConnectionVariants.Webkit] != null;
 };
 
 // #endregion Functions
