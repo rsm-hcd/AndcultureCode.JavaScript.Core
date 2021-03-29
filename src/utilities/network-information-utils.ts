@@ -43,14 +43,14 @@ const getNetworkConnection = (): NetworkConnection => {
     };
 };
 
+const isMozillaNavigator = (navigator: any): navigator is MozillaNavigator => {
+    return navigator[NavigatorConnectionVariants.Mozilla] != null;
+};
+
 const isStandardNavigator = (
     navigator: any
 ): navigator is StandardNavigator => {
     return navigator[NavigatorConnectionVariants.Standard] != null;
-};
-
-const isMozillaNavigator = (navigator: any): navigator is MozillaNavigator => {
-    return navigator[NavigatorConnectionVariants.Mozilla] != null;
 };
 
 const isWebkitNavigator = (navigator: any): navigator is WebkitNavigator => {
