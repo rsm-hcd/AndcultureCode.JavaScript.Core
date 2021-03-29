@@ -8,6 +8,15 @@ import { NetworkConnection } from "../interfaces/network-connection";
 import { NavigatorConnectionVariants } from "../enumerations/navigator-connection-variants";
 
 // -----------------------------------------------------------------------------------------
+// #region Types
+// -----------------------------------------------------------------------------------------
+
+type WindowNavigator = Navigator &
+    Partial<MozillaNavigator & StandardNavigator & WebkitNavigator>;
+
+// #endregion Types
+
+// -----------------------------------------------------------------------------------------
 // #region Functions
 // -----------------------------------------------------------------------------------------
 
@@ -43,17 +52,21 @@ const getNetworkConnection = (): NetworkConnection => {
     };
 };
 
-const isMozillaNavigator = (navigator: any): navigator is MozillaNavigator => {
+const isMozillaNavigator = (
+    navigator: WindowNavigator
+): navigator is MozillaNavigator => {
     return navigator[NavigatorConnectionVariants.Mozilla] != null;
 };
 
 const isStandardNavigator = (
-    navigator: any
+    navigator: WindowNavigator
 ): navigator is StandardNavigator => {
     return navigator[NavigatorConnectionVariants.Standard] != null;
 };
 
-const isWebkitNavigator = (navigator: any): navigator is WebkitNavigator => {
+const isWebkitNavigator = (
+    navigator: WindowNavigator
+): navigator is WebkitNavigator => {
     return navigator[NavigatorConnectionVariants.Webkit] != null;
 };
 
