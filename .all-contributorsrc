@@ -60,6 +60,16 @@
         "code",
         "test"
       ]
+    },
+    {
+      "login": "KevinBusch",
+      "name": "Kevin Busch",
+      "avatar_url": "https://avatars.githubusercontent.com/u/775414?v=4",
+      "profile": "https://github.com/KevinBusch",
+      "contributions": [
+        "infra",
+        "maintenance"
+      ]
     }
   ],
   "contributorsPerLine": 7,
