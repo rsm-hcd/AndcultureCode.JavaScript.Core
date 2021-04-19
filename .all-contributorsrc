@@ -79,6 +79,16 @@
       "contributions": [
         "review"
       ]
+    },
+    {
+      "login": "dtnhinh",
+      "name": "Nhinh Dao",
+      "avatar_url": "https://avatars.githubusercontent.com/u/69260561?v=4",
+      "profile": "https://github.com/dtnhinh",
+      "contributions": [
+        "test",
+        "maintenance"
+      ]
     }
   ],
   "contributorsPerLine": 7,
