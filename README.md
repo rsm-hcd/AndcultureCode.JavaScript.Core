@@ -1,6 +1,6 @@
 # AndcultureCode.JavaScript.Core
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![Build Status](https://travis-ci.org/AndcultureCode/AndcultureCode.JavaScript.Core.svg?branch=master)](https://travis-ci.org/AndcultureCode/AndcultureCode.JavaScript.Core)
@@ -70,6 +70,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://www.winton.me/"><img src="https://avatars.githubusercontent.com/u/48424?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Winton DeShong</b></sub></a><br /><a href="https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/commits?author=wintondeshong" title="Code">💻</a> <a href="https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/commits?author=wintondeshong" title="Documentation">📖</a> <a href="#maintenance-wintondeshong" title="Maintenance">🚧</a> <a href="https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/commits?author=wintondeshong" title="Tests">⚠️</a> <a href="https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/pulls?q=is%3Apr+reviewed-by%3Awintondeshong" title="Reviewed Pull Requests">👀</a></td>
     <td align="center"><a href="https://github.com/brandongregoryscott"><img src="https://avatars.githubusercontent.com/u/11774799?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Brandon Scott</b></sub></a><br /><a href="https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/commits?author=brandongregoryscott" title="Code">💻</a> <a href="#maintenance-brandongregoryscott" title="Maintenance">🚧</a> <a href="https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/commits?author=brandongregoryscott" title="Tests">⚠️</a> <a href="https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/pulls?q=is%3Apr+reviewed-by%3Abrandongregoryscott" title="Reviewed Pull Requests">👀</a></td>
     <td align="center"><a href="https://www.saidshah.com"><img src="https://avatars.githubusercontent.com/u/19719299?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Said B Shah</b></sub></a><br /><a href="https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/commits?author=SaidShah" title="Code">💻</a></td>
+    <td align="center"><a href="https://mjones.network"><img src="https://avatars.githubusercontent.com/u/8648891?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Mat Jones</b></sub></a><br /><a href="https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/commits?author=mrjones2014" title="Code">💻</a> <a href="https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/commits?author=mrjones2014" title="Tests">⚠️</a></td>
   </tr>
 </table>
 
