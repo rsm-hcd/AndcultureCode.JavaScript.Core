@@ -1,0 +1,100 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "wintondeshong",
+      "name": "Winton DeShong",
+      "avatar_url": "https://avatars.githubusercontent.com/u/48424?v=4",
+      "profile": "http://www.winton.me/",
+      "contributions": [
+        "code",
+        "doc",
+        "maintenance",
+        "test",
+        "review"
+      ]
+    },
+    {
+      "login": "brandongregoryscott",
+      "name": "Brandon Scott",
+      "avatar_url": "https://avatars.githubusercontent.com/u/11774799?v=4",
+      "profile": "https://github.com/brandongregoryscott",
+      "contributions": [
+        "code",
+        "maintenance",
+        "test",
+        "review"
+      ]
+    },
+    {
+      "login": "SaidShah",
+      "name": "Said B Shah",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19719299?v=4",
+      "profile": "https://www.saidshah.com",
+      "contributions": [
+        "code",
+        "test",
+        "maintenance"
+      ]
+    },
+    {
+      "login": "mrjones2014",
+      "name": "Mat Jones",
+      "avatar_url": "https://avatars.githubusercontent.com/u/8648891?v=4",
+      "profile": "https://mjones.network",
+      "contributions": [
+        "code",
+        "test"
+      ]
+    },
+    {
+      "login": "dylanjustice",
+      "name": "Dylan Justice",
+      "avatar_url": "https://avatars.githubusercontent.com/u/22502365?v=4",
+      "profile": "http://resume.dylanjustice.com",
+      "contributions": [
+        "code",
+        "test"
+      ]
+    },
+    {
+      "login": "KevinBusch",
+      "name": "Kevin Busch",
+      "avatar_url": "https://avatars.githubusercontent.com/u/775414?v=4",
+      "profile": "https://github.com/KevinBusch",
+      "contributions": [
+        "infra",
+        "maintenance"
+      ]
+    },
+    {
+      "login": "Stefanie899",
+      "name": "Stefanie Leitch",
+      "avatar_url": "https://avatars.githubusercontent.com/u/37462028?v=4",
+      "profile": "https://github.com/Stefanie899",
+      "contributions": [
+        "review"
+      ]
+    },
+    {
+      "login": "dtnhinh",
+      "name": "Nhinh Dao",
+      "avatar_url": "https://avatars.githubusercontent.com/u/69260561?v=4",
+      "profile": "https://github.com/dtnhinh",
+      "contributions": [
+        "test",
+        "maintenance"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "AndcultureCode.JavaScript.Core",
+  "projectOwner": "AndcultureCode",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
