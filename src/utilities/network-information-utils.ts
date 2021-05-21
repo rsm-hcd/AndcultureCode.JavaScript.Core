@@ -1,39 +1,60 @@
 import { NavigatorConnection } from "../interfaces/navigator-connection";
-import { NetworkConnection } from "../interfaces/network-connection";
 import { Navigator } from "../types/navigator";
+
+// -----------------------------------------------------------------------------------------
+// #region Type Declarations
+// -----------------------------------------------------------------------------------------
+
+type NavigatorExtended = Navigator & {
+    connection?: NavigatorConnection;
+    mozConnection?: NavigatorConnection;
+    onLine: boolean;
+    webkitConnection?: NavigatorConnection;
+};
+
+type WindowExtended = Window &
+    typeof globalThis & {
+        navigator: NavigatorExtended;
+    };
+
+declare const window: WindowExtended;
+
+// #endregion Type Declarations
 
 // -----------------------------------------------------------------------------------------
 // #region Functions
 // -----------------------------------------------------------------------------------------
 
-/**
- * Returns a NavigatorConnection object if one exists
- */
-const getNavigatorConnection = (): NavigatorConnection | undefined => {
-    const navigator = getWindowNavigator();
-
-    return (
-        navigator.connection ??
-        navigator.mozConnection ??
-        navigator.webkitConnection ??
-        undefined
-    );
-};
-
-/**
- * Returns a `NetworkConnection` object which is an aggregate of `navigator.connection` and `navigator.onLine`
- */
-const getNetworkConnection = (): NetworkConnection => {
-    const { onLine: isOnline } = getWindowNavigator();
-    const navigatorConnection = getNavigatorConnection() ?? {};
-
+export default function buildNetworkInformationUtils(
+    navigator: NavigatorExtended
+) {
     return {
-        ...navigatorConnection,
-        isOnline,
-    };
-};
+        /**
+         * Returns a NavigatorConnection object if one exists
+         */
+        getNavigatorConnection(): NavigatorConnection | undefined {
+            return (
+                navigator.connection ??
+                navigator.mozConnection ??
+                navigator.webkitConnection ??
+                undefined
+            );
+        },
 
-const getWindowNavigator = (): Navigator => window.navigator;
+        /**
+         * Returns a `NetworkConnection` object which is an aggregate of `navigator.connection` and `navigator.onLine`
+         */
+        getNetworkConnection() {
+            const { onLine: isOnline } = navigator;
+            const navigatorConnection = this.getNavigatorConnection() ?? {};
+
+            return {
+                ...navigatorConnection,
+                isOnline,
+            };
+        },
+    };
+}
 
 // #endregion Functions
 
@@ -41,10 +62,8 @@ const getWindowNavigator = (): Navigator => window.navigator;
 // #region Exports
 // -----------------------------------------------------------------------------------------
 
-export const NetworkInformationUtils = {
-    getNavigatorConnection,
-    getNetworkConnection,
-    getWindowNavigator,
-};
+export const NetworkInformationUtils = buildNetworkInformationUtils(
+    window.navigator
+);
 
 // #endregion Exports

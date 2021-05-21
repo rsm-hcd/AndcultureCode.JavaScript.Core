@@ -1,54 +1,30 @@
 import { NavigatorConnectionVariants } from "../enumerations/navigator-connection-variants";
-import { NetworkInformationUtils } from "./network-information-utils";
+import buildNetworkInformationUtils, {
+    NetworkInformationUtils,
+} from "./network-information-utils";
+
+const setupSut = (options?: {
+    connectionProperty?: string;
+    onLine?: boolean;
+}): typeof NetworkInformationUtils => {
+    const { connectionProperty, onLine = false } = options ?? {};
+
+    const withConnectionProperty =
+        connectionProperty != null
+            ? {
+                  [connectionProperty]: {},
+              }
+            : {};
+
+    const navigator = {
+        ...withConnectionProperty,
+        onLine,
+    } as Navigator;
+
+    return buildNetworkInformationUtils(navigator);
+};
 
 describe("NetworkInformationUtils", () => {
-    let globalWindow: Window & typeof globalThis;
-
-    beforeEach(() => {
-        globalWindow = window;
-        Object.assign(window, {
-            get navigator() {
-                return {
-                    get onLine() {
-                        return false;
-                    },
-                };
-            },
-        });
-    });
-
-    afterEach(() => {
-        Object.assign(window, { ...globalWindow });
-    });
-
-    // -----------------------------------------------------------------------------------------
-    // #region Mocks
-    // -----------------------------------------------------------------------------------------
-
-    const mockWindowNavigator = (options?: {
-        connectionProperty?: string;
-        onLine?: boolean;
-    }): void => {
-        const { connectionProperty, onLine = false } = options ?? {};
-
-        const withConnectionProperty =
-            connectionProperty != null
-                ? {
-                      [connectionProperty]: {},
-                  }
-                : {};
-
-        jest.spyOn(window, "navigator", "get").mockImplementation(
-            () =>
-                ({
-                    ...withConnectionProperty,
-                    onLine,
-                } as Navigator)
-        );
-    };
-
-    // #endregion Mocks
-
     // -----------------------------------------------------------------------------------------
     // #region getNavigatorConnection
     // -----------------------------------------------------------------------------------------
@@ -63,10 +39,10 @@ describe("NetworkInformationUtils", () => {
             "window.navigator has $connectionProperty, it returns connection",
             ({ connectionProperty }) => {
                 // Arrange
-                mockWindowNavigator({ connectionProperty });
+                const sut = setupSut({ connectionProperty });
 
                 // Act
-                const navigatorConnection = NetworkInformationUtils.getNavigatorConnection();
+                const navigatorConnection = sut.getNavigatorConnection();
 
                 // Assert
                 expect(navigatorConnection).not.toBeUndefined();
@@ -75,10 +51,10 @@ describe("NetworkInformationUtils", () => {
 
         test("window.navigator does not have a known connection property, it returns undefined", () => {
             // Arrange
-            mockWindowNavigator();
+            const sut = setupSut();
 
             // Act
-            const connection = NetworkInformationUtils.getNavigatorConnection();
+            const connection = sut.getNavigatorConnection();
 
             // Assert
             expect(connection).toBeUndefined();
@@ -94,10 +70,10 @@ describe("NetworkInformationUtils", () => {
     describe("getNetworkConnection", () => {
         test("getConnection is undefined, it returns a value", () => {
             // Arrange
-            mockWindowNavigator();
+            const sut = setupSut();
 
             // Act
-            const networkConnection = NetworkInformationUtils.getNetworkConnection();
+            const networkConnection = sut.getNetworkConnection();
 
             // Assert
             expect(networkConnection).toBeDefined();
@@ -105,12 +81,12 @@ describe("NetworkInformationUtils", () => {
 
         test("getConnection has value, it returns a value", () => {
             // Arrange
-            mockWindowNavigator({
+            const sut = setupSut({
                 connectionProperty: NavigatorConnectionVariants.Standard,
             });
 
             // Act
-            const networkConnection = NetworkInformationUtils.getNetworkConnection();
+            const networkConnection = sut.getNetworkConnection();
 
             // Assert
             expect(networkConnection).toBeDefined();
@@ -124,10 +100,10 @@ describe("NetworkInformationUtils", () => {
             "window.navigator onLine is $onLine, isOnline is $onLine",
             ({ onLine }) => {
                 // Arrange
-                mockWindowNavigator({ onLine });
+                const sut = setupSut({ onLine });
 
                 // Act
-                const networkConnection = NetworkInformationUtils.getNetworkConnection();
+                const networkConnection = sut.getNetworkConnection();
 
                 // Assert
                 expect(networkConnection.isOnline).toEqual(onLine);
