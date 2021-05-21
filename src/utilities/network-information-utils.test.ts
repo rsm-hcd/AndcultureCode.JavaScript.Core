@@ -9,17 +9,21 @@ const setupSut = (options?: {
 }): typeof NetworkInformationUtils => {
     const { connectionProperty, onLine = false } = options ?? {};
 
-    const withConnectionProperty =
-        connectionProperty != null
-            ? {
-                  [connectionProperty]: {},
-              }
-            : {};
+    const buildMockNavigator = (): Navigator => {
+        const isOnline = onLine ?? navigator.onLine;
 
-    const navigator = {
-        ...withConnectionProperty,
-        onLine,
-    } as Navigator;
+        if (connectionProperty != null) {
+            return {
+                ...navigator,
+                onLine: isOnline,
+                [connectionProperty]: {},
+            };
+        }
+
+        return { ...navigator, onLine: isOnline };
+    };
+
+    const navigator = buildMockNavigator();
 
     return buildNetworkInformationUtils(navigator);
 };
@@ -29,14 +33,14 @@ describe("NetworkInformationUtils", () => {
     // #region getNavigatorConnection
     // -----------------------------------------------------------------------------------------
 
-    describe("getNavigatorConnection", () => {
+    describe("getNavigatorConnection()", () => {
         test.each`
             connectionProperty
             ${NavigatorConnectionVariant.Standard}
             ${NavigatorConnectionVariant.Mozilla}
             ${NavigatorConnectionVariant.Webkit}
         `(
-            "window.navigator has $connectionProperty, it returns connection",
+            "when window.navigator has $connectionProperty, it returns connection",
             ({ connectionProperty }) => {
                 // Arrange
                 const sut = setupSut({ connectionProperty });
@@ -49,7 +53,7 @@ describe("NetworkInformationUtils", () => {
             }
         );
 
-        test("window.navigator does not have a known connection property, it returns undefined", () => {
+        test("when window.navigator does not have a known connection property, it returns undefined", () => {
             // Arrange
             const sut = setupSut();
 
@@ -67,8 +71,8 @@ describe("NetworkInformationUtils", () => {
     // #region getNetworkConnection
     // -----------------------------------------------------------------------------------------
 
-    describe("getNetworkConnection", () => {
-        test("getConnection is undefined, it returns a value", () => {
+    describe("getNetworkConnection()", () => {
+        test("when navigator has no connection, it returns a value", () => {
             // Arrange
             const sut = setupSut();
 
@@ -79,7 +83,7 @@ describe("NetworkInformationUtils", () => {
             expect(networkConnection).toBeDefined();
         });
 
-        test("getConnection has value, it returns a value", () => {
+        test("when navigator has a connection, it returns a value", () => {
             // Arrange
             const sut = setupSut({
                 connectionProperty: NavigatorConnectionVariant.Standard,
@@ -97,7 +101,7 @@ describe("NetworkInformationUtils", () => {
             ${false}
             ${true}
         `(
-            "window.navigator onLine is $onLine, isOnline is $onLine",
+            "when window.navigator onLine is $onLine, isOnline is $onLine",
             ({ onLine }) => {
                 // Arrange
                 const sut = setupSut({ onLine });
