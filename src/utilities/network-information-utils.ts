@@ -1,20 +1,6 @@
 import { NavigatorConnection } from "../interfaces/navigator-connection";
-import {
-    MozillaNavigator,
-    StandardNavigator,
-    WebkitNavigator,
-} from "../interfaces/navigator";
 import { NetworkConnection } from "../interfaces/network-connection";
-import { NavigatorConnectionVariants } from "../enumerations/navigator-connection-variants";
-
-// -----------------------------------------------------------------------------------------
-// #region Types
-// -----------------------------------------------------------------------------------------
-
-type WindowNavigator = Navigator &
-    Partial<MozillaNavigator & StandardNavigator & WebkitNavigator>;
-
-// #endregion Types
+import { Navigator } from "../types/navigator";
 
 // -----------------------------------------------------------------------------------------
 // #region Functions
@@ -24,26 +10,21 @@ type WindowNavigator = Navigator &
  * Returns a NavigatorConnection object if one exists
  */
 const getNavigatorConnection = (): NavigatorConnection | undefined => {
-    if (isStandardNavigator(window.navigator)) {
-        return window.navigator.connection;
-    }
+    const navigator = getWindowNavigator();
 
-    if (isMozillaNavigator(window.navigator)) {
-        return window.navigator.mozConnection;
-    }
-
-    if (isWebkitNavigator(window.navigator)) {
-        return window.navigator.webkitConnection;
-    }
-
-    return undefined;
+    return (
+        navigator.connection ??
+        navigator.mozConnection ??
+        navigator.webkitConnection ??
+        undefined
+    );
 };
 
 /**
  * Returns a `NetworkConnection` object which is an aggregate of `navigator.connection` and `navigator.onLine`
  */
 const getNetworkConnection = (): NetworkConnection => {
-    const { onLine: isOnline } = window.navigator;
+    const { onLine: isOnline } = getWindowNavigator();
     const navigatorConnection = getNavigatorConnection() ?? {};
 
     return {
@@ -52,23 +33,7 @@ const getNetworkConnection = (): NetworkConnection => {
     };
 };
 
-const isMozillaNavigator = (
-    navigator: WindowNavigator
-): navigator is MozillaNavigator => {
-    return navigator[NavigatorConnectionVariants.Mozilla] != null;
-};
-
-const isStandardNavigator = (
-    navigator: WindowNavigator
-): navigator is StandardNavigator => {
-    return navigator[NavigatorConnectionVariants.Standard] != null;
-};
-
-const isWebkitNavigator = (
-    navigator: WindowNavigator
-): navigator is WebkitNavigator => {
-    return navigator[NavigatorConnectionVariants.Webkit] != null;
-};
+const getWindowNavigator = (): Navigator => window.navigator;
 
 // #endregion Functions
 
@@ -79,6 +44,7 @@ const isWebkitNavigator = (
 export const NetworkInformationUtils = {
     getNavigatorConnection,
     getNetworkConnection,
+    getWindowNavigator,
 };
 
 // #endregion Exports

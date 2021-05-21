@@ -2,6 +2,25 @@ import { NavigatorConnectionVariants } from "../enumerations/navigator-connectio
 import { NetworkInformationUtils } from "./network-information-utils";
 
 describe("NetworkInformationUtils", () => {
+    let globalWindow: Window & typeof globalThis;
+
+    beforeEach(() => {
+        globalWindow = window;
+        Object.assign(window, {
+            get navigator() {
+                return {
+                    get onLine() {
+                        return false;
+                    },
+                };
+            },
+        });
+    });
+
+    afterEach(() => {
+        Object.assign(window, { ...globalWindow });
+    });
+
     // -----------------------------------------------------------------------------------------
     // #region Mocks
     // -----------------------------------------------------------------------------------------
@@ -10,24 +29,21 @@ describe("NetworkInformationUtils", () => {
         connectionProperty?: string;
         onLine?: boolean;
     }): void => {
-        const { connectionProperty: connectionPropertyName, onLine = false } =
-            options ?? {};
+        const { connectionProperty, onLine = false } = options ?? {};
 
-        const connection =
-            connectionPropertyName != null
+        const withConnectionProperty =
+            connectionProperty != null
                 ? {
-                      [connectionPropertyName]: {},
+                      [connectionProperty]: {},
                   }
                 : {};
 
-        const mockedNavigatorValue = ({
-            ...connection,
-            onLine,
-        } as unknown) as Navigator;
-
-        jest.clearAllMocks();
-        jest.spyOn(window, "navigator", "get").mockReturnValue(
-            mockedNavigatorValue
+        jest.spyOn(window, "navigator", "get").mockImplementation(
+            () =>
+                ({
+                    ...withConnectionProperty,
+                    onLine,
+                } as Navigator)
         );
     };
 
