@@ -22,12 +22,12 @@ export { BaseSpanishSpain } from "./cultures/base-spanish-spain";
 // -----------------------------------------------------------------------------------------
 
 export { AnchorTargetTypes } from "./enumerations/anchor-target-types";
+export { ConnectionType } from "./enumerations/connection-type";
 export { ContentType } from "./enumerations/content-type";
+export { EffectiveConnectionType } from "./enumerations/effective-connection-type";
 export { ErrorType } from "./enumerations/error-type";
 export { HttpHeader } from "./enumerations/http-header";
 export { HttpVerb } from "./enumerations/http-verb";
-export { NetworkEffectiveType } from "./enumerations/network-effective-type";
-export { NetworkType } from "./enumerations/network-type";
 export { UnitOfTime } from "./enumerations/unit-of-time";
 
 // #endregion Enumerations

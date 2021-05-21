@@ -1,38 +1,16 @@
-import { NavigatorConnection } from "../interfaces/navigator-connection";
+import { NetworkInformation } from "../interfaces/network-information";
 import { Navigator } from "../types/navigator";
-
-// -----------------------------------------------------------------------------------------
-// #region Type Declarations
-// -----------------------------------------------------------------------------------------
-
-type NavigatorExtended = Navigator & {
-    connection?: NavigatorConnection;
-    mozConnection?: NavigatorConnection;
-    onLine: boolean;
-    webkitConnection?: NavigatorConnection;
-};
-
-type WindowExtended = Window &
-    typeof globalThis & {
-        navigator: NavigatorExtended;
-    };
-
-declare const window: WindowExtended;
-
-// #endregion Type Declarations
 
 // -----------------------------------------------------------------------------------------
 // #region Functions
 // -----------------------------------------------------------------------------------------
 
-export default function buildNetworkInformationUtils(
-    navigator: NavigatorExtended
-) {
+export default function buildNetworkInformationUtils(navigator: Navigator) {
     return {
         /**
          * Returns a NavigatorConnection object if one exists
          */
-        getNavigatorConnection(): NavigatorConnection | undefined {
+        getNavigatorConnection(): NetworkInformation | undefined {
             return (
                 navigator.connection ??
                 navigator.mozConnection ??

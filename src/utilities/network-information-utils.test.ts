@@ -1,4 +1,4 @@
-import { NavigatorConnectionVariants } from "../enumerations/navigator-connection-variants";
+import { NavigatorConnectionVariant } from "../enumerations/navigator-connection-variant";
 import buildNetworkInformationUtils, {
     NetworkInformationUtils,
 } from "./network-information-utils";
@@ -32,9 +32,9 @@ describe("NetworkInformationUtils", () => {
     describe("getNavigatorConnection", () => {
         test.each`
             connectionProperty
-            ${NavigatorConnectionVariants.Standard}
-            ${NavigatorConnectionVariants.Mozilla}
-            ${NavigatorConnectionVariants.Webkit}
+            ${NavigatorConnectionVariant.Standard}
+            ${NavigatorConnectionVariant.Mozilla}
+            ${NavigatorConnectionVariant.Webkit}
         `(
             "window.navigator has $connectionProperty, it returns connection",
             ({ connectionProperty }) => {
@@ -82,7 +82,7 @@ describe("NetworkInformationUtils", () => {
         test("getConnection has value, it returns a value", () => {
             // Arrange
             const sut = setupSut({
-                connectionProperty: NavigatorConnectionVariants.Standard,
+                connectionProperty: NavigatorConnectionVariant.Standard,
             });
 
             // Act

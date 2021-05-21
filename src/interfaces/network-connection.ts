@@ -1,10 +1,10 @@
-import { NavigatorConnection } from "./navigator-connection";
+import { NetworkInformation } from "./network-information";
 
 // -----------------------------------------------------------------------------------------
 // #region Interfaces
 // -----------------------------------------------------------------------------------------
 
-interface NetworkConnection extends NavigatorConnection {
+interface NetworkConnection extends NetworkInformation {
     /**
      * Returns a true or false indicating whether the browser is working online.
      */

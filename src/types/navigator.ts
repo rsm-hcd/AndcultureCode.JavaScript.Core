@@ -1,8 +1,9 @@
-import { NavigatorConnectionVariants } from "../enumerations/navigator-connection-variants";
-import { NavigatorConnection } from "../interfaces/navigator-connection";
+import { NavigatorConnectionVariant } from "../enumerations/navigator-connection-variant";
+import { NetworkInformation } from "../interfaces/network-information";
 
 export declare interface Navigator {
-    [NavigatorConnectionVariants.Standard]?: NavigatorConnection;
-    [NavigatorConnectionVariants.Mozilla]?: NavigatorConnection;
-    [NavigatorConnectionVariants.Webkit]?: NavigatorConnection;
+    [NavigatorConnectionVariant.Standard]?: NetworkInformation;
+    [NavigatorConnectionVariant.Mozilla]?: NetworkInformation;
+    [NavigatorConnectionVariant.Webkit]?: NetworkInformation;
+    onLine: boolean;
 }
