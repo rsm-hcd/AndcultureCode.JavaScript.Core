@@ -22,7 +22,9 @@ export { BaseSpanishSpain } from "./cultures/base-spanish-spain";
 // -----------------------------------------------------------------------------------------
 
 export { AnchorTargetTypes } from "./enumerations/anchor-target-types";
+export { ConnectionType } from "./enumerations/connection-type";
 export { ContentType } from "./enumerations/content-type";
+export { EffectiveConnectionType } from "./enumerations/effective-connection-type";
 export { ErrorType } from "./enumerations/error-type";
 export { HttpHeader } from "./enumerations/http-header";
 export { HttpVerb } from "./enumerations/http-verb";
@@ -40,6 +42,7 @@ export { CultureParams } from "./interfaces/culture-params";
 export { Entity } from "./interfaces/entity";
 export { KeyValuePair } from "./interfaces/key-value-pair";
 export { LocalizationInitOptions } from "./interfaces/localization-init-options";
+export { NetworkConnection } from "./interfaces/network-connection";
 export { PagedQuery } from "./interfaces/paged-query";
 export { PagedResult } from "./interfaces/paged-result";
 export { Result } from "./interfaces/result";
@@ -76,6 +79,7 @@ export { Do } from "./utilities/do-try";
 export { DoSync } from "./utilities/do-try";
 export { EnvironmentUtils } from "./utilities/environment-utils";
 export { LocalizationUtils } from "./utilities/localization-utils";
+export { NetworkInformationUtils } from "./utilities/network-information-utils";
 export { PolyfillUtils } from "./utilities/polyfill-utils";
 export { PromiseFactory } from "./utilities/promise-factory";
 export { RecordUtils } from "./utilities/record-utils";
