@@ -25,7 +25,7 @@ ConnectionType - Network Information API
 
 • **Bluetooth**: = "bluetooth"
 
-*Defined in [src/enumerations/connection-type.ts:7](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/d40ad2b/src/enumerations/connection-type.ts#L7)*
+*Defined in [src/enumerations/connection-type.ts:7](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/4edfec2/src/enumerations/connection-type.ts#L7)*
 
 ___
 
@@ -33,7 +33,7 @@ ___
 
 • **Cellular**: = "cellular"
 
-*Defined in [src/enumerations/connection-type.ts:8](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/d40ad2b/src/enumerations/connection-type.ts#L8)*
+*Defined in [src/enumerations/connection-type.ts:8](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/4edfec2/src/enumerations/connection-type.ts#L8)*
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 • **Ethernet**: = "ethernet"
 
-*Defined in [src/enumerations/connection-type.ts:9](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/d40ad2b/src/enumerations/connection-type.ts#L9)*
+*Defined in [src/enumerations/connection-type.ts:9](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/4edfec2/src/enumerations/connection-type.ts#L9)*
 
 ___
 
@@ -49,7 +49,7 @@ ___
 
 • **None**: = "none"
 
-*Defined in [src/enumerations/connection-type.ts:10](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/d40ad2b/src/enumerations/connection-type.ts#L10)*
+*Defined in [src/enumerations/connection-type.ts:10](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/4edfec2/src/enumerations/connection-type.ts#L10)*
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 • **Other**: = "other"
 
-*Defined in [src/enumerations/connection-type.ts:11](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/d40ad2b/src/enumerations/connection-type.ts#L11)*
+*Defined in [src/enumerations/connection-type.ts:11](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/4edfec2/src/enumerations/connection-type.ts#L11)*
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 • **Unknown**: = "unknown"
 
-*Defined in [src/enumerations/connection-type.ts:12](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/d40ad2b/src/enumerations/connection-type.ts#L12)*
+*Defined in [src/enumerations/connection-type.ts:12](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/4edfec2/src/enumerations/connection-type.ts#L12)*
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 • **Wifi**: = "wifi"
 
-*Defined in [src/enumerations/connection-type.ts:13](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/d40ad2b/src/enumerations/connection-type.ts#L13)*
+*Defined in [src/enumerations/connection-type.ts:13](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/4edfec2/src/enumerations/connection-type.ts#L13)*
 
 ___
 
@@ -81,4 +81,4 @@ ___
 
 • **Wimax**: = "wimax"
 
-*Defined in [src/enumerations/connection-type.ts:14](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/d40ad2b/src/enumerations/connection-type.ts#L14)*
+*Defined in [src/enumerations/connection-type.ts:14](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/4edfec2/src/enumerations/connection-type.ts#L14)*
