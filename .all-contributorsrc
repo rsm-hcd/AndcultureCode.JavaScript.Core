@@ -89,6 +89,16 @@
         "test",
         "maintenance"
       ]
+    },
+    {
+      "login": "myty",
+      "name": "Michael Tyson",
+      "avatar_url": "https://avatars.githubusercontent.com/u/37794?v=4",
+      "profile": "http://mytydev.com",
+      "contributions": [
+        "code",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
