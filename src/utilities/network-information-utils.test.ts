@@ -3,6 +3,27 @@ import buildNetworkInformationUtils, {
     NetworkInformationUtils,
 } from "./network-information-utils";
 
+const buildMockWindow = (navigator?: Navigator) => {
+    return { navigator } as Window & typeof globalThis;
+};
+
+const buildMockNavigator = (
+    connectionProperty?: string,
+    onLine: boolean = false
+): Navigator => {
+    const isOnline = onLine ?? navigator.onLine;
+
+    if (connectionProperty != null) {
+        return {
+            ...navigator,
+            onLine: isOnline,
+            [connectionProperty]: {},
+        };
+    }
+
+    return { ...navigator, onLine: isOnline };
+};
+
 const setupSut = (options?: {
     buildNavigator?: boolean;
     buildWindow?: boolean;
@@ -16,22 +37,11 @@ const setupSut = (options?: {
         onLine = false,
     } = options ?? {};
 
-    const buildMockNavigator = (): Navigator => {
-        const isOnline = onLine ?? navigator.onLine;
+    const navigator = buildNavigator
+        ? buildMockNavigator(connectionProperty, onLine)
+        : undefined;
 
-        if (connectionProperty != null) {
-            return {
-                ...navigator,
-                onLine: isOnline,
-                [connectionProperty]: {},
-            };
-        }
-
-        return { ...navigator, onLine: isOnline };
-    };
-
-    const navigator = buildNavigator ? buildMockNavigator() : undefined;
-    const window = buildWindow ? ({ navigator } as Window) : undefined;
+    const window = buildWindow ? buildMockWindow(navigator) : undefined;
 
     return buildNetworkInformationUtils(window);
 };
