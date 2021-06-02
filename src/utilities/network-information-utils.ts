@@ -1,3 +1,4 @@
+import { NetworkConnection } from "../interfaces/network-connection";
 import { NetworkInformation } from "../interfaces/network-information";
 import { Navigator } from "../types/navigator";
 
@@ -24,9 +25,7 @@ export default function buildNetworkInformationUtils(window?: Window) {
         /**
          * Returns a `NetworkConnection` object which is an aggregate of `navigator.connection` and `navigator.onLine`
          */
-        getNetworkConnection():
-            | (NetworkInformation & { isOnline: boolean })
-            | undefined {
+        getNetworkConnection(): NetworkConnection | undefined {
             if (navigator == null) {
                 return undefined;
             }
