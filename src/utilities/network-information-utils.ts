@@ -47,6 +47,8 @@ export default function buildNetworkInformationUtils(window?: Window) {
 // #region Exports
 // -----------------------------------------------------------------------------------------
 
-export const NetworkInformationUtils = buildNetworkInformationUtils(window);
+export const NetworkInformationUtils = buildNetworkInformationUtils(
+    typeof window !== "undefined" ? window : undefined
+);
 
 // #endregion Exports
