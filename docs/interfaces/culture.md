@@ -25,7 +25,7 @@ Localization culture information and related nested resources
 
 • **code**: *string*
 
-*Defined in [src/interfaces/culture.ts:8](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/8072b39/src/interfaces/culture.ts#L8)*
+*Defined in [src/interfaces/culture.ts:8](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/52c4b09/src/interfaces/culture.ts#L8)*
 
 RFC-4646 language code
 
@@ -35,6 +35,6 @@ ___
 
 • **resources**: *TResources*
 
-*Defined in [src/interfaces/culture.ts:13](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/8072b39/src/interfaces/culture.ts#L13)*
+*Defined in [src/interfaces/culture.ts:13](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/52c4b09/src/interfaces/culture.ts#L13)*
 
 Key/value pairs of translations

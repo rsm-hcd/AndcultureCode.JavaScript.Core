@@ -31,7 +31,7 @@ NetworkInformation - Network Information API
 
 • **downlink**? : *undefined | number*
 
-*Defined in [src/interfaces/network-information.ts:17](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/8072b39/src/interfaces/network-information.ts#L17)*
+*Defined in [src/interfaces/network-information.ts:17](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/52c4b09/src/interfaces/network-information.ts#L17)*
 
 Returns the effective bandwidth estimate in megabits per second, rounded to the nearest multiple of 25 kilobits per seconds.
 
@@ -41,7 +41,7 @@ ___
 
 • **downlinkMax**? : *undefined | number*
 
-*Defined in [src/interfaces/network-information.ts:22](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/8072b39/src/interfaces/network-information.ts#L22)*
+*Defined in [src/interfaces/network-information.ts:22](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/52c4b09/src/interfaces/network-information.ts#L22)*
 
 Returns the maximum downlink speed, in megabits per second (Mbps), for the underlying connection technology.
 
@@ -51,7 +51,7 @@ ___
 
 • **effectiveType**? : *[EffectiveConnectionType](../enums/effectiveconnectiontype.md)*
 
-*Defined in [src/interfaces/network-information.ts:28](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/8072b39/src/interfaces/network-information.ts#L28)*
+*Defined in [src/interfaces/network-information.ts:28](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/52c4b09/src/interfaces/network-information.ts#L28)*
 
 Returns the effective type of the connection meaning one of 'slow-2g', '2g', '3g', or '4g'.
 This value is determined using a combination of recently observed round-trip time and downlink values.
@@ -62,7 +62,7 @@ ___
 
 • **rtt**? : *undefined | number*
 
-*Defined in [src/interfaces/network-information.ts:34](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/8072b39/src/interfaces/network-information.ts#L34)*
+*Defined in [src/interfaces/network-information.ts:34](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/52c4b09/src/interfaces/network-information.ts#L34)*
 
 Returns the estimated effective round-trip time of the current connection, rounded to the
 nearest multiple of 25 milliseconds.
@@ -73,7 +73,7 @@ ___
 
 • **saveData**? : *undefined | false | true*
 
-*Defined in [src/interfaces/network-information.ts:39](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/8072b39/src/interfaces/network-information.ts#L39)*
+*Defined in [src/interfaces/network-information.ts:39](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/52c4b09/src/interfaces/network-information.ts#L39)*
 
 Returns true if the user has set a reduced data usage option on the user agent.
 
@@ -83,6 +83,6 @@ ___
 
 • **type**? : *[ConnectionType](../enums/connectiontype.md)*
 
-*Defined in [src/interfaces/network-information.ts:44](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/8072b39/src/interfaces/network-information.ts#L44)*
+*Defined in [src/interfaces/network-information.ts:44](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/52c4b09/src/interfaces/network-information.ts#L44)*
 
 Returns the type of connection a device is using to communicate with the network

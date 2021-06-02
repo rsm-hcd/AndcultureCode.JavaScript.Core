@@ -16,7 +16,7 @@
 
 • **Mozilla**: = "mozConnection"
 
-*Defined in [src/enumerations/navigator-connection-variant.ts:3](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/8072b39/src/enumerations/navigator-connection-variant.ts#L3)*
+*Defined in [src/enumerations/navigator-connection-variant.ts:3](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/52c4b09/src/enumerations/navigator-connection-variant.ts#L3)*
 
 ___
 
@@ -24,7 +24,7 @@ ___
 
 • **Standard**: = "connection"
 
-*Defined in [src/enumerations/navigator-connection-variant.ts:2](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/8072b39/src/enumerations/navigator-connection-variant.ts#L2)*
+*Defined in [src/enumerations/navigator-connection-variant.ts:2](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/52c4b09/src/enumerations/navigator-connection-variant.ts#L2)*
 
 ___
 
@@ -32,4 +32,4 @@ ___
 
 • **Webkit**: = "webkitConnection"
 
-*Defined in [src/enumerations/navigator-connection-variant.ts:4](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/8072b39/src/enumerations/navigator-connection-variant.ts#L4)*
+*Defined in [src/enumerations/navigator-connection-variant.ts:4](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/52c4b09/src/enumerations/navigator-connection-variant.ts#L4)*

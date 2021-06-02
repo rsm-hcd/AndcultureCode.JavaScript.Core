@@ -27,7 +27,7 @@
 
 • **errors**? : *[ResultErrorRecord](../classes/resulterrorrecord.md)[]*
 
-*Defined in [src/interfaces/result.ts:8](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/8072b39/src/interfaces/result.ts#L8)*
+*Defined in [src/interfaces/result.ts:8](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/52c4b09/src/interfaces/result.ts#L8)*
 
 ___
 
@@ -35,4 +35,4 @@ ___
 
 • **resultObject**? : *T*
 
-*Defined in [src/interfaces/result.ts:9](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/8072b39/src/interfaces/result.ts#L9)*
+*Defined in [src/interfaces/result.ts:9](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/52c4b09/src/interfaces/result.ts#L9)*

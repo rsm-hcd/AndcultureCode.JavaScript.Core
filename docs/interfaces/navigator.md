@@ -21,7 +21,7 @@
 
 • **[NavigatorConnectionVariant.Mozilla]**? : *[NetworkInformation](networkinformation.md)*
 
-*Defined in [src/types/navigator.ts:6](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/8072b39/src/types/navigator.ts#L6)*
+*Defined in [src/types/navigator.ts:6](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/52c4b09/src/types/navigator.ts#L6)*
 
 ___
 
@@ -29,7 +29,7 @@ ___
 
 • **[NavigatorConnectionVariant.Standard]**? : *[NetworkInformation](networkinformation.md)*
 
-*Defined in [src/types/navigator.ts:5](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/8072b39/src/types/navigator.ts#L5)*
+*Defined in [src/types/navigator.ts:5](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/52c4b09/src/types/navigator.ts#L5)*
 
 ___
 
@@ -37,7 +37,7 @@ ___
 
 • **[NavigatorConnectionVariant.Webkit]**? : *[NetworkInformation](networkinformation.md)*
 
-*Defined in [src/types/navigator.ts:7](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/8072b39/src/types/navigator.ts#L7)*
+*Defined in [src/types/navigator.ts:7](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/52c4b09/src/types/navigator.ts#L7)*
 
 ___
 
@@ -45,4 +45,4 @@ ___
 
 • **onLine**: *boolean*
 
-*Defined in [src/types/navigator.ts:8](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/8072b39/src/types/navigator.ts#L8)*
+*Defined in [src/types/navigator.ts:8](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/52c4b09/src/types/navigator.ts#L8)*
