@@ -4,10 +4,17 @@ import buildNetworkInformationUtils, {
 } from "./network-information-utils";
 
 const setupSut = (options?: {
+    buildNavigator?: boolean;
+    buildWindow?: boolean;
     connectionProperty?: string;
     onLine?: boolean;
 }): typeof NetworkInformationUtils => {
-    const { connectionProperty, onLine = false } = options ?? {};
+    const {
+        buildNavigator = true,
+        buildWindow = true,
+        connectionProperty,
+        onLine = false,
+    } = options ?? {};
 
     const buildMockNavigator = (): Navigator => {
         const isOnline = onLine ?? navigator.onLine;
@@ -23,9 +30,10 @@ const setupSut = (options?: {
         return { ...navigator, onLine: isOnline };
     };
 
-    const navigator = buildMockNavigator();
+    const navigator = buildNavigator ? buildMockNavigator() : undefined;
+    const window = buildWindow ? ({ navigator } as Window) : undefined;
 
-    return buildNetworkInformationUtils(navigator);
+    return buildNetworkInformationUtils(window);
 };
 
 describe("NetworkInformationUtils", () => {
@@ -52,6 +60,28 @@ describe("NetworkInformationUtils", () => {
                 expect(navigatorConnection).not.toBeUndefined();
             }
         );
+
+        test("when window.navigator is undefined, it returns undefined", () => {
+            // Arrange
+            const sut = setupSut({ buildNavigator: false });
+
+            // Act
+            const connection = sut.getNavigatorConnection();
+
+            // Assert
+            expect(connection).toBeUndefined();
+        });
+
+        test("when window is undefined, it returns undefined", () => {
+            // Arrange
+            const sut = setupSut({ buildWindow: false });
+
+            // Act
+            const connection = sut.getNavigatorConnection();
+
+            // Assert
+            expect(connection).toBeUndefined();
+        });
 
         test("when window.navigator does not have a known connection property, it returns undefined", () => {
             // Arrange
@@ -113,6 +143,28 @@ describe("NetworkInformationUtils", () => {
                 expect(networkConnection.isOnline).toEqual(onLine);
             }
         );
+
+        test("when navigator is undefined, it returns undefined", () => {
+            // Arrange
+            const sut = setupSut({ buildNavigator: false });
+
+            // Act
+            const networkConnection = sut.getNetworkConnection();
+
+            // Assert
+            expect(networkConnection).toBeUndefined();
+        });
+
+        describe("when window is undefined, it returns undefined", () => {
+            // Arrange
+            const sut = setupSut({ buildWindow: false });
+
+            // Act
+            const networkConnection = sut.getNetworkConnection();
+
+            // Assert
+            expect(networkConnection).toBeUndefined();
+        });
     });
 
     // #endregion getNetworkConnection
