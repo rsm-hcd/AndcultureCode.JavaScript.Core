@@ -80,12 +80,12 @@ const flattenDeep = <T>(
  *
  * Note: only takes a single collection as parameter to make use of Typescript Type guard ability
  *
- * @param {(any[] | Immutable.List<any> | undefined)} collection
+ * @param {(any[] | Immutable.List<any> | null | undefined)} collection
  * @returns {boolean} False if `collection` is `undefined`, `null`, or has 0 elements.
  * True if collection contains any elements.
  */
 const hasValues = (
-    collection: any[] | Immutable.List<any> | undefined
+    collection: any[] | Immutable.List<any> | null | undefined
 ): collection is any[] | Immutable.List<any> => !isEmpty(collection);
 
 /**
@@ -100,7 +100,7 @@ const hasValues = (
  * @param collection
  */
 const isEmpty = (
-    collection: any[] | Immutable.List<any> | undefined
+    collection: any[] | Immutable.List<any> | null | undefined
 ): collection is undefined => {
     if (collection == null) {
         return true;
@@ -119,12 +119,12 @@ const isEmpty = (
  *
  * Note: only takes a single collection as parameter to make use of Typescript Type guard ability
  *
- * @param {(any[] | Immutable.List<any> | undefined)} collection
+ * @param {(any[] | Immutable.List<any> | null | undefined)} collection
  * @returns {boolean} False if `collection` is `undefined`, `null`, or has 0 elements.
  * True if collection contains any elements.
  */
 const isNotEmpty = (
-    collection: any[] | Immutable.List<any> | undefined
+    collection: any[] | Immutable.List<any> | null | undefined
 ): collection is any[] | Immutable.List<any> => hasValues(collection);
 
 /**
