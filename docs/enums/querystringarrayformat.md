@@ -20,7 +20,7 @@ Named type alias for the {arrayFormat} property of {QueryString.stringifyOptions
 
 • **Bracket**: = "bracket"
 
-*Defined in [src/enumerations/query-string-array-format.ts:5](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/52c4b09/src/enumerations/query-string-array-format.ts#L5)*
+*Defined in [src/enumerations/query-string-array-format.ts:5](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/9ff85e0/src/enumerations/query-string-array-format.ts#L5)*
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 • **Comma**: = "comma"
 
-*Defined in [src/enumerations/query-string-array-format.ts:7](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/52c4b09/src/enumerations/query-string-array-format.ts#L7)*
+*Defined in [src/enumerations/query-string-array-format.ts:7](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/9ff85e0/src/enumerations/query-string-array-format.ts#L7)*
 
 ___
 
@@ -36,7 +36,7 @@ ___
 
 • **Index**: = "index"
 
-*Defined in [src/enumerations/query-string-array-format.ts:6](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/52c4b09/src/enumerations/query-string-array-format.ts#L6)*
+*Defined in [src/enumerations/query-string-array-format.ts:6](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/9ff85e0/src/enumerations/query-string-array-format.ts#L6)*
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 • **None**: = "none"
 
-*Defined in [src/enumerations/query-string-array-format.ts:9](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/52c4b09/src/enumerations/query-string-array-format.ts#L9)*
+*Defined in [src/enumerations/query-string-array-format.ts:9](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/9ff85e0/src/enumerations/query-string-array-format.ts#L9)*
 
 ___
 
@@ -52,4 +52,4 @@ ___
 
 • **Separator**: = "separator"
 
-*Defined in [src/enumerations/query-string-array-format.ts:8](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/52c4b09/src/enumerations/query-string-array-format.ts#L8)*
+*Defined in [src/enumerations/query-string-array-format.ts:8](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/9ff85e0/src/enumerations/query-string-array-format.ts#L8)*

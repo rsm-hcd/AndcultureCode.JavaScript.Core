@@ -18,7 +18,7 @@
 
 • **defaultErrorHandler**? : *[CatchResultHandler](../README.md#catchresulthandler)‹any›*
 
-*Defined in [src/interfaces/do-try-config.ts:10](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/52c4b09/src/interfaces/do-try-config.ts#L10)*
+*Defined in [src/interfaces/do-try-config.ts:10](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/9ff85e0/src/interfaces/do-try-config.ts#L10)*
 
 A default handler that will always run on error, if configured,
 even if a `catch()` does not exist in the call chain.
