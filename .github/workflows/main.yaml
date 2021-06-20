@@ -60,7 +60,7 @@ jobs:
 
             - name: Unit tests
               run: |
-                  npm run test
+                  npm run coverage
 
             - name: Cypress tests
               run: |
