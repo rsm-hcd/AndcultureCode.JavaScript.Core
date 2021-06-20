@@ -6,9 +6,9 @@ import {
 } from "../tests/factories";
 import { Do, DoSync } from "../utilities/do-try";
 import { PolyfillUtils } from "../utilities/polyfill-utils";
-import { StubResourceRecord } from "../tests/stubs/stub-resource-record";
 import { CoreUtils } from "../utilities/core-utils";
 import { CatchResultHandler } from "../types/catch-result-handler";
+import { StubResourceRecord } from "andculturecode-javascript-testing";
 
 PolyfillUtils.registerPromiseFinallyPolyfill();
 

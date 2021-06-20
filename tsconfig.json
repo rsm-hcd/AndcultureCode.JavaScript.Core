@@ -21,6 +21,6 @@
         "strict": true,
         "target": "es5"
     },
-    "exclude": ["**/*.test.*", "node_modules", "src/setupTests.ts"],
+    "exclude": ["node_modules", "src/setupTests.ts"],
     "include": ["src"]
 }

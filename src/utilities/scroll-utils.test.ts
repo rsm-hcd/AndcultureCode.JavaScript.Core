@@ -1,4 +1,4 @@
-import { ScrollUtils, DefaultScrollOptions } from "./scroll-utils";
+import { ScrollUtils } from "./scroll-utils";
 import faker from "faker";
 
 describe("ScrollUtils", () => {
@@ -14,7 +14,7 @@ describe("ScrollUtils", () => {
             jest.spyOn(document, "getElementById").mockImplementation(
                 () => element
             );
-            const elementId = faker.random
+            const elementId = faker.datatype
                 .number({ min: 1, max: 999 })
                 .toString();
 
@@ -27,7 +27,7 @@ describe("ScrollUtils", () => {
 
         test("when element is not found, it attempts to retrieve the element up to 50 times", () => {
             // Arrange
-            const elementId = faker.random
+            const elementId = faker.datatype
                 .number({ min: 1, max: 999 })
                 .toString();
             const getElementByIdMock = jest.spyOn(document, "getElementById");
@@ -43,7 +43,7 @@ describe("ScrollUtils", () => {
 
         test("when element is not found, it logs a console warning for development environment", () => {
             // Arrange
-            const elementId = faker.random
+            const elementId = faker.datatype
                 .number({ min: 1, max: 999 })
                 .toString();
             process.env.NODE_ENV = "development";
@@ -61,7 +61,7 @@ describe("ScrollUtils", () => {
         test("when scrollOption has initial delay, it calls setTimeout with supplied delay", () => {
             // Arrange
             const options = { initialDelay: 200 };
-            const elementId = faker.random
+            const elementId = faker.datatype
                 .number({ min: 1, max: 999 })
                 .toString();
             const setTimeoutMock = jest.spyOn(window, "setTimeout");

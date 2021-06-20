@@ -1,18 +1,20 @@
 // -----------------------------------------------------------------------------------------
-// #region Interfaces
+// #region Types
 // -----------------------------------------------------------------------------------------
 
-interface StubResource {
-    id: number;
-    name?: string;
-}
+/**
+ * Mark all properties of `T` as required from the original type _or_ another type
+ */
+type RequiredOr<T, TOrType> = {
+    [Property in keyof Required<T>]: T[Property] | TOrType;
+};
 
-// #endregion Interfaces
+// #endregion Types
 
 // -----------------------------------------------------------------------------------------
-// #region Export
+// #region Exports
 // -----------------------------------------------------------------------------------------
 
-export { StubResource };
+export { RequiredOr };
 
-// #endregion Export
+// #endregion Exports
