@@ -76,7 +76,7 @@
         "clean": "rimraf dist && rimraf coverage",
         "configure:git": "echo Ensuring git hooksPath is set to .githooks directory && git config core.hooksPath .githooks && chmod +x .githooks/*",
         "coverage": "jest ./src --coverage",
-        "docs": "typedoc --mode file --excludeExternals --plugin typedoc-plugin-markdown --readme none",
+        "docs": "typedoc --tsconfig tsconfig.dist.json --mode file --excludeExternals --plugin typedoc-plugin-markdown --readme none",
         "format": "prettier --write \"src/**/*.ts\" --trailing-comma es5",
         "postbuild": "npm run docs",
         "postpublish": "cross-env-shell \"git add -A && git commit -m \"$npm_package_version\" && git push origin main\"",
@@ -90,5 +90,5 @@
         "watch:test": "jest ./src --watch"
     },
     "types": "dist/index",
-    "version": "0.6.4"
+    "version": "0.7.0"
 }
