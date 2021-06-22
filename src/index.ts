@@ -2,6 +2,7 @@
 // #region Constants
 // -----------------------------------------------------------------------------------------
 
+export { AuditableDefaultValues } from "./constants/auditable-default-values";
 export { EmailConstants } from "./constants/email-constants";
 export { Rfc4646LanguageCodes } from "./constants/rfc4646-language-codes";
 export { VideoResolutions } from "./constants/video-resolutions";
@@ -63,7 +64,10 @@ export { CancellablePromise } from "./types/cancellable-promise";
 export { CatchResultHandler } from "./types/catch-result-handler";
 export { Constructor } from "./types/constructor";
 export { FinallyHandler } from "./types/finally-handler";
+export { OmitKeys } from "./types/omit-keys";
 export { SyncWorkload } from "./types/sync-workload";
+export { RequiredOr } from "./types/required-or";
+export { RequiredOrUndefined } from "./types/required-or-undefined";
 export { TimerFunctionReturn } from "./types/timer-function-return";
 
 // #endregion Types

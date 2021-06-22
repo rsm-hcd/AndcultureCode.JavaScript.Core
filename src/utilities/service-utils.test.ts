@@ -1,15 +1,16 @@
 import faker from "faker";
 import { LocalizationUtils } from "./localization-utils";
 import { ServiceUtils } from "./service-utils";
-import { StubResourceRecord } from "../tests/stubs/stub-resource-record";
 import { Factory } from "rosie";
 import { AxiosResponse } from "axios";
 import { FactoryType } from "../tests/factories/factory-type";
-import { FactoryType as AndcultureCodeFactoryType } from "andculturecode-javascript-testing";
+import {
+    FactoryType as AndcultureCodeFactoryType,
+    StubResourceRecord,
+} from "andculturecode-javascript-testing";
 import { ResultRecord } from "../view-models/result-record";
 import axios from "axios";
 import "jest-extended";
-import { PagedResult } from "../interfaces/paged-result";
 
 describe("ServiceUtils", () => {
     // -----------------------------------------------------------------------------------------
@@ -475,7 +476,7 @@ describe("ServiceUtils", () => {
                 FactoryType.StubResourceRecord,
                 2
             );
-            const rowCount = faker.random.number({
+            const rowCount = faker.datatype.number({
                 min: resultObject.length + 1,
             }); // This is the important setup (should be different from resultObject.length)
             const axiosResponse = Factory.build<AxiosResponse>(
