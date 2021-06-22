@@ -30,7 +30,7 @@
 
 • **createdById**? : *undefined | number*
 
-*Defined in [src/interfaces/auditable.ts:4](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/9ff85e0/src/interfaces/auditable.ts#L4)*
+*Defined in [src/interfaces/auditable.ts:4](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/1f57564/src/interfaces/auditable.ts#L4)*
 
 ___
 
@@ -38,7 +38,7 @@ ___
 
 • **createdOn**? : *undefined | string*
 
-*Defined in [src/interfaces/auditable.ts:5](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/9ff85e0/src/interfaces/auditable.ts#L5)*
+*Defined in [src/interfaces/auditable.ts:5](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/1f57564/src/interfaces/auditable.ts#L5)*
 
 ___
 
@@ -46,7 +46,7 @@ ___
 
 • **deletedById**? : *undefined | number*
 
-*Defined in [src/interfaces/auditable.ts:6](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/9ff85e0/src/interfaces/auditable.ts#L6)*
+*Defined in [src/interfaces/auditable.ts:6](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/1f57564/src/interfaces/auditable.ts#L6)*
 
 ___
 
@@ -54,7 +54,7 @@ ___
 
 • **deletedOn**? : *undefined | string*
 
-*Defined in [src/interfaces/auditable.ts:7](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/9ff85e0/src/interfaces/auditable.ts#L7)*
+*Defined in [src/interfaces/auditable.ts:7](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/1f57564/src/interfaces/auditable.ts#L7)*
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 *Inherited from [Entity](entity.md).[id](entity.md#optional-id)*
 
-*Defined in [src/interfaces/entity.ts:2](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/9ff85e0/src/interfaces/entity.ts#L2)*
+*Defined in [src/interfaces/entity.ts:2](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/1f57564/src/interfaces/entity.ts#L2)*
 
 ___
 
@@ -72,7 +72,7 @@ ___
 
 • **updatedById**? : *undefined | number*
 
-*Defined in [src/interfaces/auditable.ts:8](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/9ff85e0/src/interfaces/auditable.ts#L8)*
+*Defined in [src/interfaces/auditable.ts:8](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/1f57564/src/interfaces/auditable.ts#L8)*
 
 ___
 
@@ -80,4 +80,4 @@ ___
 
 • **updatedOn**? : *undefined | string*
 
-*Defined in [src/interfaces/auditable.ts:9](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/9ff85e0/src/interfaces/auditable.ts#L9)*
+*Defined in [src/interfaces/auditable.ts:9](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/1f57564/src/interfaces/auditable.ts#L9)*

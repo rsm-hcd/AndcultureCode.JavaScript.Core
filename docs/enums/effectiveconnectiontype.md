@@ -21,7 +21,7 @@ EffectiveConnectionType - Network Information API
 
 • **Cellular2g**: = "2g"
 
-*Defined in [src/enumerations/effective-connection-type.ts:7](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/9ff85e0/src/enumerations/effective-connection-type.ts#L7)*
+*Defined in [src/enumerations/effective-connection-type.ts:7](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/1f57564/src/enumerations/effective-connection-type.ts#L7)*
 
 ___
 
@@ -29,7 +29,7 @@ ___
 
 • **Cellular3g**: = "3g"
 
-*Defined in [src/enumerations/effective-connection-type.ts:8](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/9ff85e0/src/enumerations/effective-connection-type.ts#L8)*
+*Defined in [src/enumerations/effective-connection-type.ts:8](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/1f57564/src/enumerations/effective-connection-type.ts#L8)*
 
 ___
 
@@ -37,7 +37,7 @@ ___
 
 • **Cellular4g**: = "4g"
 
-*Defined in [src/enumerations/effective-connection-type.ts:9](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/9ff85e0/src/enumerations/effective-connection-type.ts#L9)*
+*Defined in [src/enumerations/effective-connection-type.ts:9](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/1f57564/src/enumerations/effective-connection-type.ts#L9)*
 
 ___
 
@@ -45,4 +45,4 @@ ___
 
 • **Slow2g**: = "slow-2g"
 
-*Defined in [src/enumerations/effective-connection-type.ts:10](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/9ff85e0/src/enumerations/effective-connection-type.ts#L10)*
+*Defined in [src/enumerations/effective-connection-type.ts:10](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/1f57564/src/enumerations/effective-connection-type.ts#L10)*
