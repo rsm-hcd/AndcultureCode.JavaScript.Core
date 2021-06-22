@@ -2,8 +2,7 @@
 
 ![build status](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/actions/workflows/main.yaml/badge.svg)
 [![codecov](https://codecov.io/gh/AndcultureCode/AndcultureCode.JavaScript.Core/branch/master/graph/badge.svg)](https://codecov.io/gh/AndcultureCode/AndcultureCode.JavaScript.Core)<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors-)
-
+[![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Common patterns, functions, etc... used when building javascript applications
@@ -78,6 +77,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://github.com/dtnhinh"><img src="https://avatars.githubusercontent.com/u/69260561?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Nhinh Dao</b></sub></a><br /><a href="https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/commits?author=dtnhinh" title="Tests">⚠️</a> <a href="#maintenance-dtnhinh" title="Maintenance">🚧</a></td>
     <td align="center"><a href="http://mytydev.com"><img src="https://avatars.githubusercontent.com/u/37794?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Michael Tyson</b></sub></a><br /><a href="https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/commits?author=myty" title="Code">💻</a> <a href="https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/commits?author=myty" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://github.com/jhugs"><img src="https://avatars.githubusercontent.com/u/14300627?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Joshua Hughes</b></sub></a><br /><a href="https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/pulls?q=is%3Apr+reviewed-by%3Ajhugs" title="Reviewed Pull Requests">👀</a></td>
   </tr>
 </table>
 
