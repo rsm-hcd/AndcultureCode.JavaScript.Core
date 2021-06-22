@@ -199,7 +199,10 @@ describe("RecordUtils", () => {
     describe("ensureRecords", () => {
         test("given empty array, returns empty array", () => {
             // Arrange & Act
-            const result = RecordUtils.ensureRecords([], StubResourceRecord);
+            const result = RecordUtils.ensureRecords<
+                StubResource,
+                StubResourceRecord
+            >([], StubResourceRecord);
 
             // Assert
             expect(result).toBeEmpty();
@@ -305,7 +308,7 @@ describe("RecordUtils", () => {
             // Act
             const result = RecordUtils.isRecord(
                 nonMatchingRecord,
-                StubResourceRecord
+                StubResourceRecord as any
             );
 
             // Assert

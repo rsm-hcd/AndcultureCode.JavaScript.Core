@@ -40,7 +40,10 @@ const RecordUtils = {
      * @param maybeRecord Object or Record to be coalesced into a Record.
      * @param record Type of the Record to be instantiated
      */
-    ensureRecord<T>(maybeRecord: any, record: Constructor<T>): T {
+    ensureRecord<TValue, TRecord extends TValue>(
+        maybeRecord: TValue,
+        record: Constructor<TRecord>
+    ): TRecord {
         return RecordUtils.isRecord(maybeRecord, record)
             ? maybeRecord
             : new record(maybeRecord);
@@ -55,8 +58,11 @@ const RecordUtils = {
      * @param maybeRecords Array of objects or Records to be coalesced into Records.
      * @param record Type of the Record to be instantiated
      */
-    ensureRecords<T>(maybeRecords: any[], record: Constructor<T>): T[] {
-        const ensureRecord = (maybeRecord: any) =>
+    ensureRecords<TValue, TRecord extends TValue>(
+        maybeRecords: TValue[],
+        record: Constructor<TRecord>
+    ): TRecord[] {
+        const ensureRecord = (maybeRecord: TValue) =>
             this.ensureRecord(maybeRecord, record);
         return maybeRecords.map(ensureRecord);
     },
@@ -67,7 +73,10 @@ const RecordUtils = {
      * @param maybeRecord Object or Record to be checked as an instance of `T`
      * @param record Type of the Record to be checked
      */
-    isRecord<T>(maybeRecord: any, record: Constructor<T>): maybeRecord is T {
+    isRecord<TValue, TRecord extends TValue>(
+        maybeRecord: TValue,
+        record: Constructor<TRecord>
+    ): maybeRecord is TRecord {
         return Record.isRecord(maybeRecord) && maybeRecord instanceof record;
     },
 };
