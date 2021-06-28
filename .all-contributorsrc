@@ -110,6 +110,15 @@
       "contributions": [
         "review"
       ]
+    },
+    {
+      "login": "jebediahelliott",
+      "name": "Jeb",
+      "avatar_url": "https://avatars.githubusercontent.com/u/26680652?v=4",
+      "profile": "http://jebediahelliott.com",
+      "contributions": [
+        "review"
+      ]
     }
   ],
   "contributorsPerLine": 7,
