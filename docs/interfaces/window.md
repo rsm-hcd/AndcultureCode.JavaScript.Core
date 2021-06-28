@@ -18,4 +18,4 @@
 
 • **navigator**: *[Navigator](navigator.md)*
 
-*Defined in [src/types/window.ts:4](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/1f57564/src/types/window.ts#L4)*
+*Defined in [src/types/window.ts:4](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/20a92a8/src/types/window.ts#L4)*

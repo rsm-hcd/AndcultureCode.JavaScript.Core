@@ -42,7 +42,7 @@
 
 \+ **new DoSync**(`workload`: [SyncWorkload](../README.md#syncworkload)‹TReturnVal›): *[DoSync](dosync.md)*
 
-*Defined in [src/utilities/do-try.ts:120](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/1f57564/src/utilities/do-try.ts#L120)*
+*Defined in [src/utilities/do-try.ts:120](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/20a92a8/src/utilities/do-try.ts#L120)*
 
 **Parameters:**
 
@@ -58,7 +58,7 @@ Name | Type |
 
 • **catchHandler**? : *undefined | function*
 
-*Defined in [src/utilities/do-try.ts:115](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/1f57564/src/utilities/do-try.ts#L115)*
+*Defined in [src/utilities/do-try.ts:115](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/20a92a8/src/utilities/do-try.ts#L115)*
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 • **finallyHandler**? : *[FinallyHandler](../README.md#finallyhandler)*
 
-*Defined in [src/utilities/do-try.ts:116](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/1f57564/src/utilities/do-try.ts#L116)*
+*Defined in [src/utilities/do-try.ts:116](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/20a92a8/src/utilities/do-try.ts#L116)*
 
 ___
 
@@ -74,7 +74,7 @@ ___
 
 • **workload**: *[SyncWorkload](../README.md#syncworkload)‹TReturnVal›*
 
-*Defined in [src/utilities/do-try.ts:114](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/1f57564/src/utilities/do-try.ts#L114)*
+*Defined in [src/utilities/do-try.ts:114](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/20a92a8/src/utilities/do-try.ts#L114)*
 
 ## Methods
 
@@ -82,7 +82,7 @@ ___
 
 ▸ **catch**(`errorHandler`: [CatchResultHandler](../README.md#catchresulthandler)‹TResourceType›): *[DoSync](dosync.md)‹TResourceType, TReturnVal›*
 
-*Defined in [src/utilities/do-try.ts:134](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/1f57564/src/utilities/do-try.ts#L134)*
+*Defined in [src/utilities/do-try.ts:134](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/20a92a8/src/utilities/do-try.ts#L134)*
 
 Add a catch handler to the DoSync call chain.
 If errors are in the shape of a {ResultRecord},
@@ -104,7 +104,7 @@ ___
 
 ▸ **execute**(): *TReturnVal | undefined*
 
-*Defined in [src/utilities/do-try.ts:162](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/1f57564/src/utilities/do-try.ts#L162)*
+*Defined in [src/utilities/do-try.ts:162](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/20a92a8/src/utilities/do-try.ts#L162)*
 
 Execute the entire DoSync call chain. For the synchronous version, i.e. DoSync,
 you must manually call .execute() for the call chain to be executed.
@@ -119,7 +119,7 @@ ___
 
 ▸ **finally**(`finallyHandler`: [FinallyHandler](../README.md#finallyhandler)): *[DoSync](dosync.md)‹TResourceType, TReturnVal›*
 
-*Defined in [src/utilities/do-try.ts:185](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/1f57564/src/utilities/do-try.ts#L185)*
+*Defined in [src/utilities/do-try.ts:185](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/20a92a8/src/utilities/do-try.ts#L185)*
 
 Run some handler when the function completes, whether the
 catch() was hit or not.
@@ -140,7 +140,7 @@ ___
 
 ▸ **configure**(`config`: [DoTryConfig](../interfaces/dotryconfig.md)): *void*
 
-*Defined in [src/utilities/do-try.ts:153](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/1f57564/src/utilities/do-try.ts#L153)*
+*Defined in [src/utilities/do-try.ts:153](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/20a92a8/src/utilities/do-try.ts#L153)*
 
 Sets the global configuration for class {DySync}.
 
@@ -158,7 +158,7 @@ ___
 
 ▸ **try**<**TResourceType**, **TReturnVal**>(`workload`: [SyncWorkload](../README.md#syncworkload)‹TReturnVal›): *[DoSync](dosync.md)‹TResourceType, TReturnVal›*
 
-*Defined in [src/utilities/do-try.ts:197](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/1f57564/src/utilities/do-try.ts#L197)*
+*Defined in [src/utilities/do-try.ts:197](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/20a92a8/src/utilities/do-try.ts#L197)*
 
 Static factory method for DoSync. Creates a new DoSync
 with the given workload.
@@ -183,10 +183,10 @@ Name | Type | Description |
 
 ### ▪ **config**: *object*
 
-*Defined in [src/utilities/do-try.ts:118](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/1f57564/src/utilities/do-try.ts#L118)*
+*Defined in [src/utilities/do-try.ts:118](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/20a92a8/src/utilities/do-try.ts#L118)*
 
 ###  defaultErrorHandler
 
 • **defaultErrorHandler**: *undefined* = undefined
 
-*Defined in [src/utilities/do-try.ts:119](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/1f57564/src/utilities/do-try.ts#L119)*
+*Defined in [src/utilities/do-try.ts:119](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/20a92a8/src/utilities/do-try.ts#L119)*
