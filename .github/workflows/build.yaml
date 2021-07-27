@@ -52,8 +52,10 @@ jobs:
                   node-version: ${{matrix.node}}
 
             - name: npm install
-              run: |
-                  npm install
+              # Using Cypress action for caching optimization (saves ~3mins of downloading Cypress every build)
+              uses: cypress-io/github-action@v2
+              with:
+                  runTests: false
 
             - name: Run build
               run: |
