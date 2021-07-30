@@ -20,6 +20,6 @@ Request parameters for digesting localization related culture information
 
 • **culture**: *string*
 
-*Defined in [src/interfaces/culture-params.ts:8](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/20a92a8/src/interfaces/culture-params.ts#L8)*
+*Defined in [src/interfaces/culture-params.ts:8](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/fbcbf56/src/interfaces/culture-params.ts#L8)*
 
 RFC-4646 language code

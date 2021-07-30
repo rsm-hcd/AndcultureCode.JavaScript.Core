@@ -22,7 +22,7 @@
 
 • **Accept**: = "Accept"
 
-*Defined in [src/enumerations/http-header.ts:2](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/20a92a8/src/enumerations/http-header.ts#L2)*
+*Defined in [src/enumerations/http-header.ts:2](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/fbcbf56/src/enumerations/http-header.ts#L2)*
 
 ___
 
@@ -30,7 +30,7 @@ ___
 
 • **AcceptEncoding**: = "Accept-Encoding"
 
-*Defined in [src/enumerations/http-header.ts:3](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/20a92a8/src/enumerations/http-header.ts#L3)*
+*Defined in [src/enumerations/http-header.ts:3](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/fbcbf56/src/enumerations/http-header.ts#L3)*
 
 ___
 
@@ -38,7 +38,7 @@ ___
 
 • **AcceptLanguage**: = "Accept-Language"
 
-*Defined in [src/enumerations/http-header.ts:4](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/20a92a8/src/enumerations/http-header.ts#L4)*
+*Defined in [src/enumerations/http-header.ts:4](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/fbcbf56/src/enumerations/http-header.ts#L4)*
 
 ___
 
@@ -46,7 +46,7 @@ ___
 
 • **CacheControl**: = "Cache-Control"
 
-*Defined in [src/enumerations/http-header.ts:5](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/20a92a8/src/enumerations/http-header.ts#L5)*
+*Defined in [src/enumerations/http-header.ts:5](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/fbcbf56/src/enumerations/http-header.ts#L5)*
 
 ___
 
@@ -54,7 +54,7 @@ ___
 
 • **ContentLength**: = "Content-Length"
 
-*Defined in [src/enumerations/http-header.ts:6](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/20a92a8/src/enumerations/http-header.ts#L6)*
+*Defined in [src/enumerations/http-header.ts:6](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/fbcbf56/src/enumerations/http-header.ts#L6)*
 
 ___
 
@@ -62,7 +62,7 @@ ___
 
 • **ContentType**: = "Content-Type"
 
-*Defined in [src/enumerations/http-header.ts:7](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/20a92a8/src/enumerations/http-header.ts#L7)*
+*Defined in [src/enumerations/http-header.ts:7](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/fbcbf56/src/enumerations/http-header.ts#L7)*
 
 ___
 
@@ -70,7 +70,7 @@ ___
 
 • **Cookie**: = "Cookie"
 
-*Defined in [src/enumerations/http-header.ts:8](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/20a92a8/src/enumerations/http-header.ts#L8)*
+*Defined in [src/enumerations/http-header.ts:8](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/fbcbf56/src/enumerations/http-header.ts#L8)*
 
 ___
 
@@ -78,7 +78,7 @@ ___
 
 • **Date**: = "Date"
 
-*Defined in [src/enumerations/http-header.ts:9](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/20a92a8/src/enumerations/http-header.ts#L9)*
+*Defined in [src/enumerations/http-header.ts:9](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/fbcbf56/src/enumerations/http-header.ts#L9)*
 
 ___
 
@@ -86,4 +86,4 @@ ___
 
 • **UserAgent**: = "User-Agent"
 
-*Defined in [src/enumerations/http-header.ts:10](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/20a92a8/src/enumerations/http-header.ts#L10)*
+*Defined in [src/enumerations/http-header.ts:10](https://github.com/AndcultureCode/AndcultureCode.JavaScript.Core/blob/fbcbf56/src/enumerations/http-header.ts#L10)*
