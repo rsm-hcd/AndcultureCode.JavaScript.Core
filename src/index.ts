@@ -23,6 +23,7 @@ export { BaseSpanishSpain } from "./cultures/base-spanish-spain";
 // -----------------------------------------------------------------------------------------
 
 export { AnchorTargetTypes } from "./enumerations/anchor-target-types";
+export { AriaRole } from "./enumerations/aria-role";
 export { ConnectionType } from "./enumerations/connection-type";
 export { ContentType } from "./enumerations/content-type";
 export { EffectiveConnectionType } from "./enumerations/effective-connection-type";
