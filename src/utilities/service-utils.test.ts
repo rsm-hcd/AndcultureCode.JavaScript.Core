@@ -1,13 +1,11 @@
 import { faker } from "@faker-js/faker";
 import { LocalizationUtils } from "./localization-utils";
 import { ServiceUtils } from "./service-utils";
-import { Factory } from "rosie";
-import { AxiosResponse } from "axios";
-import { FactoryType } from "../tests/factories/factory-type";
 import {
-    FactoryType as AndcultureCodeFactoryType,
-    StubResourceRecord,
-} from "andculturecode-javascript-testing";
+    AxiosResponseFactory,
+    StubResourceRecordFactory,
+} from "../tests/factories";
+import { StubResourceRecord } from "andculturecode-javascript-testing";
 import { ResultRecord } from "../view-models/result-record";
 import axios from "axios";
 import "jest-extended";
@@ -145,10 +143,9 @@ describe("ServiceUtils", () => {
 
         test("when response.data is undefined, it returns the mapped resultObject as undefined", () => {
             // Arrange
-            const axiosResponse = Factory.build<AxiosResponse>(
-                AndcultureCodeFactoryType.AxiosResponse,
-                { data: undefined }
-            );
+            const axiosResponse = AxiosResponseFactory.build({
+                data: undefined,
+            });
 
             // Act
             const result = ServiceUtils.mapAxiosResponse(
@@ -162,10 +159,7 @@ describe("ServiceUtils", () => {
 
         test("when response.data is null, it returns the mapped resultObject as undefined", () => {
             // Arrange
-            const axiosResponse = Factory.build<AxiosResponse>(
-                AndcultureCodeFactoryType.AxiosResponse,
-                { data: null }
-            );
+            const axiosResponse = AxiosResponseFactory.build({ data: null });
 
             // Act
             const result = ServiceUtils.mapAxiosResponse(
@@ -179,14 +173,11 @@ describe("ServiceUtils", () => {
 
         test("when response.data.resultObject is undefined, it returns the mapped resultObject as undefined", () => {
             // Arrange
-            const axiosResponse = Factory.build<AxiosResponse>(
-                AndcultureCodeFactoryType.AxiosResponse,
-                {
-                    data: {
-                        resultObject: undefined,
-                    },
-                }
-            );
+            const axiosResponse = AxiosResponseFactory.build({
+                data: {
+                    resultObject: undefined,
+                },
+            });
 
             // Act
             const result = ServiceUtils.mapAxiosResponse(
@@ -200,14 +191,11 @@ describe("ServiceUtils", () => {
 
         test("when response.data.resultObject is null, it returns the mapped resultObject as undefined", () => {
             // Arrange
-            const axiosResponse = Factory.build<AxiosResponse>(
-                AndcultureCodeFactoryType.AxiosResponse,
-                {
-                    data: {
-                        resultObject: null,
-                    },
-                }
-            );
+            const axiosResponse = AxiosResponseFactory.build({
+                data: {
+                    resultObject: null,
+                },
+            });
 
             // Act
             const result = ServiceUtils.mapAxiosResponse(
@@ -221,16 +209,13 @@ describe("ServiceUtils", () => {
 
         test("when response.data.resultObject is not null, it wraps the result object in a record.", () => {
             // Arrange
-            const axiosResponse = Factory.build<AxiosResponse>(
-                AndcultureCodeFactoryType.AxiosResponse,
-                {
-                    data: {
-                        resultObject: {
-                            test: 1, // <--- Intentionally not stubbing the object with record properties to ensure they're added by mapAxiosResponse
-                        },
+            const axiosResponse = AxiosResponseFactory.build({
+                data: {
+                    resultObject: {
+                        test: 1, // <--- Intentionally not stubbing the object with record properties to ensure they're added by mapAxiosResponse
                     },
-                }
-            );
+                },
+            });
 
             // Act
             const result = ServiceUtils.mapAxiosResponse(
@@ -244,9 +229,7 @@ describe("ServiceUtils", () => {
 
         test("it returns rowCount as 1", () => {
             // Arrange
-            const axiosResponse = Factory.build<AxiosResponse>(
-                AndcultureCodeFactoryType.AxiosResponse
-            );
+            const axiosResponse = AxiosResponseFactory.build();
 
             // Act
             const result = ServiceUtils.mapAxiosResponse(
@@ -260,9 +243,7 @@ describe("ServiceUtils", () => {
 
         test("it returns the mapped status from the original response", () => {
             // Arrange
-            const axiosResponse = Factory.build<AxiosResponse>(
-                AndcultureCodeFactoryType.AxiosResponse
-            );
+            const axiosResponse = AxiosResponseFactory.build();
 
             // Act
             const result = ServiceUtils.mapAxiosResponse(
@@ -276,9 +257,7 @@ describe("ServiceUtils", () => {
 
         test("it returns result as a ResultRecord", () => {
             // Arrange
-            const axiosResponse = Factory.build<AxiosResponse>(
-                AndcultureCodeFactoryType.AxiosResponse
-            );
+            const axiosResponse = AxiosResponseFactory.build();
 
             // Act
             const result = ServiceUtils.mapAxiosResponse(
@@ -300,15 +279,12 @@ describe("ServiceUtils", () => {
     describe("mapPagedAxiosResponse", () => {
         test("when resultObject is empty array, it properly maps an empty array to resultObjects", () => {
             // Arrange
-            const response = Factory.build<AxiosResponse>(
-                AndcultureCodeFactoryType.AxiosResponse,
-                {
-                    data: {
-                        resultObject: [],
-                        rowCount: 0,
-                    },
-                }
-            );
+            const response = AxiosResponseFactory.build({
+                data: {
+                    resultObject: [],
+                    rowCount: 0,
+                },
+            });
 
             // Act
             const result = ServiceUtils.mapPagedAxiosResponse(
@@ -346,10 +322,9 @@ describe("ServiceUtils", () => {
 
         test("when response.data is undefined, it returns the mapped resultObjects as empty array", () => {
             // Arrange
-            const axiosResponse = Factory.build<AxiosResponse>(
-                AndcultureCodeFactoryType.AxiosResponse,
-                { data: undefined }
-            );
+            const axiosResponse = AxiosResponseFactory.build({
+                data: undefined,
+            });
 
             // Act
             const result = ServiceUtils.mapPagedAxiosResponse(
@@ -363,10 +338,7 @@ describe("ServiceUtils", () => {
 
         test("when response.data is null, it returns the mapped resultObjects as empty array", () => {
             // Arrange
-            const axiosResponse = Factory.build<AxiosResponse>(
-                AndcultureCodeFactoryType.AxiosResponse,
-                { data: null }
-            );
+            const axiosResponse = AxiosResponseFactory.build({ data: null });
 
             // Act
             const result = ServiceUtils.mapPagedAxiosResponse(
@@ -380,14 +352,11 @@ describe("ServiceUtils", () => {
 
         test("when response.data.resultObject is undefined, it returns the mapped resultObjects as empty array", () => {
             // Arrange
-            const axiosResponse = Factory.build<AxiosResponse>(
-                AndcultureCodeFactoryType.AxiosResponse,
-                {
-                    data: {
-                        resultObject: undefined,
-                    },
-                }
-            );
+            const axiosResponse = AxiosResponseFactory.build({
+                data: {
+                    resultObject: undefined,
+                },
+            });
 
             // Act
             const result = ServiceUtils.mapPagedAxiosResponse(
@@ -401,14 +370,11 @@ describe("ServiceUtils", () => {
 
         test("when response.data.resultObject is null, it returns the mapped resultObjects as empty array", () => {
             // Arrange
-            const axiosResponse = Factory.build<AxiosResponse>(
-                AndcultureCodeFactoryType.AxiosResponse,
-                {
-                    data: {
-                        resultObject: null,
-                    },
-                }
-            );
+            const axiosResponse = AxiosResponseFactory.build({
+                data: {
+                    resultObject: null,
+                },
+            });
 
             // Act
             const result = ServiceUtils.mapPagedAxiosResponse(
@@ -422,19 +388,14 @@ describe("ServiceUtils", () => {
 
         test("when response.data.rowCount is undefined, it returns rowCount equal to the resultObject list length", () => {
             // Arrange
-            const resultObject: StubResourceRecord[] = Factory.buildList(
-                FactoryType.StubResourceRecord,
-                2
-            );
-            const axiosResponse = Factory.build<AxiosResponse>(
-                AndcultureCodeFactoryType.AxiosResponse,
-                {
-                    data: {
-                        resultObject: resultObject,
-                        rowCount: undefined, // This is the important setup
-                    },
-                }
-            );
+            const resultObject: StubResourceRecord[] =
+                StubResourceRecordFactory.buildList(2);
+            const axiosResponse = AxiosResponseFactory.build({
+                data: {
+                    resultObject: resultObject,
+                    rowCount: undefined, // This is the important setup
+                },
+            });
 
             // Act
             const result = ServiceUtils.mapPagedAxiosResponse(
@@ -448,19 +409,14 @@ describe("ServiceUtils", () => {
 
         test("when response.data.rowCount is null, it returns rowCount equal to the resultObject list length", () => {
             // Arrange
-            const resultObject: StubResourceRecord[] = Factory.buildList(
-                FactoryType.StubResourceRecord,
-                2
-            );
-            const axiosResponse = Factory.build<AxiosResponse>(
-                AndcultureCodeFactoryType.AxiosResponse,
-                {
-                    data: {
-                        resultObject: resultObject,
-                        rowCount: null, // This is the important setup
-                    },
-                }
-            );
+            const resultObject: StubResourceRecord[] =
+                StubResourceRecordFactory.buildList(2);
+            const axiosResponse = AxiosResponseFactory.build({
+                data: {
+                    resultObject: resultObject,
+                    rowCount: null, // This is the important setup
+                },
+            });
 
             // Act
             const result = ServiceUtils.mapPagedAxiosResponse(
@@ -474,22 +430,17 @@ describe("ServiceUtils", () => {
 
         test("when response.data.rowCount has a value, it returns the mapped rowCount from the original response", () => {
             // Arrange
-            const resultObject: StubResourceRecord[] = Factory.buildList(
-                FactoryType.StubResourceRecord,
-                2
-            );
+            const resultObject: StubResourceRecord[] =
+                StubResourceRecordFactory.buildList(2);
             const rowCount = faker.datatype.number({
                 min: resultObject.length + 1,
             }); // This is the important setup (should be different from resultObject.length)
-            const axiosResponse = Factory.build<AxiosResponse>(
-                AndcultureCodeFactoryType.AxiosResponse,
-                {
-                    data: {
-                        resultObject: resultObject,
-                        rowCount: rowCount,
-                    },
-                }
-            );
+            const axiosResponse = AxiosResponseFactory.build({
+                data: {
+                    resultObject: resultObject,
+                    rowCount: rowCount,
+                },
+            });
 
             // Act
             const result = ServiceUtils.mapPagedAxiosResponse(
@@ -503,9 +454,7 @@ describe("ServiceUtils", () => {
 
         test("it returns the mapped status from the original response", () => {
             // Arrange
-            const axiosResponse = Factory.build<AxiosResponse>(
-                AndcultureCodeFactoryType.AxiosResponse
-            );
+            const axiosResponse = AxiosResponseFactory.build();
 
             // Act
             const result = ServiceUtils.mapPagedAxiosResponse(
@@ -519,9 +468,7 @@ describe("ServiceUtils", () => {
 
         test("it returns results as a ResultRecord", () => {
             // Arrange
-            const axiosResponse = Factory.build<AxiosResponse>(
-                AndcultureCodeFactoryType.AxiosResponse
-            );
+            const axiosResponse = AxiosResponseFactory.build();
 
             // Act
             const result = ServiceUtils.mapPagedAxiosResponse(

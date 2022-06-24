@@ -10,6 +10,7 @@ import { FactoryType } from "../tests/factories/factory-type";
 import { Factory } from "rosie";
 import { User } from "../interfaces/user";
 import { RequiredOrUndefined } from "../types/required-or-undefined";
+import { StubResourceRecordFactory } from "../tests/factories";
 
 describe("RecordUtils", () => {
     // -----------------------------------------------------------------------------------------
@@ -176,9 +177,7 @@ describe("RecordUtils", () => {
 
         test("given an instance of the record, it returns the same instance", () => {
             // Arrange
-            const record = Factory.build<StubResourceRecord>(
-                FactoryType.StubResourceRecord
-            );
+            const record = StubResourceRecordFactory.build();
 
             // Act
             const result = RecordUtils.ensureRecord(record, StubResourceRecord);
@@ -224,9 +223,7 @@ describe("RecordUtils", () => {
 
         test("given an instance of the record, returns the same instance", () => {
             // Arrange
-            const expected = Factory.build<StubResourceRecord>(
-                FactoryType.StubResourceRecord
-            );
+            const expected = StubResourceRecordFactory.build();
 
             // Act
             const result = RecordUtils.ensureRecords(
@@ -316,9 +313,7 @@ describe("RecordUtils", () => {
 
         test("given an instance of the specified record, it returns true", () => {
             // Arrange
-            const record = Factory.build<StubResourceRecord>(
-                FactoryType.StubResourceRecord
-            );
+            const record = StubResourceRecordFactory.build();
 
             // Act
             const result = RecordUtils.isRecord(record, StubResourceRecord);
