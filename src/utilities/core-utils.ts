@@ -1,8 +1,8 @@
 import { CollectionUtils } from "./collection-utils";
 import _ from "lodash";
 import {
-    Cancelable,
     CurriedFunction1,
+    DebouncedFunc,
     MemoizedFunction,
     ThrottleSettings,
 } from "lodash";
@@ -154,7 +154,7 @@ const CoreUtils = {
 
     /**
      * Creates an array of numbers (positive and/or negative) progressing from start up to, but not including, end.
-     * If end is not specified it’s set to start with start then set to 0. If end is less than start a zero-length
+     * If end is not specified it's set to start with start then set to 0. If end is less than start a zero-length
      * range is created unless a negative step is specified.
      *
      * @param start The start of the range.
@@ -219,7 +219,7 @@ const CoreUtils = {
         func: T,
         wait?: number,
         options?: ThrottleSettings
-    ): T & Cancelable {
+    ): DebouncedFunc<T> {
         return _.throttle(func, wait, options);
     },
 

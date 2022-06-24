@@ -117,9 +117,8 @@ describe("StringUtils", () => {
             "when cultureCode is $cultureCode, returns $expected",
             ({ cultureCode, expected }) => {
                 // Arrange & Act
-                const result: boolean = StringUtils.isValidCultureCode(
-                    cultureCode
-                );
+                const result: boolean =
+                    StringUtils.isValidCultureCode(cultureCode);
 
                 // Assert
                 expect(result).toBe(expected);

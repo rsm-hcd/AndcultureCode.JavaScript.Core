@@ -9,7 +9,7 @@
 const registerPromiseFinallyPolyfill = () => {
     Promise.prototype.finally =
         Promise.prototype.finally ??
-        function(callback: () => any) {
+        function (callback: () => any) {
             // @ts-ignore
             return this.then(
                 (value: any) => Promise.resolve(callback()).then(() => value),

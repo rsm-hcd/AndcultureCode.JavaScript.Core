@@ -21,6 +21,5 @@
         "strict": true,
         "target": "es5"
     },
-    "exclude": ["node_modules", "src/setupTests.ts"],
     "include": ["src"]
 }

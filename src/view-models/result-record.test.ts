@@ -42,7 +42,7 @@ describe("ResultRecord", () => {
         test("when errors is null, returns errors with supplied error details", () => {
             // Arrange
             const sut = new ResultRecord({
-                errors: (null as unknown) as any[],
+                errors: null as unknown as any[],
             });
 
             // Act
@@ -104,7 +104,7 @@ describe("ResultRecord", () => {
         test("when errors is null, returns errors with supplied error details", () => {
             // Arrange
             const sut = new ResultRecord({
-                errors: (null as unknown) as any[],
+                errors: null as unknown as any[],
             });
 
             // Act
@@ -166,7 +166,7 @@ describe("ResultRecord", () => {
         test("when errors is null, returns 0", () => {
             expect(
                 new ResultRecord({
-                    errors: (null as unknown) as any[],
+                    errors: null as unknown as any[],
                 }).errorCount()
             ).toBe(0);
         });
@@ -213,7 +213,7 @@ describe("ResultRecord", () => {
         test("when errors is null, returns true", () => {
             expect(
                 Factory.build<ResultRecord<any>>(FactoryType.ResultRecord, {
-                    errors: (null as unknown) as any[],
+                    errors: null as unknown as any[],
                 }).doesNotHaveErrors()
             ).toBeTrue();
         });
@@ -304,7 +304,7 @@ describe("ResultRecord", () => {
         test("when errors is null, returns false", () => {
             expect(
                 new ResultRecord({
-                    errors: (null as unknown) as any[],
+                    errors: null as unknown as any[],
                 }).hasErrorFor("testkey")
             ).toBeFalse();
         });
@@ -354,7 +354,7 @@ describe("ResultRecord", () => {
         test("when errors is null, returns false", () => {
             expect(
                 new ResultRecord({
-                    errors: (null as unknown) as any[],
+                    errors: null as unknown as any[],
                 }).hasErrors()
             ).toBeFalse();
         });

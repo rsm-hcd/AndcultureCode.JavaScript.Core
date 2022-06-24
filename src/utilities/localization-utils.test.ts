@@ -1,9 +1,14 @@
 import i18n from "i18next";
 import { LocalizationUtils } from "./localization-utils";
 import { Rfc4646LanguageCodes } from "../constants/rfc4646-language-codes";
-import faker from "faker";
+import { faker } from "@faker-js/faker";
 import { BaseEnglishUnitedStates } from "../cultures/base-english-united-states";
 import { Culture } from "../interfaces/culture";
+
+declare const window: typeof globalThis &
+    Omit<Window, "location"> & {
+        location?: Window["location"];
+    };
 
 describe("LocalizationUtils", () => {
     // -----------------------------------------------------------------------------------------
@@ -11,7 +16,7 @@ describe("LocalizationUtils", () => {
     // -----------------------------------------------------------------------------------------
 
     const randomCultureCode = () => {
-        const separator = faker.random.arrayElement(["-", "_"]);
+        const separator = faker.helpers.arrayElement(["-", "_"]);
         return `${faker.address.countryCode()}${separator}${faker.address.countryCode()}`;
     };
 
@@ -51,6 +56,7 @@ describe("LocalizationUtils", () => {
 
     describe("cultureCodeFromQueryString", () => {
         beforeEach(() => {
+            // @ts-ignore
             delete window.location; // Must delete pre-existing location before mocked assignment works
         });
 
@@ -88,6 +94,7 @@ describe("LocalizationUtils", () => {
 
     describe("cultureCodeFromRoute", () => {
         beforeEach(() => {
+            // @ts-ignore
             delete window.location; // Must delete pre-existing location before mocked assignment works
         });
 
@@ -214,6 +221,7 @@ describe("LocalizationUtils", () => {
 
     describe("detectCultureCode", () => {
         beforeEach(() => {
+            // @ts-ignore
             delete window.location; // Must delete pre-existing location before mocked assignment works
         });
 
@@ -366,7 +374,7 @@ describe("LocalizationUtils", () => {
     // -----------------------------------------------------------------------------------------
 
     describe("initialize", () => {
-        let moduleStub;
+        let moduleStub: { type: string };
 
         beforeEach(() => {
             moduleStub = { type: "backend" };
@@ -381,7 +389,7 @@ describe("LocalizationUtils", () => {
             expect.assertions(1);
             try {
                 LocalizationUtils.initialize({}, cultures);
-            } catch (e) {
+            } catch (e: any) {
                 expect(e.message).toBe(
                     LocalizationUtils.errorCultureIsRequired
                 );
@@ -400,7 +408,7 @@ describe("LocalizationUtils", () => {
             expect.assertions(1);
             try {
                 LocalizationUtils.initialize(module, cultures);
-            } catch (e) {
+            } catch (e: any) {
                 expect(e.message).toContain("module");
             }
         });
@@ -482,7 +490,7 @@ describe("LocalizationUtils", () => {
     // -----------------------------------------------------------------------------------------
 
     describe("translate, t", () => {
-        let moduleStub;
+        let moduleStub: { type: string };
 
         beforeEach(() => {
             moduleStub = { type: "backend" };
@@ -542,9 +550,11 @@ describe("LocalizationUtils", () => {
                 const culture: Partial<Culture<any>> = { resources: {} };
                 culture.resources[key] = valueTemplate;
 
-                const EnglishUnitedStates = LocalizationUtils.cultureFactory<
-                    any
-                >(BaseEnglishUnitedStates, culture);
+                const EnglishUnitedStates =
+                    LocalizationUtils.cultureFactory<any>(
+                        BaseEnglishUnitedStates,
+                        culture
+                    );
 
                 LocalizationUtils.initialize(moduleStub, [EnglishUnitedStates]);
 

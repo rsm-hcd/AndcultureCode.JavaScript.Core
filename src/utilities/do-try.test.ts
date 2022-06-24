@@ -16,8 +16,8 @@ describe("do-try.ts", () => {
     describe("Do.try", () => {
         it("When a catch handler exists, finally is called after catch resolves", async () => {
             // Arrange
-            let catchRanAtTimestamp: number;
-            let finallyRanAtTimestamp: number;
+            let catchRanAtTimestamp: number = 1;
+            let finallyRanAtTimestamp: number = 0;
             const workload = async () => {
                 throw Error();
             };
@@ -80,9 +80,7 @@ describe("do-try.ts", () => {
             const workload = async () => {};
 
             // Act
-            await Do.try(workload)
-                .catch(catchHandler)
-                .getAwaiter();
+            await Do.try(workload).catch(catchHandler).getAwaiter();
 
             // Assert
             expect(catchHandler).not.toHaveBeenCalled();
@@ -94,9 +92,7 @@ describe("do-try.ts", () => {
             const workload = async () => {};
 
             // Act
-            await Do.try(workload)
-                .finally(finallyHandler)
-                .getAwaiter();
+            await Do.try(workload).finally(finallyHandler).getAwaiter();
 
             // Assert
             expect(finallyHandler).toHaveBeenCalled();
@@ -259,9 +255,7 @@ describe("do-try.ts", () => {
             };
 
             // Act
-            DoSync.try(workload)
-                .catch(catchHandler)
-                .execute();
+            DoSync.try(workload).catch(catchHandler).execute();
 
             // Assert
             expect(catchHandler).toHaveBeenCalled();

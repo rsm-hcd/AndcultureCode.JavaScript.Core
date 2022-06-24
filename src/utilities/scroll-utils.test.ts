@@ -1,5 +1,5 @@
 import { ScrollUtils } from "./scroll-utils";
-import faker from "faker";
+import { faker } from "@faker-js/faker";
 
 describe("ScrollUtils", () => {
     // -----------------------------------------------------------------------------------------
