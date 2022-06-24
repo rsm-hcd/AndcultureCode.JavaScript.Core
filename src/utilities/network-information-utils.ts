@@ -7,7 +7,7 @@ import { Navigator } from "../types/navigator";
 // -----------------------------------------------------------------------------------------
 
 export default function buildNetworkInformationUtils(window?: Window) {
-    const navigator: Navigator | undefined = window?.navigator;
+    const navigator = window?.navigator as Navigator | undefined;
 
     return {
         /**

@@ -69,8 +69,8 @@ const cultureCodeFromRoute = () => window.location.pathname.split("/")[1];
  * @param culture subclass culture's partial properties to override 'base'. Typically where providing culture resources
  */
 const cultureFactory = <TResources>(
-    base: Culture<any>,
-    culture: Partial<Culture<TResources>>
+    base: Culture<any> | null,
+    culture: Partial<Culture<TResources>> | null
 ): Culture<TResources> => Object.assign({}, base, culture);
 
 const culturesToResources = <TResources>(cultures: Culture<TResources>[]) => {

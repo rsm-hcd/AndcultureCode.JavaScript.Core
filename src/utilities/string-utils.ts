@@ -19,7 +19,8 @@ import { TemplateOptions, TemplateExecutor } from "lodash";
  * EN_US
  */
 const REGEX_VALID_CULTURE_CODE = /^([a-zA-Z]{2}((-|_)[a-zA-Z]{2})?)$/;
-const REGEX_VALID_EMAIL = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+const REGEX_VALID_EMAIL =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 // #endregion Constants
 

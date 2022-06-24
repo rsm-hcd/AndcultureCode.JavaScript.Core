@@ -150,7 +150,7 @@ describe("NetworkInformationUtils", () => {
                 const networkConnection = sut.getNetworkConnection();
 
                 // Assert
-                expect(networkConnection.isOnline).toEqual(onLine);
+                expect(networkConnection?.isOnline).toEqual(onLine);
             }
         );
 

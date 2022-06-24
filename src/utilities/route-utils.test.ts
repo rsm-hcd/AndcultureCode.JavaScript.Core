@@ -1,4 +1,4 @@
-import "jest-extended";
+import { QueryStringArrayFormat } from "../enumerations/query-string-array-format";
 import { RouteUtils } from "./route-utils";
 
 describe("RouteUtils", () => {
@@ -73,7 +73,7 @@ describe("RouteUtils", () => {
             const result = RouteUtils.appendQueryParams(
                 path,
                 queryParams,
-                "bracket"
+                QueryStringArrayFormat.Bracket
             );
 
             // Assert
@@ -93,7 +93,7 @@ describe("RouteUtils", () => {
             const result = RouteUtils.appendQueryParams(
                 path,
                 queryParams,
-                "comma"
+                QueryStringArrayFormat.Comma
             );
 
             // Assert
@@ -111,7 +111,7 @@ describe("RouteUtils", () => {
             const result = RouteUtils.appendQueryParams(
                 path,
                 queryParams,
-                "separator",
+                QueryStringArrayFormat.Separator,
                 "|"
             );
 
@@ -130,7 +130,7 @@ describe("RouteUtils", () => {
             const result = RouteUtils.appendQueryParams(
                 path,
                 queryParams,
-                "none"
+                QueryStringArrayFormat.None
             );
 
             // Assert
@@ -335,9 +335,8 @@ describe("RouteUtils", () => {
             const queryString = `testProp1=${expectedValue1}&testProp2=${expectedValue2}`;
 
             // Act
-            const result = RouteUtils.queryStringToObject<TestStub>(
-                queryString
-            );
+            const result =
+                RouteUtils.queryStringToObject<TestStub>(queryString);
 
             // Assert
             expect(result).not.toBeNull();
@@ -357,9 +356,8 @@ describe("RouteUtils", () => {
             const queryString = `testProp1=${expectedTypedValue1}&${expectedUntypedProperty2}=${expectedUntypedValue2}`;
 
             // Act
-            const result = RouteUtils.queryStringToObject<TestStub>(
-                queryString
-            );
+            const result: TestStub & { testProp2?: string } =
+                RouteUtils.queryStringToObject<TestStub>(queryString);
 
             // Assert
             expect(result).not.toBeNull();

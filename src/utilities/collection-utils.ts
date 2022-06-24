@@ -23,7 +23,7 @@ import {
  * @returns true if both arrays contain all the same elements of the other,
  *          not considering order, false otherwise.
  */
-const equalsBy = function<T, V>(
+const equalsBy = function <T, V>(
     selector: (element: T) => V,
     array1: Array<T> | Immutable.List<any> | undefined,
     array2: Array<T> | Immutable.List<any> | undefined

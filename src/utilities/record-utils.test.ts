@@ -17,7 +17,8 @@ describe("RecordUtils", () => {
     // -----------------------------------------------------------------------------------------
 
     const defineUserRecord = (defaultValues: Partial<User>) =>
-        class UserRecord extends Record(defaultValues as User)
+        class UserRecord
+            extends Record(defaultValues as User)
             implements User {};
 
     // #endregion Setup
@@ -56,15 +57,14 @@ describe("RecordUtils", () => {
 
         test("when auditable values provided to constructor, returns record with properties set", () => {
             // Arrange
-            const defaultValues = RecordUtils.auditableDefaultValuesFactory<
-                User
-            >({
-                email: TestUtils.randomWord(),
-                firstName: TestUtils.randomWord(),
-                isSuperAdmin: TestUtils.faker.datatype.boolean(),
-                lastName: TestUtils.randomWord(),
-                userName: TestUtils.randomWord(),
-            });
+            const defaultValues =
+                RecordUtils.auditableDefaultValuesFactory<User>({
+                    email: TestUtils.randomWord(),
+                    firstName: TestUtils.randomWord(),
+                    isSuperAdmin: TestUtils.faker.datatype.boolean(),
+                    lastName: TestUtils.randomWord(),
+                    userName: TestUtils.randomWord(),
+                });
 
             const UserRecord = defineUserRecord(defaultValues);
 
@@ -93,15 +93,14 @@ describe("RecordUtils", () => {
             // Arrange
             const expectedFirstName = TestUtils.randomWord();
             const expectedLastName = TestUtils.randomWord();
-            const defaultValues = RecordUtils.auditableDefaultValuesFactory<
-                User
-            >({
-                email: TestUtils.randomWord(),
-                firstName: `not-${expectedFirstName}`,
-                isSuperAdmin: TestUtils.faker.datatype.boolean(),
-                lastName: `not-${expectedLastName}`,
-                userName: TestUtils.randomWord(),
-            });
+            const defaultValues =
+                RecordUtils.auditableDefaultValuesFactory<User>({
+                    email: TestUtils.randomWord(),
+                    firstName: `not-${expectedFirstName}`,
+                    isSuperAdmin: TestUtils.faker.datatype.boolean(),
+                    lastName: `not-${expectedLastName}`,
+                    userName: TestUtils.randomWord(),
+                });
 
             const UserRecord = defineUserRecord(defaultValues);
 
@@ -285,9 +284,9 @@ describe("RecordUtils", () => {
 
         test("given a POJO cast as the type of record, it returns false", () => {
             // Arrange
-            const pojoInDisguise: StubResourceRecord = ({
+            const pojoInDisguise: StubResourceRecord = {
                 id: 1,
-            } as any) as StubResourceRecord;
+            } as any as StubResourceRecord;
 
             // Act
             const result = RecordUtils.isRecord(

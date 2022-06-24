@@ -266,7 +266,7 @@ describe("CollectionUtils", () => {
 
         test(`when collections param is null, it returns -1`, (): void => {
             // Arrange
-            const array = null;
+            const array = null as unknown as any[];
 
             // Act
             const result = CollectionUtils.length(array);
@@ -424,7 +424,7 @@ describe("CollectionUtils", () => {
 
         it("When source array has no values it, then returns the source array", () => {
             // Arrange
-            const arr = [];
+            const arr: unknown[] = [];
 
             // Act
             const result = CollectionUtils.replaceElementAt(arr, 1, "replaced");

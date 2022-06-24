@@ -1,4 +1,4 @@
-import faker from "faker";
+import { faker } from "@faker-js/faker";
 import { LocalizationUtils } from "./localization-utils";
 import { ServiceUtils } from "./service-utils";
 import { Factory } from "rosie";
@@ -28,7 +28,8 @@ describe("ServiceUtils", () => {
             "when supplied cultureCode is $invalidCultureCode, configures baseUrl with default culture code",
             ({ invalidCultureCode }) => {
                 // Arrange
-                const expected = LocalizationUtils.defaultCultureCode().toLowerCase();
+                const expected =
+                    LocalizationUtils.defaultCultureCode().toLowerCase();
 
                 // Act
                 ServiceUtils.configure(invalidCultureCode);
@@ -90,7 +91,8 @@ describe("ServiceUtils", () => {
             "when cultureCode of $cultureCode, configures baseUrl with default culture code",
             ({ cultureCode }) => {
                 // Arrange
-                const expected = LocalizationUtils.defaultCultureCode().toLowerCase();
+                const expected =
+                    LocalizationUtils.defaultCultureCode().toLowerCase();
 
                 // Act
                 ServiceUtils.configureCultureCode(cultureCode);

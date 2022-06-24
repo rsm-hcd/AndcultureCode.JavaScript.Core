@@ -1,2 +1,4 @@
 // Hook into jest mocking, but re-export from testing
-export * from "andculturecode-javascript-testing/dist/mocks/axios";
+import { axios } from "andculturecode-javascript-testing";
+
+export default axios;
